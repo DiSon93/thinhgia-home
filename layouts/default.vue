@@ -7,19 +7,19 @@
         <v-icon>mdi-email</v-icon>
         <a href="#">khobatdongsanviet@gmail.com</a>
       </div>
-      <v-lazy
+      <!-- <v-lazy
         v-model="isActive"
         :options="{
           threshold: 0.5,
         }"
         min-height="50"
         transition="fade-transition"
-      >
-        <v-row class="header_items">
-          <v-col cols="8" class="d-flex">
-            <img src="@image/layouts/bansaodanhthiep.png" alt="" />
-            <div class="header_choise">
-              <el-dropdown class="first_dropdown">
+      > -->
+      <v-row class="header_items">
+        <v-col cols="8" class="d-flex">
+          <img src="@image/layouts/bansaodanhthiep.png" alt="" />
+          <div class="header_choise">
+            <!-- <el-dropdown>
                 <el-button type="primary">
                   Trang chủ <i class="el-icon-arrow-down el-icon--right"></i>
                 </el-button>
@@ -30,80 +30,88 @@
                   <el-dropdown-item>Action 4</el-dropdown-item>
                   <el-dropdown-item>Action 5</el-dropdown-item>
                 </el-dropdown-menu>
-              </el-dropdown>
-              <el-dropdown placement="top-start">
-                <el-button type="warning" plain>
-                  BĐS Bán <i class="el-icon-caret-bottom"></i>
-                </el-button>
-                <el-dropdown-menu slot="dropdown" id="dropdown__menu">
-                  <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
-                  <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
-                  <el-dropdown-item divided>Nhà mặt tiền</el-dropdown-item>
-                  <el-dropdown-item divided>Biệt thự - Villa</el-dropdown-item>
-                  <el-dropdown-item divided>Nhà nghỉ - Khách sạn</el-dropdown-item>
-                  <el-dropdown-item divided>Phòng trọ</el-dropdown-item>
-                  <el-dropdown-item divided>Kho xưởng</el-dropdown-item>
-                  <el-dropdown-item divided>Trang trại</el-dropdown-item>
-                  <el-dropdown-item divided>Loại khác</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-              <el-dropdown placement="top-start">
-                <el-button type="warning" plain>
-                  BĐS Thuê <i class="el-icon-caret-bottom"></i
-                ></el-button>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
-                  <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
-                  <el-dropdown-item divided>Nhà mặt tiền</el-dropdown-item>
-                  <el-dropdown-item divided>Biệt thự - Villa</el-dropdown-item>
-                  <el-dropdown-item divided>Nhà nghỉ - Khách sạn</el-dropdown-item>
-                  <el-dropdown-item divided>Phòng trọ</el-dropdown-item>
-                  <el-dropdown-item divided>Kho xưởng</el-dropdown-item>
-                  <el-dropdown-item divided>Trang trại</el-dropdown-item>
-                  <el-dropdown-item divided>Loại khác</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-              <el-dropdown placement="top-start">
-                <el-button type="warning" plain>
-                  Dự Án <i class="el-icon-caret-bottom"></i
-                ></el-button>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>Khu nhà Sông Cây Khế</el-dropdown-item>
-                  <el-dropdown-item divided>Dự án Phước Sơn</el-dropdown-item>
-                  <el-dropdown-item divided>Khu biệt thự Thanh Bình</el-dropdown-item>
-                  <el-dropdown-item divided>Blue Sapphire Towers</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </div>
-          </v-col>
-          <v-col cols="4">
-            <div class="header_choise">
-              <el-dropdown>
-                <el-button type="warning" plain class="fix_position">Blog </el-button>
-              </el-dropdown>
-              <el-dropdown>
-                <el-button type="warning" class="fix_position" plain>
-                  Giới Thiệu
-                </el-button>
-              </el-dropdown>
-              <el-dropdown placement="top-start">
-                <el-button type="warning" plain>
-                  Liên Hệ <i class="el-icon-caret-bottom"></i>
-                </el-button>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>Thông tin liên lạc</el-dropdown-item>
-                  <el-dropdown-item divided>Ý kiến</el-dropdown-item>
-                  <el-dropdown-item divided>Tuyển dụng</el-dropdown-item>
-                  <el-dropdown-item divided>Ký gửi BĐS</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </div>
-          </v-col>
-        </v-row>
-      </v-lazy>
+              </el-dropdown> -->
+            <el-dropdown placement="top-start">
+              <el-button type="warning" plain>
+                BĐS Bán <i class="el-icon-caret-bottom"></i>
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
+                <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
+                <el-dropdown-item divided>Nhà mặt tiền</el-dropdown-item>
+                <el-dropdown-item divided>Biệt thự - Villa</el-dropdown-item>
+                <el-dropdown-item divided>Nhà nghỉ - Khách sạn</el-dropdown-item>
+                <el-dropdown-item divided>Phòng trọ</el-dropdown-item>
+                <el-dropdown-item divided>Kho xưởng</el-dropdown-item>
+                <el-dropdown-item divided>Trang trại</el-dropdown-item>
+                <el-dropdown-item divided>Loại khác</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+            <el-dropdown placement="top-start">
+              <el-button type="warning" plain>
+                BĐS Thuê <i class="el-icon-caret-bottom"></i
+              ></el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
+                <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
+                <el-dropdown-item divided>Nhà mặt tiền</el-dropdown-item>
+                <el-dropdown-item divided>Biệt thự - Villa</el-dropdown-item>
+                <el-dropdown-item divided>Nhà nghỉ - Khách sạn</el-dropdown-item>
+                <el-dropdown-item divided>Phòng trọ</el-dropdown-item>
+                <el-dropdown-item divided>Kho xưởng</el-dropdown-item>
+                <el-dropdown-item divided>Trang trại</el-dropdown-item>
+                <el-dropdown-item divided>Loại khác</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+            <el-dropdown placement="top-start">
+              <el-button type="warning" plain>
+                Dự Án <i class="el-icon-caret-bottom"></i
+              ></el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>Khu nhà Sông Cây Khế</el-dropdown-item>
+                <el-dropdown-item divided>Dự án Phước Sơn</el-dropdown-item>
+                <el-dropdown-item divided>Khu biệt thự Thanh Bình</el-dropdown-item>
+                <el-dropdown-item divided>Blue Sapphire Towers</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <div class="header_choise">
+            <!-- <el-dropdown> -->
+            <el-button type="warning" plain class="fix_position">Blog </el-button>
+            <!-- </el-dropdown> -->
+            <!-- <el-dropdown> -->
+            <el-button type="warning" class="fix_position" plain> Giới Thiệu </el-button>
+            <!-- </el-dropdown> -->
+            <el-dropdown placement="top-start">
+              <el-button type="warning" plain>
+                Liên Hệ <i class="el-icon-caret-bottom"></i>
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>Thông tin liên lạc</el-dropdown-item>
+                <el-dropdown-item divided>Ý kiến</el-dropdown-item>
+                <el-dropdown-item divided>Tuyển dụng</el-dropdown-item>
+                <el-dropdown-item divided>Ký gửi BĐS</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </v-col>
+      </v-row>
+      <!-- </v-lazy> -->
     </div>
     <div>
-      <Nuxt />
+      <v-lazy
+        v-model="isActive"
+        :options="{
+          threshold: 0.5,
+        }"
+        min-height="200"
+        transition="fade-transition"
+      >
+        <Nuxt />
+      </v-lazy>
+
       <div class="floating_button">
         <v-btn fab dark color="primary" @click="showPopUp" small id="message">
           <v-icon>mdi-facebook-messenger</v-icon>
@@ -239,7 +247,7 @@ export default {
   background-color: $color-white;
 }
 .el-dropdown-menu__item:focus,
-.el-dropdown-menu__item:not(.is-disabled):hover {
+.el-dropdown-menu__item:hover {
   background-color: #e6a23c;
   color: $color-white;
 }
@@ -254,12 +262,12 @@ export default {
 }
 
 .el-dropdown-menu__item[data-v-314f53c6]:focus,
-.el-dropdown-menu__item[data-v-314f53c6]:not(.is-disabled):hover {
+.el-dropdown-menu__item[data-v-314f53c6]:hover {
   background-color: #e6a23c;
   color: #fff;
 }
 .el-dropdown-menu__item:focus,
-.el-dropdown-menu__item:not(.is-disabled):hover {
+.el-dropdown-menu__item:hover {
   background-color: #ecf5ff;
   color: #66b1ff;
 }

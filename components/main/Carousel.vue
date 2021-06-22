@@ -141,7 +141,7 @@ export default {
 }
 .carousel_title {
   position: absolute;
-  top: 460px;
+  top: 490px;
   left: 210px;
   right: 210px;
   .high_search {
