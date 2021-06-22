@@ -283,9 +283,10 @@ export default {
       }
       .name {
         font-weight: 500;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 24px;
         color: #000000;
+        margin-bottom: 12px;
       }
       .sex {
         .v-icon {
