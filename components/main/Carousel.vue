@@ -4,8 +4,6 @@
       <img src="@image/layouts/Pngtree.png" alt="" />
       <img src="@image/layouts/carousel_01.png" alt="" />
       <img src="@image/layouts/carousel_02.png" alt="" />
-      <img src="@image/layouts/carousel_03.png" alt="" />
-      <img src="@image/layouts/carousel_04.png" alt="" />
     </VueSlickCarousel>
     <div class="carousel_title">
       <div class="carousel_options">

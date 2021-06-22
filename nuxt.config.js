@@ -30,6 +30,7 @@ export default {
   plugins: [
     { src: "@/plugins/element-ui.js", mode: "client" },
     { src: "@/plugins/vue-slick-carousel.js", mode: "client" },
+    // { src: "@/plugins/vue-lazyloading.js", mode: "client" },
 
   ],
 
