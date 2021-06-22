@@ -23,7 +23,7 @@
           <v-col cols="10" class="options d-flex">
             <div class="select_house">
               <v-select
-                v-model="e6"
+                v-model="e1"
                 :items="items"
                 placeholder="Căn hộ/Chung cư"
                 outlined
@@ -49,7 +49,7 @@
           <v-col cols="3" class="options">
             <div class="select_city">
               <v-select
-                v-model="e6"
+                v-model="e2"
                 :items="items"
                 placeholder="Tỉnh/Thành phố"
                 outlined
@@ -60,7 +60,7 @@
           <v-col cols="3" class="options">
             <div class="select_district">
               <v-select
-                v-model="e6"
+                v-model="e3"
                 :items="items"
                 placeholder="Quận/Huyện"
                 outlined
@@ -71,7 +71,7 @@
           <v-col cols="3" class="options">
             <div class="select_square">
               <v-select
-                v-model="e6"
+                v-model="e4"
                 :items="items"
                 placeholder="Diện tích"
                 outlined
@@ -104,6 +104,11 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
+      e1: [],
+      e2: [],
+      e3: [],
+      e4: [],
+      e5: [],
       e6: [],
       text: "BĐS Bán",
       items: ["Foo", "Bar", "Fizz", "Buzz"],
