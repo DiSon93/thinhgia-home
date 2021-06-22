@@ -6,7 +6,7 @@ export default {
   // ssr: false,
   head: {
     titleTemplate: '%s - thinhgia-home',
-    title: 'Bất động sản Thịnh Gia',
+    title: 'Kho Bất Động Sản Việt',
     htmlAttrs: {
       lang: 'en'
     },
@@ -19,6 +19,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/batdongsanviet.png' }
     ]
   },
+
+  target: 'static' ,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
