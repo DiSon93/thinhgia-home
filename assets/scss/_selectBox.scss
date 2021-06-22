@@ -1,0 +1,44 @@
+.carousel_title {
+    .v-input__control {
+        .v-input__slot {
+            background: $color-white !important;
+            height: 40px;
+            border-radius: 5px !important;
+        }
+    }
+    .v-text-field--filled > .v-input__control > .v-input__slot,
+    .v-text-field--full-width > .v-input__control > .v-input__slot,
+    .v-text-field--outlined > .v-input__control > .v-input__slot {
+        min-height: 34px;
+    }
+    .v-input__icon {
+        margin-top: -10px;
+    }
+    .input_house {
+        .v-input.theme--light {
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .v-text-field__slot {
+            padding-left: 15px;
+        }
+    }
+    .btn_search {
+        .v-btn:not(.v-btn--round).v-size--default {
+            width: 100%;
+        }
+    }
+    .select_options{
+        .options {
+            padding: 6px;
+            padding-bottom: 0px;
+            .v-messages.theme--light {
+              display: none;
+            }
+          }
+          .v-text-field__details {
+            display: none;
+          }
+    }
+}
+

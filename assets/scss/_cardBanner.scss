@@ -1,0 +1,10 @@
+.estate_img{
+    .el-card {
+        border-radius: 8px!important;
+        overflow: hidden;
+        .el-card__header {
+          padding: 0px 0px !important;
+          border-bottom: none;
+        }
+      }
+}
