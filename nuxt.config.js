@@ -5,7 +5,6 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   // ssr: false,
   head: {
-    titleTemplate: '%s - thinhgia-home',
     title: 'Kho Bất Động Sản Việt',
     htmlAttrs: {
       lang: 'en'
