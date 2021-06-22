@@ -5,8 +5,8 @@
       <v-select
         v-model="e6"
         :items="states"
-        :menu-props="{ maxHeight: '400' }"
         label="Select"
+        multiple
         hint="Pick your favorite states"
         persistent-hint
       ></v-select>

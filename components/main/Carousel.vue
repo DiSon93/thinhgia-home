@@ -22,7 +22,13 @@
         <v-row>
           <v-col cols="10" class="options d-flex">
             <div class="select_house">
-              <v-select :items="items" placeholder="Căn hộ/Chung cư" outlined></v-select>
+              <v-select
+                v-model="e6"
+                :items="items"
+                placeholder="Căn hộ/Chung cư"
+                outlined
+                multiple
+              ></v-select>
             </div>
             <div class="input_house">
               <v-text-field
@@ -42,22 +48,46 @@
         <v-row>
           <v-col cols="3" class="options">
             <div class="select_city">
-              <v-select :items="items" placeholder="Tỉnh/Thành phố" outlined></v-select>
+              <v-select
+                v-model="e6"
+                :items="items"
+                placeholder="Tỉnh/Thành phố"
+                outlined
+                multiple
+              ></v-select>
             </div>
           </v-col>
           <v-col cols="3" class="options">
             <div class="select_district">
-              <v-select :items="items" placeholder="Quận/Huyện" outlined></v-select>
+              <v-select
+                v-model="e6"
+                :items="items"
+                placeholder="Quận/Huyện"
+                outlined
+                multiple
+              ></v-select>
             </div>
           </v-col>
           <v-col cols="3" class="options">
             <div class="select_square">
-              <v-select :items="items" placeholder="Diện tích" outlined></v-select>
+              <v-select
+                v-model="e6"
+                :items="items"
+                placeholder="Diện tích"
+                outlined
+                multiple
+              ></v-select>
             </div>
           </v-col>
           <v-col cols="3" class="options">
             <div class="select_price">
-              <v-select :items="items" placeholder="Khoảng giá" outlined></v-select>
+              <v-select
+                v-model="e6"
+                :items="items"
+                placeholder="Khoảng giá"
+                outlined
+                multiple
+              ></v-select>
             </div>
           </v-col>
         </v-row>
@@ -74,6 +104,7 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
+      e6: [],
       text: "BĐS Bán",
       items: ["Foo", "Bar", "Fizz", "Buzz"],
       settings: {
