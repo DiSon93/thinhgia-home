@@ -9,15 +9,15 @@
         </div>
         <div class="email">
           <v-icon>mdi-email</v-icon>
-          <div class="content">info@thinhgialand.com</div>
+          <div class="content">khobatdongsanviet@gmail.com</div>
         </div>
         <div class="internet">
           <img src="@image/icons/internet.png" alt="" />
-          <div class="content">www.thinhgialand.com</div>
+          <div class="content">khobatdongsanviet@gmail.com</div>
         </div>
         <div class="call">
           <img src="@image/icons/call.png" alt="" />
-          <div class="content">0933 522 686 (24/7)</div>
+          <div class="content">0909 522 686 (24/7)</div>
         </div>
         <div class="time">
           <img src="@image/icons/time.png" alt="" />

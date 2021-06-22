@@ -3,9 +3,9 @@
     <div class="header">
       <div class="info">
         <v-icon>mdi-phone-dial</v-icon>
-        <span>02131231242</span>
+        <span>0909522686</span>
         <v-icon>mdi-email</v-icon>
-        <a href="#">info@thinhgialand.com</a>
+        <a href="#">khobatdongsanviet@gmail.com</a>
       </div>
       <v-lazy
         v-model="isActive"
