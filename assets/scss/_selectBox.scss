@@ -28,24 +28,131 @@
             width: 100%;
         }
     }
-    .select_options{
+    .select_options {
         .options {
             padding: 6px;
             padding-bottom: 0px;
             .v-messages.theme--light {
-              display: none;
+                display: none;
             }
-          }
-          .v-text-field__details {
+        }
+        .v-text-field__details {
             display: none;
-          }
+        }
     }
 }
 
-.search_sell{
-    .v-input__control .v-input__slot{
-        width: 220px!important;
-        min-height: 22px!important;
-        height: 36px;
+.search_sell {
+    // .v-input__control .v-input__slot{
+    //     width: 150px!important;
+    //     // min-height: 22px!important;
+    //     height: 50px;
+    // }
+    .v-input__icon {
+        // margin-top: -10px;
     }
+    .el-input-group{
+        width: auto;
+        margin-right: 20px;
+    }
+    .el-input__inner {
+        width: 200px;
+    }
+    .el-select .el-input__inner {
+        width: 120px;
+    }
+    .el-icon-arrow-up:before {
+        content: "\e790";
+    }
+    .el-input-group--prepend .el-input__inner, .el-input-group__append{
+        height: 50px;
+    }
+    // .theme--light.v-input {
+    //     width: 210px;
+    // }
+    .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
+        box-shadow: none;
+        background: #e5e5e5;
+        border-radius: 4px;
+    }
+    .v-text-field--filled > .v-input__control > .v-input__slot, .v-text-field--full-width > .v-input__control > .v-input__slot, .v-text-field--outlined > .v-input__control > .v-input__slot {
+        min-height: 50px;
+        height: 50px;
+    }
+
+    .v-menu__content.theme--light.menuable__content__active{
+        top: 245px!important;
+        // max-height: 1000px!important;
+    }
+    #house{
+        margin-right: 20px;
+        .v-input__slot{
+            width: 210px!important;
+        }
+    
+    }
+    #square{
+        width: 132px;
+        margin-right: 20px;
+    }
+    #price{
+        width: 132px;
+        margin-right: 20px;
+    }
+    .filter{
+        margin-right: 20px;
+        .v-btn{
+            text-transform: capitalize;
+            width: 140px;
+        }
+        .v-btn:not(.v-btn--round).v-size--default{
+            height: 50px;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+    }
+    .timkiem{
+        .v-btn:not(.v-btn--round).v-size--default{
+            height: 50px;
+        }
+    }
+    .filter_content{
+        .bedrooms{
+            margin-top: -20px;
+            .v-btn{
+                text-transform: capitalize;
+                padding: 20px 0px!important;
+                margin: 5px;
+            }
+            .v-btn:not(.v-btn--round).v-size--default{
+                min-width: 50px;
+                width: 50px;
+            }
+            .v-btn:not(.v-btn--round).v-size--default:nth-child(1){
+                min-width: 64px;
+                width: 64px;
+            }
+       }
+       .direction{
+           margin-top: -20px;
+           .v-btn{
+            text-transform: capitalize;
+            padding: 20px 10px!important;
+            margin: 5px;
+        }
+       }
+    }
+
+
 }
+.v-list-item__content .v-list-item__title{
+    font-size: 14px;
+}
+// div::-webkit-scrollbar {
+//     width: 2px !important;
+//     opacity: 1.0 !important;
+//     color: gray;
+//   }

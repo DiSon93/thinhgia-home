@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{637:function(e,n,t){"use strict";t.r(n);var c={},r=t(49),component=Object(r.a)(c,(function(){var e=this,n=e.$createElement;return(e._self._c||n)("div",[e._v("Đây là trang search")])}),[],!1,null,"ff2d2aac",null);n.default=component.exports}}]);

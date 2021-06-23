@@ -19,22 +19,12 @@
         <v-col cols="8" class="d-flex">
           <img src="@image/layouts/bansaodanhthiep.png" alt="" />
           <div class="header_choise">
-            <!-- <el-dropdown>
-                <el-button type="primary">
-                  Trang chủ <i class="el-icon-arrow-down el-icon--right"></i>
-                </el-button>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>Action 1</el-dropdown-item>
-                  <el-dropdown-item>Action 2</el-dropdown-item>
-                  <el-dropdown-item>Action 3</el-dropdown-item>
-                  <el-dropdown-item>Action 4</el-dropdown-item>
-                  <el-dropdown-item>Action 5</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown> -->
             <el-dropdown placement="top-start">
-              <el-button type="warning" plain>
-                BĐS Bán <i class="el-icon-caret-bottom"></i>
-              </el-button>
+              <NuxtLink to="/search/sell">
+                <el-button type="warning" plain>
+                  BĐS Bán <i class="el-icon-caret-bottom"></i>
+                </el-button>
+              </NuxtLink>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
                 <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
