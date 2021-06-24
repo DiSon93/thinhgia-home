@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="search_sell">
+    <div class="search_rent">
       <div class="search_link">
         Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
       </div>
@@ -19,14 +19,6 @@
           </el-input>
         </div>
         <div id="house">
-          <!-- <v-select
-            :items="items"
-            placeholder="Căn hộ/Chung cư"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select> -->
           <el-cascader
             :options="options"
             :props="props"
@@ -152,7 +144,7 @@
       <div class="search_content">
         <v-row class="tieude">
           <v-col cols="8">
-            <div class="search_title">MUA BÁN CHUNG CƯ / CĂN HỘ , TP.HCM</div>
+            <div class="search_title">CHO THUÊ CHUNG CƯ / CĂN HỘ , TP.HCM</div>
             <div class="note">Có 5324 BĐS được tìm thấy</div>
           </v-col>
           <v-col cols="4" class="sort_items">
@@ -167,7 +159,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_17.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_03.png" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -191,7 +183,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_16.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -239,31 +231,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_12.png" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_11.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_09.png" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -311,7 +279,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_04.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -335,7 +303,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_08.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/project_03.png" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -359,7 +327,31 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_15.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_12.png" alt="" /></figure>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <span class="first_price">6 tỷ</span>
+                    <span>60 m2</span>
+                  </div>
+                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                  <div class="sex d-flex">
+                    <v-icon>mdi-near-me</v-icon>
+                    <span>Nam</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Nguyễn Hữu Cảnh</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+          </v-col>
+          <v-col cols="3">
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_16.png" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -395,6 +387,7 @@
 <script>
 import Services from "@component/main/Services";
 import Footer from "@component/main/Footer";
+
 export default {
   components: {
     Services,
@@ -431,15 +424,16 @@ export default {
       e5: [],
       e6: [],
       e7: [],
+      square: [],
       input3: "",
-      select: "1",
+      select: "2",
       states: ["BĐS Thuê", "BĐS Bán", "Dự Án"],
       items: [
         "Tất cả",
         "Căn hộ/Chung cư",
         "Nhà ở riêng lẻ",
         "Nhà mặt tiền",
-        "Biệt thự-Villa",
+        "Bieeth thự-Villa",
         "Nhà nghỉ-Khách sạn",
         "Phòng trọ",
         "Kho xưởng",
@@ -495,7 +489,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.search_sell {
+.search_rent {
   margin-top: 150px;
   padding: 0 10%;
   .search_link {

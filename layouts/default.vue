@@ -17,7 +17,10 @@
       > -->
       <v-row class="header_items">
         <v-col cols="8" class="d-flex">
-          <img src="@image/layouts/bansaodanhthiep.png" alt="" />
+          <NuxtLink to="/">
+            <img src="@image/layouts/bansaodanhthiep.png" alt=""
+          /></NuxtLink>
+
           <div class="header_choise">
             <el-dropdown placement="top-start">
               <NuxtLink to="/search/sell">
@@ -38,9 +41,12 @@
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start">
-              <el-button type="warning" plain>
-                BĐS Thuê <i class="el-icon-caret-bottom"></i
-              ></el-button>
+              <NuxtLink to="/search/rent">
+                <el-button type="warning" plain>
+                  BĐS Thuê <i class="el-icon-caret-bottom"></i
+                ></el-button>
+              </NuxtLink>
+
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
                 <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
@@ -54,9 +60,12 @@
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start">
-              <el-button type="warning" plain>
-                Dự Án <i class="el-icon-caret-bottom"></i
-              ></el-button>
+              <NuxtLink to="/search/project">
+                <el-button type="warning" plain>
+                  Dự Án <i class="el-icon-caret-bottom"></i
+                ></el-button>
+              </NuxtLink>
+
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>Khu nhà Sông Cây Khế</el-dropdown-item>
                 <el-dropdown-item divided>Dự án Phước Sơn</el-dropdown-item>

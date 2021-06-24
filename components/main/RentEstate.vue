@@ -2,7 +2,9 @@
   <div class="rent_estate">
     <div class="rent_title d-flex">
       <div>CHO THUÊ BẤT ĐỘNG SẢN</div>
-      <el-button type="warning">Xem tất cả</el-button>
+      <el-button type="warning" @click="$router.push('/search/rent')"
+        >Xem tất cả</el-button
+      >
     </div>
     <!-- <div class="estate_content"> -->
     <VueSlickCarousel :arrows="true" v-bind="settings">
@@ -16,7 +18,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="rent/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -39,7 +41,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="rent/02">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -61,7 +63,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="rent/03">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -83,7 +85,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="rent/04">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -105,7 +107,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="rent/06">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -127,7 +129,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="rent/07">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -218,6 +220,12 @@ export default {
       font-size: 16px;
       line-height: 40px;
       color: #000000;
+      text-decoration: none;
+      &:hover {
+        color: $color-orange-light;
+        // text-decoration: ;
+        transition: 0.5s;
+      }
     }
     .sex {
       .v-icon {

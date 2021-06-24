@@ -29,7 +29,7 @@
       </v-col>
       <v-col cols="6" class="footer_right">
         <v-row>
-          <v-col cols="4">
+          <v-col cols="6">
             <div class="company">
               <div class="title">Về Kho BĐS Việt</div>
               <ul>
@@ -39,7 +39,7 @@
               </ul>
             </div>
           </v-col>
-          <v-col cols="4">
+          <v-col cols="6">
             <div class="real_estate">
               <div class="title">Bất động sản</div>
               <ul>
@@ -54,7 +54,7 @@
               </ul>
             </div>
           </v-col>
-          <v-col cols="4">
+          <!-- <v-col cols="4">
             <div class="project">
               <div class="title">Dự án</div>
               <ul>
@@ -64,7 +64,7 @@
                 <li>Blue Sapphire Towers</li>
               </ul>
             </div>
-          </v-col>
+          </v-col> -->
         </v-row>
       </v-col>
     </v-row>

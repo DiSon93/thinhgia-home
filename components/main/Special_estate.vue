@@ -2,7 +2,9 @@
   <div class="special_estate">
     <div class="estate_title d-flex">
       <div>BẤT ĐỘNG SẢN NỔI BẬT</div>
-      <el-button type="warning">Xem tất cả</el-button>
+      <el-button type="warning" @click="$router.push('/search/sell')"
+        >Xem tất cả</el-button
+      >
     </div>
 
     <!-- <div class="estate_content" > -->
@@ -17,7 +19,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="/sell/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -40,7 +42,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="/rent/02">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -62,7 +64,7 @@
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="/sell/03">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -77,14 +79,14 @@
       <div class="estate_img">
         <el-card class="box-card">
           <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_04.png" alt="" /></figure>
+            <figure><img src="@image/layouts/room_12.png" alt="" /></figure>
           </div>
           <div class="add_detail">
             <div class="price">
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="/rent/04">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -99,14 +101,14 @@
       <div class="estate_img">
         <el-card class="box-card">
           <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_05.png" alt="" /></figure>
+            <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
           </div>
           <div class="add_detail">
             <div class="price">
               <span class="first_price">6 tỷ</span>
               <span>60 m2</span>
             </div>
-            <div class="name">LOREM IPSUM AMET SIT DOT</div>
+            <NuxtLink class="name" to="/sell/05">LOREM IPSUM AMET SIT DOT</NuxtLink>
             <div class="sex d-flex">
               <v-icon>mdi-near-me</v-icon>
               <span>Nam</span>
@@ -247,6 +249,12 @@ export default {
       font-size: 16px;
       line-height: 40px;
       color: #000000;
+      text-decoration: none;
+      &:hover {
+        color: $color-orange-light;
+        // text-decoration: ;
+        transition: 0.5s;
+      }
     }
     .sex {
       .v-icon {

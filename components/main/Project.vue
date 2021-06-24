@@ -2,7 +2,9 @@
   <div class="project_estate">
     <div class="project_title d-flex">
       <div>DỰ ÁN BẤT ĐỘNG SẢN</div>
-      <el-button type="warning">Xem tất cả</el-button>
+      <el-button type="warning" @click="$router.push('/search/project')"
+        >Xem tất cả</el-button
+      >
     </div>
     <div class="project_content">
       <v-row class="estate_content">
@@ -23,7 +25,9 @@
                   <p>Thời gian: Đã hoàn thành</p>
                   <p>Giá từ: 50tr/m2</p>
                 </div>
-                <div class="more_detail">Xem thêm thông tin DỰ ÁN</div>
+                <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
+                  >Xem thêm thông tin DỰ ÁN</NuxtLink
+                >
               </div>
             </div>
             <div>
@@ -37,7 +41,9 @@
                   <p>Thời gian: Đã hoàn thành</p>
                   <p>Giá từ: 1,2-15 tỷ/căn</p>
                 </div>
-                <div class="more_detail">Xem thêm thông tin DỰ ÁN</div>
+                <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
+                  >Xem thêm thông tin DỰ ÁN</NuxtLink
+                >
               </div>
             </div>
             <div>
@@ -54,7 +60,9 @@
                   <p>Thời gian: Đã hoàn thành</p>
                   <p>Giá từ: 30-50 tỷ/căn</p>
                 </div>
-                <div class="more_detail">Xem thêm thông tin DỰ ÁN</div>
+                <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
+                  >Xem thêm thông tin DỰ ÁN</NuxtLink
+                >
               </div>
             </div>
           </VueSlickCarousel>
@@ -65,16 +73,18 @@
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure><img src="@image/layouts/project_06.png" alt="" /></figure>
-                  <div class="overlay_small_project">ALA CARTE VŨNG TÀU</div>
+                  <NuxtLink class="overlay_small_project" to="/project/01"
+                    >ALA CARTE VŨNG TÀU</NuxtLink
+                  >
                 </div>
                 <div class="add_detail">
                   <div class="price">
                     <span class="first_price">6 tỷ</span>
                     <span>60 m2</span>
                   </div>
-                  <div class="name">
+                  <NuxtLink class="name" to="sell/04">
                     BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                  </div>
+                  </NuxtLink>
                   <div class="sex d-flex">
                     <v-icon>mdi-near-me</v-icon>
                     <span>Đông Nam</span>
@@ -91,16 +101,18 @@
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure><img src="@image/layouts/project_07.png" alt="" /></figure>
-                  <div class="overlay_small_project">ALA CARTE VŨNG TÀU</div>
+                  <NuxtLink class="overlay_small_project" to="/project/02"
+                    >ALA CARTE VŨNG TÀU</NuxtLink
+                  >
                 </div>
                 <div class="add_detail">
                   <div class="price">
                     <span class="first_price">6 tỷ</span>
                     <span>60 m2</span>
                   </div>
-                  <div class="name">
+                  <NuxtLink class="name" to="/sell/02">
                     BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                  </div>
+                  </NuxtLink>
                   <div class="sex d-flex">
                     <v-icon>mdi-near-me</v-icon>
                     <span>Tây Bắc</span>
@@ -116,16 +128,18 @@
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure><img src="@image/layouts/project_08.png" alt="" /></figure>
-                  <div class="overlay_small_project">ALA CARTE VŨNG TÀU</div>
+                  <NuxtLink class="overlay_small_project" to="/project/03"
+                    >ALA CARTE VŨNG TÀU</NuxtLink
+                  >
                 </div>
                 <div class="add_detail">
                   <div class="price">
                     <span class="first_price">6 tỷ</span>
                     <span>60 m2</span>
                   </div>
-                  <div class="name">
+                  <NuxtLink class="name" to="/sell/01">
                     BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                  </div>
+                  </NuxtLink>
                   <div class="sex d-flex">
                     <v-icon>mdi-near-me</v-icon>
                     <span> Tây Nam</span>
@@ -141,7 +155,9 @@
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure><img src="@image/layouts/project_09.png" alt="" /></figure>
-                  <div class="overlay_small_project">ALA CARTE VŨNG TÀU</div>
+                  <NuxtLink class="overlay_small_project" to="/project/04"
+                    >ALA CARTE VŨNG TÀU</NuxtLink
+                  >
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -287,6 +303,12 @@ export default {
         line-height: 24px;
         color: #000000;
         margin-bottom: 12px;
+        text-decoration: none;
+        &:hover {
+          color: $color-orange-light;
+          // text-decoration: ;
+          transition: 0.5s;
+        }
       }
       .sex {
         .v-icon {
