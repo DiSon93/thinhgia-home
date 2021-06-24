@@ -19,7 +19,7 @@ export default {
     ]
   },
 
-  // target: 'static' ,
+  target: 'static' ,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -29,7 +29,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: "@/plugins/element-ui.js", mode: "client" },
-    { src: "@/plugins/vue-slick-carousel.js", mode: "client" },
+    // { src: "@/plugins/vue-slick-carousel.js", mode: "client" },
     // { src: "@/plugins/vue-lazyloading.js", mode: "client" },
 
   ],

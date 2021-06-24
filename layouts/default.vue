@@ -17,9 +17,9 @@
       > -->
       <v-row class="header_items">
         <v-col cols="8" class="d-flex">
-          <NuxtLink to="/">
-            <img src="@image/layouts/bansaodanhthiep.png" alt=""
-          /></NuxtLink>
+          <!-- <NuxtLink to="/"> -->
+          <img src="@image/layouts/bansaodanhthiep.png" alt="" />
+          <!-- </NuxtLink> -->
 
           <div class="header_choise">
             <el-dropdown placement="top-start">
@@ -213,6 +213,9 @@ export default {
     margin-top: 6px;
   }
 }
+// .nuxt-link-active {
+//   height: 60px;
+// }
 .v-application .info {
   background-color: $color-blue-dark !important;
   height: 50px;
