@@ -4,157 +4,7 @@
       <div class="search_link">
         Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
       </div>
-      <div class="selection d-flex">
-        <div>
-          <el-input
-            placeholder="Nhập địa chỉ tìm kiếm"
-            v-model="input3"
-            class="input-with-select"
-          >
-            <el-select v-model="select" slot="prepend" placeholder="Select">
-              <el-option label="BĐS Bán" value="1"></el-option>
-              <el-option label="BĐS Thuê" value="2"></el-option>
-              <el-option label="Dự Án" value="3"></el-option>
-            </el-select>
-          </el-input>
-        </div>
-        <div id="rent">
-          <v-select
-            :items="items"
-            placeholder="Cho thuê"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select>
-        </div>
-
-        <div id="price">
-          <v-select
-            :items="items"
-            placeholder="Khoảng giá"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select>
-        </div>
-        <div id="proccess">
-          <v-select
-            :items="items"
-            placeholder="Tiến độ"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select>
-        </div>
-        <div id="built_year">
-          <v-select
-            :items="items"
-            placeholder="Năm XD"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select>
-        </div>
-        <div class="filter">
-          <v-btn outlined color="warning" @click="isFilter = !isFilter">
-            Lọc thêm
-            <img src="@image/icons/filter.png" alt="" />
-          </v-btn>
-        </div>
-        <div class="timkiem">
-          <v-btn color="warning">Tìm Kiếm</v-btn>
-        </div>
-      </div>
-      <el-card class="filter_content box-card" v-if="isFilter">
-        <div class="filter_title">Khu vực</div>
-        <v-row>
-          <v-col cols="3" class="options">
-            <div class="select_city">
-              <v-select
-                v-model="e2"
-                :items="items"
-                placeholder="Tỉnh/Thành phố"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_district">
-              <v-select
-                v-model="e3"
-                :items="items"
-                placeholder="Quận/Huyện"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_square">
-              <v-select
-                v-model="e4"
-                :items="items"
-                placeholder="Diện tích"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_price">
-              <v-select
-                v-model="e6"
-                :items="items"
-                placeholder="Khoảng giá"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="6" class="">
-            <div>Số phòng ngủ</div>
-          </v-col>
-          <v-col cols="6">
-            <div>Hướng</div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="6" class="bedrooms">
-            <v-btn outlined color="warning"> Tất cả </v-btn>
-            <v-btn depressed> 1 </v-btn>
-            <v-btn depressed> 2 </v-btn>
-            <v-btn depressed> 3 </v-btn>
-            <v-btn depressed> 4 </v-btn>
-            <v-btn depressed> 5+ </v-btn>
-          </v-col>
-          <v-col cols="6" class="direction">
-            <v-btn outlined color="warning"> Tất cả </v-btn>
-            <v-btn depressed> Đông </v-btn>
-            <v-btn depressed> Tây </v-btn>
-            <v-btn depressed> Nam </v-btn>
-            <v-btn depressed> Bắc </v-btn>
-            <v-btn depressed> Đông Bắc </v-btn>
-            <v-btn depressed> Tây Bắc </v-btn>
-            <v-btn depressed> Đông Nam </v-btn>
-            <v-btn depressed> Tây Nam </v-btn>
-          </v-col>
-        </v-row>
-      </el-card>
+      <SearchProject />
       <div class="project_content">
         <VueSlickCarousel :arrows="true" v-bind="settings">
           <div class="estate_img">
@@ -251,7 +101,7 @@
           <div class="estate_img">
             <el-card class="box-card">
               <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_11.png" alt="" /></figure>
+                <figure><img src="@image/layouts/special_01.svg" alt="" /></figure>
                 <div class="overlay_text">Sắp mở bán</div>
               </div>
               <div class="add_detail">
@@ -286,7 +136,7 @@
           <div class="estate_img">
             <el-card class="box-card">
               <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_16.png" alt="" /></figure>
+                <figure><img src="@image/layouts/special_02.svg" alt="" /></figure>
                 <div class="overlay_text">Đã hoàn thành</div>
               </div>
               <div class="add_detail">
@@ -318,7 +168,7 @@
           <div class="estate_img">
             <el-card class="box-card">
               <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_11.png" alt="" /></figure>
+                <figure><img src="@image/layouts/special_03.svg" alt="" /></figure>
                 <div class="overlay_text">Đã hoàn thành</div>
               </div>
               <div class="add_detail">
@@ -427,7 +277,7 @@
           <v-col cols="3" class="estate_img">
             <el-card class="box-card">
               <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_08.png" alt="" /></figure>
+                <figure><img src="@image/layouts/room_08.svg" alt="" /></figure>
                 <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
               </div>
               <div class="add_detail">
@@ -450,7 +300,7 @@
           <v-col cols="3" class="estate_img">
             <el-card class="box-card">
               <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_15.png" alt="" /></figure>
+                <figure><img src="@image/layouts/room_15.svg" alt="" /></figure>
                 <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
               </div>
               <div class="add_detail">
@@ -549,7 +399,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_18.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_38.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -574,7 +424,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_19.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_39.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -599,7 +449,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_20.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -624,7 +474,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_21.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_41.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -649,7 +499,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_42.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -719,38 +569,16 @@ import Footer from "@component/main/Footer";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import SearchProject from "@component/tools/search-project";
 export default {
   components: {
     Services,
     Footer,
     VueSlickCarousel,
+    SearchProject,
   },
   data() {
     return {
-      isFilter: false,
-      page: 1,
-      e1: [],
-      e2: [],
-      e3: [],
-      e4: [],
-      e5: [],
-      e6: [],
-      e7: [],
-      input3: "",
-      select: "3",
-      states: ["BĐS Thuê", "BĐS Bán", "Dự Án"],
-      items: [
-        "Tất cả",
-        "Căn hộ/Chung cư",
-        "Nhà ở riêng lẻ",
-        "Nhà mặt tiền",
-        "Bieeth thự-Villa",
-        "Nhà nghỉ-Khách sạn",
-        "Phòng trọ",
-        "Kho xưởng",
-        "Trang trại",
-        "Loại khác",
-      ],
       settings: {
         dots: false,
         focusOnSelect: true,

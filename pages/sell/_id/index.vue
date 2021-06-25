@@ -137,97 +137,7 @@
               </div>
             </div>
           </div>
-          <div class="description">
-            <div class="description_title">Thông tin chi tiết</div>
-            <div class="content">
-              <v-row>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/detail_01.png" alt="" />
-                    <span
-                      >Loại Bất động sản:
-                      <span class="high_text"> Biệt thự - Villa</span></span
-                    >
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Loai bds.svg" alt="" />
-                    <span>Loại nhà: <span class="high_text"> Nhà cao tầng</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Ngang.svg" alt="" />
-                    <span>Ngang: <span class="high_text"> 12m</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Loại đường.svg" alt="" />
-                    <span
-                      >Loại đường: <span class="high_text"> Mặt tiền đường</span></span
-                    >
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Dài.svg" alt="" />
-                    <span>Dài: <span class="high_text">27m</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Phường.svg" alt="" />
-                    <span>Phường: <span class="high_text"> Phường 8</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Diện tích sàn.svg" alt="" />
-                    <span>Diện tích sàn: <span class="high_text"> 492m2</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Thành phố Huyện.svg" alt="" />
-                    <span>Thành phố/Huyện: <span class="high_text"> Vũng Tàu</span></span>
-                  </div>
-                </v-col>
-
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Số lầu.svg" alt="" />
-                    <span>Số lầu: <span class="high_text">3</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Hướng.svg" alt="" />
-                    <span>Hướng: <span class="high_text"> Đông</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Số phòng ngủ.svg" alt="" />
-                    <span>Số phòng ngủ: <span class="high_text"> 4</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Đường rộng.svg" alt="" />
-                    <span>Phòng rộng (m): <span class="high_text"> 12m</span></span>
-                  </div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="content_item">
-                    <img src="@image/icons/Pháp lý.svg" alt="" />
-                    <span>Pháp lý: <span class="high_text"> Sổ hồng</span></span>
-                  </div>
-                </v-col>
-              </v-row>
-            </div>
-          </div>
+          <Description />
         </v-col>
         <v-col cols="4">
           <FormUser />
@@ -240,7 +150,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_18.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -265,7 +175,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_19.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_19.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -290,7 +200,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_37.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -330,12 +240,14 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import Services from "@component/main/Services";
 import Footer from "@component/main/Footer";
 import FormUser from "@component/tools/FormUser";
+import Description from "@component/tools/Description";
 export default {
   components: {
     Services,
     Footer,
     VueSlickCarousel,
     FormUser,
+    Description,
   },
   data() {
     return {
@@ -424,36 +336,7 @@ export default {
       }
     }
   }
-  .description {
-    .description_title {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 10px;
-    }
-    .content {
-      background-color: #f2f2f2;
-      border-radius: 4px;
-      padding: 20px;
-      margin-bottom: 20px;
-      .highlight {
-        font-weight: 700;
-      }
-      .content_item {
-        img {
-          margin-right: 10px;
-        }
-        .high_text {
-          margin-left: 5px;
-          color: $color-orange;
-          font-weight: 700;
-        }
-      }
-    }
-    .mycompany {
-      font-size: 14px;
-    }
-  }
+
   .project_img {
     margin-top: 10px;
     img {
@@ -480,14 +363,14 @@ export default {
   }
 }
 .estateOfProject {
-  margin-top: 0px;
+  margin-top: 10px;
   .estate_title {
     font-weight: 500;
     font-size: 24px;
     line-height: 24px;
     color: #000000;
     margin-bottom: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .btn_group {
     margin-bottom: 15px;

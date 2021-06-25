@@ -122,7 +122,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_18.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_06.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -147,7 +147,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_19.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_19.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -172,7 +172,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_20.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_10.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -197,7 +197,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_21.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_34.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
@@ -222,7 +222,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_35.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">

@@ -1,25 +1,40 @@
 <template>
-  <div class="special_sale">
-    <div class="sale_title">ƯU ĐÃI ĐẶC BIỆT</div>
-    <div class="sale_detail">
-      <div class="sale_img">
-        <img src="@image/layouts/house_sale_01.png" alt="" />
-      </div>
-      <div class="sale_img">
-        <img src="@image/layouts/house_sale_02.png" alt="" />
-      </div>
-      <div class="sale_img">
-        <img src="@image/layouts/house_sale_03.png" alt="" />
-      </div>
-      <div class="sale_img">
-        <img src="@image/layouts/house_sale_04.png" alt="" />
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="scale-transition"
+  >
+    <div class="special_sale">
+      <div class="sale_title">ƯU ĐÃI ĐẶC BIỆT</div>
+      <div class="sale_detail">
+        <div class="sale_img">
+          <img src="@image/layouts/house_sale_01.png" alt="" />
+        </div>
+        <div class="sale_img">
+          <img src="@image/layouts/house_sale_02.png" alt="" />
+        </div>
+        <div class="sale_img">
+          <img src="@image/layouts/house_sale_03.png" alt="" />
+        </div>
+        <div class="sale_img">
+          <img src="@image/layouts/house_sale_04.png" alt="" />
+        </div>
       </div>
     </div>
-  </div>
+  </v-lazy>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -39,6 +54,7 @@ export default {};
       img {
         width: 100%;
         display: block;
+        border-radius: 5px;
       }
       &:hover {
         animation: upDown 0.5s linear 0s;

@@ -1,97 +1,119 @@
 <template>
-  <div class="carousel">
-    <VueSlickCarousel :arrows="false" :dots="true" class="carousel_img" v-bind="settings">
-      <img src="@image/layouts/Pngtree.png" alt="" />
-      <img src="@image/layouts/carousel_01.png" alt="" />
-      <img src="@image/layouts/carousel_02.png" alt="" />
-    </VueSlickCarousel>
-    <div class="carousel_title">
-      <div class="carousel_options">
-        <v-btn-toggle v-model="text" tile color="deep-purple accent-3" group>
-          <v-btn value="BĐS Bán"> BĐS Bán </v-btn>
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="600"
+    transition="fade-transition"
+  >
+    <div class="carousel">
+      <VueSlickCarousel
+        :arrows="false"
+        :dots="true"
+        class="carousel_img"
+        v-bind="settings"
+      >
+        <img src="@image/layouts/background_01.svg" alt="" />
+        <img src="@image/layouts/background_02.svg" alt="" />
+        <img src="@image/layouts/background_03.svg" alt="" />
+        <img src="@image/layouts/background_04.svg" alt="" />
+      </VueSlickCarousel>
+      <div class="carousel_title">
+        <div class="carousel_options">
+          <v-btn-toggle v-model="text" tile color="deep-purple accent-3" group>
+            <v-btn value="BĐS Bán"> BĐS Bán </v-btn>
 
-          <v-btn value="BĐS Thuê"> BĐS Thuê </v-btn>
+            <v-btn value="BĐS Thuê"> BĐS Thuê </v-btn>
 
-          <v-btn value="Dự Án"> Dự Án </v-btn>
-        </v-btn-toggle>
-      </div>
-      <div class="high_search">Tìm kiếm nâng cao</div>
-      <div class="select_options">
-        <v-row>
-          <v-col cols="10" class="options d-flex">
-            <div class="select_house">
-              <v-select
+            <v-btn value="Dự Án"> Dự Án </v-btn>
+          </v-btn-toggle>
+        </div>
+        <div class="high_search">Tìm kiếm nâng cao</div>
+        <div class="select_options">
+          <v-row>
+            <v-col cols="10" class="options d-flex">
+              <div class="select_house">
+                <!-- <v-select
                 v-model="e1"
                 :items="items"
                 placeholder="Căn hộ/Chung cư"
                 outlined
                 multiple
-              ></v-select>
-            </div>
-            <div class="input_house">
-              <v-text-field
-                placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ: Vinhomes)..."
-              ></v-text-field>
-            </div>
-          </v-col>
-          <!-- <v-col cols="7" class="options">
+              ></v-select> -->
+                <el-cascader
+                  :options="options"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Căn hộ/Chung cư"
+                ></el-cascader>
+              </div>
+              <div class="input_house">
+                <v-text-field
+                  placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ: Vinhomes)..."
+                ></v-text-field>
+              </div>
+            </v-col>
+            <!-- <v-col cols="7" class="options">
            
           </v-col> -->
-          <v-col cols="2" class="options">
-            <div class="btn_search">
-              <v-btn color="warning" dark> Tìm kiếm </v-btn>
-            </div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="3" class="options">
-            <div class="select_city">
-              <v-select
-                v-model="e2"
-                :items="items"
-                placeholder="Tỉnh/Thành phố"
-                outlined
-                multiple
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_district">
-              <v-select
-                v-model="e3"
-                :items="items"
-                placeholder="Quận/Huyện"
-                outlined
-                multiple
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_square">
-              <v-select
-                v-model="e4"
-                :items="items"
-                placeholder="Diện tích"
-                outlined
-                multiple
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_price">
-              <v-select
-                v-model="e6"
-                :items="items"
-                placeholder="Khoảng giá"
-                outlined
-                multiple
-              ></v-select>
-            </div>
-          </v-col>
-        </v-row>
+            <v-col cols="2" class="options">
+              <div class="btn_search">
+                <v-btn color="warning" dark> Tìm kiếm </v-btn>
+              </div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="3" class="options">
+              <div class="select_city">
+                <el-cascader
+                  :options="options02"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Tỉnh/Thành phố"
+                ></el-cascader>
+              </div>
+            </v-col>
+            <v-col cols="3" class="options">
+              <div class="select_district">
+                <el-cascader
+                  :options="options03"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Quận/Huyện"
+                ></el-cascader>
+              </div>
+            </v-col>
+            <v-col cols="3" class="options">
+              <div class="select_square">
+                <el-cascader
+                  :options="options04"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Diện tích"
+                ></el-cascader>
+              </div>
+            </v-col>
+            <v-col cols="3" class="options">
+              <div class="select_price">
+                <el-cascader
+                  :options="options05"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Khoảng giá"
+                ></el-cascader>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </div>
-  </div>
+  </v-lazy>
 </template>
 
 <script>
@@ -102,6 +124,7 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
+      isActive: false,
       e1: [],
       e2: [],
       e3: [],
@@ -110,6 +133,233 @@ export default {
       e6: [],
       text: "BĐS Bán",
       items: ["Foo", "Bar", "Fizz", "Buzz"],
+      props: { multiple: true },
+      options: [
+        {
+          value: 1,
+          label: "Tất cả",
+        },
+        {
+          value: 14,
+          label: "Căn hộ/Chung cư",
+        },
+        {
+          value: 23,
+          label: "Nhà ở riêng lẻ",
+        },
+        {
+          value: 24,
+          label: "Nhà mặt tiền",
+        },
+        {
+          value: 25,
+          label: "Biệt thự-Villa",
+        },
+        {
+          value: 26,
+          label: "Nhà nghỉ/Khách sạn",
+        },
+        {
+          value: 27,
+          label: "Phòng trọ",
+        },
+        {
+          value: 28,
+          label: "Kho xưởng",
+        },
+        {
+          value: 29,
+          label: "Trang trại",
+        },
+        {
+          value: 30,
+          label: "Loại khác",
+        },
+      ],
+      options02: [
+        {
+          value: 1,
+          label: "TP. Hồ Chí Minh",
+        },
+        {
+          value: 14,
+          label: "Hà Nội",
+        },
+        {
+          value: 23,
+          label: "Đà Nẵng",
+        },
+        {
+          value: 24,
+          label: "Vũng Tàu",
+        },
+        {
+          value: 25,
+          label: "Bến Tre",
+        },
+        {
+          value: 26,
+          label: "Long An",
+        },
+        {
+          value: 27,
+          label: "Tiền Giang",
+        },
+        {
+          value: 28,
+          label: "Quảng Nam",
+        },
+        {
+          value: 29,
+          label: "Quảng Ngãi",
+        },
+        {
+          value: 30,
+          label: "Bình Thuận",
+        },
+      ],
+      options03: [
+        {
+          value: 1,
+          label: "Quận 1",
+        },
+        {
+          value: 14,
+          label: "Quận 2",
+        },
+        {
+          value: 23,
+          label: "Quận 3",
+        },
+        {
+          value: 11,
+          label: "Quận 4",
+        },
+        {
+          value: 12,
+          label: "Quận 5",
+        },
+        {
+          value: 13,
+          label: "Quận 6",
+        },
+        {
+          value: 14,
+          label: "Quận 7",
+        },
+        {
+          value: 24,
+          label: "Quận Bình Thạnh",
+        },
+        {
+          value: 25,
+          label: "Quận Thủ Đức",
+        },
+        {
+          value: 26,
+          label: "Quận Bình Tân",
+        },
+        {
+          value: 27,
+          label: "Quận Gò Vấp",
+        },
+        {
+          value: 28,
+          label: "Quận Tân Phú",
+        },
+        {
+          value: 29,
+          label: "Quận Phú Nhuận",
+        },
+        {
+          value: 30,
+          label: "Quận Tân Bình",
+        },
+      ],
+      options04: [
+        {
+          value: 1,
+          label: "0 - 10m2",
+        },
+        {
+          value: 14,
+          label: "0 - 20m2",
+        },
+        {
+          value: 23,
+          label: "0 - 30m2",
+        },
+        {
+          value: 24,
+          label: "0 - 40m2",
+        },
+        {
+          value: 25,
+          label: "0 - 50m2",
+        },
+        {
+          value: 26,
+          label: "50 - 60m2",
+        },
+        {
+          value: 27,
+          label: "50 - 70m2",
+        },
+        {
+          value: 28,
+          label: "50 - 100m2",
+        },
+        {
+          value: 29,
+          label: "100 - 200m2",
+        },
+        {
+          value: 30,
+          label: "Trên 200m2",
+        },
+      ],
+      options05: [
+        {
+          value: 1,
+          label: "0 - 10triệu",
+        },
+        {
+          value: 14,
+          label: "0 - 20triệu",
+        },
+        {
+          value: 23,
+          label: "20 - 50triệu",
+        },
+        {
+          value: 24,
+          label: "50 - 100triệu",
+        },
+        {
+          value: 25,
+          label: "100 - 150triệu",
+        },
+        {
+          value: 26,
+          label: "100 - 500triệu",
+        },
+        {
+          value: 27,
+          label: "500 - 1tỷ",
+        },
+        {
+          value: 28,
+          label: "1 - 2tỷ",
+        },
+        {
+          value: 29,
+          label: "2 - 10tỷ",
+        },
+        {
+          value: 30,
+          label: "Trên 10tỷ",
+        },
+      ],
       settings: {
         infinite: true,
         autoplay: true,

@@ -4,143 +4,7 @@
       <div class="search_link">
         Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
       </div>
-      <div class="selection d-flex">
-        <div>
-          <el-input
-            placeholder="Nhập địa chỉ tìm kiếm"
-            v-model="input3"
-            class="input-with-select"
-          >
-            <el-select v-model="select" slot="prepend" placeholder="Select">
-              <el-option label="BĐS Bán" value="1"></el-option>
-              <el-option label="BĐS Thuê" value="2"></el-option>
-              <el-option label="Dự Án" value="3"></el-option>
-            </el-select>
-          </el-input>
-        </div>
-        <div id="house">
-          <el-cascader
-            :options="options"
-            :props="props"
-            collapse-tags
-            clearable
-            placeholder="Căn hộ/Chung cư"
-          ></el-cascader>
-        </div>
-        <div id="square">
-          <v-btn @click="isQuare = !isQuare">
-            Diện tích <i class="el-icon-caret-bottom"></i
-          ></v-btn>
-        </div>
-        <div id="price">
-          <v-btn @click="isPrice = !isPrice">
-            Khoảng giá <i class="el-icon-caret-bottom"></i
-          ></v-btn>
-        </div>
-        <div class="filter">
-          <v-btn outlined color="warning" @click="isFilter = !isFilter">
-            Lọc thêm
-            <img src="@image/icons/filter.png" alt="" />
-          </v-btn>
-        </div>
-        <div class="timkiem">
-          <v-btn color="warning">Tìm Kiếm</v-btn>
-        </div>
-      </div>
-      <div class="block rangeslider" v-if="isQuare">
-        <div class="square">Diện tích (m2)</div>
-        <el-slider v-model="value" range :marks="marks" :max="500"> </el-slider>
-      </div>
-      <div class="block rangeslider" v-if="isPrice">
-        <div class="square">Khoảng giá (tỷ)</div>
-        <el-slider v-model="value02" range :marks="marks02" :max="15"> </el-slider>
-      </div>
-      <el-card class="filter_content box-card" v-if="isFilter">
-        <div class="filter_title">Khu vực</div>
-        <v-row>
-          <v-col cols="3" class="options">
-            <div class="select_city">
-              <v-select
-                v-model="e2"
-                :items="items"
-                placeholder="Tỉnh/Thành phố"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_district">
-              <v-select
-                v-model="e3"
-                :items="items"
-                placeholder="Quận/Huyện"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_square">
-              <v-select
-                v-model="e4"
-                :items="items"
-                placeholder="Diện tích"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-          <v-col cols="3" class="options">
-            <div class="select_price">
-              <v-select
-                v-model="e6"
-                :items="items"
-                placeholder="Khoảng giá"
-                solo
-                filled
-                multiple
-                chips
-              ></v-select>
-            </div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="6" class="">
-            <div>Số phòng ngủ</div>
-          </v-col>
-          <v-col cols="6">
-            <div>Hướng</div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="6" class="bedrooms">
-            <v-btn outlined color="warning"> Tất cả </v-btn>
-            <v-btn depressed> 1 </v-btn>
-            <v-btn depressed> 2 </v-btn>
-            <v-btn depressed> 3 </v-btn>
-            <v-btn depressed> 4 </v-btn>
-            <v-btn depressed> 5+ </v-btn>
-          </v-col>
-          <v-col cols="6" class="direction">
-            <v-btn outlined color="warning"> Tất cả </v-btn>
-            <v-btn depressed> Đông </v-btn>
-            <v-btn depressed> Tây </v-btn>
-            <v-btn depressed> Nam </v-btn>
-            <v-btn depressed> Bắc </v-btn>
-            <v-btn depressed> Đông Bắc </v-btn>
-            <v-btn depressed> Tây Bắc </v-btn>
-            <v-btn depressed> Đông Nam </v-btn>
-            <v-btn depressed> Tây Nam </v-btn>
-          </v-col>
-        </v-row>
-      </el-card>
+      <SearchTool />
       <div class="search_content">
         <v-row class="tieude">
           <v-col cols="8">
@@ -159,7 +23,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_03.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_27.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -183,7 +47,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_28.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -207,7 +71,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_29.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -231,7 +95,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_09.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_30.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -255,7 +119,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_10.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_31.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -279,7 +143,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_32.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -303,7 +167,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/project_03.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_33.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -327,7 +191,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_12.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_34.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -351,7 +215,7 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_16.png" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_16.svg" alt="" /></figure>
                 </div>
                 <div class="add_detail">
                   <div class="price">
@@ -387,18 +251,17 @@
 <script>
 import Services from "@component/main/Services";
 import Footer from "@component/main/Footer";
-
+import SearchTool from "@component/tools/search-tool";
 export default {
   components: {
     Services,
     Footer,
+    SearchTool,
   },
   data() {
     return {
       value: [0, 100],
       value02: [0, 10],
-      isQuare: false,
-      isPrice: false,
       marks: {
         0: "0",
         100: "100",
@@ -483,6 +346,8 @@ export default {
           label: "Loại khác",
         },
       ],
+      visible: false,
+      visible02: false,
     };
   },
 };

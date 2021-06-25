@@ -1,45 +1,60 @@
 <template>
-  <v-container fluid class="banner d-flex">
-    <!-- <div class="text">Đây là trang Banner</div> -->
-    <v-row justify="center">
-      <div class="banner_content slot_add">
-        <img src="@image/icons/s1.png" alt="" class="add_01" />
-        <div class="text">Căn hộ</div>
-      </div>
-      <div class="banner_content slot_add">
-        <img src="@image/icons/s2.png" alt="" class="add_02" />
-        <div class="text">Nhà riêng</div>
-      </div>
-      <div class="banner_content">
-        <img src="@image/icons/s3.png" alt="" class="add_03" />
-        <div class="text">Mặt tiền</div>
-      </div>
-      <div class="banner_content">
-        <img class="slot" src="@image/icons/s4.png" alt="" />
-        <div class="text">Biệt thự</div>
-      </div>
-      <div class="banner_content">
-        <img src="@image/icons/s5.png" alt="" />
-        <div class="text">Khách sạn</div>
-      </div>
-      <div class="banner_content">
-        <img src="@image/icons/s6.png" alt="" />
-        <div class="text">Phòng trọ</div>
-      </div>
-      <div class="banner_content">
-        <img src="@image/icons/s7.png" alt="" class="ware" />
-        <div class="text">Kho xưởng</div>
-      </div>
-      <div class="banner_content">
-        <img src="@image/icons/s8.png" alt="" />
-        <div class="text">Trang trại</div>
-      </div>
-    </v-row>
-  </v-container>
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="100"
+    transition="scale-transition"
+  >
+    <v-container fluid class="banner d-flex">
+      <!-- <div class="text">Đây là trang Banner</div> -->
+      <v-row justify="center">
+        <div class="banner_content slot_add">
+          <img src="@image/icons/s1.png" alt="" class="add_01" />
+          <div class="text">Căn hộ</div>
+        </div>
+        <div class="banner_content slot_add">
+          <img src="@image/icons/s2.png" alt="" class="add_02" />
+          <div class="text">Nhà riêng</div>
+        </div>
+        <div class="banner_content">
+          <img src="@image/icons/s3.png" alt="" class="add_03" />
+          <div class="text">Mặt tiền</div>
+        </div>
+        <div class="banner_content">
+          <img class="slot" src="@image/icons/s4.png" alt="" />
+          <div class="text">Biệt thự</div>
+        </div>
+        <div class="banner_content">
+          <img src="@image/icons/s5.png" alt="" />
+          <div class="text">Khách sạn</div>
+        </div>
+        <div class="banner_content">
+          <img src="@image/icons/s6.png" alt="" />
+          <div class="text">Phòng trọ</div>
+        </div>
+        <div class="banner_content">
+          <img src="@image/icons/s7.png" alt="" class="ware" />
+          <div class="text">Kho xưởng</div>
+        </div>
+        <div class="banner_content">
+          <img src="@image/icons/s8.png" alt="" />
+          <div class="text">Trang trại</div>
+        </div>
+      </v-row>
+    </v-container>
+  </v-lazy>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

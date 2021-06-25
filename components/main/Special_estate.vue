@@ -1,129 +1,138 @@
 <template>
-  <div class="special_estate">
-    <div class="estate_title d-flex">
-      <div>BẤT ĐỘNG SẢN NỔI BẬT</div>
-      <el-button type="warning" @click="$router.push('/search/sell')"
-        >Xem tất cả</el-button
-      >
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="fade-transition"
+  >
+    <div class="special_estate">
+      <div class="estate_title d-flex">
+        <div>BẤT ĐỘNG SẢN NỔI BẬT</div>
+        <el-button type="warning" @click="$router.push('/search/sell')"
+          >Xem tất cả</el-button
+        >
+      </div>
+
+      <!-- <div class="estate_content" > -->
+      <VueSlickCarousel :arrows="true" v-bind="settings">
+        <div class="estate_img">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
+            </div>
+            <div class="add_detail">
+              <div class="price">
+                <span class="first_price">6 tỷ</span>
+                <span>60 m2</span>
+              </div>
+              <NuxtLink class="name" to="/sell/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <div class="sex d-flex">
+                <v-icon>mdi-near-me</v-icon>
+                <span>Nam</span>
+              </div>
+              <div class="address d-flex">
+                <v-icon>mdi-map-marker</v-icon>
+                <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+              </div>
+            </div>
+          </el-card>
+        </div>
+
+        <div class="estate_img">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/room_02.png" alt="" /></figure>
+            </div>
+            <div class="add_detail">
+              <div class="price">
+                <span class="first_price">6 tỷ</span>
+                <span>60 m2</span>
+              </div>
+              <NuxtLink class="name" to="/rent/02">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <div class="sex d-flex">
+                <v-icon>mdi-near-me</v-icon>
+                <span>Nam</span>
+              </div>
+              <div class="address d-flex">
+                <v-icon>mdi-map-marker</v-icon>
+                <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+              </div>
+            </div>
+          </el-card>
+        </div>
+        <div class="estate_img">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/room_03.png" alt="" /></figure>
+            </div>
+            <div class="add_detail">
+              <div class="price">
+                <span class="first_price">6 tỷ</span>
+                <span>60 m2</span>
+              </div>
+              <NuxtLink class="name" to="/sell/03">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <div class="sex d-flex">
+                <v-icon>mdi-near-me</v-icon>
+                <span>Nam</span>
+              </div>
+              <div class="address d-flex">
+                <v-icon>mdi-map-marker</v-icon>
+                <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+              </div>
+            </div>
+          </el-card>
+        </div>
+        <div class="estate_img">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/special_04.svg" alt="" /></figure>
+            </div>
+            <div class="add_detail">
+              <div class="price">
+                <span class="first_price">6 tỷ</span>
+                <span>60 m2</span>
+              </div>
+              <NuxtLink class="name" to="/rent/04">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <div class="sex d-flex">
+                <v-icon>mdi-near-me</v-icon>
+                <span>Nam</span>
+              </div>
+              <div class="address d-flex">
+                <v-icon>mdi-map-marker</v-icon>
+                <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+              </div>
+            </div>
+          </el-card>
+        </div>
+        <div class="estate_img">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
+            </div>
+            <div class="add_detail">
+              <div class="price">
+                <span class="first_price">6 tỷ</span>
+                <span>60 m2</span>
+              </div>
+              <NuxtLink class="name" to="/sell/05">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <div class="sex d-flex">
+                <v-icon>mdi-near-me</v-icon>
+                <span>Nam</span>
+              </div>
+              <div class="address d-flex">
+                <v-icon>mdi-map-marker</v-icon>
+                <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+              </div>
+            </div>
+          </el-card>
+        </div>
+      </VueSlickCarousel>
+
+      <!-- </div> -->
     </div>
-
-    <!-- <div class="estate_content" > -->
-    <VueSlickCarousel :arrows="true" v-bind="settings">
-      <div class="estate_img">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
-          </div>
-          <div class="add_detail">
-            <div class="price">
-              <span class="first_price">6 tỷ</span>
-              <span>60 m2</span>
-            </div>
-            <NuxtLink class="name" to="/sell/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
-            <div class="sex d-flex">
-              <v-icon>mdi-near-me</v-icon>
-              <span>Nam</span>
-            </div>
-            <div class="address d-flex">
-              <v-icon>mdi-map-marker</v-icon>
-              <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
-            </div>
-          </div>
-        </el-card>
-      </div>
-
-      <div class="estate_img">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_02.png" alt="" /></figure>
-          </div>
-          <div class="add_detail">
-            <div class="price">
-              <span class="first_price">6 tỷ</span>
-              <span>60 m2</span>
-            </div>
-            <NuxtLink class="name" to="/rent/02">LOREM IPSUM AMET SIT DOT</NuxtLink>
-            <div class="sex d-flex">
-              <v-icon>mdi-near-me</v-icon>
-              <span>Nam</span>
-            </div>
-            <div class="address d-flex">
-              <v-icon>mdi-map-marker</v-icon>
-              <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
-            </div>
-          </div>
-        </el-card>
-      </div>
-      <div class="estate_img">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_03.png" alt="" /></figure>
-          </div>
-          <div class="add_detail">
-            <div class="price">
-              <span class="first_price">6 tỷ</span>
-              <span>60 m2</span>
-            </div>
-            <NuxtLink class="name" to="/sell/03">LOREM IPSUM AMET SIT DOT</NuxtLink>
-            <div class="sex d-flex">
-              <v-icon>mdi-near-me</v-icon>
-              <span>Nam</span>
-            </div>
-            <div class="address d-flex">
-              <v-icon>mdi-map-marker</v-icon>
-              <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
-            </div>
-          </div>
-        </el-card>
-      </div>
-      <div class="estate_img">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_12.png" alt="" /></figure>
-          </div>
-          <div class="add_detail">
-            <div class="price">
-              <span class="first_price">6 tỷ</span>
-              <span>60 m2</span>
-            </div>
-            <NuxtLink class="name" to="/rent/04">LOREM IPSUM AMET SIT DOT</NuxtLink>
-            <div class="sex d-flex">
-              <v-icon>mdi-near-me</v-icon>
-              <span>Nam</span>
-            </div>
-            <div class="address d-flex">
-              <v-icon>mdi-map-marker</v-icon>
-              <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
-            </div>
-          </div>
-        </el-card>
-      </div>
-      <div class="estate_img">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix hover14">
-            <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
-          </div>
-          <div class="add_detail">
-            <div class="price">
-              <span class="first_price">6 tỷ</span>
-              <span>60 m2</span>
-            </div>
-            <NuxtLink class="name" to="/sell/05">LOREM IPSUM AMET SIT DOT</NuxtLink>
-            <div class="sex d-flex">
-              <v-icon>mdi-near-me</v-icon>
-              <span>Nam</span>
-            </div>
-            <div class="address d-flex">
-              <v-icon>mdi-map-marker</v-icon>
-              <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
-            </div>
-          </div>
-        </el-card>
-      </div>
-    </VueSlickCarousel>
-
-    <!-- </div> -->
-  </div>
+  </v-lazy>
 </template>
 
 <script>
@@ -134,6 +143,7 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
+      isActive: false,
       settings: {
         dots: false,
         focusOnSelect: true,

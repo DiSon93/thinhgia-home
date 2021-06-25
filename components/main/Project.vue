@@ -1,188 +1,251 @@
 <template>
-  <div class="project_estate">
-    <div class="project_title d-flex">
-      <div>DỰ ÁN BẤT ĐỘNG SẢN</div>
-      <el-button type="warning" @click="$router.push('/search/project')"
-        >Xem tất cả</el-button
-      >
-    </div>
-    <div class="project_content">
-      <v-row class="estate_content">
-        <v-col cols="6" class="estate_img">
-          <VueSlickCarousel :arrows="false" v-bind="settings">
-            <div>
-              <div slot="header" class="clearfix">
-                <img src="@image/layouts/project_01.png" alt="" />
-                <div class="overlay_title">
-                  Căn hộ nghỉ dưỡng khách sạn ALA CARTE VUNG TAU
-                </div>
-              </div>
-              <div class="add_detail">
-                <div class="quymo">
-                  <p>
-                    Quy mô: 1.968,3 m2, 171 phòng, gồm 71 phòng khách sạn và 100 căn hộ.
-                  </p>
-                  <p>Thời gian: Đã hoàn thành</p>
-                  <p>Giá từ: 50tr/m2</p>
-                </div>
-                <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
-                  >Xem thêm thông tin DỰ ÁN</NuxtLink
-                >
-              </div>
-            </div>
-            <div>
-              <div slot="header" class="clearfix">
-                <img src="@image/layouts/project_04.png" alt="" />
-                <div class="overlay_title">Khu Nhà Ở Sông Cây Khế</div>
-              </div>
-              <div class="add_detail">
-                <div class="quymo">
-                  <p>Quy mô: 84.585m2, 175 căn nhà liên kế và 100 căn biệt thự</p>
-                  <p>Thời gian: Đã hoàn thành</p>
-                  <p>Giá từ: 1,2-15 tỷ/căn</p>
-                </div>
-                <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
-                  >Xem thêm thông tin DỰ ÁN</NuxtLink
-                >
-              </div>
-            </div>
-            <div>
-              <div slot="header" class="clearfix">
-                <img src="@image/layouts/project_05.png" alt="" />
-                <div class="overlay_title">Khu Biệt Thự Đồi Ngọc Tước II</div>
-              </div>
-              <div class="add_detail">
-                <div class="quymo">
-                  <p>
-                    Quy mô: 84.585m2, 149 biệt thự, 133 căn liên kế và 40 nền nhà tái định
-                    cư
-                  </p>
-                  <p>Thời gian: Đã hoàn thành</p>
-                  <p>Giá từ: 30-50 tỷ/căn</p>
-                </div>
-                <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
-                  >Xem thêm thông tin DỰ ÁN</NuxtLink
-                >
-              </div>
-            </div>
-          </VueSlickCarousel>
-        </v-col>
-        <v-col cols="6" class="small_project">
-          <VueSlickCarousel :arrows="true" v-bind="settings02">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/project_06.png" alt="" /></figure>
-                  <NuxtLink class="overlay_small_project" to="/project/01"
-                    >ALA CARTE VŨNG TÀU</NuxtLink
-                  >
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="fade-transition"
+  >
+    <div class="project_estate">
+      <div class="project_title d-flex">
+        <div>DỰ ÁN BẤT ĐỘNG SẢN</div>
+        <el-button type="warning" @click="$router.push('/search/project')"
+          >Xem tất cả</el-button
+        >
+      </div>
+      <div class="project_content">
+        <v-row class="estate_content">
+          <v-col cols="6" class="estate_img">
+            <VueSlickCarousel :arrows="false" v-bind="settings">
+              <div>
+                <div slot="header" class="clearfix">
+                  <img src="@image/layouts/specialproject_01.png" alt="" />
+                  <div class="overlay_title">
+                    Căn hộ nghỉ dưỡng khách sạn ALA CARTE VUNG TAU
+                  </div>
                 </div>
                 <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                  <div class="quymo">
+                    <p>
+                      Quy mô: 1.968,3 m2, 171 phòng, gồm 71 phòng khách sạn và 100 căn hộ.
+                    </p>
+                    <p>Thời gian: Đã hoàn thành</p>
+                    <p>Giá từ: 50tr/m2</p>
                   </div>
-                  <NuxtLink class="name" to="sell/04">
-                    BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                  </NuxtLink>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Đông Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Phường 12, TP Vũng Tàu</span>
-                  </div>
+                  <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
+                    >Xem thêm thông tin DỰ ÁN</NuxtLink
+                  >
                 </div>
-              </el-card>
-            </div>
+              </div>
+              <div>
+                <div slot="header" class="clearfix">
+                  <img src="@image/layouts/special_project_01.png" alt="" />
+                  <div class="overlay_title">Khu Nhà Ở Sông Cây Khế</div>
+                </div>
+                <div class="add_detail">
+                  <div class="quymo">
+                    <p>Quy mô: 84.585m2, 175 căn nhà liên kế và 100 căn biệt thự</p>
+                    <p>Thời gian: Đã hoàn thành</p>
+                    <p>Giá từ: 1,2-15 tỷ/căn</p>
+                  </div>
+                  <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
+                    >Xem thêm thông tin DỰ ÁN</NuxtLink
+                  >
+                </div>
+              </div>
+              <div>
+                <div slot="header" class="clearfix">
+                  <img src="@image/layouts/specialproject_03.png" alt="" />
+                  <div class="overlay_title">Khu Biệt Thự Đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="quymo">
+                    <p>
+                      Quy mô: 84.585m2, 149 biệt thự, 133 căn liên kế và 40 nền nhà tái
+                      định cư
+                    </p>
+                    <p>Thời gian: Đã hoàn thành</p>
+                    <p>Giá từ: 30-50 tỷ/căn</p>
+                  </div>
+                  <NuxtLink class="more_detail" to="/project/ngoctuoc/detail"
+                    >Xem thêm thông tin DỰ ÁN</NuxtLink
+                  >
+                </div>
+              </div>
+            </VueSlickCarousel>
+          </v-col>
+          <v-col cols="6" class="small_project">
+            <VueSlickCarousel :arrows="true" v-bind="settings02">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_20.png" alt="" /></figure>
+                    <NuxtLink class="overlay_small_project" to="/project/01"
+                      >ALA CARTE VŨNG TÀU</NuxtLink
+                    >
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <NuxtLink class="name" to="sell/04">
+                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    </NuxtLink>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Đông Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Phường 12, TP Vũng Tàu</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
 
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/project_07.png" alt="" /></figure>
-                  <NuxtLink class="overlay_small_project" to="/project/02"
-                    >ALA CARTE VŨNG TÀU</NuxtLink
-                  >
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_21.png" alt="" /></figure>
+                    <NuxtLink class="overlay_small_project" to="/project/02"
+                      >ALA CARTE VŨNG TÀU</NuxtLink
+                    >
                   </div>
-                  <NuxtLink class="name" to="/sell/02">
-                    BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                  </NuxtLink>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Tây Bắc</span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <NuxtLink class="name" to="/sell/02">
+                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    </NuxtLink>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Tây Bắc</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Phường 8, TP Vũng Tàu</span>
+                    </div>
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Phường 8, TP Vũng Tàu</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_22.png" alt="" /></figure>
+                    <NuxtLink class="overlay_small_project" to="/project/03"
+                      >ALA CARTE VŨNG TÀU</NuxtLink
+                    >
                   </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/project_08.png" alt="" /></figure>
-                  <NuxtLink class="overlay_small_project" to="/project/03"
-                    >ALA CARTE VŨNG TÀU</NuxtLink
-                  >
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <NuxtLink class="name" to="/sell/01">
+                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    </NuxtLink>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span> Tây Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Phường 1, TP Vũng Tàu</span>
+                    </div>
                   </div>
-                  <NuxtLink class="name" to="/sell/01">
-                    BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                  </NuxtLink>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span> Tây Nam</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_23.png" alt="" /></figure>
+                    <NuxtLink class="overlay_small_project" to="/project/04"
+                      >ALA CARTE VŨNG TÀU</NuxtLink
+                    >
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Phường 1, TP Vũng Tàu</span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">
+                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    </div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Đông Bắc</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Phường 7, TP Vũng Tàu</span>
+                    </div>
                   </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/project_09.png" alt="" /></figure>
-                  <NuxtLink class="overlay_small_project" to="/project/04"
-                    >ALA CARTE VŨNG TÀU</NuxtLink
-                  >
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_24.png" alt="" /></figure>
+                    <NuxtLink class="overlay_small_project" to="/project/04"
+                      >ALA CARTE VŨNG TÀU</NuxtLink
+                    >
                   </div>
-                  <div class="name">
-                    BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">
+                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    </div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Đông Bắc</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Phường 7, TP Vũng Tàu</span>
+                    </div>
                   </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Đông Bắc</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_25.png" alt="" /></figure>
+                    <NuxtLink class="overlay_small_project" to="/project/04"
+                      >ALA CARTE VŨNG TÀU</NuxtLink
+                    >
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Phường 7, TP Vũng Tàu</span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">
+                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    </div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Đông Bắc</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Phường 7, TP Vũng Tàu</span>
+                    </div>
                   </div>
-                </div>
-              </el-card>
-            </div>
-          </VueSlickCarousel>
-        </v-col>
-      </v-row>
+                </el-card>
+              </div>
+            </VueSlickCarousel>
+          </v-col>
+        </v-row>
+      </div>
     </div>
-  </div>
+  </v-lazy>
 </template>
 
 <script>
@@ -193,6 +256,7 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
+      isActive: false,
       settings: {
         dots: true,
         focusOnSelect: true,

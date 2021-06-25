@@ -1,39 +1,54 @@
 <template>
-  <div class="services animate__animated animate__slideInUp">
-    <div class="service_overlay">
-      <div class="service_title">DỊCH VỤ NỔI BẬT CỦA KHO BẤT ĐỘNG SẢN VIỆT</div>
-      <div class="service_content">
-        <div class="service_item">
-          <div class="service_img">
-            <img src="@image/icons/services_01.PNG" alt="" />
-          </div>
-          <div class="services_detail">
-            <div class="name">Đăng bán và cho thuê miễn phí</div>
-            <div class="quote">
-              Tiếp cận khách hàng sẵn cáo, quảng cáo tin đăng miễn phí.
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="scroll-y-reverse-transition"
+  >
+    <div class="services">
+      <div class="service_overlay">
+        <div class="service_title">DỊCH VỤ NỔI BẬT CỦA KHO BẤT ĐỘNG SẢN VIỆT</div>
+        <div class="service_content">
+          <div class="service_item">
+            <div class="service_img">
+              <img src="@image/icons/service_01.svg" alt="" />
+            </div>
+            <div class="services_detail">
+              <div class="name">Đăng bán và cho thuê miễn phí</div>
+              <div class="quote">
+                Tiếp cận khách hàng sẵn cáo, quảng cáo tin đăng miễn phí.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="service_item">
-          <div class="service_img">
-            <img src="@image/icons/services_02.PNG" alt="" />
-          </div>
-          <div class="services_detail">
-            <div class="name">Tìm Mua và Thuê Như Ý</div>
-            <div class="quote">
-              <div>Tổng khách hàng sử dụng: 1100+.</div>
-              <div>Tổng đối tác: 300+.</div>
-              <div>Tổng dự án: 50+.</div>
+          <div class="service_item">
+            <div class="service_img">
+              <img src="@image/icons/service_02.svg" alt="" />
+            </div>
+            <div class="services_detail">
+              <div class="name">Tìm Mua và Thuê Như Ý</div>
+              <div class="quote">
+                <div>Tổng khách hàng sử dụng: 1100+.</div>
+                <div>Tổng đối tác: 300+.</div>
+                <div>Tổng dự án: 50+.</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </v-lazy>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -44,6 +59,7 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  // transition: 6s;
   .service_title {
     font-weight: 700;
     font-size: 24px;
@@ -71,7 +87,7 @@ export default {};
         display: flex;
         justify-content: center;
         img {
-          width: 70%;
+          width: 45%;
           display: block;
         }
       }

@@ -17,9 +17,9 @@
       > -->
       <v-row class="header_items">
         <v-col cols="8" class="d-flex">
-          <!-- <NuxtLink to="/"> -->
-          <img src="@image/layouts/bansaodanhthiep.png" alt="" />
-          <!-- </NuxtLink> -->
+          <NuxtLink to="/">
+            <img src="@image/layouts/bansaodanhthiep.png" alt="" />
+          </NuxtLink>
 
           <div class="header_choise">
             <el-dropdown placement="top-start">
@@ -100,17 +100,7 @@
       <!-- </v-lazy> -->
     </div>
     <div>
-      <v-lazy
-        v-model="isActive"
-        :options="{
-          threshold: 0.5,
-        }"
-        min-height="200"
-        transition="fade-transition"
-      >
-        <Nuxt />
-      </v-lazy>
-
+      <Nuxt />
       <div class="floating_button">
         <v-btn fab dark color="primary" @click="showPopUp" small id="message">
           <v-icon>mdi-facebook-messenger</v-icon>
@@ -216,21 +206,7 @@ export default {
 // .nuxt-link-active {
 //   height: 60px;
 // }
-.v-application .info {
-  background-color: $color-blue-dark !important;
-  height: 50px;
-  line-height: 50px;
-  font-size: 14px;
-  color: $color-white;
-  text-align: right;
-  padding-right: 80px;
-  .v-icon {
-    color: $color-white;
-  }
-  a {
-    color: $color-white;
-  }
-}
+// .header {
 .first_dropdown {
   display: none;
 }
@@ -250,7 +226,7 @@ export default {
 }
 .el-dropdown-menu__item:focus,
 .el-dropdown-menu__item:hover {
-  background-color: #e6a23c;
+  background-color: #e6a23c !important;
   color: $color-white;
 }
 .el-dropdown-menu__item {
@@ -265,7 +241,7 @@ export default {
 
 .el-dropdown-menu__item[data-v-314f53c6]:focus,
 .el-dropdown-menu__item[data-v-314f53c6]:hover {
-  background-color: #e6a23c;
+  background-color: #e6a23c !important;
   color: #fff;
 }
 .el-dropdown-menu__item:focus,
@@ -278,7 +254,7 @@ export default {
   margin-bottom: 0;
 }
 .el-dropdown-menu__item[data-v-314f53c6] {
-  font-size: 18px;
+  font-size: 16px !important;
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -352,6 +328,22 @@ export default {
     }
   }
 }
+// }
+.v-application .info {
+  background-color: $color-blue-dark !important;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  color: $color-white;
+  text-align: right;
+  padding-right: 80px;
+  .v-icon {
+    color: $color-white;
+  }
+  a {
+    color: $color-white;
+  }
+}
 
 #message {
   z-index: 9999;
@@ -379,5 +371,8 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+.nuxt-link-active {
+  height: 70px;
 }
 </style>

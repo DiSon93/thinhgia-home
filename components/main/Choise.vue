@@ -1,25 +1,40 @@
 <template>
-  <div class="choise">
-    <div class="choise_title">VÌ SAO CHỌN KHO BẤT ĐỘNG SẢN VIỆT</div>
-    <div class="choise_content">
-      <div class="choise_item">
-        <img src="@image/layouts/choise_01.PNG" alt="" />
-        <div class="quote">Hàng ngàn tin BĐS đăng bán mỗi ngày</div>
-      </div>
-      <div class="choise_item">
-        <img src="@image/layouts/choise_02.PNG" alt="" />
-        <div class="quote">Mua bán đảm bảo tính pháp lý</div>
-      </div>
-      <div class="choise_item">
-        <img src="@image/layouts/choise_03.PNG" alt="" />
-        <div class="quote">Giao dịch đảm bảo và tiện lợi</div>
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="scale-transition"
+  >
+    <div class="choise">
+      <div class="choise_title">VÌ SAO CHỌN KHO BẤT ĐỘNG SẢN VIỆT</div>
+      <div class="choise_content">
+        <div class="choise_item">
+          <img src="@image/layouts/choise_01.png" alt="" />
+          <div class="quote">Hàng ngàn tin BĐS đăng bán mỗi ngày</div>
+        </div>
+        <div class="choise_item">
+          <img src="@image/layouts/choise_02.png" alt="" />
+          <div class="quote">Mua bán đảm bảo tính pháp lý</div>
+        </div>
+        <div class="choise_item">
+          <img src="@image/layouts/choise_03.png" alt="" />
+          <div class="quote">Giao dịch đảm bảo và tiện lợi</div>
+        </div>
       </div>
     </div>
-  </div>
+  </v-lazy>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

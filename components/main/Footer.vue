@@ -101,7 +101,9 @@
         </div>
       </v-col>
     </v-row>
-    <v-row class="copyright"> Copyright @2021 THINH GIA LAND. All Right Reserved </v-row>
+    <v-row class="copyright">
+      Copyright @2021 KHO BAT ĐONG SAN VIET. All Right Reserved
+    </v-row>
   </v-container>
 </template>
 
