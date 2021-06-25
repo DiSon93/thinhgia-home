@@ -119,3 +119,33 @@
 //     }
 //   }
 // }
+
+.el-dropdown-menu__item--divided {
+  margin-top: 0px !important;
+  margin-bottom: 0!important;
+}
+.el-dropdown-menu__item--divided:before{
+    display: none;
+}
+.el-dropdown-menu__item[data-v-314f53c6]:focus,
+.el-dropdown-menu__item[data-v-314f53c6]:hover {
+  background-color: #e6a23c !important;
+  color: #fff !important;
+}
+.el-dropdown-menu__item--divided[data-v-314f53c6] {
+  margin-top: 0px !important;
+  margin-bottom: 0!important;
+}
+.el-dropdown-menu__item[data-v-314f53c6] {
+  font-size: 16px !important;
+  padding-top: 6px;
+  padding-bottom: 6px;
+font-family: "Roboto", sans-serif!important;
+}
+.el-dropdown-menu__item--divided {
+  position: relative;
+  border-top: 1px solid #ebeef5;
+}
+.el-dropdown-menu__item--divided:before {
+  display: none;
+}

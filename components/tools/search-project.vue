@@ -45,6 +45,16 @@
           multiple
           chips
         ></v-select>
+        <!-- <el-popover placement="bottom" width="360" v-model="visible03">
+          <p>Tiến độ</p>
+          <div>
+            <el-slider :marks="marks03" v-model="value03" :step="10" show-stops>
+            </el-slider>
+          </div>
+          <el-button slot="reference"
+            >Tiến độ <i class="el-icon-caret-bottom"></i
+          ></el-button>
+        </el-popover> -->
       </div>
       <div id="built_year">
         <v-select
@@ -427,7 +437,9 @@ export default {
         },
       ],
       visible02: false,
+      visible03: false,
       value02: [0, 10],
+      value03: 0,
       marks02: {
         0: "0",
         3: "3",
@@ -435,6 +447,11 @@ export default {
         9: "9",
         12: "12",
         15: "15+",
+      },
+      marks03: {
+        0: "Đã hoàn thành",
+        1: "Đang hoàn thành",
+        2: "Chưa hoàn thành",
       },
     };
   },
