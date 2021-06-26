@@ -27,7 +27,7 @@
         <el-popover placement="bottom" width="360" v-model="visible">
           <p>Diện tích (m2)</p>
           <div>
-            <el-slider v-model="value" range :marks="marks" :max="500" color="warning">
+            <el-slider v-model="value" range :marks="marks" :max="500">
             </el-slider>
           </div>
           <el-button slot="reference"
@@ -169,6 +169,7 @@
           <el-button> Đông Nam </el-button>
           <el-button> Tây Nam </el-button>
         </v-col>
+         </el-slider>
       </v-row>
     </el-card>
   </div>

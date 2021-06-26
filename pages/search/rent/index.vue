@@ -1,4 +1,12 @@
 <template>
+ <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="fade-transition"
+  > 
   <div>
     <div class="search_rent">
       <div class="search_link">
@@ -246,6 +254,8 @@
       <Footer />
     </div>
   </div>
+  </v-lazy>
+  
 </template>
 
 <script>
@@ -260,6 +270,7 @@ export default {
   },
   data() {
     return {
+      isActive: false,
       value: [0, 100],
       value02: [0, 10],
       marks: {

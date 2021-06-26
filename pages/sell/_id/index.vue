@@ -38,7 +38,7 @@
               :key="imageIndex"
               @click="index = imageIndex"
             >
-              <a href="#"> <img :src="image.src" alt="" /></a>
+              <a href="javascript:;"> <img :src="image.src" alt="" /></a>
             </v-col>
           </v-row>
           <div class="overview">

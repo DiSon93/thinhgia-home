@@ -35,7 +35,7 @@
               :key="imageIndex"
               @click="index = imageIndex"
             >
-              <a href="#"> <img :src="image.src" alt="" /></a>
+              <a href="javascript:;"> <img :src="image.src" alt="" /></a>
             </v-col>
             <!-- <v-col cols="3" class="img_item">
               <img src="@image/layouts/room_13.png" alt="" />

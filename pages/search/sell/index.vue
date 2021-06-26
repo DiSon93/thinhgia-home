@@ -1,5 +1,13 @@
 <template>
-  <div>
+ <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.5,
+    }"
+    min-height="200"
+    transition="fade-transition"
+  >
+    <div>
     <div class="search_sell">
       <div class="search_link">
         Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
@@ -294,6 +302,8 @@
       <Footer />
     </div>
   </div>
+   </v-lazy>
+
 </template>
 
 <script>
@@ -308,6 +318,7 @@ export default {
   },
   data() {
     return {
+      isActive: false,
       value: [0, 100],
       value02: [0, 10],
       isQuare: false,
