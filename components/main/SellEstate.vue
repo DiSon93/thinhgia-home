@@ -19,7 +19,9 @@
         <div class="estate_img">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
-              <figure><img src="@image/layouts/room_04.png" alt="" /></figure>
+              <router-link to="/sell/01"
+                ><figure><img src="@image/layouts/room_04.png" alt="" /></figure
+              ></router-link>
             </div>
             <div class="add_detail">
               <div class="price">
@@ -42,7 +44,9 @@
         <div class="estate_img">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
-              <figure><img src="@image/layouts/room_05.png" alt="" /></figure>
+              <router-link to="/sell/02"
+                ><figure><img src="@image/layouts/room_05.png" alt="" /></figure
+              ></router-link>
             </div>
             <div class="add_detail">
               <div class="price">
@@ -64,7 +68,9 @@
         <div class="estate_img">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
-              <figure><img src="@image/layouts/room_06.png" alt="" /></figure>
+              <router-link to="/sell/03"
+                ><figure><img src="@image/layouts/room_06.png" alt="" /></figure
+              ></router-link>
             </div>
             <div class="add_detail">
               <div class="price">
@@ -86,7 +92,9 @@
         <div class="estate_img">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
-              <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
+              <router-link to="/sell/05"
+                ><figure><img src="@image/layouts/room_07.png" alt="" /></figure
+              ></router-link>
             </div>
             <div class="add_detail">
               <div class="price">
@@ -108,7 +116,9 @@
         <div class="estate_img">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
-              <figure><img src="@image/layouts/room_08.png" alt="" /></figure>
+              <router-link to="/sell/07"
+                ><figure><img src="@image/layouts/room_09.png" alt="" /></figure
+              ></router-link>
             </div>
             <div class="add_detail">
               <div class="price">
@@ -130,7 +140,9 @@
         <div class="estate_img">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
-              <figure><img src="@image/layouts/room_11.png" alt="" /></figure>
+              <router-link to="/sell/11"
+                ><figure><img src="@image/layouts/room_11.png" alt="" /></figure
+              ></router-link>
             </div>
             <div class="add_detail">
               <div class="price">

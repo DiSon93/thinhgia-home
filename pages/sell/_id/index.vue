@@ -22,28 +22,23 @@
       </div>
 
       <v-row>
-        <v-col cols="8">
-          <v-row class="sale_img d-flex">
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_22.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_23.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_24.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_25.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_26.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_27.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_28.png" alt="" />
+        <v-col cols="8" id="app">
+          <CoolLightBox
+            :items="items"
+            :index="index"
+            :effect="'fade'"
+            @close="index = null"
+          >
+          </CoolLightBox>
+          <v-row class="sale_img d-flex images-wrapper">
+            <v-col
+              cols="3"
+              class="img_item image"
+              v-for="(image, imageIndex) in items"
+              :key="imageIndex"
+              @click="index = imageIndex"
+            >
+              <a href="#"> <img :src="image.src" alt="" /></a>
             </v-col>
           </v-row>
           <div class="overview">
@@ -237,6 +232,9 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import CoolLightBox from "vue-cool-lightbox";
+import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
+
 import Services from "@component/main/Services";
 import Footer from "@component/main/Footer";
 import FormUser from "@component/tools/FormUser";
@@ -248,6 +246,7 @@ export default {
     VueSlickCarousel,
     FormUser,
     Description,
+    CoolLightBox,
   },
   data() {
     return {
@@ -261,6 +260,33 @@ export default {
         prevArrow: `<v-btn>Số 1</v-btn>`,
         nextArrow: `<button>Số 2</button>`,
       },
+      items: [
+        {
+          title: "In nature, nothing is perfect and everything is perfect",
+          src: require(`@/assets/images/layouts/room_10.png`),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_11.png"),
+        },
+        {
+          title: "In nature, nothing is perfect and everything is perfect",
+          src: require(`@/assets/images/layouts/room_20.png`),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_19.png"),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_16.png"),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_06.png"),
+        },
+      ],
+      index: null,
     };
   },
 };

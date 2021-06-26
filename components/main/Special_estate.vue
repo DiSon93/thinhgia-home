@@ -19,9 +19,23 @@
       <VueSlickCarousel :arrows="true" v-bind="settings">
         <div class="estate_img">
           <el-card class="box-card">
-            <div slot="header" class="clearfix hover14">
+            <!-- <router-link to="/sell/01" slot="header" class="clearfix hover14">
               <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
-            </div>
+            </router-link> -->
+            <figure slot="header" class="snip0016 clearfix">
+              <img src="@image/layouts/room_01.png" alt="sample42" />
+              <figcaption>
+                <h2>LOREM IPSUM AMET SIT DOT <span> IPSUM laugh</span></h2>
+                <p>
+                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
+                  cơ sở hạ tầng đang đồng bộ sẽ biến khu vực thành nơi nghỉ dưỡng sang
+                  trọng giá trị lên gấp nhiều lần...
+                  <br />
+                  <v-btn small color="warning">Xem chi tiết >></v-btn>
+                </p>
+                <!-- <a href="#"></a> -->
+              </figcaption>
+            </figure>
             <div class="add_detail">
               <div class="price">
                 <span class="first_price">6 tỷ</span>
@@ -42,9 +56,22 @@
 
         <div class="estate_img">
           <el-card class="box-card">
-            <div slot="header" class="clearfix hover14">
+            <!-- <div slot="header" class="clearfix hover14">
               <figure><img src="@image/layouts/room_02.png" alt="" /></figure>
-            </div>
+            </div> -->
+            <figure slot="header" class="snip0016 clearfix">
+              <img src="@image/layouts/room_02.png" alt="sample41" />
+              <figcaption>
+                <h2>LOREM IPSUM AMET <span>SIT DOT </span> is dark</h2>
+                <p>
+                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
+                  cơ sở hạ tầng đang đồng bộ sẽ biến khu vực thành nơi nghỉ dưỡng sang
+                  trọng giá trị lên gấp nhiều lần... <br />
+                  <v-btn small color="warning">Xem chi tiết >></v-btn>
+                </p>
+                <!-- <a href="#"></a> -->
+              </figcaption>
+            </figure>
             <div class="add_detail">
               <div class="price">
                 <span class="first_price">6 tỷ</span>
@@ -64,9 +91,22 @@
         </div>
         <div class="estate_img">
           <el-card class="box-card">
-            <div slot="header" class="clearfix hover14">
+            <!-- <div slot="header" class="clearfix hover14">
               <figure><img src="@image/layouts/room_03.png" alt="" /></figure>
-            </div>
+            </div> -->
+            <figure slot="header" class="snip0016 clearfix">
+              <img src="@image/layouts/room_03.png" alt="sample43" />
+              <figcaption>
+                <h2>LOREM IPSUM AMET SIT DOT <span> IPSUM laugh</span></h2>
+                <p>
+                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
+                  cơ sở hạ tầng đang đồng bộ sẽ biến khu vực thành nơi nghỉ dưỡng sang
+                  trọng giá trị lên gấp nhiều lần... <br />
+                  <v-btn small color="warning">Xem chi tiết >></v-btn>
+                </p>
+                <!-- <a href="#"></a> -->
+              </figcaption>
+            </figure>
             <div class="add_detail">
               <div class="price">
                 <span class="first_price">6 tỷ</span>
@@ -283,6 +323,9 @@ export default {
       line-height: 30px;
     }
   }
+  .v-btn {
+    text-transform: capitalize;
+  }
 }
 // .hover14 figure {
 //   position: relative;
@@ -323,4 +366,123 @@ export default {
 //     left: 125%;
 //   }
 // }
+figure.snip0016 {
+  font-family: "Raleway", Arial, sans-serif;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #000000;
+  text-align: left;
+}
+figure.snip0016 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.snip0016 img {
+  max-width: 100%;
+  opacity: 1;
+  width: 100%;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.snip0016 figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 3em;
+  width: 100%;
+  height: 100%;
+}
+figure.snip0016 figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 100%;
+  border-left: 4px solid rgba(255, 255, 255, 0.8);
+  content: "";
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.snip0016 h2,
+figure.snip0016 p {
+  margin: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s, -moz-transform 0.35s,
+    -o-transform 0.35s, transform 0.35s;
+}
+figure.snip0016 h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(30%, 0%, 0);
+  transform: translate3d(30%, 0%, 0);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+figure.snip0016 h2 span {
+  font-weight: 800;
+}
+figure.snip0016 p {
+  font-weight: 200;
+  -webkit-transform: translate3d(0%, 30%, 0);
+  transform: translate3d(0%, 30%, 0);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+figure.snip0016 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  color: #ffffff;
+}
+figure.snip0016:hover img {
+  opacity: 0.3;
+}
+figure.snip0016:hover figcaption h2 {
+  opacity: 1;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+figure.snip0016:hover figcaption p {
+  opacity: 0.9;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.snip0016:hover figcaption::before {
+  background: rgba(255, 255, 255, 0);
+  left: 30px;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+/* Demo purposes only */
+html {
+  height: 100%;
+}
+body {
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100%;
+}
+
+.snip0016 {
+  width: 100%;
+}
 </style>

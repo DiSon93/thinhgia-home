@@ -17,9 +17,9 @@
       > -->
       <v-row class="header_items">
         <v-col cols="8" class="d-flex">
-          <NuxtLink to="/">
+          <router-link to="/">
             <img src="@image/layouts/bansaodanhthiep.png" alt="" />
-          </NuxtLink>
+          </router-link>
 
           <div class="header_choise">
             <el-dropdown placement="top-start">
@@ -203,28 +203,6 @@ export default {
     margin-top: 6px;
   }
 }
-// .nuxt-link-active {
-//   height: 60px;
-// }
-// .header {
-.first_dropdown {
-  display: none;
-}
-
-.el-dropdown {
-  margin: 0 -4px;
-}
-.el-button {
-  border-radius: 0;
-  height: 60px;
-  border: none;
-  font-size: 18px !important;
-}
-.el-button--warning.is-plain {
-  color: $color-black-01;
-  background-color: $color-white;
-}
-
 .el-dropdown-menu__item--divided:before {
   display: none !important;
 }
@@ -244,6 +222,23 @@ export default {
   font-family: "Roboto", sans-serif !important;
 }
 
+.first_dropdown {
+  display: none;
+}
+
+.el-dropdown {
+  margin: 0 -4px;
+}
+.el-button {
+  border-radius: 0;
+  height: 60px;
+  border: none;
+  font-size: 18px !important;
+}
+.el-button--warning.is-plain {
+  color: $color-black-01;
+  background-color: $color-white;
+}
 .el-card {
   position: fixed;
   z-index: 9999;

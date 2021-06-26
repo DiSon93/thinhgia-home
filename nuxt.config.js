@@ -26,6 +26,12 @@ export default {
     '~/assets/scss/main.scss'
   ],
 
+  loadingIndicator: {
+    name: 'rectangle-bounce',
+    color: '#3B8070',
+    background: 'white'
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: "@/plugins/element-ui.js", mode: "client" },

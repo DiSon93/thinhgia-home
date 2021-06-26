@@ -19,12 +19,25 @@
       </div>
 
       <v-row>
-        <v-col cols="8">
-          <v-row class="sale_img d-flex">
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_08.png" alt="" />
+        <v-col cols="8" id="app">
+          <CoolLightBox
+            :items="items"
+            :index="index"
+            :effect="'fade'"
+            @close="index = null"
+          >
+          </CoolLightBox>
+          <v-row class="sale_img d-flex images-wrapper">
+            <v-col
+              cols="3"
+              class="img_item image"
+              v-for="(image, imageIndex) in items"
+              :key="imageIndex"
+              @click="index = imageIndex"
+            >
+              <a href="#"> <img :src="image.src" alt="" /></a>
             </v-col>
-            <v-col cols="3" class="img_item">
+            <!-- <v-col cols="3" class="img_item">
               <img src="@image/layouts/room_13.png" alt="" />
             </v-col>
             <v-col cols="3" class="img_item">
@@ -41,7 +54,7 @@
             </v-col>
             <v-col cols="3" class="img_item">
               <img src="@image/layouts/room_19.png" alt="" />
-            </v-col>
+            </v-col> -->
           </v-row>
           <div class="overview">
             <div class="overview_title">Tổng quan</div>
@@ -234,10 +247,14 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import CoolLightBox from "vue-cool-lightbox";
+import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
+
 import Services from "@component/main/Services";
 import Footer from "@component/main/Footer";
 import FormUser from "@component/tools/FormUser";
 import Description from "@component/tools/Description";
+
 export default {
   components: {
     Services,
@@ -245,6 +262,7 @@ export default {
     VueSlickCarousel,
     FormUser,
     Description,
+    CoolLightBox,
   },
   data() {
     return {
@@ -258,7 +276,40 @@ export default {
         prevArrow: `<v-btn>Số 1</v-btn>`,
         nextArrow: `<button>Số 2</button>`,
       },
+      items: [
+        {
+          title: "In nature, nothing is perfect and everything is perfect",
+          src: require(`@/assets/images/layouts/room_08.png`),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_14.png"),
+        },
+        {
+          title: "In nature, nothing is perfect and everything is perfect",
+          src: require(`@/assets/images/layouts/room_20.png`),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_21.png"),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_22.png"),
+        },
+        {
+          title: "A beautiful mountain view",
+          src: require("@/assets/images/layouts/room_23.png"),
+        },
+      ],
+      index: null,
     };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    });
   },
 };
 </script>
