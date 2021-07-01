@@ -23,14 +23,13 @@
         ></el-cascader>
       </div>
       <div id="rent">
-        <v-select
-          :items="items"
+        <el-cascader
+          :options="options08"
+          :props="{ checkStrictly: true }"
+          collapse-tags
+          clearable
           placeholder="Cho thuê"
-          solo
-          filled
-          multiple
-          chips
-        ></v-select>
+        ></el-cascader>
       </div>
 
       <div id="price">
@@ -52,6 +51,7 @@
               <el-input-number
                 @change="numberChange02"
                 v-model="valueNew02[0]"
+                size="small"
               ></el-input-number>
             </div>
             <div class="d-flex">
@@ -59,6 +59,7 @@
               <el-input-number
                 @change="numberChange02"
                 v-model="valueNew02[1]"
+                size="small"
               ></el-input-number>
             </div>
           </div>
@@ -70,14 +71,21 @@
       </div>
       <div class="responsive_select">
         <div id="rent">
-          <v-select
+          <!-- <v-select
             :items="items"
             placeholder="Cho thuê"
             solo
             filled
             multiple
             chips
-          ></v-select>
+          ></v-select> -->
+          <el-cascader
+            :options="options08"
+            :props="{ checkStrictly: true }"
+            collapse-tags
+            clearable
+            placeholder="Cho thuê"
+          ></el-cascader>
         </div>
 
         <div id="price">
@@ -99,6 +107,7 @@
                 <el-input-number
                   @change="numberChange02"
                   v-model="valueNew02[0]"
+                  size="small"
                 ></el-input-number>
               </div>
               <div class="d-flex">
@@ -106,8 +115,14 @@
                 <el-input-number
                   @change="numberChange02"
                   v-model="valueNew02[1]"
+                  size="small"
                 ></el-input-number>
               </div>
+            </div>
+            <div style="text-align: right" class="confirm">
+              <el-button size="mini" type="text" @click="visible03 = false"
+                >Xác nhận</el-button
+              >
             </div>
             <el-button slot="reference">
               <p v-if="isPrice">Khoảng giá</p>
@@ -117,14 +132,21 @@
         </div>
       </div>
       <div id="proccess">
-        <v-select
+        <el-cascader
+          :options="options09"
+          :props="{ checkStrictly: true }"
+          collapse-tags
+          clearable
+          placeholder="Tiến độ"
+        ></el-cascader>
+        <!-- <v-select
           :items="items"
           placeholder="Tiến độ"
           solo
           filled
           multiple
           chips
-        ></v-select>
+        ></v-select> -->
         <!-- <el-popover placement="bottom" width="360" v-model="visible03">
           <p>Tiến độ</p>
           <div>
@@ -137,25 +159,31 @@
         </el-popover> -->
       </div>
       <div id="built_year">
-        <v-select
+        <!-- <v-select
           :items="items"
           placeholder="Năm XD"
           solo
           filled
           multiple
           chips
-        ></v-select>
+        ></v-select> -->
+        <el-cascader
+          :options="options10"
+          :props="{ checkStrictly: true }"
+          collapse-tags
+          clearable
+          placeholder="Năm XD"
+        ></el-cascader>
       </div>
       <div class="responsive_select">
         <div id="proccess">
-          <v-select
-            :items="items"
+          <el-cascader
+            :options="options09"
+            :props="{ checkStrictly: true }"
+            collapse-tags
+            clearable
             placeholder="Tiến độ"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select>
+          ></el-cascader>
           <!-- <el-popover placement="bottom" width="360" v-model="visible03">
           <p>Tiến độ</p>
           <div>
@@ -168,14 +196,13 @@
         </el-popover> -->
         </div>
         <div id="built_year">
-          <v-select
-            :items="items"
+          <el-cascader
+            :options="options10"
+            :props="{ checkStrictly: true }"
+            collapse-tags
+            clearable
             placeholder="Năm XD"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select>
+          ></el-cascader>
         </div>
       </div>
       <div class="filter">
@@ -579,6 +606,68 @@ export default {
           label: "Tây Nam",
         },
       ],
+      options08: [
+        {
+          value: 1,
+          label: "Cho thuê",
+        },
+        {
+          value: 2,
+          label: "Mua bán",
+        },
+      ],
+      options09: [
+        {
+          value: 1,
+          label: "Tất cả",
+        },
+        {
+          value: 2,
+          label: "Sắp mở bán",
+        },
+        {
+          value: 3,
+          label: "Đã hoàn thành",
+        },
+      ],
+      options10: [
+        {
+          value: 0,
+          label: "2023",
+        },
+        {
+          value: 1,
+          label: "2022",
+        },
+        {
+          value: 2,
+          label: "2021",
+        },
+        {
+          value: 3,
+          label: "2020",
+        },
+        {
+          value: 4,
+          label: "2019",
+        },
+        {
+          value: 5,
+          label: "2018",
+        },
+        {
+          value: 6,
+          label: "2017",
+        },
+        {
+          value: 7,
+          label: "2016",
+        },
+        {
+          value: 8,
+          label: "2015",
+        },
+      ],
       visible02: false,
       visible03: false,
       value02: [0, 10],
@@ -684,7 +773,8 @@ export default {
     display: block !important;
   }
   .filter_content {
-    width: 92%;
+    width: 96%;
+    margin-bottom: 15px;
   }
   .type_of_estate {
     display: none !important;
@@ -693,6 +783,8 @@ export default {
     display: block;
     margin-left: 15px;
     margin-bottom: -10px;
+    margin-top: 5px;
+    font-size: 14px;
   }
   .options {
     padding: 6px !important;
@@ -718,6 +810,10 @@ export default {
       display: block;
       margin: 0 5px;
     }
+  }
+  .filter_title {
+    margin-left: 0;
+    font-size: 14px;
   }
 }
 </style>

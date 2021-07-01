@@ -42,7 +42,7 @@
             </v-col>
           </v-row>
 
-          <v-row align="center" v-if="isSort">
+          <v-row align="center" v-if="isSort" class="contents">
             <v-col cols="6" sm="4" lg="3">
               <div class="estate_img">
                 <el-card class="box-card">
@@ -299,7 +299,7 @@
                     </div>
                     <div class="directions">
                       <v-icon>mdi-near-me</v-icon>
-                      <span>Tây Bắc</span>
+                      <span>TB</span>
                     </div>
                     <div class="date_update">
                       <v-icon>mdi-calendar-month</v-icon>
@@ -345,7 +345,7 @@
                     </div>
                     <div class="directions">
                       <v-icon>mdi-near-me</v-icon>
-                      <span>Tây Bắc</span>
+                      <span>TB</span>
                     </div>
                     <div class="date_update">
                       <v-icon>mdi-calendar-month</v-icon>
@@ -391,7 +391,7 @@
                     </div>
                     <div class="directions">
                       <v-icon>mdi-near-me</v-icon>
-                      <span>Tây Bắc</span>
+                      <span>TB</span>
                     </div>
                     <div class="date_update">
                       <v-icon>mdi-calendar-month</v-icon>
@@ -437,7 +437,7 @@
                     </div>
                     <div class="directions">
                       <v-icon>mdi-near-me</v-icon>
-                      <span>Tây Bắc</span>
+                      <span>TB</span>
                     </div>
                     <div class="date_update">
                       <v-icon>mdi-calendar-month</v-icon>
@@ -483,7 +483,7 @@
                     </div>
                     <div class="directions">
                       <v-icon>mdi-near-me</v-icon>
-                      <span>Tây Bắc</span>
+                      <span>TB</span>
                     </div>
                     <div class="date_update">
                       <v-icon>mdi-calendar-month</v-icon>
@@ -492,8 +492,8 @@
                   </div>
                 </div>
               </div>
-            </v-row> </transition
-          >>
+            </v-row>
+          </transition>
         </div>
         <div class="text-center">
           <v-pagination v-model="page" :length="6" color="warning"></v-pagination>
@@ -748,7 +748,7 @@ export default {
   margin-top: 10px;
 }
 .horizontal {
-  margin: 30px 5px 10px;
+  margin: 45px 5px 10px;
   .search_items {
     border-radius: 10px;
     border: 1px solid #ebeef5;
@@ -834,11 +834,14 @@ export default {
   .search_rent {
     margin-top: 100px;
   }
+  .contents {
+    margin-top: 25px;
+  }
   .search_rent .search_link {
     font-size: 14px;
   }
   .col-sm-4 {
-    padding: 0px;
+    padding: 0px !important;
   }
   .search_content {
     padding: 0 2%;
@@ -878,7 +881,7 @@ export default {
       }
       .name {
         font-size: 12px !important;
-        line-height: 1 6px !important;
+        line-height: 16px !important;
         margin: 2px 0 !important;
       }
       .sex {
@@ -956,7 +959,7 @@ export default {
           margin-left: 4px;
           font-size: 12px;
           .v-icon {
-            margin-right: 5px;
+            margin-right: 2px;
             font-size: 16px;
           }
         }

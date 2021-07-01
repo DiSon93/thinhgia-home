@@ -93,12 +93,12 @@
     .select_direction,
     #project_type {
         .el-input__inner {
-            height: 50px !important;
+            // height: 50px !important;
             width: 220px !important;
             background: #e5e5e5;
             border-radius: 4px;
             font-size: 16px;
-            color: $color-black-01;
+            color: $color-black-02;
         }
         .el-icon-arrow-down:before {
             content: "\e790" !important;
@@ -120,11 +120,11 @@
             border: none;
             font-size: 16px;
             p {
-                margin-bottom: 0 !important;
+                margin-bottom: 0px !important;
                 color: $color-orange;
                 font-size: 11px;
                 text-align: left;
-                // margin-top: -10px;
+                // margin-top: 0px;
             }
         }
     }
@@ -181,13 +181,24 @@
             }
         }
     }
-
 }
 .search_project {
     #rent,
     #proccess,
     #built_year {
-        width: 132px;
+        .el-input__inner {
+            width: 132px !important;
+            background: #e5e5e5;
+            border-radius: 4px;
+            font-size: 16px;
+            color: $color-black-01;
+        }
+        .el-icon-arrow-down:before {
+            content: "\e790" !important;
+        }
+        .el-checkbox .el-cascader-node__label {
+            font-size: 19px !important;
+        }
     }
     #rent {
         .v-input__slot {
@@ -208,18 +219,22 @@
 .el-popover {
     font-family: "Roboto", sans-serif;
     word-break: normal !important;
-    padding: 15px 25px 25px !important;
+    padding: 15px 25px 20px !important;
     p {
         font-size: 15px;
         margin-bottom: 10px;
         text-align: center;
+    }
+    .confirm{
+        margin-bottom: -10px;
+        margin-top: 3px;
     }
     .input_selectrange {
         margin-top: 30px !important;
         display: flex;
         justify-content: space-between;
         .el-input-number {
-            width: 120px !important;
+            width: 110px !important;
             // height: 30px;
         }
         .el-input-number__increase,
@@ -242,11 +257,15 @@
 .el-select-dropdown__item {
     font-family: "Roboto", sans-serif;
 }
-
-@media screen and (max-width: 1250px){
+#project_type_tablet {
+    .el-icon-arrow-down:before {
+        content: "\e790" !important;
+    }
+}
+@media screen and (min-width: 600px) {
     .search_sell,
     .search_rent,
-    .search_project{
+    .search_project {
         #house,
         .select_city,
         .select_district,
@@ -254,9 +273,37 @@
         .select_price,
         .select_type,
         .select_direction,
-        #project_type{
+        #project_type {
             .el-input__inner {
                 height: 50px !important;
+                color: $color-black-02;
+            }
+        }
+    }
+    .search_project {
+        #rent,
+        #proccess,
+        #built_year{
+            .el-input__inner{
+                height: 50px!important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .search_sell,
+    .search_rent,
+    .search_project {
+        #house,
+        .select_city,
+        .select_district,
+        .select_square,
+        .select_price,
+        .select_type,
+        .select_direction,
+        #project_type {
+            .el-input__inner {
                 width: 160px !important;
                 font-size: 14px;
             }
@@ -302,14 +349,14 @@
         .select_direction,
         #project_type {
             .el-input__inner {
-                height: 40px !important;
-                width: 120px !important;
+                // height: 40px!important;
+                width: 130px !important;
                 font-size: 14px;
             }
             text-align: center;
             margin-top: 10px;
         }
-        #house{
+        #house {
             .el-input__inner {
                 width: 190px !important;
             }
@@ -351,18 +398,25 @@
                 width: 120px;
             }
         }
-        .responsive_square_price{
-            display: block!important;
+        .responsive_square_price {
+            display: block !important;
             justify-content: center;
             margin-top: 10px;
             #square,
-            #price{
+            #price {
                 display: block;
                 margin: 0 4px;
             }
-            .filter,.timkiem{
+            .filter,
+            .timkiem {
                 display: block;
                 margin: 0 4px;
+            }
+        }
+        .bedrooms {
+            .el-button {
+                padding: 8px 12px;
+                font-size: 12px!important;
             }
         }
     }
@@ -372,19 +426,16 @@
         padding: 14px 2px !important;
         margin-top: 10px;
     }
-    .sort_items .select_sort .el-cascader{
-        margin-bottom: 5px!important;
+    .sort_items .select_sort .el-cascader {
+        margin-bottom: 5px !important;
     }
     .search_project {
         #rent,
         #proccess,
         #built_year {
-            .v-input__slot{
-                width: 132px;
-                height: 40px!important;
-                margin-bottom: 15px;
-                min-height: 40px!important;
-
+            .el-input__inner{
+                font-size: 14px;
+                color: $color-black-02;
             }
         }
         #rent {
@@ -392,8 +443,11 @@
                 width: 132px !important;
             }
         }
-        .responsive_select{
+        .responsive_select {
             height: 50px;
         }
+    }
+    .el-cascader-menu__list {
+        width: 190px !important;
     }
 }

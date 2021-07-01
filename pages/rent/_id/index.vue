@@ -827,7 +827,7 @@ export default {
           margin: 0 6px 0 5px !important;
           font-size: 14px;
           &:first-child {
-            margin-left: 0;
+            margin-left: 0 !important;
           }
         }
         line-height: 20px !important;

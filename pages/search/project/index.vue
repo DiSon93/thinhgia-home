@@ -1305,8 +1305,12 @@ export default {
       .contractor {
         font-size: 11px !important;
         align-items: normal !important;
+        line-height: 16px !important;
+        margin-bottom: 5px;
         img {
           margin-right: 6px;
+          width: 15px;
+          height: 15px;
         }
       }
       .quymo,
@@ -1325,7 +1329,7 @@ export default {
           margin: 0 6px 0 5px !important;
           font-size: 14px;
           &:first-child {
-            margin-left: 0;
+            margin-left: 0 !important;
           }
         }
         line-height: 20px !important;
@@ -1365,6 +1369,9 @@ export default {
   .special_content {
     .name {
       font-size: 16px;
+    }
+    .content {
+      align-items: center;
     }
   }
   .estateOfProject {

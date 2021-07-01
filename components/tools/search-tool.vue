@@ -55,6 +55,7 @@
               <el-input-number
                 @change="numberChange"
                 v-model="valueNew[0]"
+                size="small"
               ></el-input-number>
             </div>
             <div class="d-flex">
@@ -62,6 +63,7 @@
               <el-input-number
                 @change="numberChange"
                 v-model="valueNew[1]"
+                size="small"
               ></el-input-number>
             </div>
           </div>
@@ -90,6 +92,7 @@
               <el-input-number
                 @change="numberChange02"
                 v-model="valueNew02[0]"
+                size="small"
               ></el-input-number>
             </div>
             <div class="d-flex">
@@ -97,6 +100,7 @@
               <el-input-number
                 @change="numberChange02"
                 v-model="valueNew02[1]"
+                size="small"
               ></el-input-number>
             </div>
           </div>
@@ -125,6 +129,7 @@
                 <el-input-number
                   @change="numberChange"
                   v-model="valueNew[0]"
+                  size="small"
                 ></el-input-number>
               </div>
               <div class="d-flex">
@@ -132,8 +137,14 @@
                 <el-input-number
                   @change="numberChange"
                   v-model="valueNew[1]"
+                  size="small"
                 ></el-input-number>
               </div>
+            </div>
+            <div style="text-align: right" class="confirm">
+              <el-button size="mini" type="text" @click="visible03 = false"
+                >Xác nhận</el-button
+              >
             </div>
             <el-button slot="reference">
               <p v-if="isQuare">Diện tích</p>
@@ -160,6 +171,7 @@
                 <el-input-number
                   @change="numberChange02"
                   v-model="valueNew02[0]"
+                  size="small"
                 ></el-input-number>
               </div>
               <div class="d-flex">
@@ -167,8 +179,14 @@
                 <el-input-number
                   @change="numberChange02"
                   v-model="valueNew02[1]"
+                  size="small"
                 ></el-input-number>
               </div>
+            </div>
+            <div style="text-align: right" class="confirm">
+              <el-button size="mini" type="text" @click="visible04 = false"
+                >Xác nhận</el-button
+              >
             </div>
             <el-button slot="reference">
               <p v-if="isPrice">Khoảng giá</p>
@@ -708,7 +726,7 @@ export default {
     display: flex !important;
   }
   .filter_content {
-    width: 92%;
+    width: 96%;
   }
   .type_of_estate {
     display: none !important;
@@ -717,9 +735,14 @@ export default {
     display: block;
     margin-left: 15px;
     margin-bottom: -10px;
+    margin-top: 5px;
+    font-size: 14px;
   }
   .options {
     padding: 6px !important;
+  }
+  .filter_title {
+    font-size: 14px;
   }
 }
 </style>

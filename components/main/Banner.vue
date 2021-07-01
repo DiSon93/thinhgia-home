@@ -41,7 +41,7 @@
           <div class="text">Kho xưởng</div>
         </div>
         <div class="banner_content">
-          <img src="@image/icons/Trang trại.svg" alt="" />
+          <img src="@image/icons/Trang Trai FIX.svg" alt="" />
           <div class="text">Trang trại</div>
         </div>
       </div>

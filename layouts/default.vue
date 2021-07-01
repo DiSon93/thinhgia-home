@@ -224,37 +224,37 @@ export default {
       fixed: false,
       items: [
         {
-          icon: "mdi-apps",
+          icon: "mdi-home-flood",
           title: "Trang chủ",
           to: "/",
         },
         {
-          icon: "mdi-apps",
+          icon: "mdi-sign-real-estate",
           title: "BĐS Bán",
           to: "/search/sell",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-home-group",
           title: "BĐS Thuê",
           to: "/search/rent",
         },
         {
-          icon: "mdi-apps",
+          icon: "mdi-source-branch-plus",
           title: "Dự Án",
           to: "/search/project",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-blogger",
           title: "Blog",
           to: "/blog",
         },
         {
-          icon: "mdi-apps",
+          icon: "mdi-chart-bubble",
           title: "Giới thiệu",
           to: "/introduce",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-phone-incoming",
           title: "Liên hệ",
           to: "/inspire",
         },
@@ -301,27 +301,9 @@ export default {
   .header_choise {
     vertical-align: center;
     margin-left: 15px;
-    margin-top: 6px;
+    margin-top: 5px;
   }
 }
-// .el-dropdown-menu__item--divided:before {
-//   display: none !important;
-// }
-// .el-dropdown-menu__item[data-v-314f53c6]:focus,
-// .el-dropdown-menu__item[data-v-314f53c6]:hover {
-//   background-color: #e6a23c !important;
-//   color: #fff !important;
-// }
-// .el-dropdown-menu__item--divided[data-v-314f53c6] {
-//   margin-top: 0px !important;
-//   margin-bottom: 0px !important;
-// }
-// .el-dropdown-menu__item[data-v-314f53c6] {
-//   font-size: 16px !important;
-//   padding-top: 6px !important;
-//   padding-bottom: 6px !important;
-//   font-family: "Roboto", sans-serif !important;
-// }
 
 .first_dropdown {
   display: none;
@@ -546,7 +528,10 @@ export default {
   }
   .v-list-item--active {
     background-color: $color-blue-dark;
-    color: $color-white;
+    color: $color-white !important;
+    .v-list-item__title {
+      color: $color-white !important;
+    }
   }
 }
 </style>

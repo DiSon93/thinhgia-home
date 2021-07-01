@@ -41,7 +41,7 @@
               </div>
             </v-col>
           </v-row>
-          <v-row align="center" v-if="isSort">
+          <v-row align="center" v-if="isSort" class="contents">
             <v-col cols="6" sm="4" lg="3">
               <div class="estate_img">
                 <el-card class="box-card">
@@ -797,7 +797,7 @@ export default {
   margin-top: 10px;
 }
 .horizontal {
-  margin: 30px 5px 10px;
+  margin: 45px 5px 10px;
   .search_items {
     border-radius: 10px;
     border: 1px solid #ebeef5;
@@ -881,6 +881,9 @@ export default {
 @media screen and (max-width: 600px) {
   .search_sell {
     margin-top: 100px;
+  }
+  .contents {
+    margin-top: 25px;
   }
   .search_sell .search_link {
     font-size: 14px;
@@ -1004,7 +1007,7 @@ export default {
           margin-left: 4px;
           font-size: 12px;
           .v-icon {
-            margin-right: 5px;
+            margin-right: 2px;
             font-size: 16px;
           }
         }
