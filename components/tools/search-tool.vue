@@ -1,50 +1,181 @@
 <template>
   <div>
-    <div class="selection d-flex">
-      <div>
+    <div class="input_address_tablet">
+      <el-input
+        placeholder="Nhập địa chỉ tìm kiếm"
+        v-model="input3"
+        class="input-with-select"
+      >
+        <el-select v-model="select" slot="prepend" placeholder="Select" disabled>
+          <el-option label="BĐS Bán" value="1"></el-option>
+          <el-option label="BĐS Thuê" value="2"></el-option>
+          <el-option label="Dự Án" value="3"></el-option>
+        </el-select>
+      </el-input>
+    </div>
+    <div class="selection">
+      <div class="input_address">
         <el-input
           placeholder="Nhập địa chỉ tìm kiếm"
           v-model="input3"
           class="input-with-select"
         >
-          <el-select v-model="select" slot="prepend" placeholder="Select">
+          <el-select v-model="select" slot="prepend" placeholder="Select" disabled>
             <el-option label="BĐS Bán" value="1"></el-option>
             <el-option label="BĐS Thuê" value="2"></el-option>
             <el-option label="Dự Án" value="3"></el-option>
           </el-select>
         </el-input>
       </div>
+
       <div id="house">
         <el-cascader
           :options="options"
           :props="props"
           collapse-tags
           clearable
-          placeholder="Căn hộ/Chung cư"
+          placeholder="Loại Bất Động Sản"
         ></el-cascader>
       </div>
       <div id="square">
-        <el-popover placement="bottom" width="360" v-model="visible">
-          <p>Diện tích (m2)</p>
-          <div>
-            <el-slider v-model="value" range :marks="marks" :max="500">
-            </el-slider>
+        <el-popover placement="bottom" width="420" v-model="visible">
+          <p>Khoảng diện tích (m2)</p>
+          <div class="block">
+            <el-slider
+              v-model="value"
+              range
+              :marks="marks"
+              :max="500"
+              @change="numberChange"
+            ></el-slider>
           </div>
-          <el-button slot="reference"
-            >Diện tích <i class="el-icon-caret-bottom"></i
+          <div class="input_selectrange">
+            <div class="d-flex">
+              <span>Từ:</span>
+              <el-input-number
+                @change="numberChange"
+                v-model="valueNew[0]"
+              ></el-input-number>
+            </div>
+            <div class="d-flex">
+              <span>Đến:</span>
+              <el-input-number
+                @change="numberChange"
+                v-model="valueNew[1]"
+              ></el-input-number>
+            </div>
+          </div>
+          <el-button slot="reference">
+            <p v-if="isQuare">Diện tích</p>
+            {{ answer }} <i class="el-icon-caret-bottom"></i
           ></el-button>
         </el-popover>
       </div>
       <div id="price">
-        <el-popover placement="bottom" width="360" v-model="visible02">
+        <el-popover placement="bottom" width="420" v-model="visible02">
           <p>Khoảng giá(tỷ)</p>
-          <div>
-            <el-slider v-model="value02" range :marks="marks02" :max="15"> </el-slider>
+          <div class="block">
+            <el-slider
+              v-model="value02"
+              range
+              :marks="marks02"
+              :max="15"
+              @change="numberChange02"
+            >
+            </el-slider>
           </div>
-          <el-button slot="reference"
-            >Khoảng giá <i class="el-icon-caret-bottom"></i
+          <div class="input_selectrange">
+            <div class="d-flex">
+              <span>Từ:</span>
+              <el-input-number
+                @change="numberChange02"
+                v-model="valueNew02[0]"
+              ></el-input-number>
+            </div>
+            <div class="d-flex">
+              <span>Đến:</span>
+              <el-input-number
+                @change="numberChange02"
+                v-model="valueNew02[1]"
+              ></el-input-number>
+            </div>
+          </div>
+          <el-button slot="reference">
+            <p v-if="isPrice">Khoảng giá</p>
+            {{ answer02 }} <i class="el-icon-caret-bottom"></i
           ></el-button>
         </el-popover>
+      </div>
+      <div class="responsive_square_price d-flex">
+        <div id="square">
+          <el-popover placement="bottom" width="350" v-model="visible03">
+            <p>Khoảng diện tích (m2)</p>
+            <div class="block">
+              <el-slider
+                v-model="value"
+                range
+                :marks="marks"
+                :max="500"
+                @change="numberChange"
+              ></el-slider>
+            </div>
+            <div class="input_selectrange">
+              <div class="d-flex">
+                <span>Từ:</span>
+                <el-input-number
+                  @change="numberChange"
+                  v-model="valueNew[0]"
+                ></el-input-number>
+              </div>
+              <div class="d-flex">
+                <span>Đến:</span>
+                <el-input-number
+                  @change="numberChange"
+                  v-model="valueNew[1]"
+                ></el-input-number>
+              </div>
+            </div>
+            <el-button slot="reference">
+              <p v-if="isQuare">Diện tích</p>
+              {{ answer }} <i class="el-icon-caret-bottom"></i
+            ></el-button>
+          </el-popover>
+        </div>
+        <div id="price">
+          <el-popover placement="bottom" width="350" v-model="visible04">
+            <p>Khoảng giá(tỷ)</p>
+            <div class="block">
+              <el-slider
+                v-model="value02"
+                range
+                :marks="marks02"
+                :max="15"
+                @change="numberChange02"
+              >
+              </el-slider>
+            </div>
+            <div class="input_selectrange">
+              <div class="d-flex">
+                <span>Từ:</span>
+                <el-input-number
+                  @change="numberChange02"
+                  v-model="valueNew02[0]"
+                ></el-input-number>
+              </div>
+              <div class="d-flex">
+                <span>Đến:</span>
+                <el-input-number
+                  @change="numberChange02"
+                  v-model="valueNew02[1]"
+                ></el-input-number>
+              </div>
+            </div>
+            <el-button slot="reference">
+              <p v-if="isPrice">Khoảng giá</p>
+              {{ answer02 }} <i class="el-icon-caret-bottom"></i
+            ></el-button>
+          </el-popover>
+        </div>
       </div>
       <div class="filter">
         <v-btn outlined color="warning" @click="isFilter = !isFilter">
@@ -55,21 +186,24 @@
       <div class="timkiem">
         <v-btn color="warning">Tìm Kiếm</v-btn>
       </div>
+      <div class="responsive_square_price d-flex">
+        <div class="filter">
+          <v-btn outlined color="warning" @click="isFilter = !isFilter">
+            Lọc thêm
+            <img src="@image/icons/filter.png" alt="" />
+          </v-btn>
+        </div>
+        <div class="timkiem">
+          <v-btn color="warning">Tìm Kiếm</v-btn>
+        </div>
+      </div>
     </div>
+    <!-- <transition name="el-zoom-in-top">  -->
     <el-card class="filter_content box-card" v-if="isFilter">
       <div class="filter_title">Khu vực</div>
       <v-row>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_city">
-            <!-- <v-select
-              v-model="e2"
-              :items="items01"
-              placeholder="Tỉnh/Thành phố"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options02"
               :props="props"
@@ -79,17 +213,8 @@
             ></el-cascader>
           </div>
         </v-col>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_district">
-            <!-- <v-select
-              v-model="e3"
-              :items="items02"
-              placeholder="Quận/Huyện"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options03"
               :props="props"
@@ -99,17 +224,8 @@
             ></el-cascader>
           </div>
         </v-col>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_square">
-            <!-- <v-select
-              v-model="e4"
-              :items="items03"
-              placeholder="Diện tích"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options04"
               :props="props"
@@ -119,17 +235,8 @@
             ></el-cascader>
           </div>
         </v-col>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_price">
-            <!-- <v-select
-              v-model="e6"
-              :items="items04"
-              placeholder="Khoảng giá"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options05"
               :props="props"
@@ -142,15 +249,42 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="6" class="">
-          <div>Số phòng ngủ</div>
+        <!-- <v-col cols="6" class="">
+          <div>Loại Nhà/Đất</div>
         </v-col>
         <v-col cols="6">
-          <div>Hướng</div>
-        </v-col>
+          <div>Số phòng ngủ</div>
+        </v-col> -->
+        <div class="type_of_estate d-flex">
+          <div class="items">Loại Nhà/Đất</div>
+          <div class="items">Số phòng ngủ</div>
+        </div>
       </v-row>
       <v-row>
-        <v-col cols="6" class="bedrooms">
+        <v-col cols="6" sm="3" class="options" align="center">
+          <div class="select_type">
+            <el-cascader
+              :options="options06"
+              :props="{ checkStrictly: true }"
+              collapse-tags
+              clearable
+              placeholder="Loại Nhà/Đất"
+            ></el-cascader>
+          </div>
+        </v-col>
+        <v-col cols="6" sm="3" class="options" align="center">
+          <div class="select_direction">
+            <el-cascader
+              :options="options07"
+              :props="{ checkStrictly: true }"
+              collapse-tags
+              clearable
+              placeholder="Hướng"
+            ></el-cascader>
+          </div>
+        </v-col>
+        <div class="res_bed">Số phòng ngủ</div>
+        <v-col cols="12" sm="6" class="bedrooms">
           <el-button> Tất cả </el-button>
           <el-button> 1 </el-button>
           <el-button> 2 </el-button>
@@ -158,20 +292,10 @@
           <el-button> 4 </el-button>
           <el-button> 5+ </el-button>
         </v-col>
-        <v-col cols="6" class="direction">
-          <el-button> Tất cả </el-button>
-          <el-button> Đông </el-button>
-          <el-button> Tây </el-button>
-          <el-button> Nam </el-button>
-          <el-button> Bắc </el-button>
-          <el-button> Đông Bắc </el-button>
-          <el-button> Tây Bắc </el-button>
-          <el-button> Đông Nam </el-button>
-          <el-button> Tây Nam </el-button>
-        </v-col>
-         </el-slider>
+        <!-- </el-slider> -->
       </v-row>
     </el-card>
+    <!-- </transition> -->
   </div>
 </template>
 
@@ -179,8 +303,9 @@
 export default {
   data() {
     return {
+      value01: 0,
       value: [0, 100],
-      value02: [0, 10],
+      value02: [3, 10],
       marks: {
         0: "0",
         100: "100",
@@ -208,7 +333,7 @@ export default {
       e7: [],
       square: [],
       input3: "",
-      select: "2",
+      select: this.$route.path == "/search/sell" ? "1" : "2",
       states: ["BĐS Thuê", "BĐS Bán", "Dự Án"],
       props: { multiple: true },
       items: [],
@@ -269,7 +394,7 @@ export default {
         },
         {
           value: 24,
-          label: "Vũng Tàu",
+          label: "Bà Rịa Vũng Tàu",
         },
         {
           value: 25,
@@ -438,9 +563,83 @@ export default {
           label: "Trên 10tỷ",
         },
       ],
+      options06: [
+        {
+          value: 1,
+          label: "Nhà",
+        },
+        {
+          value: 14,
+          label: "Đất",
+        },
+      ],
+      options07: [
+        {
+          value: 1,
+          label: "Tất cả",
+        },
+        {
+          value: 2,
+          label: "Đông",
+        },
+        {
+          value: 3,
+          label: "Tây",
+        },
+        {
+          value: 4,
+          label: "Nam",
+        },
+        {
+          value: 5,
+          label: "Bắc",
+        },
+        {
+          value: 6,
+          label: "Đông Bắc",
+        },
+        {
+          value: 7,
+          label: "Tây Bắc",
+        },
+        {
+          value: 8,
+          label: "Đông Nam",
+        },
+        {
+          value: 9,
+          label: "Tây Nam",
+        },
+      ],
       visible: false,
       visible02: false,
+      visible03: false,
+      visible04: false,
+      answer: "Diện tích",
+      isQuare: false,
+      answer02: "Khoảng giá",
+      isPrice: false,
     };
+  },
+  computed: {
+    valueNew() {
+      return JSON.parse(JSON.stringify(this.value));
+    },
+    valueNew02() {
+      return JSON.parse(JSON.stringify(this.value02));
+    },
+  },
+  methods: {
+    numberChange() {
+      this.value = this.valueNew;
+      this.answer = `${this.valueNew[0]}-${this.valueNew[1]} m2`;
+      this.isQuare = true;
+    },
+    numberChange02() {
+      this.value02 = this.valueNew02;
+      this.answer02 = `${this.valueNew02[0]}-${this.valueNew02[1]} tỷ`;
+      this.isPrice = true;
+    },
   },
 };
 </script>
@@ -469,6 +668,58 @@ export default {
       background-color: $color-white;
       border: 1px solid $color-orange;
     }
+  }
+}
+.res_bed {
+  display: none;
+}
+.type_of_estate {
+  width: 100%;
+  display: flex;
+  .items {
+    width: 50%;
+    margin-left: 20px;
+  }
+}
+.responsive_square_price {
+  display: none !important;
+}
+.input_address_tablet {
+  display: none;
+}
+@media screen and (max-width: 1250px) {
+  .input_address_tablet {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .input_address {
+    display: none;
+  }
+  .filter_content {
+    width: 92%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .selection {
+    display: block;
+  }
+  .responsive_square_price {
+    display: block !important;
+    display: flex !important;
+  }
+  .filter_content {
+    width: 92%;
+  }
+  .type_of_estate {
+    display: none !important;
+  }
+  .res_bed {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: -10px;
+  }
+  .options {
+    padding: 6px !important;
   }
 }
 </style>

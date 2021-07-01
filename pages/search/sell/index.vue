@@ -1,5 +1,5 @@
 <template>
- <v-lazy
+  <v-lazy
     v-model="isActive"
     :options="{
       threshold: 0.5,
@@ -8,302 +8,550 @@
     transition="fade-transition"
   >
     <div>
-    <div class="search_sell">
-      <div class="search_link">
-        Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
-      </div>
-      <SearchTool />
-      <div class="search_content">
-        <v-row class="tieude">
-          <v-col cols="8">
-            <div class="search_title">MUA BÁN CHUNG CƯ / CĂN HỘ , TP.HCM</div>
-            <div class="note">Có 5324 BĐS được tìm thấy</div>
-          </v-col>
-          <v-col cols="4" class="sort_items">
-            <v-btn outlined color="warning">
+      <div class="search_sell">
+        <div class="search_link">
+          Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
+        </div>
+        <SearchTool />
+        <div class="search_content">
+          <v-row class="tieude">
+            <v-col cols="7" sm="7" lg="8">
+              <div class="search_title">MUA BÁN CHUNG CƯ / CĂN HỘ , TP.HCM</div>
+              <div class="note">Có 5324 BĐS được tìm thấy</div>
+            </v-col>
+            <v-col cols="5" sm="5" lg="4" class="sort_items">
+              <!-- <v-btn outlined color="warning">
               Sắp xếp <i class="el-icon-caret-bottom"></i>
-            </v-btn>
-          </v-col>
-        </v-row>
-
-        <v-row align="center">
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
+            </v-btn> -->
+              <div class="select_sort">
+                <span>Sắp xếp: </span>
+                <el-cascader
+                  :options="options08"
+                  :props="{ checkStrictly: true }"
+                  collapse-tags
+                  clearable
+                  v-model="sort"
+                ></el-cascader>
+                <v-btn class="mx-2" small @click="isSort = false">
+                  <v-icon dark> mdi-format-list-bulleted-triangle </v-icon>
+                </v-btn>
+                <v-btn class="mx-2" small @click="isSort = true">
+                  <v-icon dark> mdi-dots-grid </v-icon>
+                </v-btn>
+              </div>
+            </v-col>
+          </v-row>
+          <v-row align="center" v-if="isSort">
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_19.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_20.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_21.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_22.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_23.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_24.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_25.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_26.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_16.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_07.svg" alt="" /></figure>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 m2</span>
+                    </div>
+                    <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Nguyễn Hữu Cảnh</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </v-col>
+          </v-row>
+          <transition name="el-fade-in-linear" v-else>
+            <v-row class="horizontal">
+              <div class="search_items d-flex">
+                <div class="clearfix hover14">
                   <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
                 </div>
-                <div class="add_detail">
+                <div class="horizontal_item">
+                  <div class="search_title">
+                    THUÊ NGAY CHUNG CƯ 2 PHÒNG NGỦ GIÁ CỰC TỐT CHỈ 10 TRIỆU/THÁNG
+                  </div>
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                  <div class="horizontal_content">
+                    Thuê ngay căn hộ SILVER SEA BA CU 2 phòng ngủ 2WC, nội thất đẹp, view
+                    Đông Nam mát mẻ quanh năm. Giá tốt thích hợp cho khách hàng mua nghỉ
+                    dưỡng hoặc kinh doanh ....
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_19.svg" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_20.svg" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
+                  <div class="info_item d-flex">
+                    <div class="square">
+                      <v-icon>mdi-card</v-icon>
+                      <span>114m2</span>
+                    </div>
+                    <div class="bedrooms">
+                      <v-icon>mdi-bed-outline</v-icon>
+                      <span>2</span>
+                    </div>
+                    <div class="floors">
+                      <v-icon>mdi-layers</v-icon>
+                      <span>3</span>
+                    </div>
+                    <div class="directions">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>TB</span>
+                    </div>
+                    <div class="date_update">
+                      <v-icon>mdi-calendar-month</v-icon>
+                      <span> 28/06/2021</span>
+                    </div>
                   </div>
                 </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_21.svg" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_22.svg" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_23.svg" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_24.svg" alt="" /></figure>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
+              </div>
+              <div class="search_items d-flex">
+                <div class="clearfix hover14">
                   <figure><img src="@image/layouts/room_25.svg" alt="" /></figure>
                 </div>
-                <div class="add_detail">
+                <div class="horizontal_item">
+                  <div class="search_title">
+                    THUÊ NGAY CHUNG CƯ 2 PHÒNG NGỦ GIÁ CỰC TỐT CHỈ 10 TRIỆU/THÁNG
+                  </div>
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                  <div class="horizontal_content">
+                    Thuê ngay căn hộ SILVER SEA BA CU 2 phòng ngủ 2WC, nội thất đẹp, view
+                    Đông Nam mát mẻ quanh năm. Giá tốt thích hợp cho khách hàng mua nghỉ
+                    dưỡng hoặc kinh doanh ....
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
+                  <div class="info_item d-flex">
+                    <div class="square">
+                      <v-icon>mdi-card</v-icon>
+                      <span>114m2</span>
+                    </div>
+                    <div class="bedrooms">
+                      <v-icon>mdi-bed-outline</v-icon>
+                      <span>2</span>
+                    </div>
+                    <div class="floors">
+                      <v-icon>mdi-layers</v-icon>
+                      <span>3</span>
+                    </div>
+                    <div class="directions">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>TB</span>
+                    </div>
+                    <div class="date_update">
+                      <v-icon>mdi-calendar-month</v-icon>
+                      <span> 28/06/2021</span>
+                    </div>
                   </div>
                 </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_26.svg" alt="" /></figure>
+              </div>
+              <div class="search_items d-flex">
+                <div class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_20.svg" alt="" /></figure>
                 </div>
-                <div class="add_detail">
+                <div class="horizontal_item">
+                  <div class="search_title">
+                    THUÊ NGAY CHUNG CƯ 2 PHÒNG NGỦ GIÁ CỰC TỐT CHỈ 10 TRIỆU/THÁNG
+                  </div>
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                  <div class="horizontal_content">
+                    Thuê ngay căn hộ SILVER SEA BA CU 2 phòng ngủ 2WC, nội thất đẹp, view
+                    Đông Nam mát mẻ quanh năm. Giá tốt thích hợp cho khách hàng mua nghỉ
+                    dưỡng hoặc kinh doanh ....
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
+                  <div class="info_item d-flex">
+                    <div class="square">
+                      <v-icon>mdi-card</v-icon>
+                      <span>114m2</span>
+                    </div>
+                    <div class="bedrooms">
+                      <v-icon>mdi-bed-outline</v-icon>
+                      <span>2</span>
+                    </div>
+                    <div class="floors">
+                      <v-icon>mdi-layers</v-icon>
+                      <span>3</span>
+                    </div>
+                    <div class="directions">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>TB</span>
+                    </div>
+                    <div class="date_update">
+                      <v-icon>mdi-calendar-month</v-icon>
+                      <span> 28/06/2021</span>
+                    </div>
                   </div>
                 </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
+              </div>
+              <div class="search_items d-flex">
+                <div class="clearfix hover14">
                   <figure><img src="@image/layouts/room_16.svg" alt="" /></figure>
                 </div>
-                <div class="add_detail">
+                <div class="horizontal_item">
+                  <div class="search_title">
+                    THUÊ NGAY CHUNG CƯ 2 PHÒNG NGỦ GIÁ CỰC TỐT CHỈ 10 TRIỆU/THÁNG
+                  </div>
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                  <div class="horizontal_content">
+                    Thuê ngay căn hộ SILVER SEA BA CU 2 phòng ngủ 2WC, nội thất đẹp, view
+                    Đông Nam mát mẻ quanh năm. Giá tốt thích hợp cho khách hàng mua nghỉ
+                    dưỡng hoặc kinh doanh ....
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
+                  <div class="info_item d-flex">
+                    <div class="square">
+                      <v-icon>mdi-card</v-icon>
+                      <span>114m2</span>
+                    </div>
+                    <div class="bedrooms">
+                      <v-icon>mdi-bed-outline</v-icon>
+                      <span>2</span>
+                    </div>
+                    <div class="floors">
+                      <v-icon>mdi-layers</v-icon>
+                      <span>3</span>
+                    </div>
+                    <div class="directions">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>TB</span>
+                    </div>
+                    <div class="date_update">
+                      <v-icon>mdi-calendar-month</v-icon>
+                      <span> 28/06/2021</span>
+                    </div>
                   </div>
                 </div>
-              </el-card>
-            </div>
-          </v-col>
-          <v-col cols="3">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
+              </div>
+              <div class="search_items d-flex">
+                <div class="clearfix hover14">
                   <figure><img src="@image/layouts/room_07.svg" alt="" /></figure>
                 </div>
-                <div class="add_detail">
+                <div class="horizontal_item">
+                  <div class="search_title">
+                    THUÊ NGAY CHUNG CƯ 2 PHÒNG NGỦ GIÁ CỰC TỐT CHỈ 10 TRIỆU/THÁNG
+                  </div>
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
-                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                  <div class="horizontal_content">
+                    Thuê ngay căn hộ SILVER SEA BA CU 2 phòng ngủ 2WC, nội thất đẹp, view
+                    Đông Nam mát mẻ quanh năm. Giá tốt thích hợp cho khách hàng mua nghỉ
+                    dưỡng hoặc kinh doanh ....
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Nguyễn Hữu Cảnh</span>
+                  <div class="info_item d-flex">
+                    <div class="square">
+                      <v-icon>mdi-card</v-icon>
+                      <span>114m2</span>
+                    </div>
+                    <div class="bedrooms">
+                      <v-icon>mdi-bed-outline</v-icon>
+                      <span>2</span>
+                    </div>
+                    <div class="floors">
+                      <v-icon>mdi-layers</v-icon>
+                      <span>3</span>
+                    </div>
+                    <div class="directions">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>TB</span>
+                    </div>
+                    <div class="date_update">
+                      <v-icon>mdi-calendar-month</v-icon>
+                      <span> 28/06/2021</span>
+                    </div>
                   </div>
                 </div>
-              </el-card>
-            </div>
-          </v-col>
-        </v-row>
+              </div>
+            </v-row>
+          </transition>
+        </div>
+        <div class="text-center pagination">
+          <v-pagination v-model="page" :length="6" color="warning"></v-pagination>
+        </div>
       </div>
-      <div class="text-center">
-        <v-pagination v-model="page" :length="6" color="warning"></v-pagination>
+      <div class="footer">
+        <Services />
+        <Footer />
       </div>
     </div>
-    <div class="footer">
-      <Services />
-      <Footer />
-    </div>
-  </div>
-   </v-lazy>
-
+  </v-lazy>
 </template>
 
 <script>
@@ -318,6 +566,8 @@ export default {
   },
   data() {
     return {
+      sort: 1,
+      isSort: true,
       isActive: false,
       value: [0, 100],
       value02: [0, 10],
@@ -406,6 +656,32 @@ export default {
           label: "Loại khác",
         },
       ],
+      options08: [
+        {
+          value: 1,
+          label: "Mới nhất",
+        },
+        {
+          value: 2,
+          label: "Cũ nhất",
+        },
+        {
+          value: 3,
+          label: "Giá tăng dần",
+        },
+        {
+          value: 4,
+          label: "Giá giảm dần",
+        },
+        {
+          value: 5,
+          label: "Diện tích giảm dần",
+        },
+        {
+          value: 6,
+          label: "Diện tích tăng dần",
+        },
+      ],
     };
   },
 };
@@ -442,7 +718,7 @@ export default {
     font-weight: 700;
   }
   .tieude {
-    margin-bottom: -50px;
+    margin-bottom: -40px;
   }
   .sort_items {
     text-align: right;
@@ -476,8 +752,9 @@ export default {
       .price {
         font-weight: bold;
         font-size: 16px;
-        line-height: 30px;
+        line-height: 18px;
         color: #fbad18;
+        margin-bottom: 10px;
         .first_price {
           margin-right: 15px;
           padding-right: 15px;
@@ -487,24 +764,26 @@ export default {
       .name {
         font-weight: 500;
         font-size: 16px;
-        line-height: 40px;
+        line-height: 18px;
+        margin-bottom: 10px;
         color: #000000;
       }
       .sex {
         .v-icon {
           color: #c4c4c4;
-          margin-right: 15px;
+          margin-right: 10px;
         }
         font-size: 16px;
-        line-height: 30px;
+        line-height: 18px;
+        margin-bottom: 5px;
       }
       .address {
         .v-icon {
           color: #c4c4c4;
-          margin-right: 15px;
+          margin-right: 10px;
         }
         font-size: 16px;
-        line-height: 30px;
+        line-height: 18px;
       }
     }
   }
@@ -516,5 +795,234 @@ export default {
   padding: 20px;
   border-radius: 5px;
   margin-top: 10px;
+}
+.horizontal {
+  margin: 30px 5px 10px;
+  .search_items {
+    border-radius: 10px;
+    border: 1px solid #ebeef5;
+    color: #303133;
+    transition: 0.3s;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    margin-bottom: 20px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  .horizontal_item {
+    margin-left: 20px;
+    color: $color-black-03;
+    .price {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 30px;
+      color: #fbad18;
+      .first_price {
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid $color-black-01;
+      }
+    }
+  }
+  .search_title {
+    margin: 20px 0 10px;
+    &:hover {
+      color: $color-orange-light;
+      transition: 0.5s;
+    }
+  }
+  .horizontal_content {
+    margin-bottom: 20px;
+  }
+  .info_item {
+    .square,
+    .bedrooms,
+    .floors,
+    .directions,
+    .date_update {
+      padding-right: 20px;
+      border-right: 1px solid $color-black-01;
+      margin-left: 15px;
+      .v-icon {
+        margin-right: 5px;
+      }
+    }
+    .square {
+      margin-left: 0;
+    }
+    .date_update {
+      border: none;
+    }
+  }
+}
+@media screen and (max-width: 1250px) {
+  .search_sell {
+    padding: 0 5%;
+  }
+  .sort_items {
+    .select_sort {
+      text-align: right;
+      display: block;
+      margin-top: 10px;
+      span {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1048px) {
+  .search_content .estate_img {
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search_sell {
+    margin-top: 100px;
+  }
+  .search_sell .search_link {
+    font-size: 14px;
+  }
+  .col-sm-4 {
+    padding: 0px;
+  }
+  .search_content {
+    padding: 0 2%;
+    .search_title {
+      font-size: 16px;
+    }
+    .note {
+      font-size: 12px;
+    }
+  }
+  .sort_items {
+    .select_sort {
+      text-align: right;
+      display: block;
+      margin-top: 10px;
+      span {
+        display: none;
+      }
+    }
+  }
+  .estate_img {
+    .add_detail {
+      img {
+        width: 15px;
+        height: 15px;
+      }
+      .price {
+        font-size: 12px !important;
+        line-height: 12px !important;
+        margin-top: -2px !important;
+        margin-bottom: 5px !important;
+        .first_price {
+          margin-right: 8px;
+          padding-right: 8px;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      .name {
+        font-size: 12px !important;
+        line-height: 1 6px !important;
+        margin: 2px 0 !important;
+      }
+      .sex {
+        font-size: 12px !important;
+        font-weight: 300;
+        // margin: 5px -10px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin: 0 6px 0 0px !important;
+          font-size: 14px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        line-height: 20px !important;
+        margin: 2px 0 !important;
+      }
+      .address {
+        font-size: 12px !important;
+        font-weight: 300;
+        // margin: 5px -10px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin-right: 6px !important;
+          font-size: 14px;
+        }
+        line-height: 16px !important;
+        letter-spacing: 0.1px;
+      }
+    }
+  }
+  .pagination {
+    margin-top: 20px;
+    .v-pagination {
+      .v-pagination__navigation,
+      .v-pagination__item {
+        height: 14px !important;
+        width: 14px !important;
+      }
+    }
+  }
+  .search_content .tieude {
+    margin-bottom: -30px !important;
+  }
+  .horizontal {
+    margin: 30px 0px 10px !important;
+    .horizontal_item {
+      margin-left: 10px !important;
+      .search_title {
+        margin: 5px 0;
+        font-size: 12px;
+      }
+      .price {
+        font-size: 12px;
+        line-height: 18px;
+        color: #fbad18;
+        .first_price {
+          margin-right: 6px;
+          padding-right: 6px;
+        }
+      }
+      .horizontal_content {
+        font-size: 12px;
+      }
+      .info_item {
+        margin-left: -100px;
+        .square,
+        .bedrooms,
+        .floors,
+        .directions,
+        .date_update {
+          display: block !important;
+          padding-right: 4px;
+          border-right: 1px solid $color-black-01;
+          margin-left: 4px;
+          font-size: 12px;
+          .v-icon {
+            margin-right: 5px;
+            font-size: 16px;
+          }
+        }
+        .square {
+          margin-left: 0;
+        }
+        .date_update {
+          border: none;
+        }
+      }
+    }
+    .search_items {
+      .clearfix {
+        img {
+          width: 100px;
+        }
+      }
+    }
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="footer">
     <v-row>
-      <v-col cols="6" class="footer_left">
+      <v-col cols="12" sm="6" class="footer_left">
         <img src="@image/layouts/bansaodanhthiep.png" alt="" />
         <div class="address">
           <v-icon>mdi-near-me</v-icon>
@@ -13,7 +13,7 @@
         </div>
         <div class="internet">
           <img src="@image/icons/internet.png" alt="" />
-          <div class="content">khobatdongsanviet@gmail.com</div>
+          <div class="content">khobatdongsanviet.com</div>
         </div>
         <div class="call">
           <img src="@image/icons/call.png" alt="" />
@@ -27,11 +27,11 @@
           </div>
         </div>
       </v-col>
-      <v-col cols="6" class="footer_right">
+      <v-col cols="12" sm="6" class="footer_right">
         <v-row>
           <v-col cols="6">
             <div class="company">
-              <div class="title">Về Kho BĐS Việt</div>
+              <div class="title_ft">Về Kho BĐS Việt</div>
               <ul>
                 <li>Giới thiệu</li>
                 <li>Tuyển dụng</li>
@@ -41,7 +41,7 @@
           </v-col>
           <v-col cols="6">
             <div class="real_estate">
-              <div class="title">Bất động sản</div>
+              <div class="title_ft">Bất động sản</div>
               <ul>
                 <li>Căn hộ-Chung cư</li>
                 <li>Nhà ở riêng lẻ</li>
@@ -69,10 +69,10 @@
       </v-col>
     </v-row>
     <v-row class="footer_bottom">
-      <v-col cols="6">
+      <v-col cols="12" sm="5" md="6">
         <img src="@image/icons/logoSaleNoti1.png" alt="" />
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" sm="4" md="4">
         <div class="footer_info">
           <div class="info_name">
             Đăng ký nhận thông tin mới nhất từ Kho Bất Động Sản Việt
@@ -84,7 +84,7 @@
           </div>
         </div>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="3" sm="3" md="2">
         <div class="network">
           <div class="network_title">Kết nối với chúng tôi</div>
           <div class="network_logo d-flex">
@@ -175,10 +175,11 @@ export default {
     .company,
     .real_estate,
     .project {
-      .title {
-        font-size: 18px !important;
+      .title_ft {
+        font-size: 18px;
         color: #121212;
         text-align: left;
+        font-weight: 700;
       }
       ul {
         list-style: none;
@@ -206,6 +207,7 @@ export default {
         margin-bottom: 13px;
       }
       .network_logo {
+        width: 180px;
         .v-icon {
           height: 32px;
           width: 32px;
@@ -216,7 +218,7 @@ export default {
         .zalo,
         .instagram {
           height: 32px;
-          width: 32px;
+          width: 32px !important;
           background-color: $color-orange;
           color: $color-white;
           border-radius: 50%;
@@ -255,6 +257,80 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .footer {
+    .footer_left {
+      img {
+        margin-left: 50px;
+      }
+    }
+    .address,
+    .email {
+      margin-left: 50px;
+    }
+    .footer_right {
+      padding-right: 50px;
+    }
+    .footer_bottom {
+      padding: 0 50px;
+    }
+  }
+}
+@media screen and(max-width: 600px) {
+  .footer .footer_left {
+    img:nth-child(1) {
+      width: 80%;
+      margin-bottom: 20px;
+      margin-left: 30px;
+    }
+    .address,
+    .email {
+      margin-right: 30px;
+      margin-bottom: 16px;
+      margin-left: 30px;
+    }
+    .internet,
+    .call,
+    .time {
+      img {
+        width: 16px;
+        height: 16px;
+      }
+      margin-bottom: 2px;
+    }
+  }
+  .footer_right {
+    padding-left: 50px;
+    padding-right: 0 !important;
+    overflow: hidden;
+    .title_ft {
+      font-size: 15px !important;
+      margin-bottom: 10px;
+    }
+    ul li {
+      line-height: 28px !important;
+    }
+  }
+  .footer_bottom {
+    .col-sm-5 {
+      padding: 0 !important;
+    }
+    .search .el-input-group {
+      width: 100% !important;
+    }
+    .network {
+      .network_title {
+        width: 200px;
+      }
+    }
+  }
+  .copyright {
+    margin-top: 20px !important;
+    padding: 0 20px !important;
+    font-size: 11px !important;
+    height: 40px !important;
   }
 }
 </style>

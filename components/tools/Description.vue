@@ -125,4 +125,28 @@ export default {};
     font-size: 14px;
   }
 }
+@media screen and (max-width: 1050px) {
+  .description {
+    .content {
+      .content_item {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .description {
+    .content {
+      .col-6 {
+        padding: 5px;
+      }
+      .content_item {
+        font-size: 12px;
+        img {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
 </style>

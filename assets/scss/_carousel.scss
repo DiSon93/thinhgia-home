@@ -23,13 +23,13 @@
     // }
 }
 .slick-next {
-    right: 20px!important;
+    right: 20px !important;
     width: 20px !important;
     height: 50px;
     opacity: 0.7 !important;
 }
 .slick-prev {
-    display: none!important;
+    display: none !important;
     left: -30px !important;
     width: 20px !important;
     height: 50px;
@@ -51,6 +51,18 @@
     }
 }
 .slick-dots li button:before {
-    font-size: 12px!important;
-    color: $color-orange!important;
+    font-size: 12px !important;
+    color: $color-orange !important;
+}
+@media screen and (max-width: 600px) {
+    .slick-dots li button:before {
+        font-size: 6px !important;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 26px !important;
+    }
+    .slick-next {
+        right: 0px!important;
+    }
 }

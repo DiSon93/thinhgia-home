@@ -1,0 +1,52 @@
+ul.el-dropdown-menu.el-popper .el-dropdown-menu__item {
+    font-size: 16px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    font-family: "Roboto", sans-serif !important;
+}
+ul.el-dropdown-menu.el-popper .el-dropdown-menu__item--divided:before {
+    display: none !important;
+}
+ul.el-dropdown-menu.el-popper .el-dropdown-menu__item:focus,
+ul.el-dropdown-menu.el-popper .el-dropdown-menu__item:hover {
+    background-color: #e6a23c !important;
+    color: #fff !important;
+}
+ul.el-dropdown-menu.el-popper .el-dropdown-menu__item--divided {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.price {
+    display: flex;
+    .pricePerMeter {
+        text-align: right;
+        color: $color-black-02;
+        opacity: 0.7;
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: 10px;
+        #mv {
+            color: $color-black-02;
+            font-weight: 700;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .price {
+        .pricePerMeter {
+            font-size: 8px;
+            margin-left: 0px;
+        }
+    }
+    a.name {
+        font-size: 12px !important;
+        line-height: 2px !important;
+    }
+    .small_project,.search_sell {
+        .el-card .el-card__body {
+            padding: 10px !important;
+        }
+    }
+}

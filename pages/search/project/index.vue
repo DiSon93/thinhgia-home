@@ -1,535 +1,820 @@
 <template>
- <v-lazy
+  <v-lazy
     v-model="isActive"
     :options="{
       threshold: 0.5,
     }"
     min-height="200"
     transition="fade-transition"
-  >  
-   <div>
-    <div class="search_project">
-      <div class="search_link">
-        Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
-      </div>
-      <SearchProject />
-      <div class="project_content">
-        <VueSlickCarousel :arrows="true" v-bind="settings">
-          <div class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/bigproject_01.png" alt="" /></figure>
-                <div class="overlay_text">Đã hoàn thành</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">
-                  <span class="first_price">6 tỷ</span>
-                  <span>60 m2</span>
-                </div>
-                <NuxtLink class="name" to="/project/01/detail">VICTORIA PREMIUM</NuxtLink>
-                <div class="quymo d-flex">
-                  <img src="@image/icons/housesize.png" alt="" />
-                  <span
-                    >Quy mô: 90 căn nhà liền kề/ 213 căn biệt thự 400 căn hộ chung
-                    cư.</span
-                  >
-                </div>
-                <div class="address d-flex">
-                  <img src="@image/icons/address.png" alt="" />
-                  <span>Phường 12, Tp.Vũng Tàu</span>
-                </div>
-                <div class="contractor d-flex">
-                  <img src="@image/icons/contractor.png" alt="" />
-                  <span
-                    >Chủ đầu tư: Công ty CP Phát triển nhà Bà Rịa – Vũng Tàu
-                    (HODECO)</span
-                  >
-                </div>
-              </div>
-            </el-card>
-          </div>
-          <div class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/bigproject_02.png" alt="" /></figure>
-                <div class="overlay_text">Sắp mở bán</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">Giá từ 1,2-12 tỷ/căn</div>
-                <NuxtLink class="name" to="/project/02/detail"
-                  >THE LIGHT CITY VŨNG TÀU</NuxtLink
-                >
-                <div class="quymo d-flex">
-                  <img src="@image/icons/housesize.png" alt="" />
-                  <span>Quy mô: 3 Block / 176 Căn</span>
-                </div>
-                <div class="address d-flex">
-                  <img src="@image/icons/address.png" alt="" />
-
-                  <span
-                    >Đường Nguyễn Trung Trực, Phường 3, Thành phố Mỹ Tho, Tiền Giang</span
-                  >
-                </div>
-                <div class="contractor d-flex">
-                  <img src="@image/icons/contractor.png" alt="" />
-                  <span>Chủ đầu tư: Công ty TNHH Quản lý bất động sản VICTORIA</span>
-                </div>
-              </div>
-            </el-card>
-          </div>
-          <div class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/bigproject_03.png" alt="" /></figure>
-                <div class="overlay_text">Đã hoàn thành</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">Giá từ 2,1-7,3 tỷ/căn</div>
-                <NuxtLink class="name" to="/project/03/detail"
-                  >JAMILA KHANG ĐIỀN</NuxtLink
-                >
-                <div class="quymo d-flex">
-                  <img src="@image/icons/housesize.png" alt="" />
-                  <span>Quy mô: 3 Block / 176 Căn</span>
-                </div>
-                <div class="address d-flex">
-                  <img src="@image/icons/address.png" alt="" />
-
-                  <span
-                    >Đường Nguyễn Trung Trực, Phường 3, Thành phố Mỹ Tho, Tiền Giang</span
-                  >
-                </div>
-                <div class="contractor d-flex">
-                  <img src="@image/icons/contractor.png" alt="" />
-                  <span>Chủ đầu tư: Công ty TNHH Quản lý bất động sản VICTORIA</span>
-                </div>
-              </div>
-            </el-card>
-          </div>
-          <div class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/special_01.svg" alt="" /></figure>
-                <div class="overlay_text">Sắp mở bán</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">
-                  <span class="first_price">6 tỷ</span>
-                  <span>60 m2</span>
-                </div>
-                <NuxtLink class="name" to="/project/04/detail"
-                  >LOREM IPSUM AMET SIT DOT</NuxtLink
-                >
-                <div class="quymo d-flex">
-                  <img src="@image/icons/housesize.png" alt="" />
-                  <span
-                    >Quy mô: 90 căn nhà liền kề/ 213 căn biệt thự 400 căn hộ chung
-                    cư.</span
-                  >
-                </div>
-                <div class="address d-flex">
-                  <img src="@image/icons/address.png" alt="" />
-                  <span>Phường 12, Tp.Vũng Tàu</span>
-                </div>
-                <div class="contractor d-flex">
-                  <img src="@image/icons/contractor.png" alt="" />
-                  <span
-                    >Chủ đầu tư: Công ty CP Phát triển nhà Bà Rịa – Vũng Tàu
-                    (HODECO)</span
-                  >
-                </div>
-              </div>
-            </el-card>
-          </div>
-          <div class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/special_02.svg" alt="" /></figure>
-                <div class="overlay_text">Đã hoàn thành</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">
-                  <span class="first_price">6 tỷ</span>
-                  <span>60 m2</span>
-                </div>
-                <NuxtLink class="name" to="/project/05/detail"
-                  >LOREM IPSUM AMET SIT DOT</NuxtLink
-                >
-                <div class="quymo d-flex">
-                  <img src="@image/icons/housesize.png" alt="" />
-                  <span>Quy mô: 4 Block / 867 Căn </span>
-                </div>
-                <div class="address d-flex">
-                  <v-icon>mdi-map-marker</v-icon>
-                  <span>đường Song Hành, Phường Phú Hữu, Quận 9, Tp. Hồ Chí Minh</span>
-                </div>
-                <div class="contractor d-flex">
-                  <img src="@image/icons/contractor.png" alt="" />
-                  <span
-                    >Chủ đầu tư: Công ty Cổ phần Đầu tư và Kinh doanh Nhà Khang Điền
-                    (KDH)</span
-                  >
-                </div>
-              </div>
-            </el-card>
-          </div>
-          <div class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/special_03.svg" alt="" /></figure>
-                <div class="overlay_text">Đã hoàn thành</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">
-                  <span class="first_price">6 tỷ</span>
-                  <span>60 m2</span>
-                </div>
-                <NuxtLink class="name" to="/project/07/detail"
-                  >LOREM IPSUM AMET SIT DOT</NuxtLink
-                >
-                <div class="quymo d-flex">
-                  <img src="@image/icons/housesize.png" alt="" />
-                  <span
-                    >Quy mô: 90 căn nhà liền kề/ 213 căn biệt thự 400 căn hộ chung
-                    cư.</span
-                  >
-                </div>
-                <div class="address d-flex">
-                  <img src="@image/icons/address.png" alt="" />
-                  <span>Phường 12, Tp.Vũng Tàu</span>
-                </div>
-                <div class="contractor d-flex">
-                  <img src="@image/icons/contractor.png" alt="" />
-                  <span
-                    >Chủ đầu tư: Công ty CP Phát triển nhà Bà Rịa – Vũng Tàu
-                    (HODECO)</span
-                  >
-                </div>
-              </div>
-            </el-card>
-          </div>
-        </VueSlickCarousel>
-      </div>
-      <v-divider></v-divider>
-      <v-row class="special_project">
-        <v-col cols="6" class="content_left">
-          <img src="@image/layouts/special_project_01.png" alt=""
-        /></v-col>
-        <v-col cols="6">
-          <div class="special_content">
-            <div class="name">KHU NHÀ Ở SÔNG CÂY KHẾ</div>
-            <v-row class="address content">
-              <v-col cols="1"> <img src="@image/icons/address.png" alt="" /></v-col>
-              <v-col cols="11"
-                ><span>Quốc lộ 51A, khu đô thị mới phía Bắc Tp.Vũng Tàu</span></v-col
-              >
-            </v-row>
-            <v-row class="quymo content">
-              <v-col cols="1"> <img src="@image/icons/quymo.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span
-                  >Quy mô:
-                  <span class="highlight"> 175 căn nhà liên kế và 100 căn biệt thự </span>
-                </span></v-col
-              >
-            </v-row>
-            <v-row class="contractor content">
-              <v-col cols="1"><img src="@image/icons/contractor.png" alt="" /></v-col>
-              <v-col cols="11"
-                ><span
-                  >Chủ đầu tư:
-                  <span class="highlight"
-                    >Công ty Cổ phần Đầu tư Xây dựng Sản xuất Tân Thành</span
-                  >
-                </span></v-col
-              >
-            </v-row>
-            <v-row class="price content">
-              <v-col cols="1"><img src="@image/icons/prices.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span>Giá từ: <span class="highlight">1.2-15 tỷ/căn</span> </span></v-col
-              >
-            </v-row>
-            <v-row class="build content">
-              <v-col cols="1"> <img src="@image/icons/buildyear.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span>Năm xây dựng: <span class="highlight">2018</span> </span></v-col
-              >
-            </v-row>
-            <v-row class="finish content">
-              <v-col cols="1"><img src="@image/icons/tiendo.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span>Tiến độ: <span class="highlight"> Đã hoàn thành</span></span></v-col
-              >
-            </v-row>
-            <v-row class="content">
-              <v-btn @click="$router.push('/project/caykhe/detail')"
-                >Xem chi tiết >></v-btn
-              >
-            </v-row>
-          </div></v-col
-        >
-      </v-row>
-      <div class="estateOfProject">
-        <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
-        <div class="btn_group">
-          <div>
-            <v-btn>Cho thuê</v-btn>
-            <v-btn color="warning">Mua bán</v-btn>
-          </div>
-          <div class="content">
-            <v-btn @click="$router.push('/project/caykhe')">Xem Tất cả >></v-btn>
-          </div>
+  >
+    <div>
+      <div class="search_project">
+        <div class="search_link">
+          Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
         </div>
-        <v-row id="img_estate">
-          <v-col cols="3" class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_08.svg" alt="" /></figure>
-                <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">
-                  <span class="first_price">6 tỷ</span>
-                  <span>60 m2</span>
+        <SearchProject />
+        <div class="project_content">
+          <VueSlickCarousel :arrows="true" v-bind="settings">
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/bigproject_01.png" alt="" /></figure>
+                  <div class="overlay_text">Đã hoàn thành</div>
                 </div>
-                <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                <div class="sex d-flex">
-                  <v-icon>mdi-near-me</v-icon>
-                  <span>Nam</span>
+                <div class="add_detail">
+                  <div class="price">
+                    <span class="first_price">6 tỷ</span>
+                    <span>60 m2</span>
+                  </div>
+                  <NuxtLink class="name" to="/project/01/detail"
+                    >VICTORIA PREMIUM</NuxtLink
+                  >
+                  <div class="quymo d-flex">
+                    <img src="@image/icons/housesize.png" alt="" />
+                    <span
+                      >Quy mô: 90 căn nhà liền kề/ 213 căn biệt thự 400 căn hộ chung
+                      cư.</span
+                    >
+                  </div>
+                  <div class="address d-flex">
+                    <img src="@image/icons/address.png" alt="" />
+                    <span>Phường 12, Tp.Vũng Tàu</span>
+                  </div>
+                  <div class="contractor d-flex">
+                    <img src="@image/icons/contractor.png" alt="" />
+                    <span
+                      >Chủ đầu tư: Công ty CP Phát triển nhà Bà Rịa – Vũng Tàu
+                      (HODECO)</span
+                    >
+                  </div>
                 </div>
-                <div class="address d-flex">
-                  <v-icon>mdi-map-marker</v-icon>
-                  <span>Nguyễn Hữu Cảnh</span>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/bigproject_02.png" alt="" /></figure>
+                  <div class="overlay_text">Sắp mở bán</div>
                 </div>
-              </div>
-            </el-card>
-          </v-col>
-          <v-col cols="3" class="estate_img">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix hover14">
-                <figure><img src="@image/layouts/room_15.svg" alt="" /></figure>
-                <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
-              </div>
-              <div class="add_detail">
-                <div class="price">
-                  <span class="first_price">6 tỷ</span>
-                  <span>60 m2</span>
+                <div class="add_detail">
+                  <div class="price">Giá từ 1,2-12 tỷ/căn</div>
+                  <NuxtLink class="name" to="/project/02/detail"
+                    >THE LIGHT CITY VŨNG TÀU</NuxtLink
+                  >
+                  <div class="quymo d-flex">
+                    <img src="@image/icons/housesize.png" alt="" />
+                    <span>Quy mô: 3 Block / 176 Căn</span>
+                  </div>
+                  <div class="address d-flex">
+                    <img src="@image/icons/address.png" alt="" />
+
+                    <span
+                      >Đường Nguyễn Trung Trực, Phường 3, Thành phố Mỹ Tho, Tiền
+                      Giang</span
+                    >
+                  </div>
+                  <div class="contractor d-flex">
+                    <img src="@image/icons/contractor.png" alt="" />
+                    <span>Chủ đầu tư: Công ty TNHH Quản lý bất động sản VICTORIA</span>
+                  </div>
                 </div>
-                <div class="name">LOREM IPSUM AMET SIT DOT</div>
-                <div class="sex d-flex">
-                  <v-icon>mdi-near-me</v-icon>
-                  <span>Nam</span>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/bigproject_03.png" alt="" /></figure>
+                  <div class="overlay_text">Đã hoàn thành</div>
                 </div>
-                <div class="address d-flex">
-                  <v-icon>mdi-map-marker</v-icon>
-                  <span>Nguyễn Hữu Cảnh</span>
+                <div class="add_detail">
+                  <div class="price">Giá từ 2,1-7,3 tỷ/căn</div>
+                  <NuxtLink class="name" to="/project/03/detail"
+                    >JAMILA KHANG ĐIỀN</NuxtLink
+                  >
+                  <div class="quymo d-flex">
+                    <img src="@image/icons/housesize.png" alt="" />
+                    <span>Quy mô: 3 Block / 176 Căn</span>
+                  </div>
+                  <div class="address d-flex">
+                    <img src="@image/icons/address.png" alt="" />
+
+                    <span
+                      >Đường Nguyễn Trung Trực, Phường 3, Thành phố Mỹ Tho, Tiền
+                      Giang</span
+                    >
+                  </div>
+                  <div class="contractor d-flex">
+                    <img src="@image/icons/contractor.png" alt="" />
+                    <span>Chủ đầu tư: Công ty TNHH Quản lý bất động sản VICTORIA</span>
+                  </div>
                 </div>
-              </div>
-            </el-card>
-          </v-col>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/special_01.svg" alt="" /></figure>
+                  <div class="overlay_text">Sắp mở bán</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <span class="first_price">6 tỷ</span>
+                    <span>60 m2</span>
+                  </div>
+                  <NuxtLink class="name" to="/project/04/detail"
+                    >LOREM IPSUM AMET SIT DOT</NuxtLink
+                  >
+                  <div class="quymo d-flex">
+                    <img src="@image/icons/housesize.png" alt="" />
+                    <span
+                      >Quy mô: 90 căn nhà liền kề/ 213 căn biệt thự 400 căn hộ chung
+                      cư.</span
+                    >
+                  </div>
+                  <div class="address d-flex">
+                    <img src="@image/icons/address.png" alt="" />
+                    <span>Phường 12, Tp.Vũng Tàu</span>
+                  </div>
+                  <div class="contractor d-flex">
+                    <img src="@image/icons/contractor.png" alt="" />
+                    <span
+                      >Chủ đầu tư: Công ty CP Phát triển nhà Bà Rịa – Vũng Tàu
+                      (HODECO)</span
+                    >
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/special_02.svg" alt="" /></figure>
+                  <div class="overlay_text">Đã hoàn thành</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <span class="first_price">6 tỷ</span>
+                    <span>60 m2</span>
+                  </div>
+                  <NuxtLink class="name" to="/project/05/detail"
+                    >LOREM IPSUM AMET SIT DOT</NuxtLink
+                  >
+                  <div class="quymo d-flex">
+                    <img src="@image/icons/housesize.png" alt="" />
+                    <span>Quy mô: 4 Block / 867 Căn </span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>đường Song Hành, Phường Phú Hữu, Quận 9, Tp. Hồ Chí Minh</span>
+                  </div>
+                  <div class="contractor d-flex">
+                    <img src="@image/icons/contractor.png" alt="" />
+                    <span
+                      >Chủ đầu tư: Công ty Cổ phần Đầu tư và Kinh doanh Nhà Khang Điền
+                      (KDH)</span
+                    >
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/special_03.svg" alt="" /></figure>
+                  <div class="overlay_text">Đã hoàn thành</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <span class="first_price">6 tỷ</span>
+                    <span>60 m2</span>
+                  </div>
+                  <NuxtLink class="name" to="/project/07/detail"
+                    >LOREM IPSUM AMET SIT DOT</NuxtLink
+                  >
+                  <div class="quymo d-flex">
+                    <img src="@image/icons/housesize.png" alt="" />
+                    <span
+                      >Quy mô: 90 căn nhà liền kề/ 213 căn biệt thự 400 căn hộ chung
+                      cư.</span
+                    >
+                  </div>
+                  <div class="address d-flex">
+                    <img src="@image/icons/address.png" alt="" />
+                    <span>Phường 12, Tp.Vũng Tàu</span>
+                  </div>
+                  <div class="contractor d-flex">
+                    <img src="@image/icons/contractor.png" alt="" />
+                    <span
+                      >Chủ đầu tư: Công ty CP Phát triển nhà Bà Rịa – Vũng Tàu
+                      (HODECO)</span
+                    >
+                  </div>
+                </div>
+              </el-card>
+            </div>
+          </VueSlickCarousel>
+        </div>
+        <v-divider></v-divider>
+        <v-row class="special_project">
+          <v-col cols="12" sm="6" class="content_left">
+            <img src="@image/layouts/special_project_01.png" alt=""
+          /></v-col>
+          <v-col cols="12" sm="6">
+            <div class="special_content">
+              <div class="name">KHU NHÀ Ở SÔNG CÂY KHẾ</div>
+              <v-row class="address content">
+                <v-col cols="1"> <img src="@image/icons/address.png" alt="" /></v-col>
+                <v-col cols="11"
+                  ><span>Quốc lộ 51A, khu đô thị mới phía Bắc Tp.Vũng Tàu</span></v-col
+                >
+              </v-row>
+              <v-row class="quymo content">
+                <v-col cols="1"> <img src="@image/icons/quymo.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span
+                    >Quy mô:
+                    <span class="highlight">
+                      175 căn nhà liên kế và 100 căn biệt thự
+                    </span>
+                  </span></v-col
+                >
+              </v-row>
+              <v-row class="contractor content">
+                <v-col cols="1"><img src="@image/icons/contractor.png" alt="" /></v-col>
+                <v-col cols="11"
+                  ><span
+                    >Chủ đầu tư:
+                    <span class="highlight"
+                      >Công ty Cổ phần Đầu tư Xây dựng Sản xuất Tân Thành</span
+                    >
+                  </span></v-col
+                >
+              </v-row>
+              <v-row class="price content">
+                <v-col cols="1"><img src="@image/icons/prices.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span
+                    >Giá từ: <span class="highlight">1.2-15 tỷ/căn</span>
+                  </span></v-col
+                >
+              </v-row>
+              <v-row class="build content">
+                <v-col cols="1"> <img src="@image/icons/buildyear.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span>Năm xây dựng: <span class="highlight">2018</span> </span></v-col
+                >
+              </v-row>
+              <v-row class="finish content">
+                <v-col cols="1"><img src="@image/icons/tiendo.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span
+                    >Tiến độ: <span class="highlight"> Đã hoàn thành</span></span
+                  ></v-col
+                >
+              </v-row>
+              <v-row class="content">
+                <v-btn @click="$router.push('/project/caykhe/detail')"
+                  >Xem chi tiết >></v-btn
+                >
+              </v-row>
+            </div></v-col
+          >
         </v-row>
-      </div>
-      <v-row class="special_project">
-        <v-col cols="6" class="content_left">
-          <img src="@image/layouts/ngoctuoc.png" alt=""
-        /></v-col>
-        <v-col cols="6">
-          <div class="special_content">
-            <div class="name">KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II</div>
-            <v-row class="address content">
-              <v-col cols="1"> <img src="@image/icons/address.png" alt="" /></v-col>
-              <v-col cols="11"
-                ><span
-                  >Đường 3 tháng 2, phường 8, Tp.Vũng Tàu, Bà Rịa – Vũng Tàu</span
-                ></v-col
-              >
-            </v-row>
-            <v-row class="quymo content">
-              <v-col cols="1"> <img src="@image/icons/quymo.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span
-                  >Quy mô:
-                  <span class="highlight"> 175 căn nhà liên kế và 100 căn biệt thự </span>
-                </span></v-col
-              >
-            </v-row>
-            <v-row class="contractor content">
-              <v-col cols="1"><img src="@image/icons/contractor.png" alt="" /></v-col>
-              <v-col cols="11"
-                ><span
-                  >Chủ đầu tư:
-                  <span class="highlight"
-                    >Công ty Cổ phần Phát triển nhà Bà Rịa – Vũng Tàu (HODECO)</span
+        <div class="estateOfProject">
+          <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
+          <div class="btn_group">
+            <div>
+              <v-btn>Cho thuê</v-btn>
+              <v-btn color="warning">Mua bán</v-btn>
+            </div>
+            <div class="content">
+              <v-btn @click="$router.push('/project/caykhe')">Xem Tất cả >></v-btn>
+            </div>
+          </div>
+          <v-row id="img_estate">
+            <v-col cols="6" sm="4" lg="3" class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <router-link to="/rent/01"
+                    ><figure><img src="@image/layouts/room_07.png" alt="" /></figure
+                  ></router-link>
+                  <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <router-link class="name" to="/rent/01"
+                    >NHÀ MẶT TIỀN ĐỊA ĐIỂM TỐT</router-link
                   >
-                </span></v-col
-              >
-            </v-row>
-            <v-row class="price content">
-              <v-col cols="1"><img src="@image/icons/prices.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span>Giá từ: <span class="highlight">30-50 tỷ/căn</span> </span></v-col
-              >
-            </v-row>
-            <v-row class="build content">
-              <v-col cols="1"> <img src="@image/icons/buildyear.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span>Năm xây dựng: <span class="highlight">2020</span> </span></v-col
-              >
-            </v-row>
-            <v-row class="finish content">
-              <v-col cols="1"><img src="@image/icons/tiendo.png" alt="" /></v-col>
-              <v-col cols="11">
-                <span>Tiến độ: <span class="highlight"> Đã hoàn thành</span></span></v-col
-              >
-            </v-row>
-            <v-row class="content">
-              <v-btn @click="$router.push('/project/ngoctuoc/detail')"
-                >Xem chi tiết >></v-btn
-              >
-            </v-row>
-          </div></v-col
-        >
-      </v-row>
-      <div class="estateOfProject">
-        <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
-        <div class="btn_group">
-          <div>
-            <v-btn>Cho thuê</v-btn>
-            <v-btn color="warning">Mua bán</v-btn>
-          </div>
-          <div class="content">
-            <v-btn @click="$router.push('/project/ngoctuoc')">Xem Tất cả >></v-btn>
-          </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Địa chỉ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-map-marker</v-icon>
+                    </el-tooltip>
+                    <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+                  </div>
+                </div>
+              </el-card>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3" class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <router-link to="/rent/01"
+                    ><figure><img src="@image/layouts/room_15.svg" alt="" /></figure
+                  ></router-link>
+                  <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <router-link class="name" to="/rent/01"
+                    >BÁN CĂN BIỆT THỰ CẤP 4</router-link
+                  >
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Địa chỉ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-map-marker</v-icon>
+                    </el-tooltip>
+                    <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+                  </div>
+                </div>
+              </el-card>
+            </v-col>
+            <v-col cols="6" sm="4" lg="3" class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <router-link to="/rent/01"
+                    ><figure><img src="@image/layouts/room_08.svg" alt="" /></figure
+                  ></router-link>
+                  <div class="overlay_title">Khu nhà ở sông Cây Khế</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <router-link class="name" to="/rent/01"
+                    >BÁN NHÀ Ở KHU NHÀ CÂY KHẾ</router-link
+                  >
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Địa chỉ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-map-marker</v-icon>
+                    </el-tooltip>
+                    <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
+                  </div>
+                </div>
+              </el-card>
+            </v-col>
+          </v-row>
         </div>
-        <div id="img_estate">
-          <VueSlickCarousel :arrows="true" v-bind="settings02">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_38.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
-                  </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Đông</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
+        <v-row class="special_project">
+          <v-col cols="12" sm="6" class="content_left">
+            <img src="@image/layouts/ngoctuoc.png" alt=""
+          /></v-col>
+          <v-col cols="12" sm="6">
+            <div class="special_content">
+              <div class="name">KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II</div>
+              <v-row class="address content">
+                <v-col cols="1"> <img src="@image/icons/address.png" alt="" /></v-col>
+                <v-col cols="11"
+                  ><span
+                    >Đường 3 tháng 2, phường 8, Tp.Vũng Tàu, Bà Rịa – Vũng Tàu</span
+                  ></v-col
+                >
+              </v-row>
+              <v-row class="quymo content">
+                <v-col cols="1"> <img src="@image/icons/quymo.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span
+                    >Quy mô:
+                    <span class="highlight">
+                      175 căn nhà liên kế và 100 căn biệt thự
+                    </span>
+                  </span></v-col
+                >
+              </v-row>
+              <v-row class="contractor content">
+                <v-col cols="1"><img src="@image/icons/contractor.png" alt="" /></v-col>
+                <v-col cols="11"
+                  ><span
+                    >Chủ đầu tư:
+                    <span class="highlight"
+                      >Công ty Cổ phần Phát triển nhà Bà Rịa – Vũng Tàu (HODECO)</span
+                    >
+                  </span></v-col
+                >
+              </v-row>
+              <v-row class="price content">
+                <v-col cols="1"><img src="@image/icons/prices.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span>Giá từ: <span class="highlight">30-50 tỷ/căn</span> </span></v-col
+                >
+              </v-row>
+              <v-row class="build content">
+                <v-col cols="1"> <img src="@image/icons/buildyear.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span>Năm xây dựng: <span class="highlight">2020</span> </span></v-col
+                >
+              </v-row>
+              <v-row class="finish content">
+                <v-col cols="1"><img src="@image/icons/tiendo.png" alt="" /></v-col>
+                <v-col cols="11">
+                  <span
+                    >Tiến độ: <span class="highlight"> Đã hoàn thành</span></span
+                  ></v-col
+                >
+              </v-row>
+              <v-row class="content">
+                <v-btn @click="$router.push('/project/ngoctuoc/detail')"
+                  >Xem chi tiết >></v-btn
+                >
+              </v-row>
+            </div></v-col
+          >
+        </v-row>
+        <div class="estateOfProject">
+          <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
+          <div class="btn_group">
+            <div>
+              <v-btn>Cho thuê</v-btn>
+              <v-btn color="warning">Mua bán</v-btn>
             </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_39.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
-                  </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
-                  </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
+            <div class="content">
+              <v-btn @click="$router.push('/project/ngoctuoc')">Xem Tất cả >></v-btn>
             </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+          </div>
+          <div id="img_estate">
+            <VueSlickCarousel :arrows="true" v-bind="settings02">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_38.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
                   </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_39.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
                   </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_41.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
                   </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_41.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <v-icon>mdi-near-me</v-icon>
+                      <span>Nam</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
                   </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_42.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_42.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
                   </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-            <!-- <div class="estate_img">
+                </el-card>
+              </div>
+              <!-- <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
@@ -552,25 +837,24 @@
                 </div>
               </el-card>
             </div> -->
-          </VueSlickCarousel>
+            </VueSlickCarousel>
+          </div>
         </div>
-      </div>
-      <!-- <v-divider></v-divider> -->
-      <!-- <div class="text-center">
+        <!-- <v-divider></v-divider> -->
+        <!-- <div class="text-center">
         <v-pagination v-model="page" :length="6" color="warning"></v-pagination>
       </div> -->
 
-      <div class="more_info">
-        <v-btn>Xem thêm thông tin <v-icon>mdi-chevron-double-down</v-icon></v-btn>
+        <div class="more_info">
+          <v-btn>Xem thêm thông tin <v-icon>mdi-chevron-double-down</v-icon></v-btn>
+        </div>
+      </div>
+      <div class="footer">
+        <Services />
+        <Footer />
       </div>
     </div>
-    <div class="footer">
-      <Services />
-      <Footer />
-    </div>
-  </div>
   </v-lazy>
- 
 </template>
 
 <script>
@@ -597,8 +881,16 @@ export default {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        prevArrow: `<v-btn>Số 1</v-btn>`,
-        nextArrow: `<button>Số 2</button>`,
+        responsive: [
+          {
+            breakpoint: 920,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
       },
       settings02: {
         dots: false,
@@ -607,8 +899,24 @@ export default {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        prevArrow: `<v-btn>Số 1</v-btn>`,
-        nextArrow: `<button>Số 2</button>`,
+        responsive: [
+          {
+            breakpoint: 1250,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 920,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
       },
     };
   },
@@ -740,6 +1048,7 @@ export default {
       box-shadow: none;
       height: 32px;
       font-size: 12px;
+      margin-left: 12px;
     }
   }
   .special_content {
@@ -804,41 +1113,41 @@ export default {
         width: 15px;
         height: 15px;
       }
-      .price {
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 30px;
-        color: #fbad18;
-        .first_price {
-          margin-right: 15px;
-          padding-right: 15px;
-          border-right: 1px solid $color-black-01;
-        }
-      }
-      .name {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
-        color: #000000;
-        margin: 5px 0 10px;
-      }
-      .sex {
-        .v-icon {
-          color: #c4c4c4;
-          margin-right: 15px;
-        }
-        font-size: 16px;
-        line-height: 30px;
-        margin-bottom: 5px;
-      }
-      .address {
-        .v-icon {
-          color: #c4c4c4;
-          margin-right: 15px;
-        }
-        font-size: 16px;
-        line-height: 20px;
-      }
+      //   .price {
+      //     font-weight: bold;
+      //     font-size: 16px;
+      //     line-height: 30px;
+      //     color: #fbad18;
+      //     .first_price {
+      //       margin-right: 15px;
+      //       padding-right: 15px;
+      //       border-right: 1px solid $color-black-01;
+      //     }
+      //   }
+      //   .name {
+      //     font-weight: 500;
+      //     font-size: 16px;
+      //     line-height: 20px;
+      //     color: #000000;
+      //     margin: 5px 0 10px;
+      //   }
+      //   .sex {
+      //     .v-icon {
+      //       color: #c4c4c4;
+      //       margin-right: 15px;
+      //     }
+      //     font-size: 16px;
+      //     line-height: 30px;
+      //     margin-bottom: 5px;
+      //   }
+      //   .address {
+      //     .v-icon {
+      //       color: #c4c4c4;
+      //       margin-right: 15px;
+      //     }
+      //     font-size: 16px;
+      //     line-height: 20px;
+      //   }
     }
     .clearfix {
       position: relative;
@@ -858,6 +1167,64 @@ export default {
         text-align: center;
       }
     }
+    .estate_img {
+      width: 25%;
+      padding: 20px;
+      img {
+        width: 100%;
+        height: 80%;
+        display: block;
+      }
+      .add_detail {
+        img {
+          width: 15px;
+          height: 15px;
+        }
+        .price {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 30px;
+          color: #fbad18;
+          .first_price {
+            margin-right: 15px;
+            padding-right: 15px;
+            border-right: 1px solid $color-black-01;
+          }
+        }
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 40px;
+          color: #000000;
+          text-decoration: none;
+          &:hover {
+            color: $color-orange-light;
+            // text-decoration: ;
+            transition: 0.5s;
+          }
+        }
+        .sex {
+          .v-icon {
+            color: #c4c4c4;
+            margin: 0 10px 0 15px;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+          font-size: 16px;
+          line-height: 30px;
+          margin: 10px 0;
+        }
+        .address {
+          .v-icon {
+            color: #c4c4c4;
+            margin-right: 10px;
+          }
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
   }
   // }
 }
@@ -868,6 +1235,153 @@ export default {
     text-transform: capitalize;
     background-color: $color-orange-light;
     color: #7a7a7a;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .search_project {
+    padding: 0 5%;
+  }
+  .estate_img {
+    padding: 10px;
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .name {
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .estate_img {
+    .add_detail {
+      .price {
+        font-size: 20px;
+      }
+      .quymo,
+      .address,
+      .contractor {
+        font-size: 14px;
+      }
+    }
+  }
+  .special_content {
+    .content {
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .search_link {
+    font-size: 14px !important;
+  }
+  .estate_img {
+    padding: 5px;
+  }
+  .search_project {
+    margin-top: 100px;
+  }
+  // #img_estate {
+  .estate_img {
+    padding: 6px !important;
+    h2 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
+    }
+    .add_detail {
+      margin: -10px;
+      font-size: 12x;
+      .price {
+        margin-top: 5px;
+        font-size: 12px !important;
+        line-height: 18px;
+        .first_price {
+          margin-right: 6px !important;
+          padding-right: 6px !important;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      .quymo,
+      .address,
+      .contractor {
+        font-size: 11px !important;
+        align-items: normal !important;
+        img {
+          margin-right: 6px;
+        }
+      }
+      .quymo,
+      .contractor {
+        img {
+          margin-top: 3px;
+        }
+      }
+      .name {
+        font-size: 12x !important;
+      }
+      .sex {
+        font-size: 11px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin: 0 6px 0 5px !important;
+          font-size: 14px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        line-height: 20px !important;
+        margin: 5px 0 !important;
+      }
+      .address {
+        font-size: 11px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+        line-height: 16px !important;
+        letter-spacing: 0.1px;
+      }
+    }
+  }
+  #img_estate {
+    .estate_img {
+      .clearfix {
+        .overlay_title {
+          padding: 0 5px;
+          height: 25px;
+          width: auto;
+          right: 0px;
+          left: 0px !important;
+          bottom: -14px;
+          font-weight: 500;
+          font-size: 12px;
+          text-align: left;
+          overflow: hidden;
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+  .special_content {
+    .name {
+      font-size: 16px;
+    }
+  }
+  .estateOfProject {
+    .estate_title {
+      font-size: 16px;
+    }
+    .btn_group {
+      .v-btn {
+        font-size: 12px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  // }
+  .estateOfProject #img_estate .estate_img .add_detail .name {
+    font-size: 12px !important;
   }
 }
 </style>

@@ -142,4 +142,51 @@ export default {
     scale: 1;
   }
 }
+@media screen and (max-width: 1250px) {
+  .services {
+    .service_content {
+      .service_item {
+        .service_img {
+          img {
+            width: 120px;
+            margin: 0 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .services {
+    .service_title {
+      font-size: 16px;
+      margin: 0 20px;
+      margin-top: -30px;
+    }
+    .service_content {
+      display: block;
+      .service_item {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 30px;
+        .service_img {
+          width: auto;
+          img {
+            width: 50px;
+            margin: 0 15px;
+          }
+        }
+        .services_detail {
+          .name {
+            font-size: 14px;
+          }
+          .quote {
+            font-size: 12px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

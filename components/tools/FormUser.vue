@@ -178,4 +178,21 @@ export default {
     border-radius: 4px;
   }
 }
+@media screen and (max-width: 1080px) {
+  .form_info {
+    .form_title {
+      font-size: 16px;
+    }
+    .note {
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .form_info {
+    .note {
+      font-size: 12px;
+    }
+  }
+}
 </style>

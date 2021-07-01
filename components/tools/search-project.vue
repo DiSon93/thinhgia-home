@@ -1,18 +1,26 @@
 <template>
   <div>
+    <div class="selection">
+      <div id="project_type_tablet">
+        <el-cascader
+          :options="options"
+          :props="props"
+          collapse-tags
+          clearable
+          placeholder="Loại Dự án"
+        ></el-cascader>
+      </div>
+    </div>
+
     <div class="selection d-flex">
-      <div>
-        <el-input
-          placeholder="Nhập địa chỉ tìm kiếm"
-          v-model="input3"
-          class="input-with-select"
-        >
-          <el-select v-model="select" slot="prepend" placeholder="Select">
-            <el-option label="BĐS Bán" value="1"></el-option>
-            <el-option label="BĐS Thuê" value="2"></el-option>
-            <el-option label="Dự Án" value="3"></el-option>
-          </el-select>
-        </el-input>
+      <div id="project_type">
+        <el-cascader
+          :options="options"
+          :props="props"
+          collapse-tags
+          clearable
+          placeholder="Loại Dự án"
+        ></el-cascader>
       </div>
       <div id="rent">
         <v-select
@@ -26,15 +34,87 @@
       </div>
 
       <div id="price">
-        <el-popover placement="bottom" width="360" v-model="visible02">
+        <el-popover placement="bottom" width="420" v-model="visible02">
           <p>Khoảng giá(tỷ)</p>
-          <div>
-            <el-slider v-model="value02" range :marks="marks02" :max="15"> </el-slider>
+          <div class="block">
+            <el-slider
+              v-model="value02"
+              range
+              :marks="marks02"
+              :max="15"
+              @change="numberChange02"
+            >
+            </el-slider>
           </div>
-          <el-button slot="reference"
-            >Khoảng giá <i class="el-icon-caret-bottom"></i
+          <div class="input_selectrange">
+            <div class="d-flex">
+              <span>Từ:</span>
+              <el-input-number
+                @change="numberChange02"
+                v-model="valueNew02[0]"
+              ></el-input-number>
+            </div>
+            <div class="d-flex">
+              <span>Đến:</span>
+              <el-input-number
+                @change="numberChange02"
+                v-model="valueNew02[1]"
+              ></el-input-number>
+            </div>
+          </div>
+          <el-button slot="reference">
+            <p v-if="isPrice">Khoảng giá</p>
+            {{ answer02 }} <i class="el-icon-caret-bottom"></i
           ></el-button>
         </el-popover>
+      </div>
+      <div class="responsive_select">
+        <div id="rent">
+          <v-select
+            :items="items"
+            placeholder="Cho thuê"
+            solo
+            filled
+            multiple
+            chips
+          ></v-select>
+        </div>
+
+        <div id="price">
+          <el-popover placement="bottom" width="350" v-model="visible03">
+            <p>Khoảng giá(tỷ)</p>
+            <div class="block">
+              <el-slider
+                v-model="value02"
+                range
+                :marks="marks02"
+                :max="15"
+                @change="numberChange02"
+              >
+              </el-slider>
+            </div>
+            <div class="input_selectrange">
+              <div class="d-flex">
+                <span>Từ:</span>
+                <el-input-number
+                  @change="numberChange02"
+                  v-model="valueNew02[0]"
+                ></el-input-number>
+              </div>
+              <div class="d-flex">
+                <span>Đến:</span>
+                <el-input-number
+                  @change="numberChange02"
+                  v-model="valueNew02[1]"
+                ></el-input-number>
+              </div>
+            </div>
+            <el-button slot="reference">
+              <p v-if="isPrice">Khoảng giá</p>
+              {{ answer02 }} <i class="el-icon-caret-bottom"></i
+            ></el-button>
+          </el-popover>
+        </div>
       </div>
       <div id="proccess">
         <v-select
@@ -66,6 +146,38 @@
           chips
         ></v-select>
       </div>
+      <div class="responsive_select">
+        <div id="proccess">
+          <v-select
+            :items="items"
+            placeholder="Tiến độ"
+            solo
+            filled
+            multiple
+            chips
+          ></v-select>
+          <!-- <el-popover placement="bottom" width="360" v-model="visible03">
+          <p>Tiến độ</p>
+          <div>
+            <el-slider :marks="marks03" v-model="value03" :step="10" show-stops>
+            </el-slider>
+          </div>
+          <el-button slot="reference"
+            >Tiến độ <i class="el-icon-caret-bottom"></i
+          ></el-button>
+        </el-popover> -->
+        </div>
+        <div id="built_year">
+          <v-select
+            :items="items"
+            placeholder="Năm XD"
+            solo
+            filled
+            multiple
+            chips
+          ></v-select>
+        </div>
+      </div>
       <div class="filter">
         <v-btn outlined color="warning" @click="isFilter = !isFilter">
           Lọc thêm
@@ -75,21 +187,24 @@
       <div class="timkiem">
         <v-btn color="warning">Tìm Kiếm</v-btn>
       </div>
+      <div class="responsive_select">
+        <div class="filter">
+          <v-btn outlined color="warning" @click="isFilter = !isFilter">
+            Lọc thêm
+            <img src="@image/icons/filter.png" alt="" />
+          </v-btn>
+        </div>
+        <div class="timkiem">
+          <v-btn color="warning">Tìm Kiếm</v-btn>
+        </div>
+      </div>
     </div>
+    <!-- <transition name="el-zoom-in-top"> -->
     <el-card class="filter_content box-card" v-if="isFilter">
       <div class="filter_title">Khu vực</div>
       <v-row>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_city">
-            <!-- <v-select
-              v-model="e2"
-              :items="items01"
-              placeholder="Tỉnh/Thành phố"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options02"
               :props="props"
@@ -99,17 +214,8 @@
             ></el-cascader>
           </div>
         </v-col>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_district">
-            <!-- <v-select
-              v-model="e3"
-              :items="items02"
-              placeholder="Quận/Huyện"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options03"
               :props="props"
@@ -119,17 +225,8 @@
             ></el-cascader>
           </div>
         </v-col>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_square">
-            <!-- <v-select
-              v-model="e4"
-              :items="items03"
-              placeholder="Diện tích"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options04"
               :props="props"
@@ -139,37 +236,56 @@
             ></el-cascader>
           </div>
         </v-col>
-        <v-col cols="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_price">
-            <!-- <v-select
-              v-model="e6"
-              :items="items04"
-              placeholder="Khoảng giá"
-              solo
-              filled
-              multiple
-              chips
-            ></v-select> -->
             <el-cascader
               :options="options05"
               :props="props"
               collapse-tags
               clearable
               placeholder="Khoảng giá"
+              multiple
             ></el-cascader>
           </div>
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="6" class="">
-          <div>Số phòng ngủ</div>
+        <!-- <v-col cols="6" class="">
+          <div>Loại Nhà/Đất</div>
         </v-col>
         <v-col cols="6">
-          <div>Hướng</div>
-        </v-col>
+          <div>Số phòng ngủ</div>
+        </v-col> -->
+        <div class="type_of_estate d-flex">
+          <div class="items">Loại Nhà/Đất</div>
+          <div class="items">Số phòng ngủ</div>
+        </div>
       </v-row>
       <v-row>
-        <v-col cols="6" class="bedrooms">
+        <v-col cols="6" sm="3" class="options" align="center">
+          <div class="select_type">
+            <el-cascader
+              :options="options06"
+              :props="{ checkStrictly: true }"
+              collapse-tags
+              clearable
+              placeholder="Loại Nhà/Đất"
+            ></el-cascader>
+          </div>
+        </v-col>
+        <v-col cols="6" sm="3" class="options" align="center">
+          <div class="select_direction">
+            <el-cascader
+              :options="options07"
+              :props="{ checkStrictly: true }"
+              collapse-tags
+              clearable
+              placeholder="Hướng"
+            ></el-cascader>
+          </div>
+        </v-col>
+        <div class="res_bed">Số phòng ngủ</div>
+        <v-col cols="12" sm="6" class="bedrooms">
           <el-button> Tất cả </el-button>
           <el-button> 1 </el-button>
           <el-button> 2 </el-button>
@@ -177,19 +293,10 @@
           <el-button> 4 </el-button>
           <el-button> 5+ </el-button>
         </v-col>
-        <v-col cols="6" class="direction">
-          <el-button> Tất cả </el-button>
-          <el-button> Đông </el-button>
-          <el-button> Tây </el-button>
-          <el-button> Nam </el-button>
-          <el-button> Bắc </el-button>
-          <el-button> Đông Bắc </el-button>
-          <el-button> Tây Bắc </el-button>
-          <el-button> Đông Nam </el-button>
-          <el-button> Tây Nam </el-button>
-        </v-col>
+        <!-- </el-slider> -->
       </v-row>
     </el-card>
+    <!-- </transition> -->
   </div>
 </template>
 
@@ -221,35 +328,23 @@ export default {
         },
         {
           value: 23,
-          label: "Nhà ở riêng lẻ",
+          label: "Nhà liền kề & Biệt thự",
         },
         {
           value: 24,
-          label: "Nhà mặt tiền",
+          label: "Condotel",
         },
         {
           value: 25,
-          label: "Biệt thự-Villa",
+          label: "Đất ở",
         },
         {
           value: 26,
-          label: "Nhà nghỉ/Khách sạn",
+          label: "Shop thương mại",
         },
         {
           value: 27,
-          label: "Phòng trọ",
-        },
-        {
-          value: 28,
-          label: "Kho xưởng",
-        },
-        {
-          value: 29,
-          label: "Trang trại",
-        },
-        {
-          value: 30,
-          label: "Loại khác",
+          label: "Khu công nghiệp",
         },
       ],
       options02: [
@@ -267,7 +362,7 @@ export default {
         },
         {
           value: 24,
-          label: "Vũng Tàu",
+          label: "Bà Rịa Vũng Tàu",
         },
         {
           value: 25,
@@ -436,6 +531,54 @@ export default {
           label: "Trên 10tỷ",
         },
       ],
+      options06: [
+        {
+          value: 1,
+          label: "Nhà",
+        },
+        {
+          value: 14,
+          label: "Đất",
+        },
+      ],
+      options07: [
+        {
+          value: 1,
+          label: "Tất cả",
+        },
+        {
+          value: 2,
+          label: "Đông",
+        },
+        {
+          value: 3,
+          label: "Tây",
+        },
+        {
+          value: 4,
+          label: "Nam",
+        },
+        {
+          value: 5,
+          label: "Bắc",
+        },
+        {
+          value: 6,
+          label: "Đông Bắc",
+        },
+        {
+          value: 7,
+          label: "Tây Bắc",
+        },
+        {
+          value: 8,
+          label: "Đông Nam",
+        },
+        {
+          value: 9,
+          label: "Tây Nam",
+        },
+      ],
       visible02: false,
       visible03: false,
       value02: [0, 10],
@@ -453,7 +596,21 @@ export default {
         1: "Đang hoàn thành",
         2: "Chưa hoàn thành",
       },
+      answer02: "Khoảng giá",
+      isPrice: false,
     };
+  },
+  computed: {
+    valueNew02() {
+      return JSON.parse(JSON.stringify(this.value02));
+    },
+  },
+  methods: {
+    numberChange02() {
+      this.value02 = this.valueNew02;
+      this.answer02 = `${this.valueNew02[0]}-${this.valueNew02[1]} tỷ`;
+      this.isPrice = true;
+    },
   },
 };
 </script>
@@ -469,6 +626,7 @@ export default {
 }
 .filter_title {
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 .bedrooms,
 .direction {
@@ -480,6 +638,85 @@ export default {
     &:focus {
       background-color: $color-white;
       border: 1px solid $color-orange;
+    }
+  }
+}
+.type_of_estate {
+  width: 100%;
+  display: flex;
+  margin: 5px 0 5px;
+  .items {
+    width: 50%;
+    margin-left: 20px;
+  }
+}
+.res_bed {
+  display: none;
+}
+.responsive_square_price {
+  display: none !important;
+}
+#project_type_tablet {
+  display: none;
+}
+.responsive_select {
+  display: none;
+}
+@media screen and (max-width: 1250px) {
+  #project_type_tablet {
+    display: block !important;
+    margin-bottom: 15px;
+  }
+  #project_type {
+    display: none;
+  }
+  .filter_content {
+    width: 92%;
+  }
+}
+@media screen and (max-width: 960px) {
+}
+@media screen and (max-width: 600px) {
+  #project_type_tablet {
+    text-align: center;
+  }
+  .selection {
+    display: block !important;
+  }
+  .filter_content {
+    width: 92%;
+  }
+  .type_of_estate {
+    display: none !important;
+  }
+  .res_bed {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: -10px;
+  }
+  .options {
+    padding: 6px !important;
+  }
+  #rent,
+  #price,
+  #proccess,
+  #built_year,
+  .filter,
+  .timkiem {
+    display: none;
+  }
+  .responsive_select {
+    display: block;
+    display: flex;
+    justify-content: center;
+    #rent,
+    #price,
+    #proccess,
+    #built_year,
+    .filter,
+    .timkiem {
+      display: block;
+      margin: 0 5px;
     }
   }
 }

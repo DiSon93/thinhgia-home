@@ -1,14 +1,14 @@
 <template>
   <div class="homepage">
-    <v-row justify="center">
-      <v-col cols="12">
-        <Carousel />
-      </v-col>
-    </v-row>
+    <div justify="center">
+      <!-- <div> -->
+      <Carousel />
+      <!-- </div> -->
+    </div>
     <div class="homepage_content">
-      <div justify="center">
-        <Banner />
-      </div>
+      <!-- <div justify="center"> -->
+      <Banner />
+      <!-- </div> -->
       <div justify="center">
         <SpecialSale />
       </div>
@@ -76,5 +76,10 @@ export default {
 }
 .homepage {
   margin-top: 122px;
+}
+@media screen and (max-width: 1250px) {
+  .homepage_content {
+    padding: 0 5%;
+  }
 }
 </style>

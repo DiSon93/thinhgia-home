@@ -38,13 +38,19 @@
               các khách hàng sinh sống, du lịch và nghỉ dưỡng.
             </div>
             <br />
+            <div>– Tên dự án: Khu biệt thự đồi Ngọc Tước II</div>
+            <div>– Chủ đầu tư: Công ty CP Phát triển Nhà Bà Rịa – Vũng Tàu (Hodeco)</div>
+            <div>– Loại hình: Đất nền, biệt thự</div>
             <div>
-              – Tên dự án: Khu biệt thự đồi Ngọc Tước II – Chủ đầu tư: Công ty CP Phát
-              triển Nhà Bà Rịa – Vũng Tàu (Hodeco) – Loại hình: Đất nền, biệt thự – Quy
-              mô: 149 biệt thự diện tích từ 300m-700m2, 133 căn liên kế và 40 nền nhà tái
-              định cư – Tổng diện tích: 14,3 ha – Diện tích đất ở: 74.456m2 – Diện tích
-              đất dịch vụ du lịch, giải trí: 22.248m2 – Diện tích cây xanh: 12.283m2 –
-              Diện tích đất giao thông: 34.449m2 eco) – Tổng mức đầu tư: 340 tỷ đồng
+              – Quy mô: 149 biệt thự diện tích từ 300m-700m2, 133 căn liên kế và 40 nền
+              nhà tái định cư
+            </div>
+            <div>– Tổng diện tích: 14,3 ha</div>
+            <div>– Diện tích đất ở: 74.456m2</div>
+            <div>– Diện tích đất dịch vụ du lịch, giải trí: 22.248m2</div>
+            <div>– Diện tích cây xanh: 12.283m2</div>
+            <div>
+              – Diện tích đất giao thông: 34.449m2 eco) – Tổng mức đầu tư: 340 tỷ đồng
             </div>
             <br />
             <div class="name">Vị trí - Tiện ích</div>

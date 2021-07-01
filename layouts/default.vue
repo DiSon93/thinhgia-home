@@ -1,5 +1,35 @@
 <template>
   <v-app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      fixed
+      app
+    >
+      <v-list>
+        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-list-group :value="false" prepend-icon="mdi-account-circle">
+        <template v-slot:activator>
+          <v-list-item-title>Users</v-list-item-title>
+        </template>
+        <v-list-item v-for="([title, icon], i) in user" :key="i" link>
+          <v-list-item-title v-text="title"></v-list-item-title>
+
+          <v-list-item-icon>
+            <v-icon v-text="icon"></v-icon>
+          </v-list-item-icon>
+        </v-list-item>
+      </v-list-group>
+    </v-navigation-drawer>
     <div class="header">
       <div class="info">
         <v-icon>mdi-phone-dial</v-icon>
@@ -7,27 +37,23 @@
         <v-icon>mdi-email</v-icon>
         <a href="#">khobatdongsanviet@gmail.com</a>
       </div>
-      <!-- <v-lazy
-        v-model="isActive"
-        :options="{
-          threshold: 0.5,
-        }"
-        min-height="50"
-        transition="fade-transition"
-      > -->
-      <v-row class="header_items">
-        <v-col cols="8" class="d-flex">
+
+      <div class="header_items">
+        <div class="d-flex header_left">
           <router-link to="/">
             <img src="@image/layouts/bansaodanhthiep.png" alt="" />
           </router-link>
 
           <div class="header_choise">
             <el-dropdown placement="top-start">
-              <NuxtLink to="/search/sell">
-                <el-button type="warning" plain>
+              <router-link to="/search/sell">
+                <el-button type="warning" v-if="this.$route.path == '/search/sell'">
                   BĐS Bán <i class="el-icon-caret-bottom"></i>
                 </el-button>
-              </NuxtLink>
+                <el-button type="warning" plain v-else>
+                  BĐS Bán <i class="el-icon-caret-bottom"></i>
+                </el-button>
+              </router-link>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
                 <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
@@ -41,11 +67,14 @@
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start">
-              <NuxtLink to="/search/rent">
-                <el-button type="warning" plain>
+              <router-link to="/search/rent">
+                <el-button type="warning" v-if="this.$route.path == '/search/rent'">
+                  BĐS Thuê <i class="el-icon-caret-bottom"></i>
+                </el-button>
+                <el-button type="warning" plain v-else>
                   BĐS Thuê <i class="el-icon-caret-bottom"></i
                 ></el-button>
-              </NuxtLink>
+              </router-link>
 
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
@@ -60,22 +89,27 @@
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start">
-              <NuxtLink to="/search/project">
-                <el-button type="warning" plain>
+              <router-link to="/search/project">
+                <el-button type="warning" v-if="this.$route.path == '/search/project'">
+                  Dự Án <i class="el-icon-caret-bottom"></i>
+                </el-button>
+                <el-button type="warning" plain v-else>
                   Dự Án <i class="el-icon-caret-bottom"></i
                 ></el-button>
-              </NuxtLink>
+              </router-link>
 
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>Khu nhà Sông Cây Khế</el-dropdown-item>
-                <el-dropdown-item divided>Dự án Phước Sơn</el-dropdown-item>
-                <el-dropdown-item divided>Khu biệt thự Thanh Bình</el-dropdown-item>
-                <el-dropdown-item divided>Blue Sapphire Towers</el-dropdown-item>
+                <el-dropdown-item>Chung cư</el-dropdown-item>
+                <el-dropdown-item divided>Nhà liền kề & Biệt thự</el-dropdown-item>
+                <el-dropdown-item divided>Condotel</el-dropdown-item>
+                <el-dropdown-item divided>Đất ở</el-dropdown-item>
+                <el-dropdown-item divided>Shop thương mại</el-dropdown-item>
+                <el-dropdown-item divided>Khu công nghiệp</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
-        </v-col>
-        <v-col cols="4">
+        </div>
+        <div class="header_right">
           <div class="header_choise">
             <!-- <el-dropdown> -->
             <el-button type="warning" plain class="fix_position">Blog </el-button>
@@ -95,9 +129,27 @@
               </el-dropdown-menu>
             </el-dropdown>
           </div>
-        </v-col>
-      </v-row>
-      <!-- </v-lazy> -->
+        </div>
+      </div>
+    </div>
+    <div class="header_mobile">
+      <div class="info">
+        <div></div>
+        <div>
+          <v-icon>mdi-phone-dial</v-icon>
+          <span>0909522686</span>
+          <v-icon>mdi-email</v-icon>
+          <a href="#">khobatdongsanviet@gmail.com</a>
+        </div>
+      </div>
+      <div class="header_item">
+        <div class="header_logo">
+          <img src="@image/layouts/bansaodanhthiep.png" alt="" />
+        </div>
+        <div class="header_content">
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        </div>
+      </div>
     </div>
     <div>
       <Nuxt />
@@ -167,8 +219,51 @@ export default {
       fab: false,
       popUp: false,
       show: true,
+      clipped: false,
+      drawer: false,
+      fixed: false,
+      items: [
+        {
+          icon: "mdi-apps",
+          title: "Trang chủ",
+          to: "/",
+        },
+        {
+          icon: "mdi-apps",
+          title: "BĐS Bán",
+          to: "/search/sell",
+        },
+        {
+          icon: "mdi-chart-bubble",
+          title: "BĐS Thuê",
+          to: "/search/rent",
+        },
+        {
+          icon: "mdi-apps",
+          title: "Dự Án",
+          to: "/search/project",
+        },
+        {
+          icon: "mdi-chart-bubble",
+          title: "Blog",
+          to: "/blog",
+        },
+        {
+          icon: "mdi-apps",
+          title: "Giới thiệu",
+          to: "/introduce",
+        },
+        {
+          icon: "mdi-chart-bubble",
+          title: "Liên hệ",
+          to: "/inspire",
+        },
+      ],
+      user: [["Liên hệ"], ["Cố vấn"]],
+      miniVariant: false,
     };
   },
+
   methods: {
     onScroll(e) {
       if (typeof window === "undefined") return;
@@ -187,11 +282,17 @@ export default {
 <style lang="scss" scoped>
 .header {
   position: fixed;
-  z-index: 9999;
+  z-index: 99;
   width: 100%;
   background-color: $color-white;
-  // border-bottom:
+  height: 120px;
   box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.1);
+  .header_items {
+    display: flex;
+    .header_left {
+      width: 65%;
+    }
+  }
   img {
     width: 250px;
     margin: 10px;
@@ -203,24 +304,24 @@ export default {
     margin-top: 6px;
   }
 }
-.el-dropdown-menu__item--divided:before {
-  display: none !important;
-}
-.el-dropdown-menu__item[data-v-314f53c6]:focus,
-.el-dropdown-menu__item[data-v-314f53c6]:hover {
-  background-color: #e6a23c !important;
-  color: #fff !important;
-}
-.el-dropdown-menu__item--divided[data-v-314f53c6] {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-}
-.el-dropdown-menu__item[data-v-314f53c6] {
-  font-size: 16px !important;
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
-  font-family: "Roboto", sans-serif !important;
-}
+// .el-dropdown-menu__item--divided:before {
+//   display: none !important;
+// }
+// .el-dropdown-menu__item[data-v-314f53c6]:focus,
+// .el-dropdown-menu__item[data-v-314f53c6]:hover {
+//   background-color: #e6a23c !important;
+//   color: #fff !important;
+// }
+// .el-dropdown-menu__item--divided[data-v-314f53c6] {
+//   margin-top: 0px !important;
+//   margin-bottom: 0px !important;
+// }
+// .el-dropdown-menu__item[data-v-314f53c6] {
+//   font-size: 16px !important;
+//   padding-top: 6px !important;
+//   padding-bottom: 6px !important;
+//   font-family: "Roboto", sans-serif !important;
+// }
 
 .first_dropdown {
   display: none;
@@ -335,7 +436,117 @@ export default {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
-.nuxt-link-active {
-  height: 70px;
+.header_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    img {
+      margin-left: 20px;
+    }
+    .header_items {
+      justify-content: space-between;
+      .header_left {
+        width: auto;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1035px) {
+  .header {
+    img {
+      width: 200px;
+      margin: 15px 0px 15px 15px;
+    }
+    .header_right {
+      .header_choise {
+        text-align: right !important;
+        margin-right: 15px;
+      }
+    }
+  }
+  .el-button {
+    border-radius: 0;
+    height: 60px;
+    border: none;
+    font-size: 16px !important;
+  }
+  .el-dropdown-menu__item[data-v-314f53c6] {
+    font-size: 14px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+}
+.v-navigation-drawer {
+  z-index: 999;
+}
+@media screen and (max-width: 930px) {
+  .header {
+    .header_items {
+      position: relative;
+      img {
+        position: absolute;
+        top: -44px;
+        margin-top: 0;
+        z-index: 99999;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .header {
+    display: none;
+  }
+  .header_mobile {
+    display: block;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.1);
+    background-color: $color-white;
+    position: fixed;
+    z-index: 99;
+    width: 100% !important;
+    .info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-right: 20px;
+      .v-icon {
+        font-size: 20px;
+        margin: 0 5px;
+      }
+    }
+    .v-btn__content .v-icon {
+      color: $color-blue-dark;
+    }
+    .v-app-bar__nav-icon {
+      background-color: #95a9e928;
+    }
+    .header_item {
+      display: flex;
+      padding: 0 20px;
+      margin-top: 8px;
+      justify-content: space-between;
+      .header_logo {
+        img {
+          width: 180px;
+          height: auto;
+        }
+      }
+    }
+  }
+  .v-application .info {
+    text-align: right;
+    font-size: 11px;
+    height: 36px;
+    line-height: 36px;
+  }
+  .v-btn--fab.v-size--small {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .v-list-item--active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
 }
 </style>

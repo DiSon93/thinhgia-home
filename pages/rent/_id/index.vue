@@ -19,7 +19,7 @@
       </div>
 
       <v-row>
-        <v-col cols="8" id="app">
+        <v-col cols="12" sm="8" id="app">
           <CoolLightBox
             :items="items"
             :index="index"
@@ -37,24 +37,6 @@
             >
               <a href="javascript:;"> <img :src="image.src" alt="" /></a>
             </v-col>
-            <!-- <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_13.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_14.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_15.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_20.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_18.png" alt="" />
-            </v-col>
-            <v-col cols="3" class="img_item">
-              <img src="@image/layouts/room_19.png" alt="" />
-            </v-col> -->
           </v-row>
           <div class="overview">
             <div class="overview_title">Tổng quan</div>
@@ -149,7 +131,7 @@
           </div>
           <Description />
         </v-col>
-        <v-col cols="4">
+        <v-col cols="10" sm="4">
           <FormUser />
         </v-col>
       </v-row>
@@ -165,15 +147,45 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Đông</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -190,8 +202,123 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_23.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
@@ -210,20 +337,50 @@
             <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
+                  <figure><img src="@image/layouts/room_36.svg" alt="" /></figure>
                   <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
                     <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -232,6 +389,29 @@
                 </div>
               </el-card>
             </div>
+            <!-- <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <span class="first_price">6 tỷ</span>
+                    <span>60 m2</span>
+                  </div>
+                  <div class="name">LOREM IPSUM AMET SIT DOT</div>
+                  <div class="sex d-flex">
+                    <v-icon>mdi-near-me</v-icon>
+                    <span>Nam</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Nguyễn Hữu Cảnh</span>
+                  </div>
+                </div>
+              </el-card>
+            </div> -->
           </VueSlickCarousel>
         </div>
       </div>
@@ -273,8 +453,24 @@ export default {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        prevArrow: `<v-btn>Số 1</v-btn>`,
-        nextArrow: `<button>Số 2</button>`,
+        responsive: [
+          {
+            breakpoint: 1250,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 920,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
       },
       items: [
         {
@@ -367,7 +563,6 @@ export default {
       font-size: 18px;
       line-height: 24px;
       background: #f2f2f2;
-      //   border: 0.5px solid #dcdcdc;
       box-sizing: border-box;
       border-radius: 4px;
       color: #464646;
@@ -384,36 +579,6 @@ export default {
       }
     }
   }
-  // .description {
-  //   .description_title {
-  //     font-weight: 700;
-  //     font-size: 18px;
-  //     line-height: 24px;
-  //     margin-bottom: 10px;
-  //   }
-  //   .content {
-  //     background-color: #f2f2f2;
-  //     border-radius: 4px;
-  //     padding: 20px;
-  //     margin-bottom: 20px;
-  //     .highlight {
-  //       font-weight: 700;
-  //     }
-  //     .content_item {
-  //       img {
-  //         margin-right: 10px;
-  //       }
-  //       .high_text {
-  //         margin-left: 5px;
-  //         color: $color-orange;
-  //         font-weight: 700;
-  //       }
-  //     }
-  //   }
-  //   .mycompany {
-  //     font-size: 14px;
-  //   }
-  // }
   .project_img {
     margin-top: 10px;
     img {
@@ -485,41 +650,6 @@ export default {
           width: 15px;
           height: 15px;
         }
-        .price {
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 30px;
-          color: #fbad18;
-          .first_price {
-            margin-right: 15px;
-            padding-right: 15px;
-            border-right: 1px solid $color-black-01;
-          }
-        }
-        .name {
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 20px;
-          color: #000000;
-          margin: 5px 0 10px;
-        }
-        .sex {
-          .v-icon {
-            color: #c4c4c4;
-            margin-right: 15px;
-          }
-          font-size: 16px;
-          line-height: 30px;
-          margin-bottom: 5px;
-        }
-        .address {
-          .v-icon {
-            color: #c4c4c4;
-            margin-right: 15px;
-          }
-          font-size: 16px;
-          line-height: 20px;
-        }
       }
       .clearfix {
         position: relative;
@@ -539,10 +669,226 @@ export default {
         }
       }
     }
+    .estate_img {
+      width: 25%;
+      padding: 20px;
+      img {
+        width: 100%;
+        height: 80%;
+        display: block;
+      }
+      .add_detail {
+        img {
+          width: 15px;
+          height: 15px;
+        }
+        .price {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 30px;
+          color: #fbad18;
+          .first_price {
+            margin-right: 15px;
+            padding-right: 15px;
+            border-right: 1px solid $color-black-01;
+          }
+        }
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 40px;
+          color: #000000;
+          text-decoration: none;
+          &:hover {
+            color: $color-orange-light;
+            // text-decoration: ;
+            transition: 0.5s;
+          }
+        }
+        .sex {
+          .v-icon {
+            color: #c4c4c4;
+            margin: 0 10px 0 15px;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+          font-size: 16px;
+          line-height: 30px;
+          margin: 10px 0;
+        }
+        .address {
+          .v-icon {
+            color: #c4c4c4;
+            margin-right: 10px;
+          }
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
   }
 }
 
 .footer {
   margin-top: -40px;
+}
+@media screen and (max-width: 1250px) {
+  .rent_detail {
+    padding: 0 5%;
+    .img_item {
+      padding: 5px !important;
+    }
+    .rent_title,
+    .address,
+    .social {
+      font-size: 14px;
+    }
+    .project_name {
+      font-size: 16px;
+    }
+    .overview {
+      .overview_content {
+        font-size: 14px;
+        .number {
+          font-size: 16px;
+        }
+      }
+    }
+    .estate_img {
+      padding: 10px;
+    }
+    .estateOfProject #img_estate .estate_img .add_detail .name {
+      line-height: 24px;
+    }
+    .estateOfProject {
+      .estate_title {
+        font-size: 20px;
+        margin-left: 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1050px) {
+  .description {
+    .description_title,
+    .content {
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .rent_detail {
+    margin-top: 100px;
+  }
+  .estate_img {
+    padding: 6px !important;
+    h2 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
+    }
+    .add_detail {
+      margin: -10px;
+      font-size: 12x;
+      .price {
+        margin-top: 5px;
+        font-size: 12px !important;
+        line-height: 18px;
+        .first_price {
+          margin-right: 6px !important;
+          padding-right: 6px !important;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      .quymo,
+      .address,
+      .contractor {
+        font-size: 11px !important;
+        align-items: normal !important;
+        img {
+          margin-right: 6px;
+        }
+      }
+      .quymo,
+      .contractor {
+        img {
+          margin-top: 3px;
+        }
+      }
+      .name {
+        font-size: 12x !important;
+      }
+      .sex {
+        font-size: 11px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin: 0 6px 0 5px !important;
+          font-size: 14px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        line-height: 20px !important;
+        margin: 5px 0 !important;
+      }
+      .address {
+        font-size: 11px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+        line-height: 16px !important;
+        letter-spacing: 0.1px;
+      }
+    }
+  }
+  #img_estate {
+    .estate_img {
+      .clearfix {
+        .overlay_title {
+          padding: 0 5px;
+          height: auto !important;
+          right: 0px;
+          left: 0px !important;
+          width: auto;
+          bottom: -14px;
+          font-weight: 500;
+          font-size: 12px !important;
+          text-align: left;
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .name {
+    font-size: 12px !important;
+  }
+  .mycompany {
+    font-size: 12px;
+  }
+  .estateOfProject {
+    .estate_title {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  }
+  .overview {
+    .overview_title {
+      font-size: 16px !important;
+    }
+    .overview_content {
+      font-size: 12px !important;
+      .number {
+        font-size: 14px !important;
+      }
+    }
+  }
+  .description .description_title {
+    font-size: 16px !important;
+    font-weight: 700;
+  }
 }
 </style>

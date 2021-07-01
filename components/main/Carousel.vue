@@ -4,7 +4,7 @@
     :options="{
       threshold: 0.5,
     }"
-    min-height="600"
+    min-height="500"
     transition="fade-transition"
   >
     <div class="carousel">
@@ -111,6 +111,52 @@
             </v-col>
           </v-row>
         </div>
+        <div class="select_options_mobile">
+          <v-row>
+            <v-col cols="12">
+              <el-input
+                placeholder="Nhập địa điểm hoặc từ khóa"
+                suffix-icon="el-icon-search"
+                v-model="input1"
+              >
+              </el-input>
+            </v-col>
+            <v-col cols="6">
+              <el-cascader
+                :options="options"
+                :props="props"
+                collapse-tags
+                clearable
+                placeholder="Căn hộ/Chung cư"
+              ></el-cascader>
+            </v-col>
+            <v-col cols="6">
+              <div class="select_square">
+                <el-cascader
+                  :options="options04"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Diện tích"
+                ></el-cascader>
+              </div>
+            </v-col>
+            <v-col cols="6">
+              <div class="select_price">
+                <el-cascader
+                  :options="options05"
+                  :props="props"
+                  collapse-tags
+                  clearable
+                  placeholder="Khoảng giá"
+                ></el-cascader>
+              </div>
+            </v-col>
+            <v-col cols="6" align="right" class="btn_search">
+              <v-btn color="warning" dark> Tìm kiếm </v-btn>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </div>
   </v-lazy>
@@ -131,6 +177,7 @@ export default {
       e4: [],
       e5: [],
       e6: [],
+      input1: "",
       text: "BĐS Bán",
       items: ["Foo", "Bar", "Fizz", "Buzz"],
       props: { multiple: true },
@@ -375,12 +422,7 @@ export default {
 
 <style lang="scss" scoped>
 .carousel {
-  // background-image: url("@image/layouts/Pngtree.png");
-  // height: 675px;
-  // background-position: center;
-  // background-repeat: none;
-  // background-size: cover;
-  // position: relative;
+  position: relative;
   .carousel_img {
     img {
       width: 100%;
@@ -389,9 +431,9 @@ export default {
 }
 .carousel_title {
   position: absolute;
-  top: 490px;
-  left: 210px;
-  right: 210px;
+  top: 52%;
+  left: 18%;
+  right: 18%;
   .high_search {
     position: absolute;
     left: 81.19%;
@@ -404,6 +446,9 @@ export default {
     height: 54px;
     background: rgba(32, 32, 32, 0.6);
     border-radius: 5px 5px 0px 0px;
+  }
+  .btn_search .v-btn:not(.v-btn--round).v-size--default {
+    width: 96%;
   }
   .carousel_options {
     margin-bottom: 50px;
@@ -456,6 +501,84 @@ export default {
   }
   .high_search {
     color: $color-white;
+  }
+}
+.select_options_mobile {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .carousel_title {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+  }
+  .v-btn-toggle:not(.v-btn-toggle--dense) .v-btn.v-btn.v-size--default {
+    font-size: 14px !important;
+  }
+  .high_search {
+    font-size: 14px !important;
+    word-break: break-all;
+  }
+}
+@media screen and (max-width: 1035px) {
+  .carousel_title {
+    position: absolute;
+    top: 42%;
+    left: 10%;
+    right: 10%;
+  }
+}
+@media screen and (max-width: 930px) {
+  .carousel_title {
+    position: absolute;
+    top: 38%;
+    left: 5%;
+    right: 5%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .carousel {
+    margin-top: -33px !important;
+    img {
+      height: 500px;
+      width: auto !important;
+      background-position-x: center;
+    }
+    .carousel_title {
+      text-align: center;
+      top: 45%;
+      .carousel_options {
+        margin-bottom: 30px;
+      }
+      .high_search {
+        display: none;
+      }
+      .select_options {
+        display: none;
+      }
+      .select_options_mobile {
+        display: block;
+        background: rgba(32, 32, 32, 0.6);
+        padding: 20px;
+        border-radius: 8px;
+        border-top-right-radius: 0px;
+        .v-text-field__details {
+          min-height: 0;
+          height: 0;
+        }
+        .col-12,
+        .col-6 {
+          padding: 6px;
+        }
+        .btn_search {
+          .v-btn {
+            font-size: 12px !important;
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }
 </style>

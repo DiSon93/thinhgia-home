@@ -4,23 +4,27 @@
     :options="{
       threshold: 0.5,
     }"
-    min-height="200"
+    min-height="100"
     transition="scale-transition"
   >
     <div class="special_sale">
       <div class="sale_title">ƯU ĐÃI ĐẶC BIỆT</div>
       <div class="sale_detail">
-        <div class="sale_img">
-          <img src="@image/layouts/house_sale_01.png" alt="" />
+        <div class="d-flex">
+          <div class="sale_img">
+            <img src="@image/layouts/house_sale_01.png" alt="" />
+          </div>
+          <div class="sale_img">
+            <img src="@image/layouts/house_sale_02.png" alt="" />
+          </div>
         </div>
-        <div class="sale_img">
-          <img src="@image/layouts/house_sale_02.png" alt="" />
-        </div>
-        <div class="sale_img">
-          <img src="@image/layouts/house_sale_03.png" alt="" />
-        </div>
-        <div class="sale_img">
-          <img src="@image/layouts/house_sale_04.png" alt="" />
+        <div class="d-flex">
+          <div class="sale_img">
+            <img src="@image/layouts/house_sale_03.png" alt="" />
+          </div>
+          <div class="sale_img">
+            <img src="@image/layouts/house_sale_04.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -49,7 +53,7 @@ export default {
   .sale_detail {
     display: flex;
     .sale_img {
-      width: 25%;
+      width: 100%;
       padding: 20px;
       img {
         width: 100%;
@@ -58,6 +62,25 @@ export default {
       }
       &:hover {
         animation: upDown 0.5s linear 0s;
+      }
+    }
+  }
+}
+@media screen and (max-width: 990px) {
+  .sale_img {
+    padding: 10px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .special_sale {
+    .sale_title {
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    .sale_detail {
+      display: block;
+      .sale_img {
+        padding: 10px;
       }
     }
   }

@@ -28,8 +28,7 @@
                 <h2>LOREM IPSUM AMET SIT DOT <span> IPSUM laugh</span></h2>
                 <p>
                   Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
-                  cơ sở hạ tầng đang đồng bộ sẽ biến khu vực thành nơi nghỉ dưỡng sang
-                  trọng giá trị lên gấp nhiều lần...
+                  cơ sở hạ tầng đang đồng bộ...
                   <br />
                   <v-btn small color="warning">Xem chi tiết >></v-btn>
                 </p>
@@ -38,16 +37,43 @@
             </figure>
             <div class="add_detail">
               <div class="price">
-                <span class="first_price">6 tỷ</span>
-                <span>60 m2</span>
+                <div>
+                  <span class="first_price">6 tỷ</span>
+                  <span>60 <span>&#13217;</span></span>
+                </div>
+                <div class="pricePerMeter">
+                  <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                </div>
               </div>
               <NuxtLink class="name" to="/sell/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
               <div class="sex d-flex">
-                <v-icon>mdi-near-me</v-icon>
+                <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
+                  <v-icon>mdi-near-me</v-icon>
+                </el-tooltip>
                 <span>Nam</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng ngủ"
+                  placement="top"
+                >
+                  <v-icon>mdi-bed-outline</v-icon>
+                </el-tooltip>
+                <span>2</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng tắm"
+                  placement="top"
+                >
+                  <v-icon>mdi-shower-head</v-icon>
+                </el-tooltip>
+                <span>3</span>
               </div>
               <div class="address d-flex">
-                <v-icon>mdi-map-marker</v-icon>
+                <el-tooltip class="item" effect="dark" content="Địa chỉ" placement="top">
+                  <v-icon>mdi-map-marker</v-icon>
+                </el-tooltip>
                 <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
               </div>
             </div>
@@ -65,8 +91,7 @@
                 <h2>LOREM IPSUM AMET <span>SIT DOT </span> is dark</h2>
                 <p>
                   Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
-                  cơ sở hạ tầng đang đồng bộ sẽ biến khu vực thành nơi nghỉ dưỡng sang
-                  trọng giá trị lên gấp nhiều lần... <br />
+                  cơ sở hạ tầng đang đồng bộ... <br />
                   <v-btn small color="warning">Xem chi tiết >></v-btn>
                 </p>
                 <!-- <a href="#"></a> -->
@@ -74,16 +99,43 @@
             </figure>
             <div class="add_detail">
               <div class="price">
-                <span class="first_price">6 tỷ</span>
-                <span>60 m2</span>
+                <div>
+                  <span class="first_price">6 tỷ</span>
+                  <span>60 <span>&#13217;</span></span>
+                </div>
+                <div class="pricePerMeter">
+                  <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                </div>
               </div>
               <NuxtLink class="name" to="/rent/02">LOREM IPSUM AMET SIT DOT</NuxtLink>
               <div class="sex d-flex">
-                <v-icon>mdi-near-me</v-icon>
+                <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
+                  <v-icon>mdi-near-me</v-icon>
+                </el-tooltip>
                 <span>Nam</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng ngủ"
+                  placement="top"
+                >
+                  <v-icon>mdi-bed-outline</v-icon>
+                </el-tooltip>
+                <span>2</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng tắm"
+                  placement="top"
+                >
+                  <v-icon>mdi-shower-head</v-icon>
+                </el-tooltip>
+                <span>3</span>
               </div>
               <div class="address d-flex">
-                <v-icon>mdi-map-marker</v-icon>
+                <el-tooltip class="item" effect="dark" content="Địa chỉ" placement="top">
+                  <v-icon>mdi-map-marker</v-icon>
+                </el-tooltip>
                 <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
               </div>
             </div>
@@ -99,9 +151,7 @@
               <figcaption>
                 <h2>LOREM IPSUM AMET SIT DOT <span> IPSUM laugh</span></h2>
                 <p>
-                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
-                  cơ sở hạ tầng đang đồng bộ sẽ biến khu vực thành nơi nghỉ dưỡng sang
-                  trọng giá trị lên gấp nhiều lần... <br />
+                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, ... <br />
                   <v-btn small color="warning">Xem chi tiết >></v-btn>
                 </p>
                 <!-- <a href="#"></a> -->
@@ -109,16 +159,43 @@
             </figure>
             <div class="add_detail">
               <div class="price">
-                <span class="first_price">6 tỷ</span>
-                <span>60 m2</span>
+                <div>
+                  <span class="first_price">6 tỷ</span>
+                  <span>60 <span>&#13217;</span></span>
+                </div>
+                <div class="pricePerMeter">
+                  <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                </div>
               </div>
               <NuxtLink class="name" to="/sell/03">LOREM IPSUM AMET SIT DOT</NuxtLink>
               <div class="sex d-flex">
-                <v-icon>mdi-near-me</v-icon>
+                <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
+                  <v-icon>mdi-near-me</v-icon>
+                </el-tooltip>
                 <span>Nam</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng ngủ"
+                  placement="top"
+                >
+                  <v-icon>mdi-bed-outline</v-icon>
+                </el-tooltip>
+                <span>2</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng tắm"
+                  placement="top"
+                >
+                  <v-icon>mdi-shower-head</v-icon>
+                </el-tooltip>
+                <span>3</span>
               </div>
               <div class="address d-flex">
-                <v-icon>mdi-map-marker</v-icon>
+                <el-tooltip class="item" effect="dark" content="Địa chỉ" placement="top">
+                  <v-icon>mdi-map-marker</v-icon>
+                </el-tooltip>
                 <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
               </div>
             </div>
@@ -126,21 +203,61 @@
         </div>
         <div class="estate_img">
           <el-card class="box-card">
-            <div slot="header" class="clearfix hover14">
-              <figure><img src="@image/layouts/special_04.svg" alt="" /></figure>
-            </div>
+            <!-- <router-link to="/sell/01" slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
+            </router-link> -->
+            <figure slot="header" class="snip0016 clearfix">
+              <img src="@image/layouts/special_04.svg" alt="sample42" />
+              <figcaption>
+                <h2>LOREM IPSUM AMET SIT DOT <span> IPSUM laugh</span></h2>
+                <p>
+                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
+                  cơ sở hạ tầng đang đồng bộ...
+                  <br />
+                  <v-btn small color="warning">Xem chi tiết >></v-btn>
+                </p>
+                <!-- <a href="#"></a> -->
+              </figcaption>
+            </figure>
             <div class="add_detail">
               <div class="price">
-                <span class="first_price">6 tỷ</span>
-                <span>60 m2</span>
+                <div>
+                  <span class="first_price">6 tỷ</span>
+                  <span>60 <span>&#13217;</span></span>
+                </div>
+                <div class="pricePerMeter">
+                  <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                </div>
               </div>
-              <NuxtLink class="name" to="/rent/04">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <NuxtLink class="name" to="/sell/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
               <div class="sex d-flex">
-                <v-icon>mdi-near-me</v-icon>
+                <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
+                  <v-icon>mdi-near-me</v-icon>
+                </el-tooltip>
                 <span>Nam</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng ngủ"
+                  placement="top"
+                >
+                  <v-icon>mdi-bed-outline</v-icon>
+                </el-tooltip>
+                <span>2</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng tắm"
+                  placement="top"
+                >
+                  <v-icon>mdi-shower-head</v-icon>
+                </el-tooltip>
+                <span>3</span>
               </div>
               <div class="address d-flex">
-                <v-icon>mdi-map-marker</v-icon>
+                <el-tooltip class="item" effect="dark" content="Địa chỉ" placement="top">
+                  <v-icon>mdi-map-marker</v-icon>
+                </el-tooltip>
                 <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
               </div>
             </div>
@@ -148,21 +265,61 @@
         </div>
         <div class="estate_img">
           <el-card class="box-card">
-            <div slot="header" class="clearfix hover14">
-              <figure><img src="@image/layouts/room_13.png" alt="" /></figure>
-            </div>
+            <!-- <router-link to="/sell/01" slot="header" class="clearfix hover14">
+              <figure><img src="@image/layouts/room_01.png" alt="" /></figure>
+            </router-link> -->
+            <figure slot="header" class="snip0016 clearfix">
+              <img src="@image/layouts/room_13.png" alt="sample42" />
+              <figcaption>
+                <h2>LOREM IPSUM AMET SIT DOT <span> IPSUM laugh</span></h2>
+                <p>
+                  Biệt thự nằm trong quần thể nghỉ dưỡng đẳng cấp nhất Bãi Sau, tương lai
+                  cơ sở hạ tầng đang đồng bộ...
+                  <br />
+                  <v-btn small color="warning">Xem chi tiết >></v-btn>
+                </p>
+                <!-- <a href="#"></a> -->
+              </figcaption>
+            </figure>
             <div class="add_detail">
               <div class="price">
-                <span class="first_price">6 tỷ</span>
-                <span>60 m2</span>
+                <div>
+                  <span class="first_price">6 tỷ</span>
+                  <span>60 <span>&#13217;</span></span>
+                </div>
+                <div class="pricePerMeter">
+                  <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                </div>
               </div>
-              <NuxtLink class="name" to="/sell/05">LOREM IPSUM AMET SIT DOT</NuxtLink>
+              <NuxtLink class="name" to="/sell/01">LOREM IPSUM AMET SIT DOT</NuxtLink>
               <div class="sex d-flex">
-                <v-icon>mdi-near-me</v-icon>
+                <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
+                  <v-icon>mdi-near-me</v-icon>
+                </el-tooltip>
                 <span>Nam</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng ngủ"
+                  placement="top"
+                >
+                  <v-icon>mdi-bed-outline</v-icon>
+                </el-tooltip>
+                <span>2</span>
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="Phòng tắm"
+                  placement="top"
+                >
+                  <v-icon>mdi-shower-head</v-icon>
+                </el-tooltip>
+                <span>3</span>
               </div>
               <div class="address d-flex">
-                <v-icon>mdi-map-marker</v-icon>
+                <el-tooltip class="item" effect="dark" content="Địa chỉ" placement="top">
+                  <v-icon>mdi-map-marker</v-icon>
+                </el-tooltip>
                 <span>Nguyễn Hữu Cảnh, Bình Thạnh</span>
               </div>
             </div>
@@ -193,9 +350,16 @@ export default {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        touchThreshold: 5,
-        prevArrow: `<v-btn>Số 1</v-btn>`,
-        nextArrow: `<button>Số 2</button>`,
+        responsive: [
+          {
+            breakpoint: 920,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
       },
     };
   },
@@ -222,54 +386,6 @@ export default {
 .estate_content {
   display: flex;
   justify-content: space-between;
-  .estate_img {
-    width: 33.33%;
-    padding: 20px;
-    img {
-      width: 100%;
-      height: 80%;
-      display: block;
-    }
-    .add_detail {
-      img {
-        width: 15px;
-        height: 15px;
-      }
-      .price {
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 30px;
-        color: #fbad18;
-        .first_price {
-          margin-right: 15px;
-          padding-right: 15px;
-          border-right: 1px solid $color-black-01;
-        }
-      }
-      .name {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 40px;
-        color: #000000;
-      }
-      .sex {
-        .v-icon {
-          color: #c4c4c4;
-          margin-right: 15px;
-        }
-        font-size: 16px;
-        line-height: 30px;
-      }
-      .address {
-        .v-icon {
-          color: #c4c4c4;
-          margin-right: 15px;
-        }
-        font-size: 16px;
-        line-height: 30px;
-      }
-    }
-  }
 }
 .estate_img {
   padding: 20px;
@@ -297,9 +413,10 @@ export default {
     .name {
       font-weight: 500;
       font-size: 16px;
-      line-height: 40px;
+      line-height: 24px;
       color: #000000;
       text-decoration: none;
+      margin-bottom: 60px;
       &:hover {
         color: $color-orange-light;
         // text-decoration: ;
@@ -309,63 +426,29 @@ export default {
     .sex {
       .v-icon {
         color: #c4c4c4;
-        margin-right: 15px;
+        margin: 0 10px 0 15px;
+        &:first-child {
+          margin-left: 0;
+        }
       }
       font-size: 16px;
       line-height: 30px;
+      margin: 10px 0;
     }
     .address {
       .v-icon {
         color: #c4c4c4;
-        margin-right: 15px;
+        margin-right: 10px;
       }
       font-size: 16px;
-      line-height: 30px;
+      line-height: 24px;
     }
   }
   .v-btn {
     text-transform: capitalize;
   }
 }
-// .hover14 figure {
-//   position: relative;
-// }
-// .hover14 figure::before {
-//   position: absolute;
-//   top: 0;
-//   left: -75%;
-//   z-index: 2;
-//   display: block;
-//   content: "";
-//   width: 50%;
-//   height: 100%;
-//   background: -webkit-linear-gradient(
-//     left,
-//     rgba(255, 255, 255, 0) 0%,
-//     rgba(255, 255, 255, 0.3) 100%
-//   );
-//   background: linear-gradient(
-//     to right,
-//     rgba(255, 255, 255, 0) 0%,
-//     rgba(255, 255, 255, 0.3) 100%
-//   );
-//   -webkit-transform: skewX(-25deg);
-//   transform: skewX(-25deg);
-// }
-// .hover14 figure:hover::before {
-//   -webkit-animation: shine 1s;
-//   animation: shine 1s;
-// }
-// @-webkit-keyframes shine {
-//   100% {
-//     left: 125%;
-//   }
-// }
-// @keyframes shine {
-//   100% {
-//     left: 125%;
-//   }
-// }
+
 figure.snip0016 {
   font-family: "Raleway", Arial, sans-serif;
   color: #fff;
@@ -484,5 +567,78 @@ body {
 
 .snip0016 {
   width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .estate_img {
+    h2 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  .special_estate {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .estate_title {
+    font-size: 16px !important;
+    margin-left: 10px !important;
+    .el-button {
+      margin-right: -10px;
+    }
+  }
+  .estate_img {
+    padding: 6px !important;
+    h2 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
+    }
+    .add_detail {
+      margin: -10px;
+      font-size: 12x;
+      .price {
+        font-size: 12px;
+        line-height: 18px;
+        .first_price {
+          margin-right: 8px;
+          padding-right: 8px;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      a.name {
+        font-size: 12x !important;
+      }
+      .sex {
+        font-size: 11px;
+        // font-weight: 300;
+        .v-icon {
+          color: #c4c4c4;
+          margin: 0 6px 0 5px;
+          font-size: 14px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        line-height: 20px;
+        margin: 5px 0;
+      }
+      .address {
+        font-size: 11px;
+        // font-weight: 300;
+        .v-icon {
+          color: #c4c4c4;
+          margin-right: 6px !important;
+          font-size: 14px;
+        }
+        line-height: 16px;
+        letter-spacing: 0.1px;
+      }
+    }
+  }
 }
 </style>

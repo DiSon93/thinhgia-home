@@ -4,7 +4,7 @@
     :options="{
       threshold: 0.5,
     }"
-    min-height="200"
+    min-height="300"
     transition="fade-transition"
   >
     <div class="project_estate">
@@ -16,7 +16,7 @@
       </div>
       <div class="project_content">
         <v-row class="estate_content">
-          <v-col cols="6" class="estate_img">
+          <v-col cols="12" lg="6" class="estate_img">
             <VueSlickCarousel :arrows="false" v-bind="settings">
               <div>
                 <div slot="header" class="clearfix">
@@ -75,7 +75,7 @@
               </div>
             </VueSlickCarousel>
           </v-col>
-          <v-col cols="6" class="small_project">
+          <v-col cols="12" lg="6" class="small_project">
             <VueSlickCarousel :arrows="true" v-bind="settings02">
               <div class="estate_img">
                 <el-card class="box-card">
@@ -90,8 +90,8 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <NuxtLink class="name" to="sell/04">
-                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    <NuxtLink class="name" to="/project/ngoctuoc/detail">
+                      KHU BIỆT THỰ ĐỒI NGỌC TƯỚC
                     </NuxtLink>
                     <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
@@ -118,8 +118,8 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <NuxtLink class="name" to="/sell/02">
-                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    <NuxtLink class="name" to="/project/ngoctuoc/detail">
+                      KHU BIỆT THỰ CÂY KHẾ
                     </NuxtLink>
                     <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
@@ -145,8 +145,8 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <NuxtLink class="name" to="/sell/01">
-                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
+                    <NuxtLink class="name" to="/project/ngoctuoc/detail">
+                      KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II
                     </NuxtLink>
                     <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
@@ -172,9 +172,7 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <div class="name">
-                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                    </div>
+                    <div class="name">KHU BIỆT THỰ ĐỒI CÂY KHẾ</div>
                     <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
                       <span>Đông Bắc</span>
@@ -199,9 +197,7 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <div class="name">
-                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                    </div>
+                    <div class="name">KHU BIỆT THỰ ĐỒI NGỌC TƯỚC III</div>
                     <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
                       <span>Đông Bắc</span>
@@ -226,9 +222,7 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <div class="name">
-                      BÁN CĂN HỘ ĐẦY ĐỦ TIỆN NGHI 2 PHÒNG NGỦ, 2WC THIẾT KẾ...
-                    </div>
+                    <div class="name">KHU BIỆT THỰ CÂY KHẾ II</div>
                     <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
                       <span>Đông Bắc</span>
@@ -273,6 +267,24 @@ export default {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1264,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 920,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
       },
     };
   },
@@ -353,8 +365,9 @@ export default {
       .price {
         font-weight: bold;
         font-size: 16px;
-        line-height: 30px;
+        line-height: 20px;
         color: #fbad18;
+        margin-bottom: 8px;
         .first_price {
           margin-right: 15px;
           padding-right: 15px;
@@ -364,9 +377,9 @@ export default {
       .name {
         font-weight: 500;
         font-size: 15px;
-        line-height: 24px;
+        // line-height: 30px;
         color: #000000;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         text-decoration: none;
         &:hover {
           color: $color-orange-light;
@@ -457,6 +470,116 @@ export default {
 @keyframes shine {
   100% {
     left: 125%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .project_title {
+    font-size: 16px !important;
+    margin-left: 10px !important;
+    .el-button {
+      margin-right: -10px;
+    }
+  }
+  .project_content {
+    margin: 20px 0;
+  }
+  .estate_content {
+    .estate_img {
+      padding: 5px !important;
+      img {
+        width: 100%;
+        height: 80%;
+        display: block;
+      }
+
+      .quymo {
+        margin-top: 30px;
+        font-size: 12px !important;
+        p {
+          margin: 10px 2px;
+        }
+      }
+      .more_detail {
+        font-size: 13px !important;
+      }
+      .clearfix {
+        position: relative;
+        .overlay_title {
+          bottom: -20px;
+          width: 400px !important;
+          height: 30px !important;
+          font-size: 12px !important;
+          line-height: 30px !important;
+          padding-left: 10px !important;
+        }
+      }
+    }
+  }
+  .small_project {
+    padding: 20px 0;
+    .estate_img {
+      padding: 0 6px 0;
+    }
+    .add_detail {
+      img {
+        width: 15px;
+        height: 15px;
+      }
+      .price {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        margin-top: 5px !important;
+        margin-bottom: 0px !important;
+        .first_price {
+          margin-right: 8px;
+          padding-right: 8px;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      .name {
+        font-size: 12px !important;
+        line-height: 1 6px !important;
+        // margin: 5px -10px !important;
+      }
+      .sex {
+        font-size: 12px !important;
+        // font-weight: 300;
+        // margin: 5px -10px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin: 0 6px 0 5px;
+          font-size: 14px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        line-height: 20px !important;
+        margin: 5px 0 !important;
+      }
+      .address {
+        font-size: 12px !important;
+        // font-weight: 300;
+        // margin: 5px -10px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+        line-height: 16px !important;
+        letter-spacing: 0.1px;
+      }
+    }
+    .clearfix {
+      position: relative;
+      .overlay_small_project {
+        width: 150px !important;
+        height: 24px !important;
+        font-size: 10px !important;
+        left: 0px !important;
+        text-align: left !important;
+        padding-left: 10px;
+      }
+    }
   }
 }
 </style>
