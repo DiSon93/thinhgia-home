@@ -1146,8 +1146,8 @@ export default {
         margin-top: 0px !important;
         margin-bottom: 5px !important;
         .first_price {
-          margin-right: 8px;
-          padding-right: 8px;
+          margin-right: 8px!important;
+          padding-right: 8px!important;
           border-right: 1px solid $color-black-01;
         }
       }
