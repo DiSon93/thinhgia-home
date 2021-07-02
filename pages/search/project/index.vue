@@ -939,6 +939,9 @@ export default {
     margin: 0 auto;
     margin-bottom: 40px;
   }
+  .project_content{
+    margin-top: 20px;
+  }
 }
 .footer {
   margin-top: -40px !important;

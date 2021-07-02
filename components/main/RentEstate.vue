@@ -499,12 +499,6 @@ export default {
   }
   .estate_img {
     padding: 6px !important;
-    h2 {
-      font-size: 12px;
-    }
-    p {
-      font-size: 10px;
-    }
     .add_detail {
       margin: -10px;
       font-size: 12x;

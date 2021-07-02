@@ -228,7 +228,6 @@
     </div>
     <!-- <transition name="el-zoom-in-top"> -->
     <el-card class="filter_content box-card" v-if="isFilter">
-      <div class="filter_title">Khu vực</div>
       <v-row>
         <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_city">
@@ -253,40 +252,30 @@
           </div>
         </v-col>
         <v-col cols="6" sm="3" class="options" align="center">
-          <div class="select_square">
+          <div class="select_ward">
             <el-cascader
               :options="options04"
               :props="props"
               collapse-tags
               clearable
-              placeholder="Diện tích"
+              placeholder="Phường/Xã"
             ></el-cascader>
           </div>
         </v-col>
         <v-col cols="6" sm="3" class="options" align="center">
-          <div class="select_price">
+          <div class="select_stress">
             <el-cascader
               :options="options05"
               :props="props"
               collapse-tags
               clearable
-              placeholder="Khoảng giá"
+              placeholder="Đường phố"
               multiple
             ></el-cascader>
           </div>
         </v-col>
       </v-row>
       <v-row>
-        <!-- <v-col cols="6" class="">
-          <div>Loại Nhà/Đất</div>
-        </v-col>
-        <v-col cols="6">
-          <div>Số phòng ngủ</div>
-        </v-col> -->
-        <div class="type_of_estate d-flex">
-          <div class="items">Loại Nhà/Đất</div>
-          <div class="items">Số phòng ngủ</div>
-        </div>
       </v-row>
       <v-row>
         <v-col cols="6" sm="3" class="options" align="center">
@@ -311,15 +300,26 @@
             ></el-cascader>
           </div>
         </v-col>
-        <div class="res_bed">Số phòng ngủ</div>
-        <v-col cols="12" sm="6" class="bedrooms">
+                   <v-col cols="6" sm="3" class="options" align="center">
+          <div class="select_bedrooms">
+            <el-cascader
+              :options="options11"
+              :props="props"
+              collapse-tags
+              clearable
+              multiple
+              placeholder="Số phòng ngủ"
+            ></el-cascader>
+          </div>
+        </v-col>
+        <!-- <v-col cols="12" sm="6" class="bedrooms">
           <el-button> Tất cả </el-button>
           <el-button> 1 </el-button>
           <el-button> 2 </el-button>
           <el-button> 3 </el-button>
           <el-button> 4 </el-button>
           <el-button> 5+ </el-button>
-        </v-col>
+        </v-col> -->
         <!-- </el-slider> -->
       </v-row>
     </el-card>
@@ -477,85 +477,85 @@ export default {
       options04: [
         {
           value: 1,
-          label: "0 - 10m2",
+          label: "Phường Bình Phú",
         },
         {
           value: 14,
-          label: "0 - 20m2",
+          label: "Phường An Lạc",
         },
         {
           value: 23,
-          label: "0 - 30m2",
+          label: "Phường Bình Hòa",
         },
         {
           value: 24,
-          label: "0 - 40m2",
+          label: "Phường Mộc Thủy",
         },
         {
           value: 25,
-          label: "0 - 50m2",
+          label: "Phường Tân Tạo",
         },
         {
           value: 26,
-          label: "50 - 60m2",
+          label: "Phường Tân Phú",
         },
         {
           value: 27,
-          label: "50 - 70m2",
+          label: "Phường Tân Thuận",
         },
         {
           value: 28,
-          label: "50 - 100m2",
+          label: "Phường Đông Du",
         },
         {
           value: 29,
-          label: "100 - 200m2",
+          label: "Phường An Ninh",
         },
         {
           value: 30,
-          label: "Trên 200m2",
+          label: "Phường An Trứ",
         },
       ],
       options05: [
         {
           value: 1,
-          label: "0 - 10triệu",
+          label: "Nguyễn Cư Trinh",
         },
         {
           value: 14,
-          label: "0 - 20triệu",
+          label: "Trần Hưng Đạo",
         },
         {
           value: 23,
-          label: "20 - 50triệu",
+          label: "QL1A",
         },
         {
           value: 24,
-          label: "50 - 100triệu",
+          label: "QL13",
         },
         {
           value: 25,
-          label: "100 - 150triệu",
+          label: "Nguyễn Thái Học",
         },
         {
           value: 26,
-          label: "100 - 500triệu",
+          label: "Hồ Ngọc Lãm",
         },
         {
           value: 27,
-          label: "500 - 1tỷ",
+          label: "Nguyễn Thị Minh Khai",
         },
         {
           value: 28,
-          label: "1 - 2tỷ",
+          label: "Hùng Vương",
         },
         {
           value: 29,
-          label: "2 - 10tỷ",
+          label: "Đinh Bộ Lĩnh",
         },
         {
           value: 30,
-          label: "Trên 10tỷ",
+          label: "Ngô Tất Tố",
         },
       ],
       options06: [
@@ -668,6 +668,32 @@ export default {
           label: "2015",
         },
       ],
+          options11:[
+                {
+          value: 0,
+          label: "Tất cả",
+        },
+        {
+          value: 1,
+          label: "1",
+        },
+         {
+          value: 2,
+          label: "2",
+        },
+         {
+          value: 3,
+          label: "3",
+        },
+         {
+          value: 4,
+          label: "4",
+        },
+         {
+          value: 5,
+          label: "5+",
+        },
+      ],
       visible02: false,
       visible03: false,
       value02: [0, 10],
@@ -712,10 +738,7 @@ export default {
 .filter_content {
   width: 85%;
   margin: 0 auto;
-}
-.filter_title {
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-top: 20px;
 }
 .bedrooms,
 .direction {
@@ -730,18 +753,7 @@ export default {
     }
   }
 }
-.type_of_estate {
-  width: 100%;
-  display: flex;
-  margin: 5px 0 5px;
-  .items {
-    width: 50%;
-    margin-left: 20px;
-  }
-}
-.res_bed {
-  display: none;
-}
+
 .responsive_square_price {
   display: none !important;
 }
@@ -779,13 +791,6 @@ export default {
   .type_of_estate {
     display: none !important;
   }
-  .res_bed {
-    display: block;
-    margin-left: 15px;
-    margin-bottom: -10px;
-    margin-top: 5px;
-    font-size: 14px;
-  }
   .options {
     padding: 6px !important;
   }
@@ -810,10 +815,6 @@ export default {
       display: block;
       margin: 0 5px;
     }
-  }
-  .filter_title {
-    margin-left: 0;
-    font-size: 14px;
   }
 }
 </style>

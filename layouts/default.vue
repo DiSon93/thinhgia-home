@@ -17,7 +17,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <v-list-group :value="false" prepend-icon="mdi-account-circle">
+      <!-- <v-list-group :value="false" prepend-icon="mdi-account-circle">
         <template v-slot:activator>
           <v-list-item-title>Users</v-list-item-title>
         </template>
@@ -28,7 +28,7 @@
             <v-icon v-text="icon"></v-icon>
           </v-list-item-icon>
         </v-list-item>
-      </v-list-group>
+      </v-list-group> -->
     </v-navigation-drawer>
     <div class="header">
       <div class="info">

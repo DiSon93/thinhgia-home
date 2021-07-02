@@ -28,7 +28,7 @@ export default {
 
   loadingIndicator: {
     name: 'rectangle-bounce',
-    color: '#3B8070',
+    color: '#242D4A',
     background: 'white'
   },
 
