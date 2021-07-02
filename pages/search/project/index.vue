@@ -1342,7 +1342,7 @@ export default {
         font-size: 11px !important;
         .v-icon {
           color: #c4c4c4;
-          margin-right: 10px;
+          margin-right: 5px!important;
           font-size: 14px;
         }
         line-height: 16px !important;

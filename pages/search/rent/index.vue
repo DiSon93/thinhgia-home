@@ -1157,7 +1157,7 @@ export default {
         margin: 10px 0 6px !important;
       }
       .sex {
-        font-size: 12px !important;
+        font-size: 11px !important;
         // margin: 5px -10px !important;
         .v-icon {
           color: #c4c4c4;
@@ -1171,7 +1171,7 @@ export default {
         margin: 6px 0 !important;
       }
       .address {
-        font-size: 12px !important;
+        font-size: 11px !important;
         // margin: 5px -10px !important;
         .v-icon {
           color: #c4c4c4;
