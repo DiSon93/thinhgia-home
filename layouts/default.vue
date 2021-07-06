@@ -296,6 +296,8 @@ export default {
 <style lang="scss" scoped>
 .header {
   position: fixed;
+  // position: sticky;
+  // top: 0;
   z-index: 99;
   width: 100%;
   background-color: $color-white;
@@ -448,7 +450,11 @@ export default {
 .header_mobile {
   display: none;
 }
-
+@media screen and (max-width: 1399px) {
+  .kygui.v-btn {
+    display: none;
+  }
+}
 @media screen and (max-width: 1200px) {
   .header {
     img {

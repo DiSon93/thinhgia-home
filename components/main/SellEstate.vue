@@ -341,7 +341,7 @@ export default {
       isActive: false,
       settings: {
         dots: false,
-        focusOnSelect: true,
+        focusOnSelect: false,
         infinite: true,
         speed: 500,
         slidesToShow: 4,

@@ -93,6 +93,10 @@ export default {
 
   extensions: ['*', '.js', '.vue', '.json'],
 
+  generate: {
+    fallback: true
+   },
+
     // router: {
     //   scrollBehavior: function (to, from, savedPosition) {
     //     return { x: 0, y: 0 }

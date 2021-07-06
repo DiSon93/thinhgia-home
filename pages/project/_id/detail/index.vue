@@ -5,25 +5,46 @@
         <img src="@image/layouts/picture_ngoctuoc2.png" alt="" />
       </div>
       <v-row>
-        <v-col cols="8">
+        <v-col cols="12" sm="8">
           <div class="project_title">KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II – VŨNG TÀU</div>
-          <div style="margin-bottom: 10px">
+          <div class="btn_groupitems">
             <v-btn-toggle v-model="text" tile color="deep-purple accent-3" group>
-              <v-btn value="tongquan" id="highlight"> Tổng quan </v-btn>
+              <v-btn value="tongquan" id="highlight" @click="activeNames = ['1']">
+                Tổng quan
+              </v-btn>
 
-              <v-btn value="ban" id="highlight"> BĐS Bán </v-btn>
+              <a href="#blank"> <v-btn value="ban" id="highlight"> BĐS Bán </v-btn></a>
 
-              <v-btn value="thue" id="highlight"> BĐS Thuê </v-btn>
+              <a href="#blank"> <v-btn value="thue" id="highlight"> BĐS Thuê</v-btn></a>
 
-              <v-btn value="vitri" id="normal"> Vị trí </v-btn>
+              <a href="#vitri_blank">
+                <v-btn value="vitri" id="normal" @click="activeNames.push('2')">
+                  Vị trí
+                </v-btn></a
+              >
+              <a href="#tienich_blank">
+                <v-btn value="tienich" id="normal" @click="activeNames.push('3')">
+                  Tiện ích
+                </v-btn></a
+              >
 
-              <v-btn value="tienich" id="normal"> Tiện ích </v-btn>
+              <a href="#hinhanh_blank">
+                <v-btn value="hinhanh" id="normal" @click="activeNames.push('4')">
+                  Hình ảnh
+                </v-btn></a
+              >
 
-              <v-btn value="hinhanh" id="normal"> Hình ảnh </v-btn>
+              <a href="#matbang_blank">
+                <v-btn value="matbang" id="normal" @click="activeNames.push('5')">
+                  Mặt bằng
+                </v-btn></a
+              >
 
-              <v-btn value="matbang" id="normal"> Mặt bằng </v-btn>
-
-              <v-btn value="toanha" id="normal"> Tòa nhà </v-btn>
+              <a href="#toanha_blank"
+                ><v-btn value="toanha" id="normal" @click="activeNames.push('6')">
+                  Tòa nhà
+                </v-btn></a
+              >
             </v-btn-toggle>
           </div>
           <!-- <div class="social d-flex">
@@ -32,326 +53,253 @@
           </div> -->
 
           <el-collapse v-model="activeNames" @change="handleChange">
-            <el-collapse-item title="TỔNG QUAN DỰ ÁN" name="1" class="overview">
+            <el-collapse-item title="TỔNG QUAN DỰ ÁN" name="1" id="overview">
               <div class="items">
-                <span class="text_highlight">Tên dự án: </span>
-                <span> KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II - VŨNG TÀU </span>
+                <div>
+                  <span class="text_highlight">Tên dự án: </span>
+                  <span> KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II - VŨNG TÀU </span>
+                </div>
               </div>
               <div class="items">
                 <img src="@image/icons/address_02.png" alt="" />
-                <span class="text_highlight">Vị trí:</span>
-                <span> Trung tâm thành phố Vũng Tàu </span>
+                <div>
+                  <span class="text_highlight">Vị trí:</span>
+                  <span> Trung tâm thành phố Vũng Tàu </span>
+                </div>
               </div>
               <div class="items">
                 <img src="@image/icons/contractor_02.png" alt="" />
-                <span class="text_highlight">Chủ đầu tư:</span>
-                <span>Công ty CP Phát triển Nhà Bà Rịa – Vũng Tàu (Hodeco)</span>
+                <div>
+                  <span class="text_highlight">Chủ đầu tư:</span>
+                  <span>Công ty CP Phát triển Nhà Bà Rịa – Vũng Tàu (Hodeco)</span>
+                </div>
               </div>
               <div class="items">
                 <img src="@image/icons/quymo_02.png" alt="" />
-                <span class="text_highlight">Quy mô:</span>
-                <span>149 biệt thự gồm 133 căn liên kế và 40 nền nhà tái định cư</span>
+                <div>
+                  <span class="text_highlight">Quy mô:</span>
+                  <span>149 biệt thự gồm 133 căn liên kế và 40 nền nhà tái định cư</span>
+                </div>
               </div>
             </el-collapse-item>
-            <el-collapse-item title="VỊ TRÍ DỰ ÁN" name="2" class="vitri">
-              <div class="vitri_img">
-                <img src="@image/layouts/vitriduan.svg" alt="" /> <br />
-                <i>Sơ đồ vị trí cụ thể của Dự án Khu biệt thự Đồi Ngọc Tước 2</i>
-              </div>
-              <div class="text_highlight">_Vị trí:</div>
-              <div>
-                Bãi Sau được mệnh danh là khu vực "5 sao" của Vũng Tàu, nơi giao thương
-                sầm uất và tập trung hầu hết các hoạt động lễ hội lớn, cũng như quy tụ
-                nhiều khu nghỉ dưỡng và khách sạn 5 sao cao cấp nhất.
-              </div>
-              <div>
-                Đây là vùng phát triển du lịch mạnh mẽ và bứt tốc nhất của phố biển,với tỷ
-                suất cho thuê phòng luôn cao, thậm chí đạt tối đa vào mùa cao điểm du
-                lịch.
-              </div>
-              <div>
-                Trong bối cảnh quỹ đất thừa hưởng tiềm năng du lịch của thành phố ngày
-                càng thu hẹp, Khu Biệt thự đồi Ngọc Tước 2 đã nhanh chân chiếm trọn mảnh
-                đất vàng hiếm hoi còn sót lại. Dự án thuộc phân khu Nam Vũng Tàu, không
-                chỉ nằm giữa trung tâm thành phố mà còn kề sát khu vực biển Bãi Sau.
-              </div>
-              <div>
-                Bao quanh khu biệt thự là 3 trục đường lớn: Thi Sách, Đường 3/2, Nguyễn An
-                Ninh cách biển chỉ 5 phút đi bộ cùng tuyến đường huyết mạch liên thông
-                Vũng Tàu - TP.HCM chỉ mất 90 phút đi lại giữa hai thành phố lớn.
-              </div>
-              <div>
-                Đặc biệt hơn nữa, sau vị trí đắc địa, Ngọc Tước 2 còn sở hữu địa thế đẳng
-                cấp hiếm có “lưng tựa đồi, mặt hướng biển”. Biệt thự đồi ven biển luôn nằm
-                trong bộ sưu tập “second-home” nhất định phải có để thể hiện đẳng cấp
-                thành đạt của giới thượng lưu, song thị trường hiện nay đang “khát”những
-                dự án sở hữu địa thế vững chãi, hội đủ cả hai yếu tố “sơn thủy” mang lại
-                cuộc sống cân bằng và thịnh vượng cho chủ nhân như Ngọc Tước 2.
-              </div>
-              <div class="text_highlight">_Hạ tầng:</div>
-              <div>
-                Nắm trong tay quỹ đất vàng, song Khu Biệt thự Đồi Ngọc Tước 2 dành đến gần
-                50% diện tích cho cảnh quan xanh (1,2 ha), hạ tầng giao thông (3,4 ha) và
-                tiện ích du lịch, giải trí (2,2 ha). Với quỹ đất ở (7,4 ha), chủ đầu tư
-                HODECO cũng tối ưu hóa các lô đất ứng với 11 mẫu nhà khác nhau, thiết kế
-                đa dạng, hợp lý và sang trọng để nhà đầu tư có thể chọn lựa phù hợp với
-                nhu cầu.
-              </div>
-              <div>
-                Bên cạnh đó, dự án còn thừa hưởng loạt tiện ích ngoại khu đồng bộ và thuận
-                lợi cho việc sinh hoạt, nghỉ dưỡng. Trong bán kính 200 m, từ dự án có thể
-                di chuyển tới mọi khách sạn và nhà hàng khu vực Bãi Sau, trung tâm thương
-                mại Lotte Mart, khách sạn Pullman, trường THPT Vũng Tàu và cũng chỉ mất
-                vài phút đi bộ để tiếp cận hệ thống ngân hàng, bưu điện, bến xe, chợ lớn,
-                khu thể thao đa năng, vui chơi giải trí... gần kề.
-              </div>
-            </el-collapse-item>
-            <el-collapse-item title="TIỆN ÍCH" name="3" class="tienich">
-              <ul>
-                <v-row>
-                  <v-col cols="4">
-                    <li>Bãi giữ xe</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Phòng xông hơi</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Phòng sinh hoạt cộng đồng</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Phòng tập Gym</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Sân Tennis</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Khu vui chơi</li>
-                  </v-col>
+            <div id="vitri">
+              <div id="vitri_blank"></div>
+              <el-collapse-item title="VỊ TRÍ DỰ ÁN" name="2">
+                <div class="vitri_img">
+                  <img src="@image/layouts/vitriduan.svg" alt="" />
+                  <i>Sơ đồ vị trí cụ thể của Dự án Khu biệt thự Đồi Ngọc Tước 2</i>
+                </div>
 
-                  <v-col cols="4">
-                    <li>Sân bóng rổ</li>
+                <p class="text_highlight">_Vị trí:</p>
+                <p>
+                  Bãi Sau được mệnh danh là khu vực "5 sao" của Vũng Tàu, nơi giao thương
+                  sầm uất và tập trung hầu hết các hoạt động lễ hội lớn, cũng như quy tụ
+                  nhiều khu nghỉ dưỡng và khách sạn 5 sao cao cấp nhất.
+                </p>
+                <p>
+                  Đây là vùng phát triển du lịch mạnh mẽ và bứt tốc nhất của phố biển,với
+                  tỷ suất cho thuê phòng luôn cao, thậm chí đạt tối đa vào mùa cao điểm du
+                  lịch.
+                </p>
+                <p>
+                  Trong bối cảnh quỹ đất thừa hưởng tiềm năng du lịch của thành phố ngày
+                  càng thu hẹp, Khu Biệt thự đồi Ngọc Tước 2 đã nhanh chân chiếm trọn mảnh
+                  đất vàng hiếm hoi còn sót lại. Dự án thuộc phân khu Nam Vũng Tàu, không
+                  chỉ nằm giữa trung tâm thành phố mà còn kề sát khu vực biển Bãi Sau.
+                </p>
+                <p>
+                  Bao quanh khu biệt thự là 3 trục đường lớn: Thi Sách, Đường 3/2, Nguyễn
+                  An Ninh cách biển chỉ 5 phút đi bộ cùng tuyến đường huyết mạch liên
+                  thông Vũng Tàu - TP.HCM chỉ mất 90 phút đi lại giữa hai thành phố lớn.
+                </p>
+                <p>
+                  Đặc biệt hơn nữa, sau vị trí đắc địa, Ngọc Tước 2 còn sở hữu địa thế
+                  đẳng cấp hiếm có “lưng tựa đồi, mặt hướng biển”. Biệt thự đồi ven biển
+                  luôn nằm trong bộ sưu tập “second-home” nhất định phải có để thể hiện
+                  đẳng cấp thành đạt của giới thượng lưu, song thị trường hiện nay đang
+                  “khát”những dự án sở hữu địa thế vững chãi, hội đủ cả hai yếu tố “sơn
+                  thủy” mang lại cuộc sống cân bằng và thịnh vượng cho chủ nhân như Ngọc
+                  Tước 2.
+                </p>
+                <p class="text_highlight">_Hạ tầng:</p>
+                <p>
+                  Nắm trong tay quỹ đất vàng, song Khu Biệt thự Đồi Ngọc Tước 2 dành đến
+                  gần 50% diện tích cho cảnh quan xanh (1,2 ha), hạ tầng giao thông (3,4
+                  ha) và tiện ích du lịch, giải trí (2,2 ha). Với quỹ đất ở (7,4 ha), chủ
+                  đầu tư HODECO cũng tối ưu hóa các lô đất ứng với 11 mẫu nhà khác nhau,
+                  thiết kế đa dạng, hợp lý và sang trọng để nhà đầu tư có thể chọn lựa phù
+                  hợp với nhu cầu.
+                </p>
+                <p>
+                  Bên cạnh đó, dự án còn thừa hưởng loạt tiện ích ngoại khu đồng bộ và
+                  thuận lợi cho việc sinh hoạt, nghỉ dưỡng. Trong bán kính 200 m, từ dự án
+                  có thể di chuyển tới mọi khách sạn và nhà hàng khu vực Bãi Sau, trung
+                  tâm thương mại Lotte Mart, khách sạn Pullman, trường THPT Vũng Tàu và
+                  cũng chỉ mất vài phút đi bộ để tiếp cận hệ thống ngân hàng, bưu điện,
+                  bến xe, chợ lớn, khu thể thao đa năng, vui chơi giải trí... gần kề.
+                </p>
+              </el-collapse-item>
+            </div>
+            <div id="tienich">
+              <div id="tienich_blank"></div>
+              <el-collapse-item title="TIỆN ÍCH" name="3">
+                <ul class="tienichmorong">
+                  <v-row>
+                    <v-col cols="6" md="4">
+                      <li>Bãi giữ xe</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Phòng xông hơi</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Phòng sinh hoạt cộng đồng</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Phòng tập Gym</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Sân Tennis</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Khu vui chơi</li>
+                    </v-col>
+
+                    <v-col cols="6" md="4">
+                      <li>Sân bóng rổ</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Hệ thống an ninh</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Gần siêu thị, khu mua bán</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Bảo trì</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Hệ thống điều hòa</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Máy phát điện</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>BBQ</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Thang thoát hiểm</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Quầy lễ tân</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Sân vườn, công viên cây xanh</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Hệ thống PCCC</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Năm bàn giao</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Hồ bơi</li>
+                    </v-col>
+                    <v-col cols="6" md="4">
+                      <li>Đường chạy bộ</li>
+                    </v-col>
+                  </v-row>
+                </ul>
+              </el-collapse-item>
+            </div>
+            <div id="hinhanh">
+              <div id="hinhanh_blank"></div>
+              <el-collapse-item title="HÌNH ẢNH" name="4">
+                <img src="@image/layouts/project_detail_02.svg" alt="" />
+                <img src="@image/layouts/project_detail_03.svg" alt="" />
+                <img src="@image/layouts/project_detail_04.svg" alt="" />
+                <img src="@image/layouts/project_detail_05.svg" alt="" />
+                <img src="@image/layouts/project_detail_06.svg" alt="" />
+              </el-collapse-item>
+            </div>
+            <div id="matbang">
+              <div id="matbang_blank"></div>
+              <el-collapse-item title="MẶT BẰNG" name="5">
+                <img src="@image/layouts/matbang_01.svg" alt="" />
+                <i>Sơ đồ mặt bằng phân lô tổng thể của đồi Ngọc Tước 2</i>
+                <br />
+                <img src="@image/layouts/matbang_02.svg" alt="" />
+                <i>Hạ Tầng phân khu đang triển khai</i>
+                <br />
+                <img src="@image/layouts/matbang_03.svg" alt="" />
+                <i>Hạ Tầng triển khai thần tốc</i>
+              </el-collapse-item>
+            </div>
+            <div id="toanha">
+              <div id="toanha_blank"></div>
+              <el-collapse-item title="TÒA NHÀ" name="6">
+                <v-row>
+                  <v-col cols="6" sm="4">
+                    <el-card class="box-card">
+                      <div slot="header" class="clearfix hover14">
+                        <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
+                      </div>
+                      <div class="add_detail">
+                        <div class="toanha_title">Khu A</div>
+                        <div>Số biệt thự: 25</div>
+                        <div>Số hồ bơi: 25</div>
+                        <div>Số siêu thị: 25</div>
+                      </div>
+                    </el-card>
                   </v-col>
-                  <v-col cols="4">
-                    <li>Hệ thống an ninh</li>
+                  <v-col cols="6" sm="4">
+                    <el-card class="box-card">
+                      <div slot="header" class="clearfix hover14">
+                        <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
+                      </div>
+                      <div class="add_detail">
+                        <div class="toanha_title">Khu B</div>
+                        <div>Số biệt thự: 25</div>
+                        <div>Số hồ bơi: 25</div>
+                        <div>Số siêu thị: 25</div>
+                      </div>
+                    </el-card>
                   </v-col>
-                  <v-col cols="4">
-                    <li>Gần siêu thị, khu mua bán</li>
+                  <v-col cols="6" sm="4">
+                    <el-card class="box-card">
+                      <div slot="header" class="clearfix hover14">
+                        <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
+                      </div>
+                      <div class="add_detail">
+                        <div class="toanha_title">Khu C</div>
+                        <div>Số biệt thự: 25</div>
+                        <div>Số hồ bơi: 25</div>
+                        <div>Số siêu thị: 25</div>
+                      </div>
+                    </el-card>
                   </v-col>
-                  <v-col cols="4">
-                    <li>Bảo trì</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Hệ thống điều hòa</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Máy phát điện</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>BBQ</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Thang thoát hiểm</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Quầy lễ tân</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Sân vườn, công viên cây xanh</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Hệ thống PCCC</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Năm bàn giao</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Hồ bơi</li>
-                  </v-col>
-                  <v-col cols="4">
-                    <li>Đường chạy bộ</li>
+                  <v-col cols="6" sm="4">
+                    <el-card class="box-card">
+                      <div slot="header" class="clearfix hover14">
+                        <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
+                      </div>
+                      <div class="add_detail">
+                        <div class="toanha_title">Khu D</div>
+                        <div>Số biệt thự: 25</div>
+                        <div>Số hồ bơi: 25</div>
+                        <div>Số siêu thị: 25</div>
+                      </div>
+                    </el-card>
                   </v-col>
                 </v-row>
-              </ul>
-            </el-collapse-item>
-            <el-collapse-item title="HÌNH ẢNH" name="4" class="hinhanh">
-              <img src="@image/layouts/project_detail_02.svg" alt="" />
-              <img src="@image/layouts/project_detail_03.svg" alt="" />
-              <img src="@image/layouts/project_detail_04.svg" alt="" />
-              <img src="@image/layouts/project_detail_05.svg" alt="" />
-              <img src="@image/layouts/project_detail_06.svg" alt="" />
-            </el-collapse-item>
-            <el-collapse-item title="MẶT BẰNG" name="5" class="matbang">
-              <img src="@image/layouts/matbang_01.svg" alt="" /> <br />
-              <i>Sơ đồ mặt bằng phân lô tổng thể của đồi Ngọc Tước 2</i>
-              <br />
-              <img src="@image/layouts/matbang_02.svg" alt="" /> <br />
-              <i>Hạ Tầng phân khu đang triển khai</i>
-              <br />
-              <img src="@image/layouts/matbang_03.svg" alt="" /> <br />
-              <i>Hạ Tầng triển khai thần tốc</i>
-            </el-collapse-item>
-            <el-collapse-item title="TÒA NHÀ" name="6" class="toanha">
-              <v-row>
-                <v-col cols="4">
-                  <el-card class="box-card">
-                    <div slot="header" class="clearfix hover14">
-                      <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
-                    </div>
-                    <div class="add_detail">
-                      <div class="toanha_title">Khu A</div>
-                      <div>Số biệt thự: 25</div>
-                      <div>Số hồ bơi: 25</div>
-                      <div>Số siêu thị: 25</div>
-                    </div>
-                  </el-card>
-                </v-col>
-                <v-col cols="4">
-                  <el-card class="box-card">
-                    <div slot="header" class="clearfix hover14">
-                      <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
-                    </div>
-                    <div class="add_detail">
-                      <div class="toanha_title">Khu B</div>
-                      <div>Số biệt thự: 25</div>
-                      <div>Số hồ bơi: 25</div>
-                      <div>Số siêu thị: 25</div>
-                    </div>
-                  </el-card>
-                </v-col>
-                <v-col cols="4">
-                  <el-card class="box-card">
-                    <div slot="header" class="clearfix hover14">
-                      <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
-                    </div>
-                    <div class="add_detail">
-                      <div class="toanha_title">Khu C</div>
-                      <div>Số biệt thự: 25</div>
-                      <div>Số hồ bơi: 25</div>
-                      <div>Số siêu thị: 25</div>
-                    </div>
-                  </el-card>
-                </v-col>
-                <v-col cols="4">
-                  <el-card class="box-card">
-                    <div slot="header" class="clearfix hover14">
-                      <figure><img src="@image/layouts/toanha.svg" alt="" /></figure>
-                    </div>
-                    <div class="add_detail">
-                      <div class="toanha_title">Khu D</div>
-                      <div>Số biệt thự: 25</div>
-                      <div>Số hồ bơi: 25</div>
-                      <div>Số siêu thị: 25</div>
-                    </div>
-                  </el-card>
-                </v-col>
-              </v-row>
-            </el-collapse-item>
+              </el-collapse-item>
+            </div>
           </el-collapse>
-
-          <!-- <div class="project_intro">
-            <div class="name">Giới thiệu khu Biệt thự Đồi Ngọc Tước II</div>
-            <div>
-              Hứa hẹn sẽ mang lại cho cư dân một cuộc sống thịnh vượng cùng môi trường
-              thuần khiết, mát lành. Đặc biệt, trong khuôn viên dự án, ứng với các lô đất
-              là 11 mẫu nhà khác nhau được thiết kế đa dạng, hợp lí, sang trọng để bạn có
-              thể chọn lựa phù hợp với nhu cầu và sở thích của gia đình.
-            </div>
-            <br />
-            <div>
-              Với Ngọc Tước II, bạn và gia đình sẽ thực sự được trải nghiệm một không gian
-              sống mang đẳng cấp hoàn toàn khác biệt, rộng mở, sang trọng và rất đỗi bình
-              yên.
-            </div>
-          </div>
-          <div class="project_img ngoctuoc2">
-            <img src="@image/layouts/phoicanh_ngoctuoc.png" alt="" />
-          </div>
-          <div class="project_intro">
-            <div class="name">Tổng quan khu Biệt thự đồi Ngọc Tước II</div>
-            <div>
-              Tọa lạc trên trục đường lưu thông giữa Tp.HCM và Vũng Tàu, Khu biệt thự đồi
-              Ngọc Tước II sở hữu vị trí vô cùng đẹp, hướng ra biển và tựa lưng vào đối,
-              cách bãi sau khoảng 200m. Dự án đồi Ngọc Tước II là sự lượng chọn lý tưởng
-              các khách hàng sinh sống, du lịch và nghỉ dưỡng.
-            </div>
-            <br />
-            <div>– Tên dự án: Khu biệt thự đồi Ngọc Tước II</div>
-            <div>– Chủ đầu tư: Công ty CP Phát triển Nhà Bà Rịa – Vũng Tàu (Hodeco)</div>
-            <div>– Loại hình: Đất nền, biệt thự</div>
-            <div>
-              – Quy mô: 149 biệt thự diện tích từ 300m-700m2, 133 căn liên kế và 40 nền
-              nhà tái định cư
-            </div>
-            <div>– Tổng diện tích: 14,3 ha</div>
-            <div>– Diện tích đất ở: 74.456m2</div>
-            <div>– Diện tích đất dịch vụ du lịch, giải trí: 22.248m2</div>
-            <div>– Diện tích cây xanh: 12.283m2</div>
-            <div>
-              – Diện tích đất giao thông: 34.449m2 eco) – Tổng mức đầu tư: 340 tỷ đồng
-            </div>
-            <br />
-            <div class="name">Vị trí - Tiện ích</div>
-            <div>
-              Nằm ở vị trí trung tâm TP. Vũng Tàu, Khu Biệt thự Đồi Ngọc Tước II sở hữu
-              địa thế đáng mơ ước. Lưng tựa đồi, mặt hướng ra biển, nơi đây không chỉ có
-              vị thế vững chãi hứa hẹn mang lại một cuộc sống thịnh vượng mà còn mang đến
-              một môi trường thuần khiết, mát lành. Bao quanh khu biệt thự là 3 trục đường
-              lớn: Thi Sách, 3/2, Nguyễn An Ninh cùng tuyến đường liên thông Vũng Tàu –
-              TP. Hồ Chí Minh, rất thuận lợi cho việc đi lại và sinh hoạt.
-            </div>
-          </div>
-
-          <div class="project_img phoicanh">
-            <img src="@image/layouts/Rectangle 212.png" alt="" />
-          </div>
-          <div class="project_intro">
-            <div>
-              Chỉ mất vài phút đi bộ, bạn đã có mặt tại Bãi Sau để có thể tản bộ trên
-              những bãi cát trải dài, mơn man cùng gió và sóng biển, thả mình vào làn nước
-              trong xanh, cảm nhận sự bình yên, tươi mát trong những phút giây giao hòa
-              cùng thiên nhiên, hoàn toàn thư giãn sau những ngày làm việc mệt mỏi.
-            </div>
-            <br />
-            <div>
-              Ngoài ra, các căn biệt thự đều gần kề những tiện ích như trường học, trung
-              tâm thương mại, khu thể thao đa năng, khu vui chơi giải trí, phục vụ tối đa
-              các nhu cầu sinh hoạt của mỗi thành viên trong gia đình.
-            </div>
-            <br />
-            <div>
-              Với Ngọc Tước II, bạn sẽ thực sự được trải nghiệm ở một không gian mang đẳng
-              cấp hoàn toàn khác biệt, rộng mở, sang trọng và rất đỗi yên bình.
-            </div>
-            <br />
-            <div class="name">Quy mô dự án</div>
-            <div>
-              Tọa lạc trên khu đất có tổng diện tích 14,3ha, Khu biệt thự Đồi Ngọc Tước II
-              có 74.456 m2 diện tích xây dựng nhà ở với 159 nền biệt thự, nhà vườn có diện
-              tích từ 280m2 -700m2 và 40 nền nhà liền kế. Các căn biệt thự có kết cấu 1
-              trệt 2 lầu.
-            </div>
-          </div>
-          <div class="project_img phoicanh">
-            <img src="@image/layouts/Rectangle 2134.png" alt="" />
-          </div>
-          <div class="project_intro">
-            <div>
-              Khu biệt thự Đồi Ngọc Tước II dành 22.248 m2 đất cho dịch vụ du lịch, giải
-              trí và 12.283 m2 đất dành cho cây xanh, phần diện tích còn lại là đường giao
-              thông.
-            </div>
-            <br />
-            <div>
-              Ngoài ra, các căn biệt thự đều gần kề những tiện ích như trường học, trung
-              tâm thương mại, khu thể thao đa năng, khu vui chơi giải trí,…
-            </div>
-          </div> -->
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="4">
           <FormUser />
         </v-col>
       </v-row>
-      <div class="estateOfProject">
+      <div id="blank"></div>
+      <div class="estateOfProject" id="rent_sell">
         <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
         <div class="btn_group">
           <div>
@@ -370,15 +318,45 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Đông</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -395,15 +373,45 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
                     <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -420,15 +428,45 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
                     <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -445,15 +483,45 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
                     <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -470,15 +538,45 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <span class="first_price">6 tỷ</span>
-                    <span>60 m2</span>
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
                   </div>
                   <div class="name">
                     BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                   </div>
                   <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
                     <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
                   </div>
                   <div class="address d-flex">
                     <v-icon>mdi-map-marker</v-icon>
@@ -518,19 +616,38 @@ export default {
       activeNames: ["1"],
       settings02: {
         dots: false,
-        focusOnSelect: true,
+        focusOnSelect: false,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        prevArrow: `<v-btn>Số 1</v-btn>`,
-        nextArrow: `<button>Số 2</button>`,
+        responsive: [
+          {
+            breakpoint: 1250,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 920,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+        ],
       },
     };
   },
   methods: {
     handleChange(val) {
       console.log(val);
+    },
+    scroll() {
+      window.scrollTo(0, 1150);
     },
   },
 };
@@ -578,13 +695,14 @@ export default {
     width: 60%;
   }
 }
-.overview,
-.vitri,
-.hinhanh {
+#overview,
+#vitri,
+#hinhanh {
   font-size: 20px;
   .items {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
     img {
       margin-right: 10px;
     }
@@ -600,13 +718,54 @@ export default {
     margin-right: 10px;
   }
 }
-.matbang {
+#tienich {
+  position: relative;
+  .col-6,
+  .col-ma-4 {
+    padding: 4px;
+  }
+  .tienichmorong {
+    margin-top: 10px;
+  }
+  #tienich_blank {
+    position: absolute;
+    height: 130px;
+    top: -160px;
+  }
+}
+#hinhanh {
+  position: relative;
+  #hinhanh_blank {
+    position: absolute;
+    height: 130px;
+    top: -160px;
+  }
+}
+#hinhanh,
+#vitri {
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+#matbang {
   text-align: center;
+  position: relative;
   i {
     margin-top: -20px;
   }
+  img {
+    width: 100%;
+    display: block;
+  }
+  #matbang_blank {
+    position: absolute;
+    height: 130px;
+    top: -160px;
+  }
 }
-.toanha {
+#toanha {
+  position: relative;
   .toanha_title {
     font-weight: 700;
   }
@@ -614,12 +773,28 @@ export default {
     width: 100%;
     display: block;
   }
+  #toanha_blank {
+    position: absolute;
+    height: 130px;
+    top: -160px;
+  }
 }
 .vitri_img {
   text-align: center;
 }
+#blank {
+  height: 130px;
+}
+#vitri {
+  position: relative;
+  #vitri_blank {
+    position: absolute;
+    height: 130px;
+    top: -160px;
+  }
+}
 .estateOfProject {
-  margin-top: 20px;
+  // margin-top: 100px;
   .estate_title {
     font-weight: 500;
     font-size: 24px;
@@ -678,26 +853,34 @@ export default {
         .name {
           font-weight: 500;
           font-size: 16px;
-          line-height: 20px;
+          line-height: 28px;
           color: #000000;
-          margin: 5px 0 10px;
+          text-decoration: none;
+          &:hover {
+            color: $color-orange-light;
+            // text-decoration: ;
+            transition: 0.5s;
+          }
         }
         .sex {
           .v-icon {
             color: #c4c4c4;
-            margin-right: 15px;
+            margin: 0 10px 0 15px;
+            &:first-child {
+              margin-left: 0;
+            }
           }
           font-size: 16px;
           line-height: 30px;
-          margin-bottom: 5px;
+          margin: 10px 0;
         }
         .address {
           .v-icon {
             color: #c4c4c4;
-            margin-right: 15px;
+            margin-right: 10px;
           }
           font-size: 16px;
-          line-height: 20px;
+          line-height: 24px;
         }
       }
       .clearfix {
@@ -725,5 +908,100 @@ export default {
 }
 .el-divider--horizontal {
   margin: 14px 0;
+}
+@media screen and (max-width: 1250px) {
+  .project_detail {
+    padding: 0 5%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .estate_img {
+    padding: 6px !important;
+    .add_detail {
+      margin: -10px;
+      font-size: 12x;
+      .price {
+        margin-top: 5px;
+        font-size: 12px !important;
+        line-height: 18px !important;
+        .first_price {
+          margin-right: 6px !important;
+          padding-right: 6px !important;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      .name {
+        margin-top: 5px;
+        font-size: 12px !important;
+        line-height: 20px !important;
+      }
+      .sex {
+        font-size: 11px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin: 0 6px 0 5px !important;
+          font-size: 14px;
+          &:first-child {
+            margin-left: 0 !important;
+          }
+        }
+        line-height: 20px !important;
+        margin: 5px 0 !important;
+      }
+      .address {
+        font-size: 11px !important;
+        .v-icon {
+          color: #c4c4c4;
+          margin-right: 5px !important;
+          font-size: 14px;
+        }
+        line-height: 16px !important;
+        letter-spacing: 0.1px;
+      }
+    }
+  }
+  #img_estate {
+    margin: 0 -5px;
+    .estate_img {
+      .clearfix {
+        .overlay_title {
+          padding: 0 5px;
+          height: 25px;
+          width: auto;
+          right: 0px;
+          left: 0px !important;
+          bottom: -14px;
+          font-weight: 500;
+          font-size: 12px !important;
+          text-align: left;
+          overflow: hidden;
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+  .estateOfProject {
+    margin-top: -100px;
+    .estate_title {
+      font-size: 16px;
+    }
+    .btn_group {
+      .v-btn {
+        font-size: 12px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  // }
+  .estateOfProject #img_estate .estate_img .add_detail .name {
+    font-size: 12px !important;
+  }
+  .project_detail .project_title {
+    font-size: 16px;
+  }
+  .project_detail .project_img {
+    margin-top: -50px !important;
+  }
 }
 </style>

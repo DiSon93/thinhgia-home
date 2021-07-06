@@ -1,16 +1,41 @@
+html {
+  scroll-behavior: smooth;
+}
 #highlight.v-item--active.v-btn--active {
   background-color: #fdd27f !important;
   color: #fff !important;
+}
+a{
+  padding: 0;
+  text-decoration: none;
+  .v-btn{
+    box-shadow: none;
+    padding: 0 8px;
+  }
 }
 #highlight.v-btn {
   background-color: transparent;
   color: #fdd27f !important;
   border-radius: 4px;
+  margin: 0!important;
+  text-transform: capitalize;
+  letter-spacing: 0.1px;
+  padding: 0 8px;
+  .v-btn__content{
+    font-size: 16px;
+  }
 }
 #normal.v-btn {
   background-color: transparent;
   color: #464646 !important;
   border-radius: 4px;
+  margin: 0!important;
+  text-transform: capitalize;
+  letter-spacing: 0.1px;
+  font-size: 14px!important;
+  .v-btn__content{
+    font-size: 16px;
+  }
 }
 .el-collapse-item__header {
   font-weight: 700 !important;
@@ -21,12 +46,43 @@
 .el-collapse-item__content {
   font-size: 16px !important;
 }
-.toanha {
+#toanha {
   .el-card__header {
     padding: 0 !important;
     border-bottom: none;
   }
   .el-card__body{
     padding-top: 10px;
+  }
+}
+.btn_groupitems{
+  margin-bottom: 10px;
+  position: sticky;
+   top:120px;
+   z-index: 10;
+   background-color: $color-white;
+}
+@media screen and (max-width: 1320px){
+  #highlight.v-btn,#normal.v-btn {
+    .v-btn__content{
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 1080px) {
+  #highlight.v-btn,#normal.v-btn {
+    padding: 0 8px;
+    .v-btn__content{
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .btn_groupitems{display: none;}
+  .el-collapse-item__header{
+    font-size: 16px!important;
+  }
+  .el-collapse-item__content {
+    font-size: 14px !important;
   }
 }

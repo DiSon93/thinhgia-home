@@ -343,7 +343,7 @@ export default {
       isActive: false,
       settings: {
         dots: false,
-        focusOnSelect: true,
+        focusOnSelect: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,

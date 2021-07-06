@@ -131,7 +131,7 @@
           </div>
           <Description />
         </v-col>
-        <v-col cols="10" sm="4">
+        <v-col cols="12" sm="4">
           <FormUser />
         </v-col>
       </v-row>
@@ -518,6 +518,9 @@ export default {
     font-size: 18px;
     line-height: 24px;
     color: $color-black-01;
+  }
+  #app {
+    padding-left: 15px;
   }
   .project_name {
     font-weight: 700;

@@ -262,7 +262,7 @@ export default {
       },
       settings02: {
         dots: false,
-        focusOnSelect: true,
+        focusOnSelect: false,
         infinite: true,
         speed: 500,
         slidesToShow: 2,
