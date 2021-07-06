@@ -51,7 +51,9 @@
 
 .search_sell,
 .search_rent,
-.search_project {
+.search_project,
+.chungcu,
+.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
     .el-input-group {
         width: auto;
         margin-right: 20px;
@@ -183,7 +185,7 @@
         }
     }
 }
-.search_project {
+.search_project,.chungcu,.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
     #rent,
     #proccess,
     #built_year {
@@ -271,7 +273,7 @@
 @media screen and (min-width: 600px) {
     .search_sell,
     .search_rent,
-    .search_project {
+    .search_project,.chungcu,.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
         #house,
         .select_city,
         .select_district,
@@ -287,7 +289,7 @@
             }
         }
     }
-    .search_project {
+    .search_project,.chungcu,.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
         #rent,
         #proccess,
         #built_year{
@@ -301,7 +303,7 @@
 @media screen and (max-width: 1250px) {
     .search_sell,
     .search_rent,
-    .search_project {
+    .search_project,.chungcu,.nhalienke,.condotel,.dato,.shop ,.khucongnghiep{
         #house,
         .select_city,
         .select_district,
@@ -327,7 +329,7 @@
     }
     .search_sell,
     .search_rent,
-    .search_project {
+    .search_project,.chungcu,.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
         .sort_items {
             .select_sort {
                 .v-btn:not(.v-btn--round).v-size--small {
@@ -438,7 +440,7 @@
     .sort_items .select_sort .el-cascader {
         margin-bottom: 5px !important;
     }
-    .search_project {
+    .search_project,.chungcu,.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
         #rent,
         #proccess,
         #built_year {

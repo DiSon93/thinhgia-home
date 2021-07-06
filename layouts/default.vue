@@ -88,7 +88,7 @@
                 <el-dropdown-item divided>Loại khác</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <el-dropdown placement="top-start">
+            <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/search/project">
                 <el-button type="warning" v-if="this.$route.path == '/search/project'">
                   Dự Án <i class="el-icon-caret-bottom"></i>
@@ -99,12 +99,20 @@
               </router-link>
 
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>Chung cư</el-dropdown-item>
-                <el-dropdown-item divided>Nhà liền kề & Biệt thự</el-dropdown-item>
-                <el-dropdown-item divided>Condotel</el-dropdown-item>
-                <el-dropdown-item divided>Đất ở</el-dropdown-item>
-                <el-dropdown-item divided>Shop thương mại</el-dropdown-item>
-                <el-dropdown-item divided>Khu công nghiệp</el-dropdown-item>
+                <el-dropdown-item command="/project/chungcu"> Chung cư </el-dropdown-item>
+                <el-dropdown-item divided command="/project/nhalienke"
+                  >Nhà liền kề & Biệt thự</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/project/condotel"
+                  >Condotel</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/project/dato">Đất ở</el-dropdown-item>
+                <el-dropdown-item divided command="/project/shop"
+                  >Shop thương mại</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/project/kcn"
+                  >Khu công nghiệp</el-dropdown-item
+                >
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -128,6 +136,9 @@
                 <el-dropdown-item divided>Ký gửi BĐS</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
+            <v-btn color="warning" class="kygui">
+              <img src="@image/icons/kygui.png" alt="" /> Ký gửi BĐS</v-btn
+            >
           </div>
         </div>
       </div>
@@ -276,6 +287,9 @@ export default {
     showPopUp() {
       this.popUp = !this.popUp;
     },
+    handleCommand(command) {
+      this.$router.push(command);
+    },
   },
 };
 </script>
@@ -302,6 +316,19 @@ export default {
     vertical-align: center;
     margin-left: 15px;
     margin-top: 5px;
+  }
+}
+
+.kygui.v-btn {
+  width: 130px;
+  box-shadow: none;
+  .v-btn__content {
+    width: 100px;
+  }
+  img {
+    width: 18px;
+    height: 16px;
+    margin: 0;
   }
 }
 

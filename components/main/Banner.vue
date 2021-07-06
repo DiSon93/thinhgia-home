@@ -63,8 +63,9 @@ export default {
 .banner {
   margin-top: 50px;
   display: flex;
+  justify-content: center;
   .banner_content {
-    width: 50%;
+    width: 25%;
     text-align: center;
     img {
       width: 80%;

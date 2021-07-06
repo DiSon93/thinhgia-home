@@ -1,0 +1,32 @@
+#highlight.v-item--active.v-btn--active {
+  background-color: #fdd27f !important;
+  color: #fff !important;
+}
+#highlight.v-btn {
+  background-color: transparent;
+  color: #fdd27f !important;
+  border-radius: 4px;
+}
+#normal.v-btn {
+  background-color: transparent;
+  color: #464646 !important;
+  border-radius: 4px;
+}
+.el-collapse-item__header {
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  line-height: 24px !important;
+  margin-bottom: 0px;
+}
+.el-collapse-item__content {
+  font-size: 16px !important;
+}
+.toanha {
+  .el-card__header {
+    padding: 0 !important;
+    border-bottom: none;
+  }
+  .el-card__body{
+    padding-top: 10px;
+  }
+}
