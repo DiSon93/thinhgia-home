@@ -233,8 +233,9 @@ export default {
   }
 }
 .el-divider--horizontal {
-  margin: 5px 0;
-  height: 2px;
+  margin: 5px 0 !important;
+  background: rgba(128, 128, 128, 0.555);
+  height: 1px;
 }
 @media screen and (max-width: 1080px) {
   .form_info {
@@ -244,6 +245,9 @@ export default {
     .note {
       font-size: 14px;
     }
+  }
+  .btn_group .explain.el-button {
+    padding: 6px 8px;
   }
 }
 @media screen and (max-width: 600px) {

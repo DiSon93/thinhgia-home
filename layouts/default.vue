@@ -30,14 +30,14 @@
         </v-list-item>
       </v-list-group> -->
     </v-navigation-drawer>
-    <div class="header">
-      <div class="info">
+         <div class="info" id="laptop_info">
         <v-icon>mdi-phone-dial</v-icon>
         <span>0909522686</span>
         <v-icon>mdi-email</v-icon>
         <a href="#">khobatdongsanviet@gmail.com</a>
       </div>
-
+    <div class="header">
+ 
       <div class="header_items">
         <div class="d-flex header_left">
           <router-link to="/">
@@ -296,12 +296,12 @@ export default {
 <style lang="scss" scoped>
 .header {
   position: fixed;
-  // position: sticky;
-  // top: 0;
+  position: sticky;
+  top: 0;
   z-index: 99;
   width: 100%;
   background-color: $color-white;
-  height: 120px;
+  height: 70px;
   box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.1);
   .header_items {
     display: flex;
@@ -406,9 +406,9 @@ export default {
 // }
 .v-application .info {
   background-color: $color-blue-dark !important;
-  height: 50px;
-  line-height: 50px;
-  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
   color: $color-white;
   text-align: right;
   padding-right: 80px;
@@ -498,19 +498,28 @@ export default {
 }
 @media screen and (max-width: 930px) {
   .header {
+    height: 60px;
     .header_items {
-      position: relative;
+      // position: relative;
       img {
-        position: absolute;
-        top: -44px;
-        margin-top: 0;
+        // position: absolute;
+        // top: -31px;
+        // margin-top: 0;
         z-index: 99999;
+        width: 150px;
       }
+    }
+    .el-button{
+      padding: 8px 12px;
+      height: 50px!important;
     }
   }
 }
 @media screen and (max-width: 600px) {
   .header {
+    display: none;
+  }
+  #laptop_info{
     display: none;
   }
   .header_mobile {

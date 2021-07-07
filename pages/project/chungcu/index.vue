@@ -1125,7 +1125,7 @@ export default {
 
 <style lang="scss" scoped>
 .chungcu {
-  margin-top: 150px;
+  margin-top: 15px;
   padding: 0 10%;
   .chungcu_link {
     font-size: 18px !important;

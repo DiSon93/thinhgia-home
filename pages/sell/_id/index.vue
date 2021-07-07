@@ -135,263 +135,551 @@
         </v-col>
         <v-col cols="12" sm="4">
           <FormUser />
+          <div class="horizontal_title">NHÀ ĐẤT LIÊN QUAN</div>
+          <div class="horizontal_image">
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_27.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_11.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_38.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="more_house" v-if="moreHouse">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_33.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_24.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+            </div>
+            <v-btn color="warning" class="readmore" @click="moreHouse = true"
+              >Xem thêm <v-icon>mdi-chevron-double-down</v-icon></v-btn
+            >
+          </div>
         </v-col>
       </v-row>
       <div class="estateOfProject">
-        <div class="estate_title">NHÀ ĐẤT LIÊN QUAN</div>
-        <div id="img_estate">
-          <VueSlickCarousel :arrows="true" v-bind="settings02">
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <div>
-                      <span class="first_price">6 tỷ</span>
-                      <span>60 <span>&#13217;</span></span>
+        <div class="mobile_screen">
+          <div class="estate_title">NHÀ ĐẤT LIÊN QUAN</div>
+          <div id="img_estate">
+            <VueSlickCarousel :arrows="true" v-bind="settings02">
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
                     </div>
-                    <div class="pricePerMeter">
-                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
                     </div>
                   </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_33.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="sex d-flex">
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Hướng"
-                      placement="top"
-                    >
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
+                    </div>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                    </div>
+                  </div>
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_23.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                    </div>
+                    <div class="sex d-flex">
                       <v-icon>mdi-near-me</v-icon>
-                    </el-tooltip>
-                    <span>Nam</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng ngủ"
-                      placement="top"
-                    >
-                      <v-icon>mdi-bed-outline</v-icon>
-                    </el-tooltip>
-                    <span>2</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng tắm"
-                      placement="top"
-                    >
-                      <v-icon>mdi-shower-head</v-icon>
-                    </el-tooltip>
-                    <span>3</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_33.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <div>
-                      <span class="first_price">6 tỷ</span>
-                      <span>60 <span>&#13217;</span></span>
+                      <span>Nam</span>
                     </div>
-                    <div class="pricePerMeter">
-                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
                     </div>
                   </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                </el-card>
+              </div>
+              <div class="estate_img">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <figure><img src="@image/layouts/room_36.svg" alt="" /></figure>
+                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
                   </div>
-                  <div class="sex d-flex">
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Hướng"
-                      placement="top"
-                    >
-                      <v-icon>mdi-near-me</v-icon>
-                    </el-tooltip>
-                    <span>Nam</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng ngủ"
-                      placement="top"
-                    >
-                      <v-icon>mdi-bed-outline</v-icon>
-                    </el-tooltip>
-                    <span>2</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng tắm"
-                      placement="top"
-                    >
-                      <v-icon>mdi-shower-head</v-icon>
-                    </el-tooltip>
-                    <span>3</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_40.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <div>
-                      <span class="first_price">6 tỷ</span>
-                      <span>60 <span>&#13217;</span></span>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span class="first_price">6 tỷ</span>
+                        <span>60 <span>&#13217;</span></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
                     </div>
-                    <div class="pricePerMeter">
-                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    <div class="name">
+                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
                     </div>
-                  </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
-                  </div>
-                  <div class="sex d-flex">
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Hướng"
-                      placement="top"
-                    >
-                      <v-icon>mdi-near-me</v-icon>
-                    </el-tooltip>
-                    <span>Nam</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng ngủ"
-                      placement="top"
-                    >
-                      <v-icon>mdi-bed-outline</v-icon>
-                    </el-tooltip>
-                    <span>2</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng tắm"
-                      placement="top"
-                    >
-                      <v-icon>mdi-shower-head</v-icon>
-                    </el-tooltip>
-                    <span>3</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_23.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <div>
-                      <span class="first_price">6 tỷ</span>
-                      <span>60 <span>&#13217;</span></span>
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+                      <span>Nam</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+                      <span>2</span>
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+                      <span>3</span>
                     </div>
-                    <div class="pricePerMeter">
-                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    <div class="address d-flex">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
                     </div>
                   </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
-                  </div>
-                  <div class="sex d-flex">
-                    <v-icon>mdi-near-me</v-icon>
-                    <span>Nam</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-            <div class="estate_img">
-              <el-card class="box-card">
-                <div slot="header" class="clearfix hover14">
-                  <figure><img src="@image/layouts/room_36.svg" alt="" /></figure>
-                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                </div>
-                <div class="add_detail">
-                  <div class="price">
-                    <div>
-                      <span class="first_price">6 tỷ</span>
-                      <span>60 <span>&#13217;</span></span>
-                    </div>
-                    <div class="pricePerMeter">
-                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
-                    </div>
-                  </div>
-                  <div class="name">
-                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
-                  </div>
-                  <div class="sex d-flex">
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Hướng"
-                      placement="top"
-                    >
-                      <v-icon>mdi-near-me</v-icon>
-                    </el-tooltip>
-                    <span>Nam</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng ngủ"
-                      placement="top"
-                    >
-                      <v-icon>mdi-bed-outline</v-icon>
-                    </el-tooltip>
-                    <span>2</span>
-                    <el-tooltip
-                      class="item"
-                      effect="dark"
-                      content="Phòng tắm"
-                      placement="top"
-                    >
-                      <v-icon>mdi-shower-head</v-icon>
-                    </el-tooltip>
-                    <span>3</span>
-                  </div>
-                  <div class="address d-flex">
-                    <v-icon>mdi-map-marker</v-icon>
-                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                  </div>
-                </div>
-              </el-card>
-            </div>
-            <!-- <div class="estate_img">
+                </el-card>
+              </div>
+            </VueSlickCarousel>
+          </div>
+        </div>
+
+        <!-- <div class="estate_img">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure><img src="@image/layouts/room_07.png" alt="" /></figure>
@@ -414,6 +702,175 @@
                 </div>
               </el-card>
             </div> -->
+        <!-- </div> -->
+        <div class="estate_title">NHÀ ĐẤT ĐÃ XEM</div>
+        <div id="img_estate">
+          <VueSlickCarousel :arrows="true" v-bind="settings02">
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_37.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_12.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+            <div class="estate_img">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure><img src="@image/layouts/room_39.svg" alt="" /></figure>
+                  <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span class="first_price">6 tỷ</span>
+                      <span>60 <span>&#13217;</span></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <div class="name">
+                    BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
+                  </div>
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+                    <span>Nam</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+                    <span>2</span>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+                    <span>3</span>
+                  </div>
+                  <div class="address d-flex">
+                    <v-icon>mdi-map-marker</v-icon>
+                    <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
           </VueSlickCarousel>
         </div>
       </div>
@@ -448,6 +905,7 @@ export default {
   },
   data() {
     return {
+      moreHouse: false,
       settings02: {
         dots: false,
         focusOnSelect: true,
@@ -514,7 +972,7 @@ export default {
 
 <style lang="scss" scoped>
 .sell_detail {
-  margin-top: 150px;
+  margin-top: 15px;
   padding: 0 10%;
   .sell_title {
     font-size: 18px;
@@ -550,6 +1008,20 @@ export default {
         width: 100%;
         display: block;
       }
+    }
+  }
+  .description {
+    .description_title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .content {
+      background: #f2f2f2;
+      border: 0.5px solid #dcdcdc;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 20px 15px;
     }
   }
   .overview {
@@ -612,12 +1084,11 @@ export default {
 .estateOfProject {
   margin-top: 10px;
   .estate_title {
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 20px;
     line-height: 24px;
     color: #000000;
-    margin-bottom: 20px;
-    margin-left: 20px;
+    margin: 10px 0 0 20px;
   }
   .btn_group {
     margin-bottom: 15px;
@@ -701,7 +1172,7 @@ export default {
         .name {
           font-weight: 500;
           font-size: 16px;
-          line-height: 40px;
+          line-height: 28px;
           color: #000000;
           text-decoration: none;
           &:hover {
@@ -734,7 +1205,106 @@ export default {
     }
   }
 }
-
+.horizontal_title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  margin-top: 30px;
+  text-align: center;
+  position: sticky;
+  top: 70px;
+  z-index: 9;
+  background: #f2f2f2;
+  height: 50px;
+  line-height: 50px;
+}
+.horizontal_image {
+  width: 280px;
+  margin: 0 auto;
+  // margin-top: 10px;
+  .readmore.v-btn {
+    text-transform: capitalize;
+    box-shadow: none;
+    background: #fdd27f !important;
+    float: right;
+    color: $color-black-03;
+    font-size: 12px;
+    .v-icon {
+      font-size: 16px;
+    }
+  }
+  .estate_img {
+    margin-bottom: 20px;
+    .clearfix img {
+      width: 100%;
+      display: block;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 30px;
+      color: #fbad18;
+      .first_price {
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid $color-black-01;
+      }
+    }
+    .name {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 28px;
+      color: #000000;
+      text-decoration: none;
+      &:hover {
+        color: $color-orange-light;
+        // text-decoration: ;
+        transition: 0.5s;
+      }
+    }
+    .sex {
+      .v-icon {
+        color: #c4c4c4;
+        margin: 0 10px 0 15px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      font-size: 16px;
+      line-height: 30px;
+      margin: 10px 0;
+    }
+    .address {
+      .v-icon {
+        color: #c4c4c4;
+        margin-right: 10px;
+      }
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .clearfix {
+      position: relative;
+      .overlay_title {
+        position: absolute;
+        background: #fdd27f;
+        border-radius: 4px;
+        padding: 0 15px;
+        height: 25px;
+        left: 19px;
+        bottom: -14px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: $color-black-02;
+        text-align: center;
+      }
+    }
+  }
+}
+.mobile_screen {
+  display: none;
+}
 .footer {
   margin-top: -40px;
 }
@@ -773,6 +1343,17 @@ export default {
       }
     }
   }
+  // .description {
+  //   .content {
+  //     font-size: 14px;
+  //   }
+  // }
+  .horizontal_image {
+    width: 90%;
+    .estate_img {
+      margin-bottom: 0px;
+    }
+  }
 }
 @media screen and (max-width: 1050px) {
   .description {
@@ -781,10 +1362,53 @@ export default {
       font-size: 14px;
     }
   }
+  .horizontal_image {
+    width: 100%;
+  }
+  .horizontal_image {
+    .estate_img {
+      .price {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 30px;
+        color: #fbad18;
+        .first_price {
+          margin-right: 6px;
+          padding-right: 6px;
+          border-right: 1px solid $color-black-01;
+        }
+      }
+      .clearfix {
+        .overlay_title {
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 910px) {
+  .horizontal_image {
+    width: 110%;
+    .readmore.v-btn {
+      float: left;
+      margin-top: -5px;
+    }
+  }
+  .horizontal_title {
+    top: 60px;
+    width: 110%;
+  }
 }
 @media screen and (max-width: 600px) {
   .sell_detail {
     margin-top: 100px;
+  }
+  .horizontal_image,
+  .horizontal_title {
+    display: none;
+  }
+  .mobile_screen {
+    display: block;
   }
   .estate_img {
     padding: 6px !important;

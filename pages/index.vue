@@ -75,7 +75,7 @@ export default {
   padding: 0 10%;
 }
 .homepage {
-  margin-top: 122px;
+  margin-top: 0px;
 }
 @media screen and (max-width: 1250px) {
   .homepage_content {

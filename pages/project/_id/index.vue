@@ -798,7 +798,7 @@ export default {
 
 <style lang="scss" scoped>
 .search_project {
-  margin-top: 150px;
+  margin-top: 15px;
   padding: 0 10%;
   .search_link {
     font-size: 18px;
@@ -977,6 +977,12 @@ export default {
   }
 }
 @media screen and (max-width: 600px){
+  .search_project{
+    margin-top: 100px;
+    .search_link{
+      font-size: 14px;
+    }
+  }
   .special_content{
     .name{
       font-size: 16px;

@@ -1008,7 +1008,7 @@ export default {
 
 <style lang="scss" scoped>
 .search_sell {
-  margin-top: 150px;
+   margin-top: 15px;
   padding: 0 10%;
   .search_link {
     font-size: 18px;

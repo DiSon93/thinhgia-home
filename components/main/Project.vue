@@ -90,7 +90,7 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <NuxtLink class="name" to="/project/ngoctuoc/detail">
+                    <NuxtLink class="name" to="/project/sale/d03">
                       KHU BIỆT THỰ ĐỒI NGỌC TƯỚC
                     </NuxtLink>
                     <div class="sex d-flex">
@@ -118,7 +118,7 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <NuxtLink class="name" to="/project/ngoctuoc/detail">
+                    <NuxtLink class="name" to="/project/sale/02">
                       KHU BIỆT THỰ CÂY KHẾ
                     </NuxtLink>
                     <div class="sex d-flex">
@@ -145,7 +145,7 @@
                       <span class="first_price">6 tỷ</span>
                       <span>60 m2</span>
                     </div>
-                    <NuxtLink class="name" to="/project/ngoctuoc/detail">
+                    <NuxtLink class="name" to="/project/sale/01">
                       KHU BIỆT THỰ ĐỒI NGỌC TƯỚC II
                     </NuxtLink>
                     <div class="sex d-flex">

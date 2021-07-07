@@ -1125,7 +1125,7 @@ export default {
 
 <style lang="scss" scoped>
 .khucongnghiep {
-  margin-top: 150px;
+  margin-top: 15px;
   padding: 0 10%;
   .khucongnghiep_link {
     font-size: 18px !important;

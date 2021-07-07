@@ -84,6 +84,19 @@
             <span>Pháp lý: <span class="high_text"> Sổ hồng</span></span>
           </div>
         </v-col>
+        <v-col cols="12" sm="6">
+          <div class="content_item">
+            <img src="@image/icons/source-branch-plus (1).png" alt="" />
+            <span
+              >Thuộc dự án:
+              <span class="high_text">
+                <router-link to="/project/ngoctuoc/detail">
+                  Biệt thự đồi Ngọc Tước</router-link
+                ></span
+              ></span
+            >
+          </div>
+        </v-col>
       </v-row>
     </div>
   </div>
@@ -113,6 +126,8 @@ export default {};
     .content_item {
       img {
         margin-right: 10px;
+        width: 18px;
+        height: 18px;
       }
       .high_text {
         margin-left: 5px;

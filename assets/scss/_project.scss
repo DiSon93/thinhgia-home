@@ -58,10 +58,17 @@ a{
 .btn_groupitems{
   margin-bottom: 10px;
   position: sticky;
-   top:120px;
+   top:70px;
    z-index: 10;
    background-color: $color-white;
 }
+.project_detail{
+.el-divider--horizontal{
+margin: 0px!important;
+background: #EBEEF5;
+}
+}
+
 @media screen and (max-width: 1320px){
   #highlight.v-btn,#normal.v-btn {
     .v-btn__content{

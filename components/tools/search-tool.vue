@@ -34,7 +34,7 @@
           :props="props"
           collapse-tags
           clearable
-          placeholder="Loại Bất Động Sản"
+          placeholder="Loại BĐS"
         ></el-cascader>
       </div>
       <div id="square">

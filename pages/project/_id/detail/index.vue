@@ -53,7 +53,7 @@
           </div> -->
 
           <el-collapse v-model="activeNames" @change="handleChange">
-            <el-collapse-item title="TỔNG QUAN DỰ ÁN" name="1" id="overview">
+            <el-collapse-item title="TỔNG QUAN DỰ ÁN" name="1" id="overview" @click="text = 'tongquan'">
               <div class="items">
                 <div>
                   <span class="text_highlight">Tên dự án: </span>
@@ -82,7 +82,7 @@
                 </div>
               </div>
             </el-collapse-item>
-            <div id="vitri">
+            <div id="vitri"   @click="text = 'vitri'">
               <div id="vitri_blank"></div>
               <el-collapse-item title="VỊ TRÍ DỰ ÁN" name="2">
                 <div class="vitri_img">
@@ -140,7 +140,8 @@
                 </p>
               </el-collapse-item>
             </div>
-            <div id="tienich">
+            <el-divider></el-divider>
+            <div id="tienich"   @click="text = 'tienich'">
               <div id="tienich_blank"></div>
               <el-collapse-item title="TIỆN ÍCH" name="3">
                 <ul class="tienichmorong">
@@ -210,7 +211,8 @@
                 </ul>
               </el-collapse-item>
             </div>
-            <div id="hinhanh">
+            <el-divider></el-divider>
+            <div id="hinhanh"   @click="text = 'hinhanh'">
               <div id="hinhanh_blank"></div>
               <el-collapse-item title="HÌNH ẢNH" name="4">
                 <img src="@image/layouts/project_detail_02.svg" alt="" />
@@ -220,7 +222,8 @@
                 <img src="@image/layouts/project_detail_06.svg" alt="" />
               </el-collapse-item>
             </div>
-            <div id="matbang">
+            <el-divider></el-divider>
+            <div id="matbang"   @click="text = 'matbang'">
               <div id="matbang_blank"></div>
               <el-collapse-item title="MẶT BẰNG" name="5">
                 <img src="@image/layouts/matbang_01.svg" alt="" />
@@ -233,7 +236,8 @@
                 <i>Hạ Tầng triển khai thần tốc</i>
               </el-collapse-item>
             </div>
-            <div id="toanha">
+            <el-divider></el-divider>
+            <div id="toanha"   @click="text = 'toanha'">
               <div id="toanha_blank"></div>
               <el-collapse-item title="TÒA NHÀ" name="6">
                 <v-row>
@@ -655,7 +659,7 @@ export default {
 
 <style lang="scss" scoped>
 .project_detail {
-  margin-top: 150px;
+  margin-top: 15px;
   padding: 0 10%;
   .project_title {
     font-weight: 700;
@@ -730,7 +734,7 @@ export default {
   #tienich_blank {
     position: absolute;
     height: 130px;
-    top: -160px;
+    top: -120px;
   }
 }
 #hinhanh {
@@ -738,7 +742,7 @@ export default {
   #hinhanh_blank {
     position: absolute;
     height: 130px;
-    top: -160px;
+    top: -120px;
   }
 }
 #hinhanh,
@@ -761,7 +765,7 @@ export default {
   #matbang_blank {
     position: absolute;
     height: 130px;
-    top: -160px;
+    top: -120px;
   }
 }
 #toanha {
@@ -776,21 +780,21 @@ export default {
   #toanha_blank {
     position: absolute;
     height: 130px;
-    top: -160px;
+    top: -120px;
   }
 }
 .vitri_img {
   text-align: center;
 }
 #blank {
-  height: 130px;
+  height: 100px;
 }
 #vitri {
   position: relative;
   #vitri_blank {
     position: absolute;
     height: 130px;
-    top: -160px;
+    top: -120px;
   }
 }
 .estateOfProject {
@@ -915,6 +919,9 @@ export default {
   }
 }
 @media screen and (max-width: 600px) {
+  .project_detail {
+    margin-top: 150px;
+  }
   .estate_img {
     padding: 6px !important;
     .add_detail {
