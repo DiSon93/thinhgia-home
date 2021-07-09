@@ -10,7 +10,7 @@
     <div class="sell_estate">
       <div class="sell_title d-flex">
         <div>MUA BÁN BẤT ĐỘNG SẢN</div>
-        <el-button type="warning" @click="$router.push('/search/sell')"
+        <el-button type="warning" @click="$router.push('/sell/total')"
           >Xem tất cả</el-button
         >
       </div>

@@ -9,9 +9,9 @@
   >
     <div>
       <div class="search_project">
-        <div class="search_link">
+        <!-- <div class="search_link">
           Căn hộ/Chung cư <i class="el-icon-arrow-right"></i> HCM
-        </div>
+        </div> -->
         <SearchProject />
         <div class="project_content">
           <VueSlickCarousel :arrows="true" v-bind="settings">
@@ -939,7 +939,7 @@ export default {
     margin: 0 auto;
     margin-bottom: 40px;
   }
-  .project_content{
+  .project_content {
     margin-top: 20px;
   }
 }
@@ -1342,7 +1342,7 @@ export default {
         font-size: 11px !important;
         .v-icon {
           color: #c4c4c4;
-          margin-right: 5px!important;
+          margin-right: 5px !important;
           font-size: 14px;
         }
         line-height: 16px !important;

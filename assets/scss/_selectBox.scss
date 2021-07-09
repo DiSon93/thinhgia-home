@@ -160,6 +160,12 @@
         .direction {
             margin-top: -20px;
         }
+        .el-card__body {
+            padding: 10px 5px !important;
+          }
+          .options.col-sm-3{
+              padding: 6px;
+          }
     }
     .sort_items {
         .select_sort {

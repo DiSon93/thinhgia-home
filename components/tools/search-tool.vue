@@ -265,8 +265,7 @@
           </div>
         </v-col>
       </v-row>
-      <v-row>
-      </v-row>
+      <v-row> </v-row>
       <v-row>
         <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_type">
@@ -290,7 +289,7 @@
             ></el-cascader>
           </div>
         </v-col>
-              <v-col cols="6" sm="3" class="options" align="center">
+        <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_bedrooms">
             <el-cascader
               :options="options08"
@@ -351,7 +350,11 @@ export default {
       e7: [],
       square: [],
       input3: "",
-      select: this.$route.path == "/search/sell" ? "1" : "2",
+      select:
+        this.$route.path == "/sell/total" ||
+        this.$route.path == `/sell/total/${this.$route.params.id}`
+          ? "1"
+          : "2",
       states: ["BĐS Thuê", "BĐS Bán", "Dự Án"],
       props: { multiple: true },
       items: [],
@@ -629,8 +632,8 @@ export default {
           label: "Tây Nam",
         },
       ],
-      options08:[
-                {
+      options08: [
+        {
           value: 0,
           label: "Tất cả",
         },
@@ -638,19 +641,19 @@ export default {
           value: 1,
           label: "1",
         },
-         {
+        {
           value: 2,
           label: "2",
         },
-         {
+        {
           value: 3,
           label: "3",
         },
-         {
+        {
           value: 4,
           label: "4",
         },
-         {
+        {
           value: 5,
           label: "5+",
         },
@@ -696,7 +699,10 @@ export default {
 .filter_content {
   width: 85%;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 10px;
+  .el-card__body {
+    padding: 5px !important;
+  }
 }
 .bedrooms,
 .direction {

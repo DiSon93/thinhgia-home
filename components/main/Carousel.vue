@@ -541,7 +541,7 @@ export default {
   .carousel {
     margin-top: -33px !important;
     img {
-      height: 500px;
+      height: 650px;
       width: auto !important;
       background-position-x: center;
     }

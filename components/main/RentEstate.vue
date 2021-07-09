@@ -10,7 +10,7 @@
     <div class="rent_estate">
       <div class="rent_title d-flex">
         <div>CHO THUÊ BẤT ĐỘNG SẢN</div>
-        <el-button type="warning" @click="$router.push('/search/rent')"
+        <el-button type="warning" @click="$router.push('/rent/total')"
           >Xem tất cả</el-button
         >
       </div>

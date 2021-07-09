@@ -30,14 +30,13 @@
         </v-list-item>
       </v-list-group> -->
     </v-navigation-drawer>
-         <div class="info" id="laptop_info">
-        <v-icon>mdi-phone-dial</v-icon>
-        <span>0909522686</span>
-        <v-icon>mdi-email</v-icon>
-        <a href="#">khobatdongsanviet@gmail.com</a>
-      </div>
+    <div class="info" id="laptop_info">
+      <v-icon>mdi-phone-dial</v-icon>
+      <span>0909522686</span>
+      <v-icon>mdi-email</v-icon>
+      <a href="#">khobatdongsanviet@gmail.com</a>
+    </div>
     <div class="header">
- 
       <div class="header_items">
         <div class="d-flex header_left">
           <router-link to="/">
@@ -45,9 +44,9 @@
           </router-link>
 
           <div class="header_choise">
-            <el-dropdown placement="top-start">
-              <router-link to="/search/sell">
-                <el-button type="warning" v-if="this.$route.path == '/search/sell'">
+            <el-dropdown placement="top-start" @command="handleCommand">
+              <router-link to="/sell/total">
+                <el-button type="warning" v-if="this.$route.path == '/sell/total'">
                   BĐS Bán <i class="el-icon-caret-bottom"></i>
                 </el-button>
                 <el-button type="warning" plain v-else>
@@ -55,20 +54,36 @@
                 </el-button>
               </router-link>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
-                <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
-                <el-dropdown-item divided>Nhà mặt tiền</el-dropdown-item>
-                <el-dropdown-item divided>Biệt thự - Villa</el-dropdown-item>
-                <el-dropdown-item divided>Nhà nghỉ - Khách sạn</el-dropdown-item>
-                <el-dropdown-item divided>Phòng trọ</el-dropdown-item>
-                <el-dropdown-item divided>Kho xưởng</el-dropdown-item>
-                <el-dropdown-item divided>Trang trại</el-dropdown-item>
+                <el-dropdown-item command="/sell/total/chungcu"
+                  >Căn hộ - Chung cư
+                </el-dropdown-item>
+                <el-dropdown-item divided command="/sell/total/nhariengle"
+                  >Nhà ở riêng lẻ</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/sell/total/nhamattien"
+                  >Nhà mặt tiền</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/sell/total/bietthu"
+                  >Biệt thự - Villa</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/sell/total/nhanghi"
+                  >Nhà nghỉ - Khách sạn</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/sell/total/phongtro"
+                  >Phòng trọ</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/sell/total/khoxuong"
+                  >Kho xưởng</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/sell/total/trangtrai"
+                  >Trang trại</el-dropdown-item
+                >
                 <el-dropdown-item divided>Loại khác</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <el-dropdown placement="top-start">
-              <router-link to="/search/rent">
-                <el-button type="warning" v-if="this.$route.path == '/search/rent'">
+            <el-dropdown placement="top-start" @command="handleCommand">
+              <router-link to="/rent/total">
+                <el-button type="warning" v-if="this.$route.path == '/rent/total'">
                   BĐS Thuê <i class="el-icon-caret-bottom"></i>
                 </el-button>
                 <el-button type="warning" plain v-else>
@@ -77,19 +92,35 @@
               </router-link>
 
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>Căn hộ - Chung cư </el-dropdown-item>
-                <el-dropdown-item divided>Nhà ở riêng lẻ</el-dropdown-item>
-                <el-dropdown-item divided>Nhà mặt tiền</el-dropdown-item>
-                <el-dropdown-item divided>Biệt thự - Villa</el-dropdown-item>
-                <el-dropdown-item divided>Nhà nghỉ - Khách sạn</el-dropdown-item>
-                <el-dropdown-item divided>Phòng trọ</el-dropdown-item>
-                <el-dropdown-item divided>Kho xưởng</el-dropdown-item>
-                <el-dropdown-item divided>Trang trại</el-dropdown-item>
+                <el-dropdown-item command="/rent/total/chungcu"
+                  >Căn hộ - Chung cư
+                </el-dropdown-item>
+                <el-dropdown-item divided command="/rent/total/nhariengle"
+                  >Nhà ở riêng lẻ</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/rent/total/nhamattien"
+                  >Nhà mặt tiền</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/rent/total/bietthu"
+                  >Biệt thự - Villa</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/rent/total/nhanghi"
+                  >Nhà nghỉ - Khách sạn</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/rent/total/phongtro"
+                  >Phòng trọ</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/rent/total/khoxuong"
+                  >Kho xưởng</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/rent/total/trangtrai"
+                  >Trang trại</el-dropdown-item
+                >
                 <el-dropdown-item divided>Loại khác</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start" @command="handleCommand">
-              <router-link to="/search/project">
+              <router-link to="/project/total">
                 <el-button type="warning" v-if="this.$route.path == '/search/project'">
                   Dự Án <i class="el-icon-caret-bottom"></i>
                 </el-button>
@@ -242,17 +273,17 @@ export default {
         {
           icon: "mdi-sign-real-estate",
           title: "BĐS Bán",
-          to: "/search/sell",
+          to: "/sell/total",
         },
         {
           icon: "mdi-home-group",
           title: "BĐS Thuê",
-          to: "/search/rent",
+          to: "/rent/total",
         },
         {
           icon: "mdi-source-branch-plus",
           title: "Dự Án",
-          to: "/search/project",
+          to: "/project/total",
         },
         {
           icon: "mdi-blogger",
@@ -509,9 +540,9 @@ export default {
         width: 150px;
       }
     }
-    .el-button{
+    .el-button {
       padding: 8px 12px;
-      height: 50px!important;
+      height: 50px !important;
     }
   }
 }
@@ -519,7 +550,7 @@ export default {
   .header {
     display: none;
   }
-  #laptop_info{
+  #laptop_info {
     display: none;
   }
   .header_mobile {
