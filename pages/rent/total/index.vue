@@ -8,6 +8,7 @@
     transition="fade-transition"
   >
     <div>
+      ``
       <div class="search_rent">
         <SearchTool />
       </div>

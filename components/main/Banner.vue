@@ -50,11 +50,21 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
       isActive: false,
     };
+  },
+  mounted() {
+    this.$store.dispatch("home/getBlogList", {
+      limit: 10,
+      page: 1,
+    });
+  },
+  computed: {
+    ...mapState("home", ["blogList"]),
   },
 };
 </script>
