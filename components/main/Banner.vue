@@ -58,10 +58,10 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("home/getBlogList", {
-      limit: 10,
-      page: 1,
-    });
+    // this.$store.dispatch("home/getBlogList", {
+    //   limit: 10,
+    //   page: 1,
+    // });
   },
   computed: {
     ...mapState("home", ["blogList"]),
