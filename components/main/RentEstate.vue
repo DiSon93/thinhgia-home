@@ -8,16 +8,14 @@
         <div class="sell_estate">
             <div class="sell_title d-flex">
                 <div>CHO THUÊ BẤT ĐỘNG SẢN</div>
-                <el-button type="warning" @click="$router.push('/sell/total')"
-                >Xem tất cả</el-button
-                >
+                <el-button type="warning" @click="$router.push('/category/cho-thue-bat-dong-san')">Xem tất cả</el-button>
             </div>
             <!-- <div class="estate_content"> -->
             <VueSlickCarousel :arrows="true" v-bind="settings">
                 <div class="estate_img" v-for="item in purposeList.rent.data" :key="item.id">
                     <el-card class="box-card">
                         <div slot="header" class="clearfix hover01">
-                            <router-link :to="parseUrlRealEstate(item.id)">
+                            <router-link :to="parseUrlRealEstate(item)">
                                 <figure>
                                     <img :src="item.image_public[0].thumbnail" :alt="item.title" v-if="item.image_public.length > 0" />
                                     <img src="@image/layouts/room_04.png" :alt="item.title" v-else />
@@ -34,7 +32,7 @@
                                     <i>(100triệu/<span id="mv">&#13217;</span>)</i>
                                 </div>
                             </div>
-                            <NuxtLink class="name" :to="parseUrlRealEstate(item.id)" v-html="item.title"></NuxtLink>
+                            <NuxtLink class="name" :to="parseUrlRealEstate(item)" v-html="item.title"></NuxtLink>
                             <div class="sex d-flex">
                                 <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
                                     <v-icon>mdi-near-me</v-icon>
@@ -119,8 +117,8 @@
         },
         methods: {
             ...mapActions('realestate', ['getPurpose']),
-            parseUrlRealEstate(real_estate_id) {
-                return 'rent/01';
+            parseUrlRealEstate(real_estate) {
+                return '/detail/' + real_estate.title + '-' + real_estate.id;
             }
         }
     }

@@ -14,6 +14,10 @@ export default {
                 data: []
             }
         },
+        realEstateList: {
+            data: []
+        },
+        realEstateItem: {},
         unit_prices: {
             ty: 'tỷ',
             trieu: 'triệu'
@@ -25,6 +29,12 @@ export default {
         },
         getPurposeList(state, data) {
             state.purposeList[data.isType] = data.data;
+        },
+        getRealEstateList(state, data) {
+            state.realEstateList = data;
+        },
+        getRealEstateItem(state, data) {
+            state.realEstateItem = data;
         }
     },
     actions: {
@@ -46,6 +56,33 @@ export default {
                 axiosClient({ url: 'real-estates/type/' + isType, method: "GET"})
                     .then(response => {
                         commit('getPurposeList', { isType: isType, data: response.data.results });
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        // commit('showError', e.response.data);
+                        reject(e);
+                    })
+            })
+        },
+        getRealEstate: ({ commit }, params) => {
+            let strParams = '';
+            return new Promise((resolve, reject) => {
+                axiosClient({ url: 'real-estates/all?' + strParams, method: "GET"})
+                    .then(response => {
+                        commit('getRealEstateList', response.data.results);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        // commit('showError', e.response.data);
+                        reject(e);
+                    })
+            })
+        },
+        getRealEstateItem: ({ commit }, id) => {
+            return new Promise((resolve, reject) => {
+                axiosClient({ url: 'real-estates/id/' + id, method: "GET"})
+                    .then(response => {
+                        commit('getRealEstateItem', response.data.results);
                         resolve(response.data);
                     })
                     .catch(e => {
