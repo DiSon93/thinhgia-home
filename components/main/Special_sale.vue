@@ -11,20 +11,20 @@
       <div class="sale_title">ƯU ĐÃI ĐẶC BIỆT</div>
       <div class="sale_detail">
         <div class="d-flex">
-          <div class="sale_img">
+          <NuxtLink to="banner/search" class="sale_img">
             <img src="@image/layouts/house_sale_01.png" alt="" />
-          </div>
-          <div class="sale_img">
+          </NuxtLink>
+          <NuxtLink to="banner/law" class="sale_img">
             <img src="@image/layouts/house_sale_02.png" alt="" />
-          </div>
+          </NuxtLink>
         </div>
         <div class="d-flex">
-          <div class="sale_img">
+          <NuxtLink to="banner/consult" class="sale_img">
             <img src="@image/layouts/house_sale_03.png" alt="" />
-          </div>
-          <div class="sale_img">
+          </NuxtLink>
+          <NuxtLink to="banner/lend" class="sale_img">
             <img src="@image/layouts/house_sale_04.png" alt="" />
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>

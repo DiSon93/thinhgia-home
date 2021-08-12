@@ -151,24 +151,81 @@
         <div class="header_right">
           <div class="header_choise">
             <!-- <el-dropdown> -->
-            <el-button type="warning" plain class="fix_position">Blog </el-button>
+            <!-- <el-button type="warning" plain class="fix_position">Blog </el-button> -->
             <!-- </el-dropdown> -->
             <!-- <el-dropdown> -->
-            <el-button type="warning" class="fix_position" plain> Giới Thiệu </el-button>
+            <el-dropdown placement="top-start" @command="handleCommand">
+              <router-link to="/blog">
+                <el-button type="warning" v-if="this.$route.path == '/blog'">
+                  Blog <i class="el-icon-caret-bottom"></i>
+                </el-button>
+                <el-button type="warning" plain v-else>
+                  Blog <i class="el-icon-caret-bottom"></i
+                ></el-button>
+              </router-link>
+
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="/blog/kientrucnhadep">
+                  Kiến trúc nhà đẹp
+                </el-dropdown-item>
+                <el-dropdown-item divided command="/blog/noithat"
+                  >Nội ngoại thất</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/blog/phongthuy"
+                  >Phong thủy</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/blog/taichinh"
+                  >Tài chính-Bất động sản</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/blog/xaydung"
+                  >Xây dựng-Quy hoạch</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/blog/duan"
+                  >Tin tức-Dự án</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/blog/video">Video</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+            <el-button
+              type="warning"
+              class="fix_position"
+              @click="$router.push('/introduce')"
+              v-if="this.$route.path == '/introduce'"
+            >
+              Giới Thiệu
+            </el-button>
+            <el-button
+              type="warning"
+              class="fix_position"
+              plain
+              @click="$router.push('/introduce')"
+              v-else
+            >
+              Giới Thiệu
+            </el-button>
             <!-- </el-dropdown> -->
-            <el-dropdown placement="top-start">
+            <el-dropdown placement="top-start" @command="handleCommand">
               <el-button type="warning" plain>
                 Liên Hệ <i class="el-icon-caret-bottom"></i>
               </el-button>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>Thông tin liên lạc</el-dropdown-item>
-                <el-dropdown-item divided>Ý kiến</el-dropdown-item>
-                <el-dropdown-item divided>Tuyển dụng</el-dropdown-item>
-                <el-dropdown-item divided>Ký gửi BĐS</el-dropdown-item>
+                <el-dropdown-item command="/contact/information"
+                  >Thông tin liên lạc</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/contact/idea"
+                  >Ý kiến</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/contact/recruiment"
+                  >Tuyển dụng</el-dropdown-item
+                >
+                <el-dropdown-item divided command="/contact/kygui"
+                  >Ký gửi BĐS</el-dropdown-item
+                >
               </el-dropdown-menu>
             </el-dropdown>
-            <v-btn color="warning" class="kygui">
-              <img src="@image/icons/kygui.png" alt="" /> Ký gửi BĐS</v-btn
+            <v-btn color="warning" class="kygui" @click="$router.push('/contact/kygui')">
+              <img src="@image/icons/kygui.png" alt="" />
+              Ký gửi BĐS</v-btn
             >
           </div>
         </div>
