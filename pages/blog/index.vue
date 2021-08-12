@@ -26,8 +26,8 @@
                   </NuxtLink>
                   <div class="content">
                     Nhà cấp 3 là loại nhà chịu lực rất tốt, đây cũng là sự lựa chọn hàng
-                    đầu của đa số gia đình hiện nay. Để hiểu rõ thêm loại công trình
-                    này, tham khảo ngay bài viết viết dưới đây của Bất Động Sản Việt!
+                    đầu của đa số gia đình hiện nay. Để hiểu rõ thêm loại công trình này,
+                    tham khảo ngay bài viết viết dưới đây của Bất Động Sản Việt!
                   </div>
                 </v-col>
               </v-row>
