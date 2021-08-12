@@ -39,14 +39,14 @@
                                             <img :src="item.image_public[0].thumbnail" :alt="item.title" v-if="item.image_public.length > 0" />
                                             <img src="@image/layouts/room_20.png" :alt="item.title" v-else />
                                         </figure>
-                                        <NuxtLink class="overlay_small_project" :to="parseUrlRealEstate(item.id)" v-html="item.title"></NuxtLink>
+                                        <NuxtLink class="overlay_small_project" :to="parseUrlRealEstate(item)" v-html="item.title"></NuxtLink>
                                     </div>
                                     <div class="add_detail">
                                         <div class="price">
                                             <span class="first_price" v-html="[item.price, unit_prices[item.unit_price]].join(' ')"></span>
                                             <span v-html="item.land_area + ' &#13217;'"></span>
                                         </div>
-                                        <NuxtLink class="name" :to="parseUrlRealEstate(item.id)" v-html="item.title"></NuxtLink>
+                                        <NuxtLink class="name" :to="parseUrlRealEstate(item)" v-html="item.title"></NuxtLink>
                                         <div class="sex d-flex">
                                             <v-icon>mdi-near-me</v-icon>
                                             <span v-html="item.house_orientation_dict.name"></span>
@@ -125,8 +125,8 @@
             parseUrlProjects(project_id) {
                 return 'project/sell/01';
             },
-            parseUrlRealEstate(real_estate_id) {
-                return 'project/sell/01';
+            parseUrlRealEstate(real_estate) {
+                return '/detail/' + real_estate.title + '-' + real_estate.id;
             },
             strip_tags(str) {
                 if (str != null) {

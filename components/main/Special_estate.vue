@@ -26,7 +26,7 @@
                                 <p>
                                     <span v-html="strip_tags(item.descriptions)"></span>
                                     <br />
-                                    <v-btn :to="parseUrlRealEstate(item.id)" small color="warning">Xem chi tiết &gt;&gt;</v-btn>
+                                    <v-btn :to="parseUrlRealEstate(item)" small color="warning">Xem chi tiết &gt;&gt;</v-btn>
                                 </p>
                                 <!-- <a href="#"></a> -->
                             </figcaption>
@@ -41,7 +41,7 @@
                                     <i>(100triệu/<span id="mv">&#13217;</span>)</i>
                                 </div>
                             </div>
-                            <NuxtLink class="name" :to="parseUrlRealEstate(item.id)" v-html="item.title"></NuxtLink>
+                            <NuxtLink class="name" :to="parseUrlRealEstate(item)" v-html="item.title"></NuxtLink>
                             <div class="sex d-flex">
                                 <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
                                     <v-icon>mdi-near-me</v-icon>
@@ -118,8 +118,8 @@
         },
         methods: {
             ...mapActions('realestate', ['getFeature']),
-            parseUrlRealEstate(real_estate_id) {
-                return 'sell/01';
+            parseUrlRealEstate(real_estate) {
+                return '/detail/' + real_estate.title + '-' + real_estate.id;
             },
             strip_tags(str) {
                 if (str != null) {
