@@ -59,6 +59,6 @@ export default {
                     reject(e);
                 })
             })
-        },
+        }
     }
 }

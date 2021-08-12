@@ -18,17 +18,17 @@
         </v-list-item>
       </v-list>
       <!-- <v-list-group :value="false" prepend-icon="mdi-account-circle">
-        <template v-slot:activator>
-          <v-list-item-title>Users</v-list-item-title>
-        </template>
-        <v-list-item v-for="([title, icon], i) in user" :key="i" link>
-          <v-list-item-title v-text="title"></v-list-item-title>
+                <template v-slot:activator>
+                <v-list-item-title>Users</v-list-item-title>
+                </template>
+                <v-list-item v-for="([title, icon], i) in user" :key="i" link>
+                <v-list-item-title v-text="title"></v-list-item-title>
 
-          <v-list-item-icon>
-            <v-icon v-text="icon"></v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-      </v-list-group> -->
+                <v-list-item-icon>
+                    <v-icon v-text="icon"></v-icon>
+                </v-list-item-icon>
+                </v-list-item>
+            </v-list-group> -->
     </v-navigation-drawer>
     <div class="info" id="laptop_info">
       <v-icon>mdi-phone-dial</v-icon>
@@ -36,6 +36,7 @@
       <v-icon>mdi-email</v-icon>
       <a href="#">khobatdongsanviet@gmail.com</a>
     </div>
+
     <div class="header">
       <div class="header_items">
         <div class="d-flex header_left">
@@ -46,104 +47,46 @@
           <div class="header_choise">
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/sell/total">
-                <el-button type="warning" v-if="this.$route.path == '/sell/total'">
-                  BĐS Bán <i class="el-icon-caret-bottom"></i>
-                </el-button>
-                <el-button type="warning" plain v-else>
+                <el-button type="warning" class="is-plain">
                   BĐS Bán <i class="el-icon-caret-bottom"></i>
                 </el-button>
               </router-link>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/sell/total/chungcu"
-                  >Căn hộ - Chung cư
+                <el-dropdown-item
+                  v-for="item in dictionaryList.real_estate"
+                  :key="item.id"
+                  :command="'/category/mua-ban/' + item.name + '-' + item.id"
+                >
+                  <span v-html="item.name"></span>
                 </el-dropdown-item>
-                <el-dropdown-item divided command="/sell/total/nhariengle"
-                  >Nhà ở riêng lẻ</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/sell/total/nhamattien"
-                  >Nhà mặt tiền</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/sell/total/bietthu"
-                  >Biệt thự - Villa</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/sell/total/nhanghi"
-                  >Nhà nghỉ - Khách sạn</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/sell/total/phongtro"
-                  >Phòng trọ</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/sell/total/khoxuong"
-                  >Kho xưởng</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/sell/total/trangtrai"
-                  >Trang trại</el-dropdown-item
-                >
-                <el-dropdown-item divided>Loại khác</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/rent/total">
-                <el-button type="warning" v-if="this.$route.path == '/rent/total'">
+                <el-button type="warning" class="is-plain">
                   BĐS Thuê <i class="el-icon-caret-bottom"></i>
                 </el-button>
-                <el-button type="warning" plain v-else>
-                  BĐS Thuê <i class="el-icon-caret-bottom"></i
-                ></el-button>
               </router-link>
-
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/rent/total/chungcu"
-                  >Căn hộ - Chung cư
+                <el-dropdown-item
+                  v-for="item in dictionaryList.real_estate"
+                  :key="item.id"
+                  :command="'/category/cho-thue/' + item.name + '-' + item.id"
+                >
+                  <span v-html="item.name"></span>
                 </el-dropdown-item>
-                <el-dropdown-item divided command="/rent/total/nhariengle"
-                  >Nhà ở riêng lẻ</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/rent/total/nhamattien"
-                  >Nhà mặt tiền</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/rent/total/bietthu"
-                  >Biệt thự - Villa</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/rent/total/nhanghi"
-                  >Nhà nghỉ - Khách sạn</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/rent/total/phongtro"
-                  >Phòng trọ</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/rent/total/khoxuong"
-                  >Kho xưởng</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/rent/total/trangtrai"
-                  >Trang trại</el-dropdown-item
-                >
-                <el-dropdown-item divided>Loại khác</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/project/total">
-                <el-button type="warning" v-if="this.$route.path == '/search/project'">
+                <el-button type="warning" class="is-plain">
                   Dự Án <i class="el-icon-caret-bottom"></i>
                 </el-button>
-                <el-button type="warning" plain v-else>
-                  Dự Án <i class="el-icon-caret-bottom"></i
-                ></el-button>
               </router-link>
-
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/project/chungcu"> Chung cư </el-dropdown-item>
-                <el-dropdown-item divided command="/project/nhalienke"
-                  >Nhà liền kề & Biệt thự</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/project/condotel"
-                  >Condotel</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/project/dato">Đất ở</el-dropdown-item>
-                <el-dropdown-item divided command="/project/shop"
-                  >Shop thương mại</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/project/kcn"
-                  >Khu công nghiệp</el-dropdown-item
-                >
+                <el-dropdown-item command="/category/cho-thue/">
+                  Căn hộ - Chung cư
+                </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -304,6 +247,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 import Footer from "@component/main/Footer.vue";
 import Choise from "@component/main/Choise";
 
@@ -362,8 +306,14 @@ export default {
       miniVariant: false,
     };
   },
-
+  computed: {
+    ...mapState("dictionary", ["dictionaryList"]),
+  },
+  mounted() {
+    this.getCategory("real_estate");
+  },
   methods: {
+    ...mapActions("dictionary", ["getCategory"]),
     onScroll(e) {
       if (typeof window === "undefined") return;
       const top = window.pageYOffset || e.target.scrollTop || 0;
@@ -381,6 +331,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .header {
   position: fixed;
@@ -429,16 +380,19 @@ export default {
 .el-dropdown {
   margin: 0 -4px;
 }
+
 .el-button {
   border-radius: 0;
   height: 60px;
   border: none;
   font-size: 18px !important;
 }
+
 .el-button--warning.is-plain {
   color: $color-black-01;
   background-color: $color-white;
 }
+
 .el-card {
   position: fixed;
   z-index: 9999;
@@ -463,7 +417,6 @@ export default {
       }
     }
   }
-
   .text {
     font-size: 13px;
     line-height: 30px;
@@ -491,6 +444,7 @@ export default {
     }
   }
 }
+
 // }
 .v-application .info {
   background-color: $color-blue-dark !important;
@@ -514,12 +468,14 @@ export default {
   right: 14px;
   bottom: 10px;
 }
+
 #backToTop {
   z-index: 9999;
   position: fixed;
   right: 14px;
   bottom: 60px;
 }
+
 .el-carousel__item h3 {
   color: #475669;
   font-size: 14px;
@@ -535,14 +491,17 @@ export default {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
+
 .header_mobile {
   display: none;
 }
+
 @media screen and (max-width: 1399px) {
   .kygui.v-btn {
     display: none;
   }
 }
+
 @media screen and (max-width: 1200px) {
   .header {
     img {
@@ -556,6 +515,7 @@ export default {
     }
   }
 }
+
 @media screen and (max-width: 1035px) {
   .header {
     img {
@@ -581,9 +541,11 @@ export default {
     padding-bottom: 2px !important;
   }
 }
+
 .v-navigation-drawer {
   z-index: 999;
 }
+
 @media screen and (max-width: 930px) {
   .header {
     height: 60px;
@@ -603,6 +565,7 @@ export default {
     }
   }
 }
+
 @media screen and (max-width: 600px) {
   .header {
     display: none;
