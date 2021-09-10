@@ -7,20 +7,11 @@
     >
         <div>
             <div class="search_sell">
-                <div class="search_link">
-                    <NuxtLink to="/">
-                        Trang chủ
-                    </NuxtLink>
-                    <i class="el-icon-arrow-right"></i>
-                    <NuxtLink :to="'/category/'+purpose_array[purpose].slug" v-html="purpose_array[purpose].title"></NuxtLink>
-                    <i class="el-icon-arrow-right"></i>
-                    <span v-html="dictionaryItem.name"></span>
-                </div>
                 <SearchTool />
                 <div class="search_content">
                     <v-row class="tieude">
                         <v-col cols="7" sm="7" lg="7">
-                            <div class="search_title" v-html="dictionaryItem.name"></div>
+                            <div class="search_title" v-html="title"></div>
                             <div class="note">Có <span v-html="realEstateList.total"></span> BĐS được tìm thấy</div>
                         </v-col>
                         <v-col cols="5" sm="5" lg="5" class="sort_items">
@@ -168,106 +159,19 @@
     import Services from "@component/main/Services";
     import Footer from "@component/main/Footer";
     import SearchTool from "@component/tools/search-tool";
-
+    
     export default {
         components: {
             Services,
             Footer,
-            SearchTool,
+            SearchTool
         },
         data() {
             return {
-                sort: 1,
-                isSort: true,
                 isActive: false,
-                // value: [0, 100],
-                // value02: [0, 10],
-                // isQuare: false,
-                // isPrice: false,
-                purpose: 0,
-                marks: {
-                    0: "0",
-                    100: "100",
-                    200: "200",
-                    300: "300",
-                    400: "400",
-                    500: "500+",
-                },
-                marks02: {
-                    0: "0",
-                    3: "3",
-                    6: "6",
-                    9: "9",
-                    12: "12",
-                    15: "15+",
-                },
-                isFilter: false,
                 page: 1,
-                e1: [],
-                e2: [],
-                e3: [],
-                e4: [],
-                e5: [],
-                e6: [],
-                e7: [],
-                input3: "",
-                select: "1",
-                states: ["BĐS Thuê", "BĐS Bán", "Dự Án"],
-                items: [
-                    "Tất cả",
-                    "Căn hộ/Chung cư",
-                    "Nhà ở riêng lẻ",
-                    "Nhà mặt tiền",
-                    "Biệt thự-Villa",
-                    "Nhà nghỉ-Khách sạn",
-                    "Phòng trọ",
-                    "Kho xưởng",
-                    "Trang trại",
-                    "Loại khác",
-                ],
-                props: { multiple: true },
-                options: [
-                    {
-                    value: 1,
-                    label: "Tất cả",
-                    },
-                    {
-                    value: 14,
-                    label: "Căn hộ/Chung cư",
-                    },
-                    {
-                    value: 23,
-                    label: "Nhà ở riêng lẻ",
-                    },
-                    {
-                    value: 24,
-                    label: "Nhà mặt tiền",
-                    },
-                    {
-                    value: 25,
-                    label: "Biệt thự-Villa",
-                    },
-                    {
-                    value: 26,
-                    label: "Nhà nghỉ/Khách sạn",
-                    },
-                    {
-                    value: 27,
-                    label: "Phòng trọ",
-                    },
-                    {
-                    value: 28,
-                    label: "Kho xưởng",
-                    },
-                    {
-                    value: 29,
-                    label: "Trang trại",
-                    },
-                    {
-                    value: 30,
-                    label: "Loại khác",
-                    },
-                ],
+                isSort: true,
+                sort: 1,
                 options08: [
                     {
                         value: 1,
@@ -293,42 +197,34 @@
                         value: 6,
                         label: "Diện tích tăng dần"
                     }
-                ]
+                ],
+                title: ''
             }
         },
         computed: {
-            ...mapState('dictionary', ['dictionaryItem']),
-            ...mapState('realestate', ['realEstateList', 'purpose_array', 'unit_prices'])
+            ...mapState('realestate', ['realEstateList', 'unit_prices'])
         },
         mounted() {
-            // console.log(this.$route);
-            let params = this.$route.params.slug;
-            if (params != undefined) {
-                params = params.split('-');
-                let cat_id = params[params.length - 1];
-                let _purpose = this.$route.path.split('/');
-                if (_purpose[2] == this.purpose_array[0].key) {
-                    this.purpose = 0;
-                } else {
-                    this.purpose = 1;
-                }
-                this.getCategoryItem(cat_id);
-                
-                let obj = { real_estate_type: cat_id, purpose: this.purpose };
-                // get query for search
-                if (Object.keys(this.$route.query).length > 0) {
-                    for (let x in this.$route.query) {
-                        if (x != '') {
-                            obj[x] = this.$route.query[x];
-                        }
-                    }
-                }
-
-                this.getRealEstate(obj);
+            switch (this.$route.params.slug) {
+                case 'mua-ban-bat-dong-san':
+                    this.title = 'Mua bán bất động sản';
+                    this.getRealEstate({ purpose: 0 });
+                    break;
+                case 'cho-thue-bat-dong-san':
+                    this.title = 'Cho thuê bất động sản';
+                    this.getRealEstate({ purpose: 1 });
+                    break;
+                case 'bat-dong-san-noi-bat':
+                    this.title = 'Bất động sản nổi bật';
+                    this.getRealEstate({ sortField: 'viewed', sortValue: 'desc' });
+                    break;
+                default:
+                    this.getRealEstate();
+                    break;
             }
+            
         },
         methods: {
-            ...mapActions('dictionary', ['getCategoryItem']),
             ...mapActions('realestate', ['getRealEstate']),
             parseUrlRealEstate(real_estate) {
                 return '/detail/' + real_estate.slug + '-' + real_estate.id;
