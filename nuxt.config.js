@@ -16,6 +16,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/batdongsanviet.png' }
+    ],
+    script: [
+      { type: 'text/javascript', src:'https://sp.zalo.me/plugins/sdk.js' },
+      // { type: 'text/javascript', src: 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0' }
     ]
   },
 
