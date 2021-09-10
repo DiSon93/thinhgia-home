@@ -8,7 +8,7 @@
         <div class="special_estate">
             <div class="estate_title d-flex">
                 <div>BẤT ĐỘNG SẢN NỔI BẬT</div>
-                <el-button type="warning" @clicks="$router.push('/category/bat-dong-san-noi-bat')">Xem tất cả</el-button>
+                <el-button type="warning" @click="$router.push('/category/bat-dong-san-noi-bat')">Xem tất cả</el-button>
             </div>
 
             <!-- <div class="estate_content" > -->
@@ -119,7 +119,7 @@
         methods: {
             ...mapActions('realestate', ['getFeature']),
             parseUrlRealEstate(real_estate) {
-                return '/detail/' + real_estate.title + '-' + real_estate.id;
+                return '/detail/' + real_estate.slug + '-' + real_estate.id;
             },
             strip_tags(str) {
                 if (str != null) {

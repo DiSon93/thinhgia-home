@@ -89,7 +89,7 @@
                         <span>
                             Thuộc dự án:
                             <span class="high_text" v-if="detail.project.id != undefined">
-                                <router-link :to="'/project/' + detail.project.title + '-' + detail.project.id">
+                                <router-link :to="'/project/' + detail.project.slug + '-' + detail.project.id">
                                     <span v-html="detail.project.title"></span>
                                 </router-link>
                             </span>

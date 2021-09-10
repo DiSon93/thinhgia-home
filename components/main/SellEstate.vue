@@ -118,7 +118,7 @@
         methods: {
             ...mapActions('realestate', ['getPurpose']),
             parseUrlRealEstate(real_estate) {
-                return '/detail/' + real_estate.title + '-' + real_estate.id;
+                return '/detail/' + real_estate.slug + '-' + real_estate.id;
             }
         }
     }
