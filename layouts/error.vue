@@ -33,7 +33,10 @@ export default {
     return {
       title
     }
-  }
+  },
+  mounted() {
+    // console.log(this.$route);
+  },
 }
 </script>
 
