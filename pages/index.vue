@@ -19,10 +19,10 @@
                 <SellEstate />
             </div>
             <div justify="center">
-                <RentEstate />
+                <!-- <RentEstate /> -->
             </div>
             <div justify="center">
-                <Project />
+                <!-- <Project /> -->
             </div>
             <div justify="center">
                 <Choise />
@@ -70,6 +70,7 @@
         }
     }
 </script>
+
 <style lang="scss" scoped>
     .homepage_content {
         padding: 0 10%;
