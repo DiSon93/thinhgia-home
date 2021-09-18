@@ -129,6 +129,7 @@
             strip_tags(str) {
                 if (str != null) {
                     str = str.replace(/(<([^>]+)>)/gi, '');
+                    str = str.substr(0, 500) + '.....';
                 }
 
                 return str;

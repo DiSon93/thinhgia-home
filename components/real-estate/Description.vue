@@ -88,7 +88,7 @@
                         <img src="@image/icons/source-branch-plus (1).png" alt="" />
                         <span>
                             Thuộc dự án:
-                            <span class="high_text" v-if="detail.project.id != undefined">
+                            <span class="high_text" v-if="detail.project != null">
                                 <router-link :to="'/project/' + detail.project.slug + '-' + detail.project.id">
                                     <span v-html="detail.project.title"></span>
                                 </router-link>

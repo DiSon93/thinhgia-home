@@ -77,7 +77,7 @@
                         </v-row>
                         <v-row class="overview_content">
                             <v-col col="12" class="project">
-                                Thuộc dự án: <span class="number" v-html="realEstateItem.project.title"></span>
+                                Thuộc dự án: <span v-if="realEstateItem.project != null" class="number" v-html="realEstateItem.project.title"></span>
                             </v-col>
                         </v-row>
                     </div>
