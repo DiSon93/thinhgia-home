@@ -5,26 +5,23 @@
         <img src="@image/layouts/bansaodanhthiep.png" alt="" />
         <div class="address">
           <v-icon>mdi-near-me</v-icon>
-          <div class="content">90 Võ Thị Sáu, Phường Thắng Tam, Tp Vũng Tàu</div>
+          <div class="content" v-html="settings.site_head_office_vi"></div>
         </div>
         <div class="email">
           <v-icon>mdi-email</v-icon>
-          <div class="content">khobatdongsanviet@gmail.com</div>
+          <div class="content" v-html="settings.site_email"></div>
         </div>
         <div class="internet">
           <img src="@image/icons/internet.png" alt="" />
-          <div class="content">khobatdongsanviet.com</div>
+          <div class="content" v-html="settings.site_domain"></div>
         </div>
         <div class="call">
           <img src="@image/icons/call.png" alt="" />
-          <div class="content">0909 522 686 (24/7)</div>
+          <div class="content" v-html="settings.site_phone"></div>
         </div>
         <div class="time">
           <img src="@image/icons/time.png" alt="" />
-          <div class="content">
-            <div>Thứ 2 - Thứ 6: 8h - 18h</div>
-            <div>Thứ 7: 8h - 16h</div>
-          </div>
+          <div class="content" v-html="settings.open_time"></div>
         </div>
       </v-col>
       <v-col cols="12" sm="6" class="footer_right">
@@ -33,9 +30,15 @@
             <div class="company">
               <div class="title_ft">Về Kho BĐS Việt</div>
               <ul>
-                <li>Giới thiệu</li>
-                <li>Tuyển dụng</li>
-                <li>Tin tức và sự kiện</li>
+                <li>
+                  <NuxtLink to="/static-pages/gioi-thieu"> Giới thiệu </NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/static-pages/tuyen-dung"> Tuyển dụng </NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/blog"> Tin tức và sự kiện </NuxtLink>
+                </li>
               </ul>
             </div>
           </v-col>
@@ -43,28 +46,26 @@
             <div class="real_estate">
               <div class="title_ft">Bất động sản</div>
               <ul>
-                <li>Căn hộ-Chung cư</li>
-                <li>Nhà ở riêng lẻ</li>
-                <li>Nhà mặt tiền</li>
-                <li>Biệt thự-Villa</li>
-                <li>Nhà nghỉ-Khách sạn</li>
-                <li>Phòng trọ</li>
-                <li>Kho xưởng</li>
-                <li>Trang trại</li>
+                <li v-for="item in dictionaryList.real_estate" :key="item.id">
+                  <NuxtLink
+                    :to="'/category/mua-ban/' + item.slug + '-' + item.id"
+                    v-html="item.name"
+                  ></NuxtLink>
+                </li>
               </ul>
             </div>
           </v-col>
           <!-- <v-col cols="4">
-            <div class="project">
-              <div class="title">Dự án</div>
-              <ul>
-                <li>Khu nhà ở sông Cây Khế</li>
-                <li>Dự án Phước Sơn</li>
-                <li>Khu biệt thự Thanh Bình</li>
-                <li>Blue Sapphire Towers</li>
-              </ul>
-            </div>
-          </v-col> -->
+                    <div class="project">
+                    <div class="title">Dự án</div>
+                    <ul>
+                        <li>Khu nhà ở sông Cây Khế</li>
+                        <li>Dự án Phước Sơn</li>
+                        <li>Khu biệt thự Thanh Bình</li>
+                        <li>Blue Sapphire Towers</li>
+                    </ul>
+                    </div>
+                </v-col> -->
         </v-row>
       </v-col>
     </v-row>
@@ -73,16 +74,20 @@
         <img src="@image/icons/logoSaleNoti1.png" alt="" />
       </v-col>
       <v-col cols="12" sm="4" md="4">
-        <div class="footer_info">
-          <div class="info_name">
-            Đăng ký nhận thông tin mới nhất từ Kho Bất Động Sản Việt
-          </div>
-          <div class="search">
-            <el-input placeholder="Nhập email để nhận thông tin" v-model="input2">
-              <el-button slot="append" icon="el-icon-d-arrow-right"></el-button>
-            </el-input>
-          </div>
-        </div>
+        <!-- <div class="footer_info">
+                    <div class="info_name">
+                        Đăng ký nhận thông tin mới nhất từ Kho Bất Động Sản Việt
+                    </div>
+                    <div class="search" v-loading="loading">
+                        <el-form ref="frmNewsLetter" :rules="rulesNewsLetter" :model="frmNewsLetter">
+                            <el-form-item prop="email">
+                                <el-input placeholder="Nhập email để nhận thông tin" v-model="frmNewsLetter.email">
+                                    <el-button slot="append" icon="el-icon-d-arrow-right" @click="btnNewsLetter"></el-button>
+                                </el-input>
+                            </el-form-item>
+                        </el-form>
+                    </div>
+                </div> -->
       </v-col>
       <v-col cols="3" sm="3" md="2">
         <div class="network">
@@ -108,14 +113,52 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
-  //   mounted() {
-  //     console.log("Footer");
-  //   },
   data() {
     return {
-      input2: "",
+      loading: false,
+      frmNewsLetter: {
+        email: "",
+      },
+      rulesNewsLetter: {
+        email: [
+          {
+            required: true,
+            message: "Vui lòng nhập Email",
+            trigger: "change",
+          },
+          {
+            type: "email",
+            message: "Vui lòng nhập đúng định dạng Email",
+            trigger: "submit",
+          },
+        ],
+      },
     };
+  },
+  mounted() {
+    this.getSettings();
+  },
+  computed: {
+    ...mapState("dictionary", ["dictionaryList"]),
+    ...mapState("setting", ["settings"]),
+  },
+  methods: {
+    ...mapActions("contact", ["postNewsLetter"]),
+    ...mapActions("setting", ["getSettings"]),
+    btnNewsLetter() {
+      this.loading = true;
+      this.$refs["frmNewsLetter"].validate(async (valid) => {
+        if (valid) {
+          await this.postNewsLetter(this.frmNewsLetter.email);
+          this.loading = false;
+        } else {
+          this.loading = false;
+        }
+      });
+    },
   },
 };
 </script>
@@ -143,24 +186,12 @@ export default {
       margin-left: 20px;
     }
   }
-
-  //   .email {
-  //     display: flex;
-  //     margin-left: 120px;
-  //     align-items: center;
-  //     margin-bottom: 20px;
-
-  //     .v-icon {
-  //       color: $color-black-01;
-  //     }
-  //   }
   .internet,
   .call,
   .time {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-
     img {
       width: 16px;
       height: 16px;
@@ -259,6 +290,7 @@ export default {
     justify-content: center;
   }
 }
+
 @media screen and (max-width: 1250px) {
   .footer {
     .footer_left {
@@ -278,6 +310,7 @@ export default {
     }
   }
 }
+
 @media screen and(max-width: 600px) {
   .footer .footer_left {
     img:nth-child(1) {

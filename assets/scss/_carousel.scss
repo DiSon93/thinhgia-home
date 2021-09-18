@@ -22,6 +22,14 @@
     //     color: #000;
     // }
 }
+.select_district{
+    .el-select{
+        width: 100%;
+    }
+}
+.carousel_title .el-cascader{
+    width: 100%;
+}
 .slick-next {
     right: 20px !important;
     width: 20px !important;

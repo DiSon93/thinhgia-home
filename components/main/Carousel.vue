@@ -1,9 +1,7 @@
 <template>
   <v-lazy
     v-model="isActive"
-    :options="{
-      threshold: 0.5,
-    }"
+    :options="{ threshold: 0.5 }"
     min-height="500"
     transition="fade-transition"
   >
@@ -19,48 +17,50 @@
         <img src="@image/layouts/background_03.svg" alt="" />
         <img src="@image/layouts/background_04.svg" alt="" />
       </VueSlickCarousel>
+
       <div class="carousel_title">
         <div class="carousel_options">
-          <v-btn-toggle v-model="text" tile color="deep-purple accent-3" group>
-            <v-btn value="BĐS Bán"> BĐS Bán </v-btn>
-
-            <v-btn value="BĐS Thuê"> BĐS Thuê </v-btn>
-
-            <v-btn value="Dự Án"> Dự Án </v-btn>
+          <v-btn-toggle
+            v-model="frmSearch.purpose"
+            tile
+            color="deep-purple accent-3"
+            group
+          >
+            <v-btn> BĐS Bán </v-btn>
+            <v-btn> BĐS Thuê </v-btn>
+            <v-btn> Dự Án </v-btn>
           </v-btn-toggle>
         </div>
+
         <div class="high_search">Tìm kiếm nâng cao</div>
+
         <div class="select_options">
           <v-row>
             <v-col cols="10" class="options d-flex">
               <div class="select_house">
-                <!-- <v-select
-                v-model="e1"
-                :items="items"
-                placeholder="Căn hộ/Chung cư"
-                outlined
-                multiple
-              ></v-select> -->
                 <el-cascader
-                  :options="options"
-                  :props="props"
+                  :options="tmpCategory"
+                  :props="{ value: 'id', label: 'name', multiple: false }"
                   collapse-tags
                   clearable
-                  placeholder="Căn hộ/Chung cư"
-                ></el-cascader>
+                  placeholder="--- Chọn danh mục ---"
+                  v-model="frmSearch.category"
+                >
+                </el-cascader>
               </div>
               <div class="input_house">
                 <v-text-field
+                  v-model="frmSearch.keyword"
                   placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ: Vinhomes)..."
                 ></v-text-field>
               </div>
             </v-col>
             <!-- <v-col cols="7" class="options">
-           
-          </v-col> -->
+                    
+                        </v-col> -->
             <v-col cols="2" class="options">
               <div class="btn_search">
-                <v-btn color="warning" dark> Tìm kiếm </v-btn>
+                <v-btn color="warning" dark @click="btnSearch()"> Tìm kiếm </v-btn>
               </div>
             </v-col>
           </v-row>
@@ -68,45 +68,100 @@
             <v-col cols="3" class="options">
               <div class="select_city">
                 <el-cascader
-                  :options="options02"
-                  :props="props"
+                  :options="provinces"
+                  :props="{ value: 'id', label: 'name', multiple: false }"
                   collapse-tags
                   clearable
-                  placeholder="Tỉnh/Thành phố"
-                ></el-cascader>
+                  filterable
+                  empty="Không tìm thấy"
+                  placeholder="Tỉnh/ Thành phố"
+                  v-model="frmSearch.province"
+                  @change="changeProvince"
+                >
+                </el-cascader>
               </div>
             </v-col>
             <v-col cols="3" class="options">
               <div class="select_district">
-                <el-cascader
-                  :options="options03"
-                  :props="props"
+                <!-- <el-cascader
+                  :options="districts"
+                  :props="{ value: 'id', label: 'name', multiple: false }"
                   collapse-tags
                   clearable
-                  placeholder="Quận/Huyện"
-                ></el-cascader>
+                  filterable
+                  empty="Chọn Tỉnh/ Thành phố"
+                  placeholder="Quận/ Huyện"
+                  v-model="frmSearch.district"
+                >
+                  <template slot="empty" id="province_empty"
+                    >Vui lòng chọn Tỉnh/ Thành phố</template
+                  >
+                </el-cascader> -->
+                <el-select
+                  clearable
+                  placeholder="Quận/ Huyện"
+                  no-data-text="Vui lòng chọn tỉnh"
+                  v-model="frmSearch.district"
+                >
+                  <el-option
+                    v-for="item in districts"
+                    :key="item.id"
+                    :label="item.name"
+                    :value="item.id"
+                  >
+                  </el-option>
+                </el-select>
               </div>
             </v-col>
             <v-col cols="3" class="options">
               <div class="select_square">
-                <el-cascader
-                  :options="options04"
-                  :props="props"
-                  collapse-tags
-                  clearable
-                  placeholder="Diện tích"
-                ></el-cascader>
+                <el-popover placement="bottom">
+                  <p>Khoảng diện tích (m2)</p>
+                  <div class="block">
+                    <el-slider v-model="frmSearch.area" range :marks="areas"> </el-slider>
+                  </div>
+                  <div class="input_selectrange">
+                    <div class="d-flex">
+                      <span>Từ:</span>
+                      <el-input-number v-model="frmSearch.area[0]" size="small">
+                      </el-input-number>
+                    </div>
+                    <div class="d-flex">
+                      <span>Đến:</span>
+                      <el-input-number v-model="frmSearch.area[1]" size="small">
+                      </el-input-number>
+                    </div>
+                  </div>
+                  <el-button slot="reference" style="width: 100%">
+                    Diện tích <i class="el-icon-caret-bottom"></i>
+                  </el-button>
+                </el-popover>
               </div>
             </v-col>
             <v-col cols="3" class="options">
               <div class="select_price">
-                <el-cascader
-                  :options="options05"
-                  :props="props"
-                  collapse-tags
-                  clearable
-                  placeholder="Khoảng giá"
-                ></el-cascader>
+                <el-popover placement="bottom">
+                  <p>Khoảng giá (tỷ)</p>
+                  <div class="block">
+                    <el-slider v-model="frmSearch.price" range :marks="prices">
+                    </el-slider>
+                  </div>
+                  <div class="input_selectrange">
+                    <div class="d-flex">
+                      <span>Từ:</span>
+                      <el-input-number v-model="frmSearch.price[0]" size="small">
+                      </el-input-number>
+                    </div>
+                    <div class="d-flex">
+                      <span>Đến:</span>
+                      <el-input-number v-model="frmSearch.price[1]" size="small">
+                      </el-input-number>
+                    </div>
+                  </div>
+                  <el-button slot="reference" style="width: 100%">
+                    Giá <i class="el-icon-caret-bottom"></i>
+                  </el-button>
+                </el-popover>
               </div>
             </v-col>
           </v-row>
@@ -117,43 +172,74 @@
               <el-input
                 placeholder="Nhập địa điểm hoặc từ khóa"
                 suffix-icon="el-icon-search"
-                v-model="input1"
+                v-model="frmSearch.keyword"
               >
               </el-input>
             </v-col>
             <v-col cols="6">
               <el-cascader
-                :options="options"
-                :props="props"
+                :options="dictionaryList.real_estate"
+                :props="{ value: 'id', label: 'name', multiple: false }"
                 collapse-tags
                 clearable
-                placeholder="Căn hộ/Chung cư"
-              ></el-cascader>
+                placeholder="--- Chọn danh mục ---"
+                v-model="frmSearch.category"
+              >
+              </el-cascader>
             </v-col>
             <v-col cols="6">
               <div class="select_square">
-                <el-cascader
-                  :options="options04"
-                  :props="props"
-                  collapse-tags
-                  clearable
-                  placeholder="Diện tích"
-                ></el-cascader>
+                <el-popover placement="bottom">
+                  <p>Khoảng diện tích (m2)</p>
+                  <div class="block">
+                    <el-slider v-model="frmSearch.area" range :marks="areas"> </el-slider>
+                  </div>
+                  <div class="input_selectrange">
+                    <div class="d-flex">
+                      <span>Từ:</span>
+                      <el-input-number v-model="frmSearch.area[0]" size="small">
+                      </el-input-number>
+                    </div>
+                    <div class="d-flex">
+                      <span>Đến:</span>
+                      <el-input-number v-model="frmSearch.area[1]" size="small">
+                      </el-input-number>
+                    </div>
+                  </div>
+                  <el-button slot="reference" style="width: 100%">
+                    Diện tích <i class="el-icon-caret-bottom"></i>
+                  </el-button>
+                </el-popover>
               </div>
             </v-col>
             <v-col cols="6">
               <div class="select_price">
-                <el-cascader
-                  :options="options05"
-                  :props="props"
-                  collapse-tags
-                  clearable
-                  placeholder="Khoảng giá"
-                ></el-cascader>
+                <el-popover placement="bottom">
+                  <p>Khoảng giá (tỷ)</p>
+                  <div class="block">
+                    <el-slider v-model="frmSearch.price" range :marks="prices">
+                    </el-slider>
+                  </div>
+                  <div class="input_selectrange">
+                    <div class="d-flex">
+                      <span>Từ:</span>
+                      <el-input-number v-model="frmSearch.price[0]" size="small">
+                      </el-input-number>
+                    </div>
+                    <div class="d-flex">
+                      <span>Đến:</span>
+                      <el-input-number v-model="frmSearch.price[1]" size="small">
+                      </el-input-number>
+                    </div>
+                  </div>
+                  <el-button slot="reference" style="width: 100%">
+                    Giá <i class="el-icon-caret-bottom"></i>
+                  </el-button>
+                </el-popover>
               </div>
             </v-col>
             <v-col cols="6" align="right" class="btn_search">
-              <v-btn color="warning" dark> Tìm kiếm </v-btn>
+              <v-btn color="warning" dark @click="btnSearch()"> Tìm kiếm </v-btn>
             </v-col>
           </v-row>
         </div>
@@ -163,250 +249,16 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
   components: { VueSlickCarousel },
   data() {
     return {
       isActive: false,
-      e1: [],
-      e2: [],
-      e3: [],
-      e4: [],
-      e5: [],
-      e6: [],
-      input1: "",
-      text: "BĐS Bán",
-      items: ["Foo", "Bar", "Fizz", "Buzz"],
-      props: { multiple: true },
-      options: [
-        {
-          value: 1,
-          label: "Tất cả",
-        },
-        {
-          value: 14,
-          label: "Căn hộ/Chung cư",
-        },
-        {
-          value: 23,
-          label: "Nhà ở riêng lẻ",
-        },
-        {
-          value: 24,
-          label: "Nhà mặt tiền",
-        },
-        {
-          value: 25,
-          label: "Biệt thự-Villa",
-        },
-        {
-          value: 26,
-          label: "Nhà nghỉ/Khách sạn",
-        },
-        {
-          value: 27,
-          label: "Phòng trọ",
-        },
-        {
-          value: 28,
-          label: "Kho xưởng",
-        },
-        {
-          value: 29,
-          label: "Trang trại",
-        },
-        {
-          value: 30,
-          label: "Loại khác",
-        },
-      ],
-      options02: [
-        {
-          value: 1,
-          label: "TP. Hồ Chí Minh",
-        },
-        {
-          value: 14,
-          label: "Hà Nội",
-        },
-        {
-          value: 23,
-          label: "Đà Nẵng",
-        },
-        {
-          value: 24,
-          label: "Vũng Tàu",
-        },
-        {
-          value: 25,
-          label: "Bến Tre",
-        },
-        {
-          value: 26,
-          label: "Long An",
-        },
-        {
-          value: 27,
-          label: "Tiền Giang",
-        },
-        {
-          value: 28,
-          label: "Quảng Nam",
-        },
-        {
-          value: 29,
-          label: "Quảng Ngãi",
-        },
-        {
-          value: 30,
-          label: "Bình Thuận",
-        },
-      ],
-      options03: [
-        {
-          value: 1,
-          label: "Quận 1",
-        },
-        {
-          value: 14,
-          label: "Quận 2",
-        },
-        {
-          value: 23,
-          label: "Quận 3",
-        },
-        {
-          value: 11,
-          label: "Quận 4",
-        },
-        {
-          value: 12,
-          label: "Quận 5",
-        },
-        {
-          value: 13,
-          label: "Quận 6",
-        },
-        {
-          value: 14,
-          label: "Quận 7",
-        },
-        {
-          value: 24,
-          label: "Quận Bình Thạnh",
-        },
-        {
-          value: 25,
-          label: "Quận Thủ Đức",
-        },
-        {
-          value: 26,
-          label: "Quận Bình Tân",
-        },
-        {
-          value: 27,
-          label: "Quận Gò Vấp",
-        },
-        {
-          value: 28,
-          label: "Quận Tân Phú",
-        },
-        {
-          value: 29,
-          label: "Quận Phú Nhuận",
-        },
-        {
-          value: 30,
-          label: "Quận Tân Bình",
-        },
-      ],
-      options04: [
-        {
-          value: 1,
-          label: "0 - 10m2",
-        },
-        {
-          value: 14,
-          label: "0 - 20m2",
-        },
-        {
-          value: 23,
-          label: "0 - 30m2",
-        },
-        {
-          value: 24,
-          label: "0 - 40m2",
-        },
-        {
-          value: 25,
-          label: "0 - 50m2",
-        },
-        {
-          value: 26,
-          label: "50 - 60m2",
-        },
-        {
-          value: 27,
-          label: "50 - 70m2",
-        },
-        {
-          value: 28,
-          label: "50 - 100m2",
-        },
-        {
-          value: 29,
-          label: "100 - 200m2",
-        },
-        {
-          value: 30,
-          label: "Trên 200m2",
-        },
-      ],
-      options05: [
-        {
-          value: 1,
-          label: "0 - 10triệu",
-        },
-        {
-          value: 14,
-          label: "0 - 20triệu",
-        },
-        {
-          value: 23,
-          label: "20 - 50triệu",
-        },
-        {
-          value: 24,
-          label: "50 - 100triệu",
-        },
-        {
-          value: 25,
-          label: "100 - 150triệu",
-        },
-        {
-          value: 26,
-          label: "100 - 500triệu",
-        },
-        {
-          value: 27,
-          label: "500 - 1tỷ",
-        },
-        {
-          value: 28,
-          label: "1 - 2tỷ",
-        },
-        {
-          value: 29,
-          label: "2 - 10tỷ",
-        },
-        {
-          value: 30,
-          label: "Trên 10tỷ",
-        },
-      ],
       settings: {
         infinite: true,
         autoplay: true,
@@ -415,7 +267,106 @@ export default {
         speed: 800,
         swipe: true,
       },
+      loading: false,
+      tmpCategory: [],
+      tmpDistricts: {},
+      frmSearch: {
+        purpose: 0,
+        category: [],
+        keyword: "",
+        province: [],
+        district: [],
+        area: [0, 0],
+        price: [0, 0],
+      },
     };
+  },
+  watch: {
+    "frmSearch.purpose"(n, o) {
+      this.frmSearch.category = [];
+      if (n == 2) {
+        this.tmpCategory = this.dictionaryList.project;
+      } else {
+        this.tmpCategory = this.dictionaryList.real_estate;
+      }
+    },
+    "dictionaryList.real_estate"(n, o) {
+      this.tmpCategory = n;
+    },
+  },
+  computed: {
+    ...mapState("dictionary", ["dictionaryList"]),
+    ...mapState("realestate", ["purpose_array"]),
+    ...mapState("search", ["provinces", "districts", "areas", "prices"]),
+  },
+  mounted() {
+    this.tmpCategory = this.dictionaryList.real_estate;
+    this.getProvince();
+    this.setDistrict([]);
+    this.getAreas();
+    this.getPrices();
+  },
+  methods: {
+    ...mapActions("search", ["getProvince", "getDistrict", "getAreas", "getPrices"]),
+    ...mapMutations("search", ["setDistrict"]),
+    btnSearch() {
+      if (this.frmSearch.category.length == 0) {
+        alert("Vui lòng chọn danh mục");
+        return;
+      }
+
+      let url = "/";
+
+      if (this.purpose_array[this.frmSearch.purpose] != undefined) {
+        url += "category/";
+        url += this.purpose_array[this.frmSearch.purpose].key + "/";
+      } else {
+        url += "project/";
+      }
+
+      let cat = this.tmpCategory.filter((item) => item.id == this.frmSearch.category[0]);
+      if (cat.length > 0) {
+        url += cat[0].slug + "-" + cat[0].id + "?";
+      }
+
+      let query = [];
+
+      if (this.frmSearch.keyword != "") {
+        query.push("keyword=" + this.frmSearch.keyword);
+      }
+
+      if (this.frmSearch.province.length > 0) {
+        query.push("province_id=" + this.frmSearch.province[0]);
+      }
+
+      if (this.frmSearch.district.length > 0) {
+        query.push("district_id=" + this.frmSearch.district[0]);
+      }
+
+      if (this.frmSearch.area[1] > 0) {
+        query.push("area=" + this.frmSearch.area.join(","));
+      }
+
+      if (this.frmSearch.price[1] > 0) {
+        query.push("price=" + this.frmSearch.price.join(","));
+      }
+
+      url += query.join("&");
+
+      this.$router.push(url);
+    },
+    async changeProvince(value) {
+      this.frmSearch.district = [];
+      this.setDistrict([]);
+      if (value.length > 0) {
+        if (this.tmpDistricts[value[0]] == undefined) {
+          let res = await this.getDistrict(value[0]);
+          this.tmpDistricts[value[0]] = res.results;
+        } else {
+          this.setDistrict(this.tmpDistricts[value[0]]);
+        }
+      }
+    },
   },
 };
 </script>
@@ -429,6 +380,7 @@ export default {
     }
   }
 }
+
 .carousel_title {
   position: absolute;
   top: 52%;
@@ -448,7 +400,7 @@ export default {
     border-radius: 5px 5px 0px 0px;
   }
   .btn_search .v-btn:not(.v-btn--round).v-size--default {
-    width: 96%;
+    width: 100%;
   }
   .carousel_options {
     margin-bottom: 50px;
@@ -503,9 +455,11 @@ export default {
     color: $color-white;
   }
 }
+
 .select_options_mobile {
   display: none;
 }
+
 @media screen and (max-width: 1200px) {
   .carousel_title {
     position: absolute;
@@ -521,6 +475,7 @@ export default {
     word-break: break-all;
   }
 }
+
 @media screen and (max-width: 1035px) {
   .carousel_title {
     position: absolute;
@@ -529,6 +484,7 @@ export default {
     right: 10%;
   }
 }
+
 @media screen and (max-width: 930px) {
   .carousel_title {
     position: absolute;
@@ -537,6 +493,7 @@ export default {
     right: 5%;
   }
 }
+
 @media screen and (max-width: 600px) {
   .carousel {
     margin-top: -33px !important;

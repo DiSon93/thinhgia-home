@@ -17,7 +17,22 @@ export default {
         realEstateList: {
             data: []
         },
+        viewedList: [],
         realEstateItem: {},
+        purpose_array: [
+            {
+                title: 'Mua bán bất động sản',
+                title_min: 'BĐS bán',
+                slug: 'mua-ban-bat-dong-san',
+                key: 'mua-ban'
+            },
+            {
+                title: 'Cho thuê bất động sản',
+                title_min: 'BĐS thuê',
+                slug: 'cho-thue-bat-dong-san',
+                key: 'cho-thue'
+            }
+        ],
         unit_prices: {
             ty: 'tỷ',
             trieu: 'triệu'
@@ -35,6 +50,9 @@ export default {
         },
         getRealEstateItem(state, data) {
             state.realEstateItem = data;
+        },
+        insertViewedList(state, data) {
+            state.viewedList.push(data);
         }
     },
     actions: {
@@ -64,10 +82,16 @@ export default {
                     })
             })
         },
-        getRealEstate: ({ commit }, params) => {
-            let strParams = '';
+        getRealEstate: ({ commit }, params = {}) => {
+            let strParams = [];
+            if (Object.keys(params).length > 0) {
+                for (let key in params) {
+                    strParams.push(key + '=' + params[key]);
+                }
+            }
+
             return new Promise((resolve, reject) => {
-                axiosClient({ url: 'real-estates/all?' + strParams, method: "GET"})
+                axiosClient({ url: 'real-estates/all?' + strParams.join('&'), method: "GET"})
                     .then(response => {
                         commit('getRealEstateList', response.data.results);
                         resolve(response.data);

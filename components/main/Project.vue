@@ -8,15 +8,16 @@
         <div class="project_estate">
             <div class="project_title d-flex">
                 <div>DỰ ÁN BẤT ĐỘNG SẢN</div>
-                <el-button type="warning" @click="$router.push('/search/project')">Xem tất cả</el-button>
+                <el-button type="warning" @click="$router.push('/project')">Xem tất cả</el-button>
             </div>
             <div class="project_content">
                 <v-row class="estate_content">
                     <v-col cols="12" lg="6" class="estate_img">
                         <VueSlickCarousel :arrows="false" v-bind="settings">
                             <div v-for="item in projectList.projects" :key="item.id">
-                                <div slot="header" class="clearfix">
-                                    <img src="@image/layouts/specialproject_01.png" alt="" />
+                                <div slot="header" class="clearfix" @click="$router.push(parseUrlProjects(item))">
+                                    <!-- <img src="@image/layouts/specialproject_01.png" alt="" /> -->
+                                    <img :src="item.image_public[0].thumbnail" :alt="item.title" />
                                     <div class="overlay_title" v-html="item.title"></div>
                                 </div>
                                 <div class="add_detail">
@@ -25,17 +26,17 @@
                                         <p v-html="'Thời gian: ' + (item.progress==100?'Đã hoàn thành':item.progress + ' %')"></p>
                                         <p>Giá từ: 50tr/m2</p>
                                     </div>
-                                    <NuxtLink class="more_detail" to="/project/ngoctuoc/detail">Xem thêm thông tin DỰ ÁN</NuxtLink>
+                                    <NuxtLink class="more_detail" :to="parseUrlProjects(item)">Xem thêm thông tin DỰ ÁN</NuxtLink>
                                 </div>
                             </div>
                         </VueSlickCarousel>
                     </v-col>
                     <v-col cols="12" lg="6" class="small_project">
-                        <VueSlickCarousel :arrows="true" v-bind="settings02">
+                        <VueSlickCarousel :arrows="true" v-bind="settings02" v-if="projectList.real_estates.length > 0">
                             <div class="estate_img" v-for="item in projectList.real_estates" :key="item.id">
                                 <el-card class="box-card">
                                     <div slot="header" class="clearfix hover14">
-                                        <figure>
+                                        <figure @click="$router.push(parseUrlRealEstate(item))">
                                             <img :src="item.image_public[0].thumbnail" :alt="item.title" v-if="item.image_public.length > 0" />
                                             <img src="@image/layouts/room_20.png" :alt="item.title" v-else />
                                         </figure>
@@ -67,7 +68,7 @@
 </template>
 
 <script>
-    import { mapState, mapActions } from "vuex";
+    import { mapState, mapActions, mapMutations } from "vuex";
     import VueSlickCarousel from "vue-slick-carousel";
     import "vue-slick-carousel/dist/vue-slick-carousel.css";
     import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -117,16 +118,20 @@
         computed: {
             ...mapState('project', ['projectList', 'unit_prices'])
         },
+        created() {
+            this.setProjectList({ projects: [], real_estates: [] });
+        },
         mounted() {
             this.getProject();
         },
         methods: {
             ...mapActions('project', ['getProject']),
-            parseUrlProjects(project_id) {
-                return 'project/sell/01';
+            ...mapMutations('project', ['setProjectList']),
+            parseUrlProjects(project) {
+                return 'project/detail/' + project.slug + '-' + project.id;
             },
             parseUrlRealEstate(real_estate) {
-                return '/detail/' + real_estate.title + '-' + real_estate.id;
+                return '/detail/' + real_estate.slug + '-' + real_estate.id;
             },
             strip_tags(str) {
                 if (str != null) {

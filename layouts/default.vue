@@ -18,17 +18,17 @@
         </v-list-item>
       </v-list>
       <!-- <v-list-group :value="false" prepend-icon="mdi-account-circle">
-                <template v-slot:activator>
-                <v-list-item-title>Users</v-list-item-title>
-                </template>
-                <v-list-item v-for="([title, icon], i) in user" :key="i" link>
-                <v-list-item-title v-text="title"></v-list-item-title>
+                    <template v-slot:activator>
+                    <v-list-item-title>Users</v-list-item-title>
+                    </template>
+                    <v-list-item v-for="([title, icon], i) in user" :key="i" link>
+                    <v-list-item-title v-text="title"></v-list-item-title>
 
-                <v-list-item-icon>
-                    <v-icon v-text="icon"></v-icon>
-                </v-list-item-icon>
-                </v-list-item>
-            </v-list-group> -->
+                    <v-list-item-icon>
+                        <v-icon v-text="icon"></v-icon>
+                    </v-list-item-icon>
+                    </v-list-item>
+                </v-list-group> -->
     </v-navigation-drawer>
     <div class="info" id="laptop_info">
       <v-icon>mdi-phone-dial</v-icon>
@@ -46,7 +46,7 @@
 
           <div class="header_choise">
             <el-dropdown placement="top-start" @command="handleCommand">
-              <router-link to="/sell/total">
+              <router-link to="/category/mua-ban-bat-dong-san">
                 <el-button type="warning" class="is-plain">
                   BĐS Bán <i class="el-icon-caret-bottom"></i>
                 </el-button>
@@ -55,14 +55,14 @@
                 <el-dropdown-item
                   v-for="item in dictionaryList.real_estate"
                   :key="item.id"
-                  :command="'/category/mua-ban/' + item.name + '-' + item.id"
+                  :command="'/category/mua-ban/' + item.slug + '-' + item.id"
                 >
                   <span v-html="item.name"></span>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start" @command="handleCommand">
-              <router-link to="/rent/total">
+              <router-link to="/category/cho-thue-bat-dong-san">
                 <el-button type="warning" class="is-plain">
                   BĐS Thuê <i class="el-icon-caret-bottom"></i>
                 </el-button>
@@ -71,21 +71,26 @@
                 <el-dropdown-item
                   v-for="item in dictionaryList.real_estate"
                   :key="item.id"
-                  :command="'/category/cho-thue/' + item.name + '-' + item.id"
+                  :command="'/category/cho-thue/' + item.slug + '-' + item.id"
                 >
                   <span v-html="item.name"></span>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <el-dropdown placement="top-start" @command="handleCommand">
-              <router-link to="/project/total">
+              <router-link to="/project">
                 <el-button type="warning" class="is-plain">
-                  Dự Án <i class="el-icon-caret-bottom"></i>
+                  Dự Án
+                  <i class="el-icon-caret-bottom"></i>
                 </el-button>
               </router-link>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/category/cho-thue/">
-                  Căn hộ - Chung cư
+                <el-dropdown-item
+                  v-for="item in dictionaryList.project"
+                  :key="item.id"
+                  :command="'/project/' + item.slug + '-' + item.id"
+                >
+                  <span v-html="item.name"></span>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -99,50 +104,25 @@
             <!-- <el-dropdown> -->
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/blog">
-                <el-button type="warning" v-if="this.$route.path == '/blog'">
+                <el-button type="warning" class="is-plain">
                   Blog <i class="el-icon-caret-bottom"></i>
                 </el-button>
-                <el-button type="warning" plain v-else>
-                  Blog <i class="el-icon-caret-bottom"></i
-                ></el-button>
               </router-link>
 
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/blog/kientrucnhadep">
-                  Kiến trúc nhà đẹp
+                <el-dropdown-item
+                  v-for="item in blogList"
+                  :key="item.id"
+                  :command="'/blog/category/' + item.slug + '-' + item.id"
+                >
+                  <span v-html="item.name"></span>
                 </el-dropdown-item>
-                <el-dropdown-item divided command="/blog/noithat"
-                  >Nội ngoại thất</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/blog/phongthuy"
-                  >Phong thủy</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/blog/taichinh"
-                  >Tài chính-Bất động sản</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/blog/xaydung"
-                  >Xây dựng-Quy hoạch</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/blog/duan"
-                  >Tin tức-Dự án</el-dropdown-item
-                >
-                <el-dropdown-item divided command="/blog/video">Video</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <el-button
               type="warning"
-              class="fix_position"
-              @click="$router.push('/introduce')"
-              v-if="this.$route.path == '/introduce'"
-            >
-              Giới Thiệu
-            </el-button>
-            <el-button
-              type="warning"
-              class="fix_position"
-              plain
-              @click="$router.push('/introduce')"
-              v-else
+              class="fix_position is-plain"
+              @click="$router.push('/static-pages/gioi-thieu')"
             >
               Giới Thiệu
             </el-button>
@@ -161,15 +141,14 @@
                 <el-dropdown-item divided command="/contact/recruiment"
                   >Tuyển dụng</el-dropdown-item
                 >
-                <el-dropdown-item divided command="/contact/kygui"
-                  >Ký gửi BĐS</el-dropdown-item
-                >
+                <!-- <el-dropdown-item divided command="/contact/kygui"
+                                >Ký gửi BĐS</el-dropdown-item> -->
               </el-dropdown-menu>
             </el-dropdown>
-            <v-btn color="warning" class="kygui" @click="$router.push('/contact/kygui')">
-              <img src="@image/icons/kygui.png" alt="" />
-              Ký gửi BĐS</v-btn
-            >
+            <!-- <v-btn color="warning" class="kygui" @click="$router.push('/contact/kygui')">
+                            <img src="@image/icons/kygui.png" alt="" />
+                            Ký gửi BĐS
+                        </v-btn> -->
           </div>
         </div>
       </div>
@@ -196,9 +175,15 @@
     <div>
       <Nuxt />
       <div class="floating_button">
-        <v-btn fab dark color="primary" @click="showPopUp" small id="message">
-          <v-icon>mdi-facebook-messenger</v-icon>
-        </v-btn>
+        <div
+          class="zalo-chat-widget"
+          data-oaid="53253160592962497"
+          data-welcome-message="Rất vui khi được hỗ trợ bạn!"
+          data-autopopup="0"
+          data-width=""
+          data-height=""
+        ></div>
+
         <v-btn
           v-scroll="onScroll"
           v-show="fab"
@@ -214,35 +199,9 @@
         >
           <v-icon>mdi-format-vertical-align-top</v-icon>
         </v-btn>
-        <el-card class="box-card" fixed v-if="popUp">
-          <div class="btn_group d-flex">
-            <el-button type="info" icon="el-icon-more" circle></el-button>
-            <el-button
-              type="info"
-              icon="el-icon-minus"
-              circle
-              @click="popUp = !popUp"
-            ></el-button>
-          </div>
-
-          <div class="text item">
-            <div class="chat_title">Chat với Kho BĐS Việt</div>
-            <div>Thường phản hồi trong vòng một giờ</div>
-            <div class="wellcome">Xin kính chào Quý khách!</div>
-            <v-btn dark>
-              <v-icon dark left>mdi-facebook-messenger</v-icon> Tiếp tục dưới tên
-              Anh</v-btn
-            >
-            <br />
-            <v-btn> Tiếp tục với vai trò khách</v-btn>
-            <div>
-              Bằng cách với vai trò khách, bạn đồng ý với Điều khoản chính sách dữ liệu và
-              Chính sách cookie của Facebook.
-            </div>
-          </div>
-        </el-card>
       </div>
     </div>
+    <div id="fb-root"></div>
   </v-app>
 </template>
 
@@ -260,7 +219,6 @@ export default {
     return {
       isActive: false,
       fab: false,
-      popUp: false,
       show: true,
       clipped: false,
       drawer: false,
@@ -274,17 +232,17 @@ export default {
         {
           icon: "mdi-sign-real-estate",
           title: "BĐS Bán",
-          to: "/sell/total",
+          to: "/category/mua-ban-bat-dong-san",
         },
         {
           icon: "mdi-home-group",
           title: "BĐS Thuê",
-          to: "/rent/total",
+          to: "/category/cho-thue-bat-dong-san",
         },
         {
           icon: "mdi-source-branch-plus",
           title: "Dự Án",
-          to: "/project/total",
+          to: "/project",
         },
         {
           icon: "mdi-blogger",
@@ -294,12 +252,12 @@ export default {
         {
           icon: "mdi-chart-bubble",
           title: "Giới thiệu",
-          to: "/introduce",
+          to: "/static-pages/gioi-thieu",
         },
         {
           icon: "mdi-phone-incoming",
           title: "Liên hệ",
-          to: "/inspire",
+          to: "/contact",
         },
       ],
       user: [["Liên hệ"], ["Cố vấn"]],
@@ -308,12 +266,18 @@ export default {
   },
   computed: {
     ...mapState("dictionary", ["dictionaryList"]),
+    ...mapState("blog", ["blogList"]),
   },
   mounted() {
     this.getCategory("real_estate");
+    this.getCategory("project");
+    this.getBlogs();
+    this.getSettings();
   },
   methods: {
     ...mapActions("dictionary", ["getCategory"]),
+    ...mapActions("blog", ["getBlogs"]),
+    ...mapActions("setting", ["getSettings"]),
     onScroll(e) {
       if (typeof window === "undefined") return;
       const top = window.pageYOffset || e.target.scrollTop || 0;
@@ -473,7 +437,7 @@ export default {
   z-index: 9999;
   position: fixed;
   right: 14px;
-  bottom: 60px;
+  bottom: 70px;
 }
 
 .el-carousel__item h3 {
