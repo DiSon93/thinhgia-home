@@ -508,6 +508,7 @@ export default {
 
 .v-navigation-drawer {
   z-index: 999;
+  display: none;
 }
 
 @media screen and (max-width: 930px) {
@@ -589,6 +590,10 @@ export default {
     .v-list-item__title {
       color: $color-white !important;
     }
+  }
+  .v-navigation-drawer {
+    z-index: 999;
+    display: block;
   }
 }
 </style>
