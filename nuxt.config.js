@@ -3,7 +3,6 @@ import { resolve } from 'path';
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  mode : 'spa',
   head: {
     title: 'Kho Bất Động Sản Việt',
     htmlAttrs: {
@@ -23,7 +22,7 @@ export default {
     ]
   },
 
-  target: 'static' ,
+  // target: 'static' ,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -36,9 +35,19 @@ export default {
     background: 'white'
   },
 
+  apps: [
+    {
+      name: 'NuxtAppName',
+      exec_mode: 'cluster',
+      instances: 'max', // Or a number of instances
+      script: './node_modules/nuxt/bin/nuxt.js',
+      args: 'start'
+    }
+  ],
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "@/plugins/element-ui.js", mode: "client" },
+    "@/plugins/element-ui.js" ,
     // { src: "@/plugins/vue-slick-carousel.js", mode: "client" },
     // { src: "@/plugins/vue-lazyloading.js", mode: "client" },
 
@@ -97,9 +106,9 @@ export default {
 
   extensions: ['*', '.js', '.vue', '.json'],
 
-  generate: {
-    fallback: true
-   },
+  // generate: {
+  //   fallback: true
+  //  },
 
     // router: {
     //   scrollBehavior: function (to, from, savedPosition) {

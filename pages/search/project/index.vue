@@ -265,7 +265,7 @@
                 >
               </v-row>
               <v-row class="finish content">
-                <v-col cols="1"><img src="@image/icons/tiendo.png" alt="" /></v-col>
+                <v-col cols="1"><img src="@image/icons/tiendo_01.png" alt="" /></v-col>
                 <v-col cols="11">
                   <span
                     >Tiến độ: <span class="highlight"> Đã hoàn thành</span></span
@@ -536,7 +536,7 @@
                 >
               </v-row>
               <v-row class="finish content">
-                <v-col cols="1"><img src="@image/icons/tiendo.png" alt="" /></v-col>
+                <v-col cols="1"><img src="@image/icons/tiendo_01.png" alt="" /></v-col>
                 <v-col cols="11">
                   <span
                     >Tiến độ: <span class="highlight"> Đã hoàn thành</span></span
