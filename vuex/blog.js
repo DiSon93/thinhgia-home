@@ -11,6 +11,9 @@ export default {
         blogMostViewed: {
             data: []
         },
+        blogLatest: {
+            data: []
+        },
         blogDetail: {},
     },
     mutations: {
@@ -28,6 +31,9 @@ export default {
         },
         getMostViewed(state, data) {
             state.blogMostViewed = data;
+        },
+        getLatest(state, data) {
+            state.blogLatest = data;
         }
     },
     actions: {
@@ -76,6 +82,19 @@ export default {
                 axiosClient({ url: 'blogs/mostviewed', method: "GET"})
                     .then(response => {
                         commit('getMostViewed', response.data.results);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        // commit('showError', e.response.data);
+                        reject(e);
+                    })
+            })
+        },
+        getLatest: ({ commit }, blog_id) => {
+            return new Promise((resolve, reject) => {
+                axiosClient({ url: 'blogs/latest', method: "GET"})
+                    .then(response => {
+                        commit('getLatest', response.data.results);
                         resolve(response.data);
                     })
                     .catch(e => {
