@@ -19,43 +19,25 @@
                 <v-row class="specail_news">
                     <v-col cols="8">
                         <div class="blog_news">
-                            <v-row>
+                            <v-row v-if="blogLatest.data.length > 0">
                                 <v-col cols="6">
-                                <router-link :to="`/blog/news/nhacap3lagi`">
-                                    <img src="@image/layouts/blogtintuc.svg" alt="" />
-                                </router-link>
+                                    <router-link :to="'/blog/category/' + blogLatest.data[0].slug + '-' + blogLatest.data[0].id">
+                                        <img :src="blogLatest.data[0].image_public[0].thumbnail" :alt="blogLatest.data[0].title" />
+                                        <!-- <img src="@image/layouts/blogtintuc.svg" alt="" /> -->
+                                    </router-link>
                                 </v-col>
                                 <v-col cols="6">
-                                <NuxtLink :to="`/blog/news/nhacap3lagi`" class="tintuc">
-                                    Nhà cấp 3 là gì? Chiêm ngưỡng mẫu nhà cấp 3 đẹp
-                                </NuxtLink>
-                                <div class="content">
-                                    Nhà cấp 3 là loại nhà chịu lực rất tốt, đây cũng là sự lựa chọn hàng
-                                    đầu của đa số gia đình hiện nay. Để hiểu rõ thêm loại công trình này,
-                                    tham khảo ngay bài viết viết dưới đây của Bất Động Sản Việt!
-                                </div>
+                                    <NuxtLink class="tintuc" :to="'/blog/category/' + blogLatest.data[0].slug + '-' + blogLatest.data[0].id">
+                                        <span v-html="blogLatest.data[0].title"></span>
+                                    </NuxtLink>
+                                    <div class="content" v-html="strip_tags(blogLatest.data[0].content)"></div>
                                 </v-col>
                             </v-row>
-                            <v-row>
-                                <v-col cols="3">
-                                <img src="@image/layouts/blog_01.svg" alt="" />
-                                <div>Trước khi mua căn hộ trả góp cần lưu ý những gì?</div>
-                                </v-col>
-                                <v-col cols="3">
-                                <img src="@image/layouts/blog_02.svg" alt="" />
-                                <div>Trước khi mua căn hộ trả góp cần lưu ý những gì?</div>
-                                </v-col>
-                                <v-col cols="3">
-                                <img src="@image/layouts/blog_03.svg" alt="" />
-                                <div>
-                                    Căn hộ Studio là gì? Tất cả những điều cần biết về căn hộ Studio
-                                </div>
-                                </v-col>
-                                <v-col cols="3">
-                                <img src="@image/layouts/blog_04.svg" alt="" />
-                                <div>
-                                    Trồng cây phong thủy trong nhà muốn tài lộc chớ quên những lưu...
-                                </div>
+                            <v-row v-if="blogLatest.data.length > 1">
+                                <v-col cols="3" v-for="(item, index) in blogLatest.data" :key="index" v-if="index > 0">
+                                    <!-- <img src="@image/layouts/blog_01.svg" alt="" /> -->
+                                    <img :src="item.image_public[0].thumbnail" :alt="item.title" />
+                                    <div v-html="item.title"></div>
                                 </v-col>
                             </v-row>
                         </div>
@@ -119,13 +101,14 @@
             }
         },
         computed: {
-            ...mapState("blog", ["blogList"])
+            ...mapState("blog", ["blogList", "blogLatest"])
         },
         mounted() {
+            this.getLatest();
             this.getBlogs();
         },
         methods: {
-            ...mapActions("blog", ["getBlogs"]),
+            ...mapActions("blog", ["getBlogs", "getLatest"]),
             strip_tags(str) {
                 if (str != null) {
                     str = str.replace(/(<([^>]+)>)/gi, '');
