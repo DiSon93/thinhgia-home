@@ -85,50 +85,6 @@
                         <div class="description_title">Mô tả</div>
                         <div class="content">
                             <div v-html="realEstateItem.descriptions"></div>
-                            <p>&nbsp;</p>
-                            <div class="mycompany">
-                                <div>
-                                    Bất Động Sản Việt nhận ký gửi
-                                    <span class="highlight">Mua bán nhà đất</span> và
-                                    <span class="highlight">Cho thuê nhà</span>
-                                </div>
-                                <div>
-                                    <i>Quý khách hàng và nhà đầu tư có nhu cầu vui lòng liên hệ:</i>
-                                </div>
-                                <div class="highlight">Công ty Cổ phần Dịch Vụ Kho Bất Động Sản Việt</div>
-                                <div>
-                                    <i>
-                                        "Giúp việc
-                                        <span class="highlight"> mua Bất Động Sản trở nên đơn giản hơn</span>
-                                        "
-                                    </i>
-                                </div>
-                                <div>Trụ sở: 90 Võ Thị Sáu, phường Thắng Tam, Tp. Vũng Tàu</div>
-                                <div>
-                                    <i>Chi nhánh 1: 90 Võ Thị Sáu, phường Thắng Tam, Tp. Vũng Tàu</i>
-                                </div>
-                                <div>
-                                    <i>
-                                        Chi nhánh 2: Lô A8-5/29+30 đường Nguyễn Hữu Cảnh, Khu Đô thị Chí Linh,
-                                        TP Vũng Tàu
-                                    </i>
-                                </div>
-                                <div>
-                                    <i>
-                                        Hotline: 0931.522.686 hoặc 0933.522.686
-                                    </i>
-                                </div>
-                                <div>
-                                    <i>
-                                        Email: batdongsanviet@gmail.com
-                                    </i>
-                                </div>
-                                <div>
-                                    <i>
-                                        Website: <a href="#">http://batdongsanviet.com/</a>
-                                    </i>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <Description :detail="realEstateItem" />
