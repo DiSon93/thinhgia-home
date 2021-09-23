@@ -9,7 +9,7 @@
                             <img :src="item.image_public[0].thumbnail" :alt="item.title" v-if="item.image_public.length > 0" />
                             <img src="@image/layouts/room_01.png" :alt="item.title" v-else />
                         </figure>
-                        <div class="overlay_title" v-html="item.title"></div>
+                        <div class="overlay_title" v-if="item.project != null" v-html="item.project.title"></div>
                     </div>
                     <div class="add_detail">
                         <div class="price">
