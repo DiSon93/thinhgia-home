@@ -1,0 +1,11 @@
+.blog .blog_news .content img{
+    max-width: 100%!important;
+    height: auto;
+}
+@media screen and (max-width: 1000px) {
+    .blog {
+      .blog_news {
+        font-size: 14px !important;
+      }
+    }
+  }
