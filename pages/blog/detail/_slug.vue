@@ -16,20 +16,26 @@
             <span v-html="blogCategory.name"></span>
           </NuxtLink>
           <i class="el-icon-arrow-right"></i>
-          <span v-html="blogDetail.title"></span>
+          <span v-html="blogDetail.title" v-if="!loading"></span>
+          <v-skeleton-loader type="card-heading" v-else></v-skeleton-loader>
         </div>
         <v-row class="specail_news">
           <v-col cols="12" sm="8">
-            <div class="blog_news">
+            <div class="blog_news" v-if="!loading">
               <div class="blog_title" v-html="blogDetail.title"></div>
               <div class="content" v-html="blogDetail.content"></div>
             </div>
-
+            <v-skeleton-loader
+              type="card-avatar, article, list-item-three-line, list-item-three-line"
+              v-else
+            ></v-skeleton-loader>
             <div class="same_news">TIN CÙNG CHUYÊN MỤC</div>
             <div class="blog_news">
               <v-row v-for="(item, index) in blogCategoryList.data" :key="item.id">
                 <v-col cols="12" sm="3">
-                  <img :src="item.image_public[0].thumbnail" :alt="item.title" />
+                  <router-link :to="'/blog/detail/' + item.slug + '-' + item.id">
+                    <img :src="item.image_public[0].thumbnail" :alt="item.title" />
+                  </router-link>
                   <!-- <img src="@image/layouts/same_06.svg" alt="" /> -->
                 </v-col>
                 <v-col cols="12" sm="9">
@@ -78,6 +84,7 @@ export default {
   data() {
     return {
       isActive: false,
+      loading: false,
     };
   },
   watch: {
@@ -88,12 +95,14 @@ export default {
   computed: {
     ...mapState("blog", ["blogDetail", "blogCategoryList", "blogCategory"]),
   },
-  mounted() {
+  async mounted() {
     let params = this.$route.params.slug;
     if (params != undefined) {
+      this.loading = true;
       params = params.split("-");
       let cat_id = params[params.length - 1];
-      this.getBlogDetail(cat_id);
+      await this.getBlogDetail(cat_id);
+      this.loading = false;
     }
   },
   methods: {
@@ -139,6 +148,10 @@ export default {
         line-height: 20px;
         margin-bottom: 25px !important;
         color: black;
+        &:hover {
+          color: rgba(255, 166, 0, 0.767);
+          transition: all 0.5s;
+        }
       }
       .content {
         font-size: 14px;

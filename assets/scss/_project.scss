@@ -68,7 +68,14 @@ margin: 0px!important;
 background: #EBEEF5;
 }
 }
-
+.project_detail{
+  #vitri,#tienich,#matbang,#toanha{
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
 @media screen and (max-width: 1320px){
   #highlight.v-btn,#normal.v-btn {
     .v-btn__content{

@@ -13,7 +13,11 @@
         >
       </div>
       <!-- <div class="estate_content"> -->
-      <VueSlickCarousel :arrows="true" v-bind="settings">
+      <VueSlickCarousel
+        :arrows="true"
+        v-bind="settings"
+        v-if="purposeList.sell.data.length != 0"
+      >
         <div class="estate_img" v-for="item in purposeList.sell.data" :key="item.id">
           <el-card class="box-card">
             <div slot="header" class="clearfix hover01">
@@ -41,17 +45,29 @@
                   <i>(100triệu/<span id="mv">&#13217;</span>)</i>
                 </div>
               </div>
-              <NuxtLink
-                class="name"
-                :to="parseUrlRealEstate(item)"
-                v-html="item.title"
-              ></NuxtLink>
+              <el-tooltip
+                class="item"
+                effect="dark"
+                :content="item.title"
+                placement="top"
+              >
+                <NuxtLink
+                  class="name"
+                  :to="parseUrlRealEstate(item)"
+                  v-html="item.title"
+                ></NuxtLink>
+              </el-tooltip>
+
               <div class="sex d-flex">
                 <el-tooltip class="item" effect="dark" content="Hướng" placement="top">
                   <v-icon>mdi-near-me</v-icon>
                 </el-tooltip>
 
-                <span v-html="item.house_orientation_dict.name"></span>
+                <span
+                  v-html="
+                    item.house_orientation_dict ? item.house_orientation_dict.name : null
+                  "
+                ></span>
 
                 <el-tooltip
                   class="item"
@@ -81,7 +97,12 @@
                 </el-tooltip>
 
                 <span
-                  v-html="[item.street_type_dict.name, item.district.name].join(', ')"
+                  v-html="
+                    [
+                      item.street_type_dict ? item.street_type_dict.name : '',
+                      item.district ? item.district.name : '',
+                    ].join(', ')
+                  "
                 ></span>
               </div>
             </div>
@@ -211,7 +232,7 @@ export default {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       &:hover {
-        color: $color-orange-light;
+        color: $color-orange;
         // text-decoration: ;
         transition: 0.5s;
       }
@@ -226,7 +247,7 @@ export default {
       }
       font-size: 15px;
       line-height: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .address {
       .v-icon {

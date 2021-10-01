@@ -143,7 +143,7 @@
                 <el-popover placement="bottom">
                   <p>Khoảng giá (tỷ)</p>
                   <div class="block">
-                    <el-slider v-model="frmSearch.price" range :marks="prices">
+                    <el-slider v-model="frmSearch.price" range :marks="prices" :max="3">
                     </el-slider>
                   </div>
                   <div class="input_selectrange">
@@ -217,7 +217,7 @@
                 <el-popover placement="bottom">
                   <p>Khoảng giá (tỷ)</p>
                   <div class="block">
-                    <el-slider v-model="frmSearch.price" range :marks="prices">
+                    <el-slider v-model="frmSearch.price" range :marks="prices" :max="3">
                     </el-slider>
                   </div>
                   <div class="input_selectrange">

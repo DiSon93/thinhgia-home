@@ -19,6 +19,7 @@ export default {
         },
         viewedList: [],
         realEstateItem: {},
+        saveEstateList: [],
         purpose_array: [
             {
                 title: 'Mua bán bất động sản',
@@ -47,13 +48,17 @@ export default {
         },
         getRealEstateList(state, data) {
             state.realEstateList = data;
+           
         },
         getRealEstateItem(state, data) {
             state.realEstateItem = data;
         },
         insertViewedList(state, data) {
             state.viewedList.push(data);
-        }
+        },
+        geSaveEstateList (state, data){
+            state.saveEstateList = data;
+        },
     },
     actions: {
         getFeature: ({ commit }) => {
@@ -114,6 +119,19 @@ export default {
                         reject(e);
                     })
             })
-        }
+        },
+        geSaveEstateList: ({ commit }, data) => {
+            return new Promise((resolve, reject) => {
+                axiosClient({ url: `real-estates/details` , method: "POST", data: {ids: data}})
+                    .then(response => {
+                        commit('geSaveEstateList', response.data.results);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        // commit('showError', e.response.data);
+                        reject(e);
+                    })
+            })
+        },
     }
 }

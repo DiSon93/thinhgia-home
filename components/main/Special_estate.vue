@@ -14,7 +14,11 @@
       </div>
 
       <!-- <div class="estate_content" > -->
-      <VueSlickCarousel :arrows="true" v-bind="settings">
+      <VueSlickCarousel
+        :arrows="true"
+        v-bind="settings"
+        v-if="featureList.data.length != 0"
+      >
         <div class="estate_img" v-for="item in featureList.data" :key="item.id">
           <el-card class="box-card">
             <!-- <router-link to="/sell/01" slot="header" class="clearfix hover14">
@@ -63,7 +67,11 @@
                   <v-icon>mdi-near-me</v-icon>
                 </el-tooltip>
 
-                <span v-html="item.house_orientation_dict.name"></span>
+                <span
+                  v-html="
+                    item.house_orientation_dict ? item.house_orientation_dict.name : null
+                  "
+                ></span>
 
                 <el-tooltip
                   class="item"
@@ -93,7 +101,12 @@
                 </el-tooltip>
 
                 <span
-                  v-html="[item.street_type_dict.name, item.district.name].join(', ')"
+                  v-html="
+                    [
+                      item.street_type_dict ? item.street_type_dict.name : '',
+                      item.district ? item.district.name : '',
+                    ].join(', ')
+                  "
                 ></span>
               </div>
             </div>

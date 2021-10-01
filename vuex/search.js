@@ -25,8 +25,9 @@ export default {
             state.areas = data;
         },
         setPrices(state, data) {
-            state.prices = data;
+            state.prices = Object.assign({},data);
         },
+
         setTypeRealEstate(state, data) {
             state.typeRealEstate = data;
         },

@@ -17,6 +17,10 @@ ul.el-dropdown-menu.el-popper .el-dropdown-menu__item--divided {
     margin-bottom: 0px !important;
 }
 
+.cool-lightbox .cool-lightbox__slide{
+    margin-right: 0px!important;
+}
+
 .price {
     display: flex;
     .pricePerMeter {
@@ -50,7 +54,9 @@ ul.el-dropdown-menu.el-popper .el-dropdown-menu__item--divided {
     display: block;
 }
 }
-
+.compensate-for-scrollbar {
+    margin-right: 0px !important;
+}
 
 
 @media screen and (max-width: 600px) {

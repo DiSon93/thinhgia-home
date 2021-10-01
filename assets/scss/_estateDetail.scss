@@ -1,0 +1,19 @@
+.sell_detail{
+    .description{
+        .content{
+            img{
+                max-width: 100%!important;
+                height: auto;
+            }
+        }
+    }
+}
+.el-tooltip__popper {
+    max-width: 260px;
+  }
+
+  @media screen and (max-width: 600px){
+    .el-tooltip__popper{
+        max-width: 150px;
+    }
+  }

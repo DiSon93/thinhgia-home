@@ -21,7 +21,7 @@
                 <v-col cols="12" sm="4">
                   <router-link
                     :to="
-                      '/blog/category/' +
+                      '/blog/detail/' +
                       blogLatest.data[0].slug +
                       '-' +
                       blogLatest.data[0].id
@@ -38,7 +38,7 @@
                   <NuxtLink
                     class="tintuc"
                     :to="
-                      '/blog/category/' +
+                      '/blog/detail/' +
                       blogLatest.data[0].slug +
                       '-' +
                       blogLatest.data[0].id
@@ -61,8 +61,16 @@
                   v-if="index > 0"
                 >
                   <!-- <img src="@image/layouts/blog_01.svg" alt="" /> -->
-                  <img :src="item.image_public[0].thumbnail" :alt="item.title" />
-                  <div v-html="item.title"></div>
+                  <router-link :to="'/blog/detail/' + item.slug + '-' + item.id">
+                    <img :src="item.image_public[0].thumbnail" :alt="item.title" />
+                  </router-link>
+                  <!-- <div v-html="item.title"></div> -->
+                  <NuxtLink
+                    class="special_title"
+                    :to="'/blog/detail/' + item.slug + '-' + item.id"
+                  >
+                    <span v-html="item.title"></span>
+                  </NuxtLink>
                 </v-col>
               </v-row>
             </div>
@@ -77,7 +85,9 @@
               <div class="blog_news" v-if="item.blogs.length > 0">
                 <v-row>
                   <v-col cols="12" sm="3">
-                    <router-link :to="''">
+                    <router-link
+                      :to="'/blog/detail/' + item.blogs[0].slug + '-' + item.blogs[0].id"
+                    >
                       <img
                         :src="item.blogs[0].image_public[0].thumbnail"
                         :alt="item.blogs[0].title"
@@ -103,7 +113,12 @@
                     v-for="(blog, index) in item.blogs"
                     :key="index"
                   >
-                    <img src="@image/layouts/circle.png" :alt="blog.title" />
+                    <router-link
+                      :to="'/blog/detail/' + item.blogs[0].slug + '-' + item.blogs[0].id"
+                    >
+                      <img src="@image/layouts/circle.png" :alt="blog.title" />
+                    </router-link>
+
                     <NuxtLink
                       :to="'/blog/detail/' + blog.slug + '-' + blog.id"
                       class="small_content"
@@ -193,6 +208,17 @@ export default {
         line-height: 20px;
         margin-bottom: 15px;
         color: #000;
+        &:hover {
+          color: orange;
+          transition: all 0.5s;
+        }
+      }
+      .special_title {
+        color: $color-black-02;
+        &:hover {
+          color: $color-orange;
+          transition: all 0.5s;
+        }
       }
       .content {
         font-size: 14px;
@@ -235,6 +261,10 @@ export default {
       .small_content {
         margin-left: 12px;
         font-size: 14px !important;
+        &:hover {
+          color: rgba(255, 166, 0, 0.767);
+          transition: all 0.5s;
+        }
       }
     }
   }

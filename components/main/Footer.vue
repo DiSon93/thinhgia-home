@@ -5,7 +5,15 @@
         <img src="@image/layouts/bansaodanhthiep.png" alt="" />
         <div class="address">
           <v-icon>mdi-near-me</v-icon>
-          <div class="content" v-html="settings.site_head_office_vi"></div>
+          <div class="content">Trụ sở: {{ settings.site_head_office_vi }}</div>
+        </div>
+        <div v-if="settings.site_branch_office_vi" class="branch">
+          <div
+            v-for="(item, index) in settings.site_branch_office_vi.split('?')"
+            :key="item"
+          >
+            Chi nhánh {{ index + 1 }}: {{ item }}
+          </div>
         </div>
         <div class="email">
           <v-icon>mdi-email</v-icon>
@@ -171,6 +179,9 @@ export default {
       width: 350px;
       margin: 10px;
       margin-left: 120px;
+    }
+    .branch {
+      margin: -20px 0 20px 165px;
     }
   }
   .address,

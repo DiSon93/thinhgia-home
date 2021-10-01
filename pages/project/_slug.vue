@@ -12,12 +12,15 @@
         <div v-for="item in projectList.projects" :key="item.id">
           <v-row class="special_project">
             <v-col cols="12" sm="6" class="content_left">
-              <img :src="item.image_public[0].thumbnail" :alt="item.title" />
+              <img
+                :src="item.image_public[0] ? item.image_public[0].main : ''"
+                :alt="item.title"
+              />
               <!-- <img src="@image/layouts/special_project_01.png" alt="" /> -->
             </v-col>
             <v-col cols="12" sm="6">
               <div class="special_content">
-                <div class="name" v-html="item.title"></div>
+                <div class="name" v-html="item.name"></div>
                 <v-row class="address content">
                   <v-col cols="1">
                     <img src="@image/icons/address.png" alt="" />
@@ -121,14 +124,14 @@
                     <router-link :to="parseUrlRealEstate(re)">
                       <figure>
                         <img
-                          :src="re.image_public[0].thumbnail"
+                          :src="re.image_public[0] ? re.image_public[0].thumbnail : ''"
                           :alt="re.title"
                           v-if="re.image_public.length > 0"
                         />
                         <img src="@image/layouts/room_01.png" :alt="re.title" v-else />
                       </figure>
                     </router-link>
-                    <div class="overlay_title" v-html="re.title"></div>
+                    <div class="overlay_title" v-html="item.name"></div>
                   </div>
                   <div class="add_detail">
                     <div class="price">
@@ -143,11 +146,19 @@
                         <i>(100triệu/<span id="mv">&#13217;</span>)</i>
                       </div>
                     </div>
-                    <router-link
-                      class="name"
-                      :to="parseUrlRealEstate(re)"
-                      v-html="re.title"
-                    ></router-link>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      :content="re.title"
+                      placement="top"
+                    >
+                      <router-link
+                        class="name"
+                        :to="parseUrlRealEstate(re)"
+                        v-html="re.title"
+                      ></router-link>
+                    </el-tooltip>
+
                     <div class="sex d-flex">
                       <el-tooltip
                         class="item"
@@ -301,7 +312,7 @@ export default {
       params = params.split("-");
       let type_id = params[params.length - 1];
       this.getCategoryItem(type_id);
-      this.getProsjectType(type_id);
+      this.getProjectType(type_id);
     }
   },
   methods: {
@@ -407,16 +418,22 @@ export default {
       position: absolute;
       background: #fdd27f;
       border-radius: 4px;
-      // width: 180px;
-      padding: 0 15px;
-      height: 25px;
-      left: 19px;
+      padding: 0 20px;
+      // height: 25px;
+      left: 15px;
+      right: 15px;
       bottom: -14px;
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
       color: $color-black-02;
       text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      max-height: 48px;
     }
   }
 }
@@ -426,6 +443,7 @@ export default {
   .content_left {
     img {
       width: 96%;
+      max-height: 300px;
     }
   }
   .highlight {
@@ -543,13 +561,13 @@ export default {
           height: 15px;
         }
         .price {
-          font-weight: bold;
-          font-size: 16px;
+          font-weight: 700;
+          font-size: 14px;
           line-height: 30px;
           color: #fbad18;
           .first_price {
-            margin-right: 15px;
-            padding-right: 15px;
+            margin-right: 10px;
+            padding-right: 10px;
             border-right: 1px solid $color-black-01;
           }
         }
@@ -559,8 +577,16 @@ export default {
           line-height: 40px;
           color: #000000;
           text-decoration: none;
+          line-height: 24px;
+          height: 50px;
+          margin: 5px 0 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
           &:hover {
-            color: $color-orange-light;
+            color: $color-orange;
             // text-decoration: ;
             transition: 0.5s;
           }
@@ -573,17 +599,26 @@ export default {
               margin-left: 0;
             }
           }
-          font-size: 16px;
+          font-size: 15px;
           line-height: 30px;
-          margin: 10px 0;
+          margin-bottom: 8px;
         }
         .address {
           .v-icon {
             color: #c4c4c4;
             margin-right: 10px;
           }
-          font-size: 16px;
+          font-size: 15px;
           line-height: 24px;
+          height: 48px;
+          span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            margin: auto 0px;
+          }
         }
       }
     }
@@ -600,7 +635,49 @@ export default {
     color: #7a7a7a;
   }
 }
+.hover14 figure {
+  position: relative;
+}
 
+.hover14 figure::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+
+.hover14 figure:hover::before {
+  -webkit-animation: shine 1s;
+  animation: shine 1s;
+}
+
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
 @media screen and (max-width: 1250px) {
   .chungcu {
     padding: 0 5%;

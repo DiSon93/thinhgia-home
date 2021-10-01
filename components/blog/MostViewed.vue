@@ -64,6 +64,10 @@ export default {
         width: 60%;
         padding-left: 10px;
         color: #000 !important;
+        &:hover {
+          color: rgba(255, 166, 0, 0.767) !important;
+          transition: all 0.5s;
+        }
       }
     }
   }
