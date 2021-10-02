@@ -103,8 +103,12 @@
             <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
             <div class="btn_group">
               <div>
-                <v-btn>Cho thuê</v-btn>
-                <v-btn color="warning1">Mua bán</v-btn>
+                <v-btn :color="isSell ? 'warning' : ''" @click="isSell = true"
+                  >Mua bán</v-btn
+                >
+                <v-btn :color="!isSell ? 'warning' : ''" @click="isSell = false"
+                  >Cho thuê</v-btn
+                >
               </div>
               <div class="content">
                 <v-btn>Xem Tất cả &gt;&gt;</v-btn>
@@ -119,7 +123,97 @@
                 v-for="re in projectList.real_estates[item.id]"
                 :key="re.id"
               >
-                <el-card class="box-card">
+                <el-card class="box-card" v-if="re.purpose == 0 && isSell">
+                  <div slot="header" class="clearfix hover14">
+                    <router-link :to="parseUrlRealEstate(re)">
+                      <figure>
+                        <img
+                          :src="re.image_public[0] ? re.image_public[0].thumbnail : ''"
+                          :alt="re.title"
+                          v-if="re.image_public.length > 0"
+                        />
+                        <img src="@image/layouts/room_01.png" :alt="re.title" v-else />
+                      </figure>
+                    </router-link>
+                    <div class="overlay_title" v-html="item.name"></div>
+                  </div>
+                  <div class="add_detail">
+                    <div class="price">
+                      <div>
+                        <span
+                          class="first_price"
+                          v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
+                        ></span>
+                        <span v-html="re.land_area + ' &#13217;'"></span>
+                      </div>
+                      <div class="pricePerMeter">
+                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                      </div>
+                    </div>
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      :content="re.title"
+                      placement="top"
+                    >
+                      <router-link
+                        class="name"
+                        :to="parseUrlRealEstate(re)"
+                        v-html="re.title"
+                      ></router-link>
+                    </el-tooltip>
+
+                    <div class="sex d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Hướng"
+                        placement="top"
+                      >
+                        <v-icon>mdi-near-me</v-icon>
+                      </el-tooltip>
+
+                      <span v-html="re.house_orientation_dict.name"></span>
+
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng ngủ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-bed-outline</v-icon>
+                      </el-tooltip>
+
+                      <span v-html="re.bedroom_number"></span>
+
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Phòng tắm"
+                        placement="top"
+                      >
+                        <v-icon>mdi-shower-head</v-icon>
+                      </el-tooltip>
+
+                      <span v-html="re.bathroom_number"></span>
+                    </div>
+                    <div class="address d-flex">
+                      <el-tooltip
+                        class="item"
+                        effect="dark"
+                        content="Địa chỉ"
+                        placement="top"
+                      >
+                        <v-icon>mdi-map-marker</v-icon>
+                      </el-tooltip>
+
+                      <span
+                        v-html="[re.street_type_dict.name, re.district.name].join(', ')"
+                      ></span>
+                    </div>
+                  </div>
+                </el-card>
+                <el-card class="box-card" v-if="re.purpose == 1 && !isSell">
                   <div slot="header" class="clearfix hover14">
                     <router-link :to="parseUrlRealEstate(re)">
                       <figure>
@@ -245,6 +339,7 @@ export default {
     return {
       isActive: false,
       page: 1,
+      isSell: true,
       RealEstatesByProject: {},
       settings: {
         dots: false,
@@ -537,14 +632,20 @@ export default {
         border-radius: 4px;
         // width: 180px;
         padding: 0 15px;
-        height: 25px;
-        left: 19px;
+        left: 15px;
+        right: 15px;
         bottom: -14px;
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
         color: $color-black-02;
         text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        max-height: 48px;
       }
     }
     .estate_img {
@@ -735,11 +836,11 @@ export default {
       font-size: 12x;
       .price {
         margin-top: 5px;
-        font-size: 12px !important;
+        font-size: 11px !important;
         line-height: 18px;
         .first_price {
-          margin-right: 6px !important;
-          padding-right: 6px !important;
+          margin-right: 2px !important;
+          padding-right: 4px !important;
           border-right: 1px solid $color-black-01;
         }
       }
@@ -794,17 +895,7 @@ export default {
     .estate_img {
       .clearfix {
         .overlay_title {
-          padding: 0 5px;
-          height: 25px;
-          width: auto;
-          right: 0px;
-          left: 0px !important;
-          bottom: -14px;
-          font-weight: 500;
-          font-size: 12px;
-          text-align: left;
-          overflow: hidden;
-          padding: 0 !important;
+          font-size: 11px;
         }
       }
     }
@@ -828,9 +919,22 @@ export default {
       }
     }
   }
-  // }
+
+  .estateOfProject #img_estate .estate_img .add_detail .sex {
+    margin: 8px 0 5px !important;
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .address {
+    align-items: center;
+    display: flex;
+    height: 38px;
+    .v-icon {
+      margin-right: 6px !important;
+    }
+  }
   .estateOfProject #img_estate .estate_img .add_detail .name {
     font-size: 12px !important;
+    height: 32px;
+    margin-top: 0px !important;
   }
 }
 </style>

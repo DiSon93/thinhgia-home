@@ -324,6 +324,10 @@ export default {
 
 @media screen and(max-width: 600px) {
   .footer .footer_left {
+    .branch {
+      margin: -10px 10% 20px 75px;
+      text-align: justify;
+    }
     img:nth-child(1) {
       width: 80%;
       margin-bottom: 20px;

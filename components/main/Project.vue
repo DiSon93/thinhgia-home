@@ -22,11 +22,11 @@
                 <div
                   slot="header"
                   class="clearfix"
-                  @click="$router.push(parseUrlProjects(item))"
+                  @click="$router.push(`/project/detail/${item.slug}-${item.id}`)"
                 >
                   <!-- <img src="@image/layouts/specialproject_01.png" alt="" /> -->
                   <img
-                    :src="item.image_public[0].main"
+                    :src="item.image_public[0] ? item.image_public[0].main : ''"
                     :alt="item.title"
                     id="big_project_image"
                   />
@@ -46,7 +46,9 @@
                     ></p>
                     <p>Giá từ: 50tr/m2</p>
                   </div>
-                  <NuxtLink class="more_detail" :to="parseUrlProjects(item)"
+                  <NuxtLink
+                    class="more_detail"
+                    :to="`/project/detail/${item.slug}-${item.id}`"
                     >Xem thêm thông tin DỰ ÁN</NuxtLink
                   >
                 </div>
@@ -181,6 +183,7 @@ export default {
     ...mapActions("project", ["getProject"]),
     ...mapMutations("project", ["setProjectList"]),
     parseUrlProjects(project) {
+      console.log("project", project);
       return "project/detail/" + project.slug + "-" + project.id;
     },
     parseUrlRealEstate(real_estate) {
@@ -225,6 +228,9 @@ export default {
   .estate_content {
     display: flex;
     justify-content: space-between;
+    .add_detail {
+      // margin-bottom: 100px;
+    }
     .estate_img {
       // width: 25%;
       padding: 20px;
@@ -235,6 +241,8 @@ export default {
       }
       .quymo {
         margin-top: 40px;
+        margin-bottom: 30px;
+
         .big_description {
           overflow: hidden;
           text-overflow: ellipsis;
@@ -355,6 +363,12 @@ export default {
         text-align: center;
         line-height: 24px;
         text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        max-height: 48px;
       }
     }
   }
@@ -504,13 +518,31 @@ export default {
     .clearfix {
       position: relative;
       .overlay_small_project {
-        width: 150px !important;
-        height: 24px !important;
-        font-size: 10px !important;
-        left: 0px !important;
-        text-align: left !important;
-        padding-left: 10px;
+        //   width: 150px !important;
+        //   height: 24px !important;
+        font-size: 11px !important;
+        //   left: 0px !important;
+        //   text-align: left !important;
+        //   padding-left: 10px;
       }
+    }
+    .estate_img .add_detail .sex {
+      margin: 8px 0 5px !important;
+      font-size: 11px !important;
+    }
+    .estate_img .add_detail .address {
+      align-items: center;
+      display: flex;
+      height: 38px;
+      font-size: 11px !important;
+      .v-icon {
+        margin-right: 6px !important;
+      }
+    }
+    .estate_img .add_detail .name {
+      font-size: 12px !important;
+      height: 32px;
+      margin-top: 8px !important;
     }
   }
 }

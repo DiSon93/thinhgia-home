@@ -60,7 +60,7 @@
           class="zalo-share-button"
           :data-href="href"
           data-oaid="53253160592962497"
-          data-layout="1"
+          data-layout="3"
           data-color="blue"
           data-customize="false"
         ></div>
@@ -154,76 +154,16 @@
         </v-col>
         <v-col cols="12" sm="4">
           <FormUser />
-          <RightCol
-            :real_estate_type="realEstateItem.real_estate_type"
-            :purpose="realEstateItem.purpose"
-          />
+          <div class="rightCol">
+            <RightCol
+              :real_estate_type="realEstateItem.real_estate_type"
+              :purpose="realEstateItem.purpose"
+            />
+          </div>
         </v-col>
       </v-row>
 
       <div class="estateOfProject">
-        <div class="mobile_screen" style="display: none">
-          <div class="estate_title">NHÀ ĐẤT LIÊN QUAN</div>
-          <div id="img_estate">
-            <VueSlickCarousel :arrows="true" v-bind="settings02">
-              <div class="estate_img">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix hover14">
-                    <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
-                    <div class="overlay_title">Khu biệt thự đồi Ngọc Tước II</div>
-                  </div>
-                  <div class="add_detail">
-                    <div class="price">
-                      <div>
-                        <span class="first_price">6 tỷ</span>
-                        <span>60 <span>&#13217;</span></span>
-                      </div>
-                      <div class="pricePerMeter">
-                        <i>(100triệu/<span id="mv">&#13217;</span>)</i>
-                      </div>
-                    </div>
-                    <div class="name">
-                      BIỆT THỰ NGHỈ DƯỠNG ĐẲNG CẤP THIẾT KẾ SANG TRỌNG ...
-                    </div>
-                    <div class="sex d-flex">
-                      <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Hướng"
-                        placement="top"
-                      >
-                        <v-icon>mdi-near-me</v-icon>
-                      </el-tooltip>
-                      <span>Nam</span>
-                      <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Phòng ngủ"
-                        placement="top"
-                      >
-                        <v-icon>mdi-bed-outline</v-icon>
-                      </el-tooltip>
-                      <span>2</span>
-                      <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Phòng tắm"
-                        placement="top"
-                      >
-                        <v-icon>mdi-shower-head</v-icon>
-                      </el-tooltip>
-                      <span>3</span>
-                    </div>
-                    <div class="address d-flex">
-                      <v-icon>mdi-map-marker</v-icon>
-                      <span>Thi Sách - phường 8 - thành phố Vũng Tàu</span>
-                    </div>
-                  </div>
-                </el-card>
-              </div>
-            </VueSlickCarousel>
-          </div>
-        </div>
         <div class="estate_title">NHÀ ĐẤT ĐÃ XEM</div>
         <div id="img_estate">
           <VueSlickCarousel
@@ -589,7 +529,9 @@ export default {
     width: 60%;
   }
 }
-
+.zalo-share-button {
+  margin-top: -6px;
+}
 .estateOfProject {
   margin-top: 10px;
   .estate_title {
@@ -643,7 +585,6 @@ export default {
           background: #fdd27f;
           border-radius: 4px;
           padding: 0 15px;
-          height: 25px;
           left: 15px;
           right: 15px;
           bottom: -14px;
@@ -897,6 +838,9 @@ export default {
   .mobile_screen {
     display: block;
   }
+  .rightCol {
+    display: block;
+  }
   .estate_img {
     padding: 6px !important;
     h2 {
@@ -913,8 +857,8 @@ export default {
         font-size: 12px !important;
         line-height: 18px;
         .first_price {
-          margin-right: 6px !important;
-          padding-right: 6px !important;
+          margin-right: 2px !important;
+          padding-right: 4px !important;
           border-right: 1px solid $color-black-01;
         }
       }
@@ -953,7 +897,7 @@ export default {
         font-size: 11px !important;
         .v-icon {
           color: #c4c4c4;
-          margin-right: 10px;
+          margin-right: 6px;
           font-size: 14px;
         }
         line-height: 16px !important;
@@ -979,17 +923,31 @@ export default {
       }
     }
   }
-  .estateOfProject #img_estate .estate_img .add_detail .name {
-    font-size: 12px !important;
-  }
+
   .mycompany {
     font-size: 12px;
   }
   .estateOfProject {
     .estate_title {
-      font-size: 16px;
+      font-size: 16px !important;
       margin-top: 20px;
     }
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .sex {
+    margin: 8px 0 5px !important;
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .address {
+    align-items: center;
+    display: flex;
+    height: 38px;
+    .v-icon {
+      margin-right: 6px !important;
+    }
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .name {
+    font-size: 12px !important;
+    height: 32px;
+    margin-top: 0px !important;
   }
   .overview {
     .overview_title {

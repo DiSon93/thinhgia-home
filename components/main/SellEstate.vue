@@ -316,11 +316,11 @@ export default {
       margin: -10px;
       font-size: 12x;
       .price {
-        font-size: 12px;
+        font-size: 11px;
         line-height: 18px;
         .first_price {
-          margin-right: 8px;
-          padding-right: 8px;
+          margin-right: 2px;
+          padding-right: 4px;
           border-right: 1px solid $color-black-01;
         }
       }
@@ -353,6 +353,22 @@ export default {
         letter-spacing: 0.1px;
       }
     }
+  }
+  .estate_img .add_detail .sex {
+    margin: 8px 0 5px !important;
+  }
+  .estate_img .add_detail .address {
+    align-items: center;
+    display: flex;
+    height: 38px;
+    .v-icon {
+      margin-right: 6px !important;
+    }
+  }
+  .estate_img .add_detail .name {
+    font-size: 12px !important;
+    height: 32px;
+    margin-top: 8px !important;
   }
 }
 </style>

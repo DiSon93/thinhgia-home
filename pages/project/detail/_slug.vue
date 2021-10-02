@@ -24,10 +24,12 @@
                 Tổng quan
               </v-btn>
               <a href="#blank">
-                <v-btn value="ban" id="highlight">BĐS Bán</v-btn>
+                <v-btn value="ban" id="highlight" @click="isSell = true">BĐS Bán</v-btn>
               </a>
               <a href="#blank">
-                <v-btn value="thue" id="highlight">BĐS Thuê</v-btn>
+                <v-btn value="thue" id="highlight" @click="isSell = false"
+                  >BĐS Thuê</v-btn
+                >
               </a>
               <a href="#vitri_blank">
                 <v-btn value="vitri" id="normal" @click="activeNames.push('2')"
@@ -153,14 +155,118 @@
         <div class="estate_title">BẤT ĐỘNG SẢN THUỘC DỰ ÁN</div>
         <div class="btn_group">
           <div>
-            <v-btn>Cho thuê</v-btn>
-            <v-btn color="warning">Mua bán</v-btn>
+            <v-btn :color="isSell ? 'warning' : ''" @click="isSell = true">Mua bán</v-btn>
+            <v-btn :color="!isSell ? 'warning' : ''" @click="isSell = false"
+              >Cho thuê</v-btn
+            >
           </div>
           <div class="content"><v-btn>Xem Tất cả &gt;&gt;</v-btn></div>
         </div>
         <div id="img_estate">
-          <VueSlickCarousel :arrows="true" v-bind="settings02">
-            <div class="estate_img" v-for="re in projectDetail.real_estates" :key="re.id">
+          <VueSlickCarousel
+            :arrows="true"
+            v-bind="settings02"
+            v-if="sellEstateList.length != 0"
+            v-show="isSell"
+          >
+            <div class="estate_img" v-for="re in sellEstateList" :key="re.id">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix hover14">
+                  <figure @click="$router.push(parseUrlRealEstate(re))">
+                    <img
+                      :src="re.image_public[0].thumbnail"
+                      :alt="re.title"
+                      v-if="re.image_public.length > 0"
+                    />
+                    <img src="@image/layouts/room_06.svg" :alt="re.title" v-else />
+                  </figure>
+                  <div class="overlay_title" v-html="projectDetail.name"></div>
+                </div>
+                <div class="add_detail">
+                  <div class="price">
+                    <div>
+                      <span
+                        class="first_price"
+                        v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
+                      ></span>
+                      <span v-html="re.land_area + ' &#13217;'"></span>
+                    </div>
+                    <div class="pricePerMeter">
+                      <i>(100triệu/<span id="mv">&#13217;</span>)</i>
+                    </div>
+                  </div>
+                  <el-tooltip
+                    class="item"
+                    effect="dark"
+                    :content="re.title"
+                    placement="top"
+                  >
+                    <router-link
+                      class="name"
+                      :to="parseUrlRealEstate(re)"
+                      v-html="re.title"
+                    ></router-link>
+                  </el-tooltip>
+
+                  <div class="sex d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Hướng"
+                      placement="top"
+                    >
+                      <v-icon>mdi-near-me</v-icon>
+                    </el-tooltip>
+
+                    <span v-html="re.house_orientation_dict.name"></span>
+
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng ngủ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-bed-outline</v-icon>
+                    </el-tooltip>
+
+                    <span v-html="re.bedroom_number"></span>
+
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Phòng tắm"
+                      placement="top"
+                    >
+                      <v-icon>mdi-shower-head</v-icon>
+                    </el-tooltip>
+
+                    <span v-html="re.bathroom_number"></span>
+                  </div>
+                  <div class="address d-flex">
+                    <el-tooltip
+                      class="item"
+                      effect="dark"
+                      content="Địa chỉ"
+                      placement="top"
+                    >
+                      <v-icon>mdi-map-marker</v-icon>
+                    </el-tooltip>
+
+                    <span
+                      v-html="[re.street_type_dict.name, re.district.name].join(', ')"
+                    ></span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
+          </VueSlickCarousel>
+          <VueSlickCarousel
+            :arrows="true"
+            v-bind="settings02"
+            v-if="rentEstateList.length != 0"
+            v-show="!isSell"
+          >
+            <div class="estate_img" v-for="re in rentEstateList" :key="re.id">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
                   <figure @click="$router.push(parseUrlRealEstate(re))">
@@ -282,6 +388,9 @@ export default {
       text: "tongquan",
       activeNames: ["1"],
       loading: false,
+      isSell: true,
+      sellEstateList: [],
+      rentEstateList: [],
       settings02: {
         dots: false,
         focusOnSelect: false,
@@ -324,7 +433,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions("project", ["getProjectDetail"]),
+    // ...mapActions("project", ["getProjectDetail"]),
+    async getProjectDetail(_id) {
+      try {
+        await this.$store.dispatch("project/getProjectDetail", _id);
+        this.sellEstateList = this.projectDetail.real_estates.filter(
+          (u) => u.purpose == 0
+        );
+        this.rentEstateList = this.projectDetail.real_estates.filter(
+          (u) => u.purpose == 1
+        );
+      } catch {}
+    },
     parseUrlRealEstate(real_estate) {
       return "/detail/" + real_estate.slug + "-" + real_estate.id;
     },
@@ -609,6 +729,12 @@ export default {
           line-height: 24px;
           color: $color-black-02;
           text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          max-height: 48px;
         }
       }
     }
@@ -683,19 +809,19 @@ export default {
       margin: -10px;
       font-size: 12x;
       .price {
-        margin-top: 5px;
-        font-size: 12px !important;
+        margin-top: 10px;
+        font-size: 11px !important;
         line-height: 18px !important;
         .first_price {
-          margin-right: 6px !important;
-          padding-right: 6px !important;
+          margin-right: 2px !important;
+          padding-right: 4px !important;
           border-right: 1px solid $color-black-01;
         }
       }
       .name {
-        margin-top: 5px;
+        margin-top: 10px !important;
         font-size: 12px !important;
-        line-height: 20px !important;
+        line-height: 16px !important;
       }
       .sex {
         font-size: 11px !important;
@@ -727,23 +853,13 @@ export default {
     .estate_img {
       .clearfix {
         .overlay_title {
-          padding: 0 5px;
-          height: 25px;
-          width: auto;
-          right: 0px;
-          left: 0px !important;
-          bottom: -14px;
-          font-weight: 500;
-          font-size: 12px !important;
-          text-align: left;
-          overflow: hidden;
-          padding: 0 !important;
+          font-size: 11px !important;
         }
       }
     }
   }
   .estateOfProject {
-    margin-top: -100px;
+    margin-top: -80px;
     .estate_title {
       font-size: 16px;
     }
@@ -755,8 +871,21 @@ export default {
     }
   }
   // }
+  .estateOfProject #img_estate .estate_img .add_detail .sex {
+    margin: 8px 0 5px !important;
+  }
+  .estateOfProject #img_estate .estate_img .add_detail .address {
+    align-items: center;
+    display: flex;
+    height: 38px;
+    .v-icon {
+      margin-right: 6px !important;
+    }
+  }
   .estateOfProject #img_estate .estate_img .add_detail .name {
     font-size: 12px !important;
+    height: 32px;
+    margin-top: 4px !important;
   }
   .project_detail .project_title {
     font-size: 16px;

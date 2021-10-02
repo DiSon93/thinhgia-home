@@ -245,7 +245,7 @@ export default {
           to: "/project",
         },
         {
-          icon: "mdi-blogger",
+          icon: "mdi-book-edit-outline",
           title: "Blog",
           to: "/blog",
         },

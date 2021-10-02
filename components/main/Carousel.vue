@@ -504,7 +504,7 @@ export default {
     }
     .carousel_title {
       text-align: center;
-      top: 45%;
+      top: 55%;
       .carousel_options {
         margin-bottom: 30px;
       }
