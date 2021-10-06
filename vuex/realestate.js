@@ -48,7 +48,6 @@ export default {
         },
         getRealEstateList(state, data) {
             state.realEstateList = data;
-           
         },
         getRealEstateItem(state, data) {
             state.realEstateItem = data;
@@ -88,15 +87,15 @@ export default {
             })
         },
         getRealEstate: ({ commit }, params = {}) => {
-            let strParams = [];
-            if (Object.keys(params).length > 0) {
-                for (let key in params) {
-                    strParams.push(key + '=' + params[key]);
-                }
-            }
+            // let strParams = [];
+            // if (Object.keys(params).length > 0) {
+            //     for (let key in params) {
+            //         strParams.push(key + '=' + params[key]);
+            //     }
+            // }
 
             return new Promise((resolve, reject) => {
-                axiosClient({ url: 'real-estates/all?' + strParams.join('&'), method: "GET"})
+                axiosClient({ url: 'real-estates/all' , method: "POST", data: params})
                     .then(response => {
                         commit('getRealEstateList', response.data.results);
                         resolve(response.data);

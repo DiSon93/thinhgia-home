@@ -144,7 +144,10 @@
                           class="first_price"
                           v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
                         ></span>
-                        <span v-html="re.land_area + ' &#13217;'"></span>
+                        <span
+                          v-if="re.land_area"
+                          v-html="re.land_area + ' &#13217;'"
+                        ></span>
                       </div>
                       <div class="pricePerMeter">
                         <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -208,7 +211,12 @@
                       </el-tooltip>
 
                       <span
-                        v-html="[re.street_type_dict.name, re.district.name].join(', ')"
+                        v-html=" [
+                            re.street_name,
+                            re.ward ? re.ward.name : '',
+                            re.district ? re.district.name : '',
+                            re.province ? re.province.name : '',
+                          ].join(', ')"
                       ></span>
                     </div>
                   </div>
@@ -234,7 +242,10 @@
                           class="first_price"
                           v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
                         ></span>
-                        <span v-html="re.land_area + ' &#13217;'"></span>
+                        <span
+                          v-if="re.land_area"
+                          v-html="re.land_area + ' &#13217;'"
+                        ></span>
                       </div>
                       <div class="pricePerMeter">
                         <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -298,7 +309,14 @@
                       </el-tooltip>
 
                       <span
-                        v-html="[re.street_type_dict.name, re.district.name].join(', ')"
+                        v-html="
+                          [
+                            re.street_name,
+                            re.ward ? re.ward.name : '',
+                            re.district ? re.district.name : '',
+                            re.province ? re.province.name : '',
+                          ].join(', ')
+                        "
                       ></span>
                     </div>
                   </div>

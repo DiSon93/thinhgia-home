@@ -6,9 +6,9 @@
     transition="fade-transition"
   >
     <div>
-      <div class="search_project">
+      <!-- <div class="search_project">
         <SearchProject />
-      </div>
+      </div> -->
       <v-row class="project_total">
         <v-col
           cols="6"

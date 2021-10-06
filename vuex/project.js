@@ -37,7 +37,7 @@ export default {
         },
         getProjectType: ({ commit }, type_id) => {
             return new Promise((resolve, reject) => {
-                axiosClient({ url: 'projects/type/' + type_id, method: "GET"})
+                axiosClient({ url: 'projects/type/' + type_id, method: "POST"})
                     .then(response => {
                         commit('setProjectList', response.data.results);
                         resolve(response.data);

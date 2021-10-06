@@ -46,6 +46,15 @@
         </v-col>
         <v-col cols="12" sm="6">
           <div class="content_item">
+            <img src="@image/icons/Đường rộng.svg" alt="" />
+            <span
+              >Diện tích đất:
+              <span class="high_text" v-html="detail.land_area + ' &#13217;'"> </span
+            ></span>
+          </div>
+        </v-col>
+        <v-col cols="12" sm="6">
+          <div class="content_item">
             <img src="@image/icons/Phường.svg" alt="" />
             <span>Phường: <span class="high_text" v-html="detail.ward.name"></span></span>
           </div>
@@ -100,12 +109,7 @@
             ></span>
           </div>
         </v-col>
-        <v-col cols="12" sm="6">
-          <div class="content_item">
-            <img src="@image/icons/Đường rộng.svg" alt="" />
-            <span>Phòng rộng (m): <span class="high_text"> ??</span></span>
-          </div>
-        </v-col>
+
         <v-col cols="12" sm="6">
           <div class="content_item">
             <img src="@image/icons/Pháp lý.svg" alt="" />

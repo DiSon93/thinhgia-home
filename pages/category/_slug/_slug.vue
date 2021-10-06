@@ -38,6 +38,7 @@
                   collapse-tags
                   clearable
                   v-model="sort"
+                  @change="handleSortField"
                 >
                 </el-cascader>
                 <v-btn class="mx-2" small @click="isSort = false">
@@ -57,7 +58,7 @@
               v-for="item in realEstateList.data"
               :key="item.id"
             >
-              <div class="estate_img">
+              <div class="estate_img" v-if="!loading">
                 <el-card class="box-card">
                   <div slot="header" class="clearfix hover01">
                     <router-link :to="parseUrlRealEstate(item)">
@@ -78,7 +79,10 @@
                           class="first_price"
                           v-html="[item.price, unit_prices[item.unit_price]].join(' ')"
                         ></span>
-                        <span v-html="item.land_area + ' &#13217;'"></span>
+                        <span
+                          v-if="item.land_area"
+                          v-html="item.land_area + ' &#13217;'"
+                        ></span>
                       </div>
                       <div class="pricePerMeter">
                         <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -143,59 +147,94 @@
 
                       <span
                         v-html="
-                          [item.street_type_dict.name, item.district.name].join(', ')
+                          [
+                            item.street_name,
+                            item.ward ? item.ward.name : '',
+                            item.district ? item.district.name : '',
+                            item.province ? item.province.name : '',
+                          ].join(', ')
                         "
                       ></span>
                     </div>
                   </div>
                 </el-card>
               </div>
+              <v-skeleton-loader
+                class="mx-auto"
+                width="100%"
+                type="card-avatar, article, actions"
+                v-else
+              ></v-skeleton-loader>
             </v-col>
           </v-row>
           <transition name="el-fade-in-linear" v-else>
             <v-row class="horizontal">
-              <div class="search_items d-flex">
+              <div
+                class="search_items d-flex"
+                v-for="item in realEstateList.data"
+                :key="item.id"
+              >
                 <div class="clearfix hover01">
-                  <figure><img src="@image/layouts/room_18.svg" alt="" /></figure>
+                  <router-link :to="parseUrlRealEstate(item)">
+                    <figure>
+                      <img
+                        :src="item.image_public[0].thumbnail"
+                        :alt="item.title"
+                        v-if="item.image_public.length > 0"
+                      />
+                      <img src="@image/layouts/room_01.png" :alt="item.title" v-else />
+                    </figure>
+                  </router-link>
                 </div>
                 <div class="horizontal_item">
-                  <div class="search_title">
-                    THUÊ NGAY CHUNG CƯ 2 PHÒNG NGỦ GIÁ CỰC TỐT CHỈ 10 TRIỆU/THÁNG
-                  </div>
+                  <el-tooltip
+                    class="item"
+                    effect="dark"
+                    :content="item.title"
+                    placement="top"
+                  >
+                    <NuxtLink
+                      class="search_title"
+                      :to="parseUrlRealEstate(item)"
+                      v-html="item.title"
+                    ></NuxtLink>
+                  </el-tooltip>
                   <div class="price">
                     <div>
-                      <span class="first_price">6 tỷ</span>
-                      <span>60 <span>&#13217;</span></span>
+                      <span
+                        class="first_price"
+                        v-html="[item.price, unit_prices[item.unit_price]].join(' ')"
+                      ></span>
+                      <span
+                        v-if="item.land_area"
+                        v-html="item.land_area + ' &#13217;'"
+                      ></span>
                     </div>
                     <div class="pricePerMeter">
                       <i>(100triệu/<span id="mv">&#13217;</span>)</i>
                     </div>
                   </div>
-                  <div class="horizontal_content">
-                    Thuê ngay căn hộ SILVER SEA BA CU 2 phòng ngủ 2WC, nội thất đẹp, view
-                    Đông Nam mát mẻ quanh năm. Giá tốt thích hợp cho khách hàng mua nghỉ
-                    dưỡng hoặc kinh doanh ....
-                  </div>
+                  <div class="horizontal_content" v-html="item.descriptions"></div>
                   <div class="info_item d-flex">
                     <div class="square">
                       <v-icon>mdi-card</v-icon>
-                      <span>114m2</span>
+                      <span v-html="item.floor_area + ' &#13217;'"></span>
                     </div>
                     <div class="bedrooms">
                       <v-icon>mdi-bed-outline</v-icon>
-                      <span>2</span>
+                      <span v-html="item.bedroom_number"></span>
                     </div>
                     <div class="floors">
                       <v-icon>mdi-layers</v-icon>
-                      <span>3</span>
+                      <span v-html="item.floor_number"></span>
                     </div>
                     <div class="directions">
                       <v-icon>mdi-near-me</v-icon>
-                      <span>TB</span>
+                      <span v-html="item.house_orientation_dict.name"></span>
                     </div>
                     <div class="date_update">
                       <v-icon>mdi-calendar-month</v-icon>
-                      <span> 28/06/2021</span>
+                      <span v-html="item.created_at.slice(0, 10)"> </span>
                     </div>
                   </div>
                 </div>
@@ -211,7 +250,7 @@
           ></v-pagination>
         </div>
       </div>
-      <div v-else class="no-data">Không có bất động sản tim thấy</div>
+      <!-- <div v-else class="no-data">Không có bất động sản tim thấy</div> -->
       <div class="footer">
         <Services />
         <Footer />
@@ -241,6 +280,7 @@ export default {
       // value02: [0, 10],
       // isQuare: false,
       // isPrice: false,
+      loading: false,
       purpose: 0,
       marks: {
         0: "0",
@@ -358,30 +398,12 @@ export default {
     ...mapState("realestate", ["realEstateList", "purpose_array", "unit_prices"]),
   },
   mounted() {
-    let params = this.$route.params.slug;
-    if (params != undefined) {
-      params = params.split("-");
-      let cat_id = params[params.length - 1];
-      let _purpose = this.$route.path.split("/");
-      if (_purpose[2] == this.purpose_array[0].key) {
-        this.purpose = 0;
-      } else {
-        this.purpose = 1;
-      }
-      this.getCategoryItem(cat_id);
-
-      let obj = { real_estate_type: cat_id, purpose: this.purpose };
-      // get query for search
-      if (Object.keys(this.$route.query).length > 0) {
-        for (let x in this.$route.query) {
-          if (x != "") {
-            obj[x] = this.$route.query[x];
-          }
-        }
-      }
-
-      this.getRealEstate(obj);
-    }
+    this.handleSearchAll();
+  },
+  watch: {
+    $route(to, from) {
+      this.handleSearchAll();
+    },
   },
   methods: {
     ...mapActions("dictionary", ["getCategoryItem"]),
@@ -395,6 +417,56 @@ export default {
       }
 
       return str;
+    },
+    async handleSearchAll() {
+      let params = this.$route.params.slug;
+      this.loading = true;
+      if (params != undefined) {
+        params = params.split("-");
+        let cat_id = params[params.length - 1];
+        let _purpose = this.$route.path.split("/");
+        if (_purpose[2] == this.purpose_array[0].key) {
+          this.purpose = 0;
+        } else {
+          this.purpose = 1;
+        }
+        this.getCategoryItem(cat_id);
+
+        let obj = { real_estate_type: cat_id, purpose: this.purpose };
+        if (Object.keys(this.$route.query).length > 0) {
+          for (let x in this.$route.query) {
+            if (x != "") {
+              obj[x] = this.$route.query[x];
+            }
+          }
+          console.log("rout", obj);
+        }
+        await this.getRealEstate(obj);
+        this.loading = false;
+      }
+    },
+    async handleSortField() {
+      if (this.sort == 1) {
+        this.$route.query["sortField"] = "create_at";
+        this.$route.query["sortValue"] = "desc";
+      } else if (this.sort == 2) {
+        this.$route.query["sortField"] = "create_at";
+        this.$route.query["sortValue"] = "asc";
+      } else if (this.sort == 3) {
+        this.$route.query["sortField"] = "price";
+        this.$route.query["sortValue"] = "asc";
+      } else if (this.sort == 4) {
+        this.$route.query["sortField"] = "price";
+        this.$route.query["sortValue"] = "desc";
+      } else if (this.sort == 5) {
+        this.$route.query["sortField"] = "land_area";
+        this.$route.query["sortValue"] = "desc";
+      } else if (this.sort == 6) {
+        this.$route.query["sortField"] = "land_area";
+        this.$route.query["sortValue"] = "asc";
+      }
+
+      this.handleSearchAll();
     },
   },
 };
@@ -546,6 +618,8 @@ export default {
 .horizontal {
   margin: 35px 5px 10px;
   .search_items {
+    padding: 20px 0;
+    width: 100%;
     border-radius: 10px;
     border: 1px solid #ebeef5;
     color: #303133;
@@ -556,6 +630,13 @@ export default {
     img {
       width: 100%;
       display: block;
+      max-height: 175px;
+    }
+    .clearfix {
+      width: 14%;
+    }
+    .horizontal_item {
+      width: 86%;
     }
   }
   .horizontal_item {
@@ -582,6 +663,11 @@ export default {
   }
   .horizontal_content {
     margin-bottom: 20px;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
   .info_item {
     .square,
@@ -589,6 +675,7 @@ export default {
     .floors,
     .directions,
     .date_update {
+      font-size: 14px;
       padding-right: 20px;
       border-right: 1px solid $color-black-01;
       margin-left: 15px;
@@ -757,8 +844,10 @@ export default {
   }
   .horizontal {
     margin: 30px 0px 10px !important;
+    padding: 20px 0;
     .horizontal_item {
       margin-left: 10px !important;
+      width: 100%;
       .search_title {
         margin: 5px 0;
         font-size: 12px;
@@ -774,6 +863,7 @@ export default {
       }
       .horizontal_content {
         font-size: 12px;
+        width: 100%;
       }
       .info_item {
         margin-left: -100px;

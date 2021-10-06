@@ -119,7 +119,11 @@
               </v-col>
               <v-col cols="3">
                 <div>Diện tích</div>
-                <div class="number" v-html="realEstateItem.land_area + ' &#13217;'"></div>
+                <div
+                  class="number"
+                  v-if="realEstateItem.land_area"
+                  v-html="realEstateItem.land_area + ' &#13217;'"
+                ></div>
               </v-col>
               <v-col cols="3">
                 <div>Hướng</div>
@@ -198,7 +202,10 @@
                         class="first_price"
                         v-html="[item.price, unit_prices[item.unit_price]].join(' ')"
                       ></span>
-                      <span v-html="item.land_area + ' &#13217;'"></span>
+                      <span
+                        v-if="item.land_area"
+                        v-html="item.land_area + ' &#13217;'"
+                      ></span>
                     </div>
                     <div class="pricePerMeter">
                       <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -268,7 +275,14 @@
                     </el-tooltip>
 
                     <span
-                      v-html="[item.street_type_dict.name, item.district.name].join(', ')"
+                      v-html="
+                        [
+                          item.street_name,
+                          item.ward ? item.ward.name : '',
+                          item.district ? item.district.name : '',
+                          item.province ? item.province.name : '',
+                        ].join(', ')
+                      "
                     ></span>
                   </div>
                 </div>

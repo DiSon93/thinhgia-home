@@ -51,7 +51,10 @@
                     class="first_price"
                     v-html="[item.price, unit_prices[item.unit_price]].join(' ')"
                   ></span>
-                  <span v-html="item.land_area + ' &#13217;'"></span>
+                  <span
+                    v-if="item.land_area"
+                    v-html="item.land_area + ' &#13217;'"
+                  ></span>
                 </div>
                 <div class="pricePerMeter">
                   <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -103,8 +106,10 @@
                 <span
                   v-html="
                     [
-                      item.street_type_dict ? item.street_type_dict.name : '',
+                      item.street_name,
+                      item.ward ? item.ward.name : '',
                       item.district ? item.district.name : '',
+                      item.province ? item.province.name : '',
                     ].join(', ')
                   "
                 ></span>
@@ -257,11 +262,12 @@ export default {
       }
       font-size: 16px;
       line-height: 24px;
+      height: 50px;
       span {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
       }
     }

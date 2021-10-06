@@ -16,42 +16,43 @@
             <VueSlickCarousel
               :arrows="false"
               v-bind="settings"
-              v-if="projectList.projects.length != 0"
+              v-if="projectList.projects.length > 0"
             >
               <div v-for="item in projectList.projects" :key="item.id">
-                <div
-                  slot="header"
-                  class="clearfix"
-                  @click="$router.push(`/project/detail/${item.slug}-${item.id}`)"
-                >
-                  <!-- <img src="@image/layouts/specialproject_01.png" alt="" /> -->
-                  <img
-                    :src="item.image_public[0] ? item.image_public[0].main : ''"
-                    :alt="item.title"
-                    id="big_project_image"
-                  />
-                  <div class="overlay_title" v-html="item.name"></div>
-                </div>
-                <div class="add_detail">
-                  <div class="quymo">
-                    <div
-                      v-html="strip_tags(item.descriptions)"
-                      class="big_description"
-                    ></div>
-                    <p
-                      v-html="
-                        'Thời gian: ' +
-                        (item.progress == 100 ? 'Đã hoàn thành' : item.progress + ' %')
-                      "
-                    ></p>
-                    <p>Giá từ: 50tr/m2</p>
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix hover14">
+                    <!-- <img src="@image/layouts/specialproject_01.png" alt="" /> -->
+                    <router-link :to="parseUrlProjects(item)">
+                      <figure>
+                        <img
+                          :src="item.image_public[0] ? item.image_public[0].main : ''"
+                          :alt="item.title"
+                          id="big_project_image"
+                        />
+                      </figure>
+                    </router-link>
+
+                    <div class="overlay_title" v-html="item.name"></div>
                   </div>
-                  <NuxtLink
-                    class="more_detail"
-                    :to="`/project/detail/${item.slug}-${item.id}`"
-                    >Xem thêm thông tin DỰ ÁN</NuxtLink
-                  >
-                </div>
+                  <div class="add_detail">
+                    <div class="quymo">
+                      <div
+                        v-html="strip_tags(item.descriptions)"
+                        class="big_description"
+                      ></div>
+                      <p
+                        v-html="
+                          'Thời gian: ' +
+                          (item.progress == 100 ? 'Đã hoàn thành' : item.progress + ' %')
+                        "
+                      ></p>
+                      <p>Giá từ: 50tr/m2</p>
+                    </div>
+                    <NuxtLink class="more_detail" :to="parseUrlProjects(item)"
+                      >Xem thêm thông tin DỰ ÁN</NuxtLink
+                    >
+                  </div>
+                </el-card>
               </div>
             </VueSlickCarousel>
           </v-col>
@@ -68,14 +69,17 @@
               >
                 <el-card class="box-card">
                   <div slot="header" class="clearfix hover14">
-                    <figure @click="$router.push(parseUrlRealEstate(item))">
-                      <img
-                        :src="item.image_public[0].thumbnail"
-                        :alt="item.title"
-                        v-if="item.image_public.length > 0"
-                      />
-                      <img src="@image/layouts/room_20.png" :alt="item.title" v-else />
-                    </figure>
+                    <router-link :to="parseUrlRealEstate(item)">
+                      <figure>
+                        <img
+                          :src="item.image_public[0].thumbnail"
+                          :alt="item.title"
+                          v-if="item.image_public.length > 0"
+                        />
+                        <img src="@image/layouts/room_20.png" :alt="item.title" v-else />
+                      </figure>
+                    </router-link>
+
                     <NuxtLink
                       class="overlay_small_project"
                       :to="parseUrlRealEstate(item)"
@@ -109,7 +113,16 @@
                     </div>
                     <div class="address d-flex">
                       <v-icon>mdi-map-marker</v-icon>
-                      <span v-html="item.street_name"></span>
+                      <span
+                        v-html="
+                          [
+                            item.street_name,
+                            item.ward ? item.ward.name : '',
+                            item.district ? item.district.name : '',
+                            item.province ? item.province.name : '',
+                          ].join(', ')
+                        "
+                      ></span>
                     </div>
                   </div>
                 </el-card>
@@ -135,11 +148,13 @@ export default {
       isActive: false,
       settings: {
         dots: true,
-        focusOnSelect: true,
+        focusOnSelect: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
-        fade: true,
+        // fade: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         speed: 500,
       },
       settings02: {
@@ -183,7 +198,6 @@ export default {
     ...mapActions("project", ["getProject"]),
     ...mapMutations("project", ["setProjectList"]),
     parseUrlProjects(project) {
-      console.log("project", project);
       return "project/detail/" + project.slug + "-" + project.id;
     },
     parseUrlRealEstate(real_estate) {

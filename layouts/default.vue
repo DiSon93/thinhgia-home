@@ -47,7 +47,12 @@
           <div class="header_choise">
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/category/mua-ban-bat-dong-san">
-                <el-button type="warning" class="is-plain">
+                <el-button
+                  type="warning"
+                  v-bind:class="{
+                    'is-plain': $route.path != '/category/mua-ban-bat-dong-san',
+                  }"
+                >
                   BĐS Bán <i class="el-icon-caret-bottom"></i>
                 </el-button>
               </router-link>
@@ -63,7 +68,12 @@
             </el-dropdown>
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/category/cho-thue-bat-dong-san">
-                <el-button type="warning" class="is-plain">
+                <el-button
+                  type="warning"
+                  v-bind:class="{
+                    'is-plain': $route.path != '/category/cho-thue-bat-dong-san',
+                  }"
+                >
                   BĐS Thuê <i class="el-icon-caret-bottom"></i>
                 </el-button>
               </router-link>
@@ -77,9 +87,13 @@
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
+
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/project">
-                <el-button type="warning" class="is-plain">
+                <el-button
+                  type="warning"
+                  v-bind:class="{ 'is-plain': $route.path != '/project' }"
+                >
                   Dự Án
                   <i class="el-icon-caret-bottom"></i>
                 </el-button>
@@ -104,7 +118,10 @@
             <!-- <el-dropdown> -->
             <el-dropdown placement="top-start" @command="handleCommand">
               <router-link to="/blog">
-                <el-button type="warning" class="is-plain">
+                <el-button
+                  type="warning"
+                  v-bind:class="{ 'is-plain': $route.path != '/blog' }"
+                >
                   Blog <i class="el-icon-caret-bottom"></i>
                 </el-button>
               </router-link>

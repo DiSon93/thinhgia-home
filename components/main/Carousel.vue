@@ -73,6 +73,7 @@
                   collapse-tags
                   clearable
                   filterable
+                  :filter-method="filterOptions"
                   empty="Không tìm thấy"
                   placeholder="Tỉnh/ Thành phố"
                   v-model="frmSearch.province"
@@ -83,12 +84,13 @@
             </v-col>
             <v-col cols="3" class="options">
               <div class="select_district">
-                <!-- <el-cascader
+                <el-cascader
                   :options="districts"
                   :props="{ value: 'id', label: 'name', multiple: false }"
                   collapse-tags
                   clearable
                   filterable
+                  :filter-method="filterOptions"
                   empty="Chọn Tỉnh/ Thành phố"
                   placeholder="Quận/ Huyện"
                   v-model="frmSearch.district"
@@ -96,8 +98,8 @@
                   <template slot="empty" id="province_empty"
                     >Vui lòng chọn Tỉnh/ Thành phố</template
                   >
-                </el-cascader> -->
-                <el-select
+                </el-cascader>
+                <!-- <el-select
                   clearable
                   placeholder="Quận/ Huyện"
                   no-data-text="Vui lòng chọn tỉnh"
@@ -110,7 +112,7 @@
                     :value="item.id"
                   >
                   </el-option>
-                </el-select>
+                </el-select> -->
               </div>
             </v-col>
             <v-col cols="3" class="options">
@@ -133,7 +135,16 @@
                     </div>
                   </div>
                   <el-button slot="reference" style="width: 100%">
-                    Diện tích <i class="el-icon-caret-bottom"></i>
+                    <div class="label">
+                      Diện tích <i class="el-icon-caret-bottom"></i>
+                    </div>
+                    <p>
+                      {{
+                        frmSearch.area[1]
+                          ? `${frmSearch.area[0]}-${frmSearch.area[1]} &#13217;`
+                          : ""
+                      }}
+                    </p>
                   </el-button>
                 </el-popover>
               </div>
@@ -143,7 +154,7 @@
                 <el-popover placement="bottom">
                   <p>Khoảng giá (tỷ)</p>
                   <div class="block">
-                    <el-slider v-model="frmSearch.price" range :marks="prices" :max="3">
+                    <el-slider v-model="frmSearch.price" range :marks="prices">
                     </el-slider>
                   </div>
                   <div class="input_selectrange">
@@ -159,7 +170,14 @@
                     </div>
                   </div>
                   <el-button slot="reference" style="width: 100%">
-                    Giá <i class="el-icon-caret-bottom"></i>
+                    <div class="label">Giá <i class="el-icon-caret-bottom"></i></div>
+                    <p>
+                      {{
+                        frmSearch.price[1]
+                          ? `${frmSearch.price[0]}-${frmSearch.price[1]} tỷ`
+                          : ""
+                      }}
+                    </p>
                   </el-button>
                 </el-popover>
               </div>
@@ -207,7 +225,16 @@
                     </div>
                   </div>
                   <el-button slot="reference" style="width: 100%">
-                    Diện tích <i class="el-icon-caret-bottom"></i>
+                    <div class="label">
+                      Diện tích <i class="el-icon-caret-bottom"></i>
+                    </div>
+                    <p>
+                      {{
+                        frmSearch.area[1]
+                          ? `${frmSearch.area[0]}-${frmSearch.area[1]} &#13217;`
+                          : ""
+                      }}
+                    </p>
                   </el-button>
                 </el-popover>
               </div>
@@ -217,7 +244,7 @@
                 <el-popover placement="bottom">
                   <p>Khoảng giá (tỷ)</p>
                   <div class="block">
-                    <el-slider v-model="frmSearch.price" range :marks="prices" :max="3">
+                    <el-slider v-model="frmSearch.price" range :marks="prices">
                     </el-slider>
                   </div>
                   <div class="input_selectrange">
@@ -233,7 +260,14 @@
                     </div>
                   </div>
                   <el-button slot="reference" style="width: 100%">
-                    Giá <i class="el-icon-caret-bottom"></i>
+                    <div class="label">Giá <i class="el-icon-caret-bottom"></i></div>
+                    <p>
+                      {{
+                        frmSearch.price[1]
+                          ? `${frmSearch.price[0]}-${frmSearch.price[1]} tỷ`
+                          : ""
+                      }}
+                    </p>
                   </el-button>
                 </el-popover>
               </div>
@@ -332,7 +366,7 @@ export default {
       let query = [];
 
       if (this.frmSearch.keyword != "") {
-        query.push("keyword=" + this.frmSearch.keyword);
+        query.push("text_search=" + this.frmSearch.keyword);
       }
 
       if (this.frmSearch.province.length > 0) {
@@ -344,16 +378,21 @@ export default {
       }
 
       if (this.frmSearch.area[1] > 0) {
-        query.push("area=" + this.frmSearch.area.join(","));
+        query.push("min_area=" + this.frmSearch.area[0]);
+        query.push("max_area=" + this.frmSearch.area[1]);
       }
 
       if (this.frmSearch.price[1] > 0) {
-        query.push("price=" + this.frmSearch.price.join(","));
+        query.push("min_price=" + this.frmSearch.price[0]);
+        query.push("max_price=" + this.frmSearch.price[1]);
       }
 
       url += query.join("&");
 
       this.$router.push(url);
+    },
+    filterOptions(node, keyword) {
+      return node.label.toLowerCase().includes(keyword.toLowerCase());
     },
     async changeProvince(value) {
       this.frmSearch.district = [];

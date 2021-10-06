@@ -42,17 +42,29 @@ ul.el-dropdown-menu.el-popper .el-dropdown-menu__item--divided {
     }
 }
 
-#cascader-menu-8040-0{
 .el-cascader-menu__empty-text{
     visibility: hidden;
     position: absolute;
     top: 0;
 }
 .el-cascader-menu__empty-text::after{
-    content: "Vui lòng chọn tỉnh/thành phố"!important;
+    content: "Vui lòng chọn Tỉnh/Thành phố"!important;
     visibility: visible;
     display: block;
+    // margin-top: 100px;
 }
+.el-cascader__dropdown:nth-child(4){
+    .el-cascader-menu__empty-text{
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+    }
+    .el-cascader-menu__empty-text::after{
+        content: "Vui lòng chọn Quận/Huyện"!important;
+        visibility: visible;
+        display: block;
+        // margin-top: 100px;
+    }
 }
 .compensate-for-scrollbar {
     margin-right: 0px !important;

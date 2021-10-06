@@ -58,6 +58,30 @@
         }
     }
 }
+.select_price,
+.select_square {
+    .el-button {
+        height: 40px;
+        width: 132px;
+        color: rgba(0, 0, 0, 0.349);
+        background: #e5e5e5;
+        border: none;
+        font-size: 16px;
+        background: #fff;
+        .label{
+            margin-top: -4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        p {
+            margin-bottom: 0px !important;
+            color: $color-orange;
+            font-size: 12px;
+            text-align: left;
+            margin-top: 0px!important;
+        }
+    }
+}
 .slick-dots li button:before {
     font-size: 12px !important;
     color: $color-orange !important;

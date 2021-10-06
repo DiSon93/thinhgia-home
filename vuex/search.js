@@ -9,7 +9,8 @@ export default {
         areas: {},
         prices: {},
         typeRealEstate: [],
-        directions: []
+        directions: [],
+        houseType: [],
     },
     mutations: {
         setProvince(state, data) {
@@ -25,7 +26,8 @@ export default {
             state.areas = data;
         },
         setPrices(state, data) {
-            state.prices = Object.assign({},data);
+            // state.prices = Object.assign({},data);
+            state.prices = { 0:"0", 10: "10", 20: "20",40: "40", 60:"60", 80:"80", 100:">100"}
         },
 
         setTypeRealEstate(state, data) {
@@ -33,7 +35,11 @@ export default {
         },
         setDirections(state, data) {
             state.directions = data;
-        }
+        },
+        setHouseType(state, data){
+            state.houseType = data.dictionaries;
+            console.log(state.houseType);
+;        }
     },
     actions: {
         getProvince: ({ commit }) => {
@@ -126,6 +132,19 @@ export default {
                     reject(e);
                 })
             })
-        }
+        },
+        getHouseType:  ({ commit }) => {
+            return new Promise((resolve, reject) => {
+                axiosClient({ url: 'dictionary-types/2', method: "GET"})
+                .then(response => {
+                    commit('setHouseType', response.data.results);
+                    resolve(response.data);
+                })
+                .catch(e => {
+                    // commit('showError', e.response.data);
+                    reject(e);
+                })
+            })
+        },
     }
 }

@@ -172,14 +172,17 @@
             <div class="estate_img" v-for="re in sellEstateList" :key="re.id">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure @click="$router.push(parseUrlRealEstate(re))">
-                    <img
-                      :src="re.image_public[0].thumbnail"
-                      :alt="re.title"
-                      v-if="re.image_public.length > 0"
-                    />
-                    <img src="@image/layouts/room_06.svg" :alt="re.title" v-else />
-                  </figure>
+                  <router-link :to="parseUrlRealEstate(re)">
+                    <figure>
+                      <img
+                        :src="re.image_public[0].thumbnail"
+                        :alt="re.title"
+                        v-if="re.image_public.length > 0"
+                      />
+                      <img src="@image/layouts/room_06.svg" :alt="re.title" v-else />
+                    </figure>
+                  </router-link>
+
                   <div class="overlay_title" v-html="projectDetail.name"></div>
                 </div>
                 <div class="add_detail">
@@ -189,7 +192,10 @@
                         class="first_price"
                         v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
                       ></span>
-                      <span v-html="re.land_area + ' &#13217;'"></span>
+                      <span
+                        v-if="re.land_area"
+                        v-html="re.land_area + ' &#13217;'"
+                      ></span>
                     </div>
                     <div class="pricePerMeter">
                       <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -253,7 +259,14 @@
                     </el-tooltip>
 
                     <span
-                      v-html="[re.street_type_dict.name, re.district.name].join(', ')"
+                      v-html="
+                        [
+                          re.street_name,
+                          re.ward ? re.ward.name : '',
+                          re.district ? re.district.name : '',
+                          re.province ? re.province.name : '',
+                        ].join(', ')
+                      "
                     ></span>
                   </div>
                 </div>
@@ -269,14 +282,17 @@
             <div class="estate_img" v-for="re in rentEstateList" :key="re.id">
               <el-card class="box-card">
                 <div slot="header" class="clearfix hover14">
-                  <figure @click="$router.push(parseUrlRealEstate(re))">
-                    <img
-                      :src="re.image_public[0].thumbnail"
-                      :alt="re.title"
-                      v-if="re.image_public.length > 0"
-                    />
-                    <img src="@image/layouts/room_06.svg" :alt="re.title" v-else />
-                  </figure>
+                  <router-link :to="parseUrlRealEstate(re)">
+                    <figure>
+                      <img
+                        :src="re.image_public[0].thumbnail"
+                        :alt="re.title"
+                        v-if="re.image_public.length > 0"
+                      />
+                      <img src="@image/layouts/room_06.svg" :alt="re.title" v-else />
+                    </figure>
+                  </router-link>
+
                   <div class="overlay_title" v-html="projectDetail.name"></div>
                 </div>
                 <div class="add_detail">
@@ -286,7 +302,10 @@
                         class="first_price"
                         v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
                       ></span>
-                      <span v-html="re.land_area + ' &#13217;'"></span>
+                      <span
+                        v-if="re.land_area"
+                        v-html="re.land_area + ' &#13217;'"
+                      ></span>
                     </div>
                     <div class="pricePerMeter">
                       <i>(100triệu/<span id="mv">&#13217;</span>)</i>
@@ -350,7 +369,14 @@
                     </el-tooltip>
 
                     <span
-                      v-html="[re.street_type_dict.name, re.district.name].join(', ')"
+                      v-html="
+                        [
+                          re.street_name,
+                          re.ward ? re.ward.name : '',
+                          re.district ? re.district.name : '',
+                          re.province ? re.province.name : '',
+                        ].join(', ')
+                      "
                     ></span>
                   </div>
                 </div>
