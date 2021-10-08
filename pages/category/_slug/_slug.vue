@@ -162,7 +162,7 @@
               <v-skeleton-loader
                 class="mx-auto"
                 width="100%"
-                type="card-avatar, article, actions"
+                type="card-avatar, article"
                 v-else
               ></v-skeleton-loader>
             </v-col>
@@ -776,9 +776,10 @@ export default {
         line-height: 12px !important;
         margin-top: 0px !important;
         margin-bottom: 5px !important;
+        display: block;
         .first_price {
-          margin-right: 2px !important;
-          padding-right: 4px !important;
+          margin-right: 6px !important;
+          padding-right: 6px !important;
           border-right: 1px solid $color-black-01;
         }
       }
@@ -844,7 +845,15 @@ export default {
   }
   .horizontal {
     margin: 30px 0px 10px !important;
-    padding: 20px 0;
+    // padding: 20px 0;
+    .search_items {
+      .clearfix {
+        width: 28% !important;
+      }
+      .horizontal_item {
+        width: 72% !important;
+      }
+    }
     .horizontal_item {
       margin-left: 10px !important;
       width: 100%;
@@ -852,6 +861,7 @@ export default {
         margin: 5px 0;
         font-size: 12px;
       }
+
       .price {
         font-size: 12px;
         line-height: 18px;
@@ -893,7 +903,7 @@ export default {
     .search_items {
       .clearfix {
         img {
-          width: 100px;
+          height: 100px;
         }
       }
     }

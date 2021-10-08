@@ -838,9 +838,10 @@ export default {
         margin-top: 10px;
         font-size: 11px !important;
         line-height: 18px !important;
+        display: block;
         .first_price {
-          margin-right: 2px !important;
-          padding-right: 4px !important;
+          margin-right: 6px !important;
+          padding-right: 6px !important;
           border-right: 1px solid $color-black-01;
         }
       }

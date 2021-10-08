@@ -3,11 +3,15 @@
     <div class="selection">
       <div id="project_type_tablet">
         <el-cascader
-          :options="options"
-          :props="props"
+          :options="projects"
+          :props="{ value: 'id', label: 'name', multiple: false }"
           collapse-tags
           clearable
-          placeholder="Loại Dự án"
+          filterable
+          :filter-method="filterOptions"
+          empty="Không tìm thấy"
+          placeholder="Loại dự án"
+          v-model="frmSearch.project"
         ></el-cascader>
       </div>
     </div>
@@ -15,14 +19,18 @@
     <div class="selection d-flex">
       <div id="project_type">
         <el-cascader
-          :options="options"
-          :props="props"
+          :options="projects"
+          :props="{ value: 'id', label: 'name', multiple: false }"
           collapse-tags
           clearable
-          placeholder="Loại Dự án"
+          filterable
+          :filter-method="filterOptions"
+          empty="Không tìm thấy"
+          placeholder="Loại dự án"
+          v-model="frmSearch.project"
         ></el-cascader>
       </div>
-      <div id="rent">
+      <!-- <div id="rent">
         <el-cascader
           :options="options08"
           :props="{ checkStrictly: true }"
@@ -68,17 +76,9 @@
             {{ answer02 }} <i class="el-icon-caret-bottom"></i
           ></el-button>
         </el-popover>
-      </div>
-      <div class="responsive_select">
+      </div> -->
+      <!-- <div class="responsive_select">
         <div id="rent">
-          <!-- <v-select
-            :items="items"
-            placeholder="Cho thuê"
-            solo
-            filled
-            multiple
-            chips
-          ></v-select> -->
           <el-cascader
             :options="options08"
             :props="{ checkStrictly: true }"
@@ -130,43 +130,21 @@
             ></el-button>
           </el-popover>
         </div>
-      </div>
+      </div> -->
       <div id="proccess">
         <el-cascader
-          :options="options09"
-          :props="{ checkStrictly: true }"
+          :options="progress"
+          :props="{ value: 'id', label: 'name', multiple: false }"
           collapse-tags
           clearable
+          filterable
+          :filter-method="filterOptions"
+          empty="Không tìm thấy"
           placeholder="Tiến độ"
+          v-model="frmSearch.progress"
         ></el-cascader>
-        <!-- <v-select
-          :items="items"
-          placeholder="Tiến độ"
-          solo
-          filled
-          multiple
-          chips
-        ></v-select> -->
-        <!-- <el-popover placement="bottom" width="360" v-model="visible03">
-          <p>Tiến độ</p>
-          <div>
-            <el-slider :marks="marks03" v-model="value03" :step="10" show-stops>
-            </el-slider>
-          </div>
-          <el-button slot="reference"
-            >Tiến độ <i class="el-icon-caret-bottom"></i
-          ></el-button>
-        </el-popover> -->
       </div>
-      <div id="built_year">
-        <!-- <v-select
-          :items="items"
-          placeholder="Năm XD"
-          solo
-          filled
-          multiple
-          chips
-        ></v-select> -->
+      <!-- <div id="built_year">
         <el-cascader
           :options="options10"
           :props="{ checkStrictly: true }"
@@ -174,15 +152,19 @@
           clearable
           placeholder="Năm XD"
         ></el-cascader>
-      </div>
+      </div> -->
       <div class="responsive_select">
         <div id="proccess">
           <el-cascader
-            :options="options09"
-            :props="{ checkStrictly: true }"
+            :options="progress"
+            :props="{ value: 'id', label: 'name', multiple: false }"
             collapse-tags
             clearable
+            filterable
+            :filter-method="filterOptions"
+            empty="Không tìm thấy"
             placeholder="Tiến độ"
+            v-model="frmSearch.progress"
           ></el-cascader>
           <!-- <el-popover placement="bottom" width="360" v-model="visible03">
           <p>Tiến độ</p>
@@ -195,7 +177,7 @@
           ></el-button>
         </el-popover> -->
         </div>
-        <div id="built_year">
+        <!-- <div id="built_year">
           <el-cascader
             :options="options10"
             :props="{ checkStrictly: true }"
@@ -203,7 +185,7 @@
             clearable
             placeholder="Năm XD"
           ></el-cascader>
-        </div>
+        </div> -->
       </div>
       <div class="filter">
         <v-btn outlined color="warning" @click="isFilter = !isFilter">
@@ -212,7 +194,7 @@
         </v-btn>
       </div>
       <div class="timkiem">
-        <v-btn color="warning">Tìm Kiếm</v-btn>
+        <v-btn color="warning" @click="btnSearch">Tìm Kiếm</v-btn>
       </div>
       <div class="responsive_select">
         <div class="filter">
@@ -222,7 +204,7 @@
           </v-btn>
         </div>
         <div class="timkiem">
-          <v-btn color="warning">Tìm Kiếm</v-btn>
+          <v-btn color="warning" @click="btnSearch">Tìm Kiếm</v-btn>
         </div>
       </div>
     </div>
@@ -232,52 +214,59 @@
         <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_city">
             <el-cascader
-              :options="options02"
-              :props="props"
+              :options="provinces"
+              :props="{ value: 'id', label: 'name', multiple: false }"
               collapse-tags
               clearable
-              placeholder="Tỉnh/Thành phố"
+              filterable
+              :filter-method="filterOptions"
+              empty="Không tìm thấy"
+              placeholder="Tỉnh/ Thành phố"
+              v-model="frmSearch.province"
+              @change="changeProvince"
             ></el-cascader>
           </div>
         </v-col>
         <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_district">
             <el-cascader
-              :options="options03"
-              :props="props"
+              :options="districts"
+              :props="{ value: 'id', label: 'name', multiple: false }"
               collapse-tags
               clearable
-              placeholder="Quận/Huyện"
+              filterable
+              :filter-method="filterOptions"
+              empty="Chọn Tỉnh/ Thành phố"
+              placeholder="Quận/ Huyện"
+              v-model="frmSearch.district"
+              @change="changeDistrict"
             ></el-cascader>
           </div>
         </v-col>
         <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_ward">
             <el-cascader
-              :options="options04"
-              :props="props"
+              :options="wards"
+              :props="{ value: 'id', label: 'name', multiple: false }"
               collapse-tags
               clearable
-              placeholder="Phường/Xã"
+              filterable
+              :filter-method="filterOptions"
+              empty="Chọn Quận/ Huyện"
+              placeholder="Phường/ Xã"
+              v-model="frmSearch.ward"
             ></el-cascader>
           </div>
         </v-col>
         <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_stress">
-            <el-cascader
-              :options="options05"
-              :props="props"
-              collapse-tags
-              clearable
-              placeholder="Đường phố"
-              multiple
-            ></el-cascader>
+            <el-input placeholder="Nhập tên đường" v-model="frmSearch.street"> </el-input>
           </div>
         </v-col>
       </v-row>
-      <v-row> </v-row>
-      <v-row>
-        <v-col cols="6" sm="3" class="options" align="center">
+      <!-- <v-row> </v-row> -->
+      <!-- <v-row> -->
+      <!-- <v-col cols="6" sm="3" class="options" align="center">
           <div class="select_type">
             <el-cascader
               :options="options06"
@@ -310,8 +299,8 @@
               placeholder="Số phòng ngủ"
             ></el-cascader>
           </div>
-        </v-col>
-        <!-- <v-col cols="12" sm="6" class="bedrooms">
+        </v-col> -->
+      <!-- <v-col cols="12" sm="6" class="bedrooms">
           <el-button> Tất cả </el-button>
           <el-button> 1 </el-button>
           <el-button> 2 </el-button>
@@ -319,14 +308,15 @@
           <el-button> 4 </el-button>
           <el-button> 5+ </el-button>
         </v-col> -->
-        <!-- </el-slider> -->
-      </v-row>
+      <!-- </el-slider> -->
+      <!-- </v-row> -->
     </el-card>
     <!-- </transition> -->
   </div>
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -343,356 +333,6 @@ export default {
       select: "3",
       items: [],
       props: { multiple: true },
-      options: [
-        {
-          value: 1,
-          label: "Tất cả",
-        },
-        {
-          value: 14,
-          label: "Căn hộ/Chung cư",
-        },
-        {
-          value: 23,
-          label: "Nhà liền kề & Biệt thự",
-        },
-        {
-          value: 24,
-          label: "Condotel",
-        },
-        {
-          value: 25,
-          label: "Đất ở",
-        },
-        {
-          value: 26,
-          label: "Shop thương mại",
-        },
-        {
-          value: 27,
-          label: "Khu công nghiệp",
-        },
-      ],
-      options02: [
-        {
-          value: 1,
-          label: "TP. Hồ Chí Minh",
-        },
-        {
-          value: 14,
-          label: "Hà Nội",
-        },
-        {
-          value: 23,
-          label: "Đà Nẵng",
-        },
-        {
-          value: 24,
-          label: "Bà Rịa Vũng Tàu",
-        },
-        {
-          value: 25,
-          label: "Bến Tre",
-        },
-        {
-          value: 26,
-          label: "Long An",
-        },
-        {
-          value: 27,
-          label: "Tiền Giang",
-        },
-        {
-          value: 28,
-          label: "Quảng Nam",
-        },
-        {
-          value: 29,
-          label: "Quảng Ngãi",
-        },
-        {
-          value: 30,
-          label: "Bình Thuận",
-        },
-      ],
-      options03: [
-        {
-          value: 1,
-          label: "Quận 1",
-        },
-        {
-          value: 14,
-          label: "Quận 2",
-        },
-        {
-          value: 23,
-          label: "Quận 3",
-        },
-        {
-          value: 11,
-          label: "Quận 4",
-        },
-        {
-          value: 12,
-          label: "Quận 5",
-        },
-        {
-          value: 13,
-          label: "Quận 6",
-        },
-        {
-          value: 14,
-          label: "Quận 7",
-        },
-        {
-          value: 24,
-          label: "Quận Bình Thạnh",
-        },
-        {
-          value: 25,
-          label: "Quận Thủ Đức",
-        },
-        {
-          value: 26,
-          label: "Quận Bình Tân",
-        },
-        {
-          value: 27,
-          label: "Quận Gò Vấp",
-        },
-        {
-          value: 28,
-          label: "Quận Tân Phú",
-        },
-        {
-          value: 29,
-          label: "Quận Phú Nhuận",
-        },
-        {
-          value: 30,
-          label: "Quận Tân Bình",
-        },
-      ],
-      options04: [
-        {
-          value: 1,
-          label: "Phường Bình Phú",
-        },
-        {
-          value: 14,
-          label: "Phường An Lạc",
-        },
-        {
-          value: 23,
-          label: "Phường Bình Hòa",
-        },
-        {
-          value: 24,
-          label: "Phường Mộc Thủy",
-        },
-        {
-          value: 25,
-          label: "Phường Tân Tạo",
-        },
-        {
-          value: 26,
-          label: "Phường Tân Phú",
-        },
-        {
-          value: 27,
-          label: "Phường Tân Thuận",
-        },
-        {
-          value: 28,
-          label: "Phường Đông Du",
-        },
-        {
-          value: 29,
-          label: "Phường An Ninh",
-        },
-        {
-          value: 30,
-          label: "Phường An Trứ",
-        },
-      ],
-      options05: [
-        {
-          value: 1,
-          label: "Nguyễn Cư Trinh",
-        },
-        {
-          value: 14,
-          label: "Trần Hưng Đạo",
-        },
-        {
-          value: 23,
-          label: "QL1A",
-        },
-        {
-          value: 24,
-          label: "QL13",
-        },
-        {
-          value: 25,
-          label: "Nguyễn Thái Học",
-        },
-        {
-          value: 26,
-          label: "Hồ Ngọc Lãm",
-        },
-        {
-          value: 27,
-          label: "Nguyễn Thị Minh Khai",
-        },
-        {
-          value: 28,
-          label: "Hùng Vương",
-        },
-        {
-          value: 29,
-          label: "Đinh Bộ Lĩnh",
-        },
-        {
-          value: 30,
-          label: "Ngô Tất Tố",
-        },
-      ],
-      options06: [
-        {
-          value: 1,
-          label: "Nhà",
-        },
-        {
-          value: 14,
-          label: "Đất",
-        },
-      ],
-      options07: [
-        {
-          value: 1,
-          label: "Tất cả",
-        },
-        {
-          value: 2,
-          label: "Đông",
-        },
-        {
-          value: 3,
-          label: "Tây",
-        },
-        {
-          value: 4,
-          label: "Nam",
-        },
-        {
-          value: 5,
-          label: "Bắc",
-        },
-        {
-          value: 6,
-          label: "Đông Bắc",
-        },
-        {
-          value: 7,
-          label: "Tây Bắc",
-        },
-        {
-          value: 8,
-          label: "Đông Nam",
-        },
-        {
-          value: 9,
-          label: "Tây Nam",
-        },
-      ],
-      options08: [
-        {
-          value: 1,
-          label: "Cho thuê",
-        },
-        {
-          value: 2,
-          label: "Mua bán",
-        },
-      ],
-      options09: [
-        {
-          value: 1,
-          label: "Tất cả",
-        },
-        {
-          value: 2,
-          label: "Sắp mở bán",
-        },
-        {
-          value: 3,
-          label: "Đã hoàn thành",
-        },
-      ],
-      options10: [
-        {
-          value: 0,
-          label: "2023",
-        },
-        {
-          value: 1,
-          label: "2022",
-        },
-        {
-          value: 2,
-          label: "2021",
-        },
-        {
-          value: 3,
-          label: "2020",
-        },
-        {
-          value: 4,
-          label: "2019",
-        },
-        {
-          value: 5,
-          label: "2018",
-        },
-        {
-          value: 6,
-          label: "2017",
-        },
-        {
-          value: 7,
-          label: "2016",
-        },
-        {
-          value: 8,
-          label: "2015",
-        },
-      ],
-      options11: [
-        {
-          value: 0,
-          label: "Tất cả",
-        },
-        {
-          value: 1,
-          label: "1",
-        },
-        {
-          value: 2,
-          label: "2",
-        },
-        {
-          value: 3,
-          label: "3",
-        },
-        {
-          value: 4,
-          label: "4",
-        },
-        {
-          value: 5,
-          label: "5+",
-        },
-      ],
       visible02: false,
       visible03: false,
       value02: [0, 10],
@@ -712,18 +352,156 @@ export default {
       },
       answer02: "Khoảng giá",
       isPrice: false,
+      tmpCategory: [],
+      tmpDistricts: {},
+      tmpWards: {},
+      frmSearch: {
+        project: [],
+        progress: [],
+        purpose: 0,
+        category: [],
+        keyword: "",
+        province: [],
+        district: [],
+        ward: [],
+        street: "",
+        typeRealEstate: "",
+        houseType: "",
+        direction: "",
+        bedroom: [],
+        area: [0, 0],
+        price: [0, 0],
+      },
     };
   },
   computed: {
     valueNew02() {
       return JSON.parse(JSON.stringify(this.value02));
     },
+    ...mapState("dictionary", ["dictionaryList"]),
+    ...mapState("realestate", ["purpose_array"]),
+    ...mapState("search", [
+      "provinces",
+      "districts",
+      "wards",
+      "areas",
+      "prices",
+      "typeRealEstate",
+      "directions",
+      "houseType",
+      "projects",
+      "progress",
+    ]),
+  },
+  mounted() {
+    this.getProvince();
+    this.getTypeRealEstate();
+    this.getDirections();
+    this.getPrices();
+    this.getAreas();
+    this.getHouseType();
+    this.getProjectItemType();
+    this.getProgressItemType();
   },
   methods: {
     numberChange02() {
       this.value02 = this.valueNew02;
       this.answer02 = `${this.valueNew02[0]}-${this.valueNew02[1]} tỷ`;
       this.isPrice = true;
+    },
+
+    ...mapActions("realestate", ["getRealEstate"]),
+    ...mapActions("search", [
+      "getProvince",
+      "getDistrict",
+      "getWard",
+      "getAreas",
+      "getPrices",
+      "getTypeRealEstate",
+      "getDirections",
+      "getHouseType",
+      "getProjectItemType",
+      "getProgressItemType",
+    ]),
+    ...mapMutations("search", ["setDistrict", "setWard"]),
+    filterOptions(node, keyword) {
+      return node.label.toLowerCase().includes(keyword.toLowerCase());
+    },
+    btnSearch() {
+      if (this.frmSearch.project.length == 0) {
+        alert("Vui lòng chọn loại dự án");
+        return;
+      }
+
+      let url = "";
+
+      // if (this.purpose_array[this.frmSearch.purpose] != undefined) {
+      //   url += "category/";
+      //   url += this.purpose_array[this.frmSearch.purpose].key + "/";
+      // } else {
+      //   url += "project/";
+      // }
+      url += this.$route.path + `-${this.frmSearch.project[0]}?`;
+      // let cat = this.tmpCategory.filter((item) => item.id == this.frmSearch.category[0]);
+      // if (cat.length > 0) {
+      //   url += cat[0].slug + "-" + cat[0].id + "?";
+      // }
+
+      let query = [];
+
+      // if (this.frmSearch.keyword != "") {
+      //   query.push("text_search=" + this.frmSearch.keyword);
+      // }
+
+      if (this.frmSearch.project.length > 0) {
+        query.push("type=" + this.frmSearch.project[0]);
+      }
+      if (this.frmSearch.progress.length > 0) {
+        query.push("progress=" + this.frmSearch.progress[0]);
+      }
+      if (this.frmSearch.province.length > 0) {
+        query.push("province_id=" + this.frmSearch.province[0]);
+      }
+
+      if (this.frmSearch.district.length > 0) {
+        query.push("district_id=" + this.frmSearch.district[0]);
+      }
+
+      if (this.frmSearch.ward.length > 0) {
+        query.push("ward_id=" + this.frmSearch.ward[0]);
+      }
+
+      if (this.frmSearch.street != "") {
+        query.push("text_search=" + this.frmSearch.street);
+      }
+
+      url += query.join("&");
+      console.log("url", url);
+      this.$router.push(url);
+    },
+    async changeProvince(value) {
+      this.frmSearch.district = [];
+      this.setDistrict([]);
+      if (value.length > 0) {
+        if (this.tmpDistricts[value[0]] == undefined) {
+          let res = await this.getDistrict(value[0]);
+          this.tmpDistricts[value[0]] = res.results;
+        } else {
+          this.setDistrict(this.tmpDistricts[value[0]]);
+        }
+      }
+    },
+    async changeDistrict(value) {
+      this.frmSearch.ward = [];
+      this.setWard([]);
+      if (value.length > 0) {
+        if (this.tmpWards[value[0]] == undefined) {
+          let res = await this.getWard(value[0]);
+          this.tmpWards[value[0]] = res.results;
+        } else {
+          this.setWard(this.tmpWards[value[0]]);
+        }
+      }
     },
   },
 };

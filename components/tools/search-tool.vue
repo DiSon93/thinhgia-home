@@ -550,6 +550,10 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
+  .input_address_tablet {
+    display: flex;
+    justify-content: center;
+  }
   .selection {
     display: block;
   }

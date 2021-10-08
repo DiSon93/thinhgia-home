@@ -452,8 +452,27 @@ body {
   }
   .estate_img {
     padding: 6px !important;
+    figcaption {
+      left: 0px !important;
+      padding: 10px 15px !important;
+    }
+    figcaption::before {
+      left: 5px !important;
+    }
     h2 {
-      font-size: 12px;
+      font-size: 11px;
+      text-overflow: ellipsis;
+      overflow-y: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      margin-bottom: -15px !important;
+    }
+    .v-btn {
+      font-size: 10px;
+      padding: 0px 4px;
+      line-height: 2px;
+      margin-top: -10px;
     }
     p {
       font-size: 10px;
@@ -462,11 +481,12 @@ body {
       margin: -10px;
       font-size: 12x;
       .price {
+        display: block;
         font-size: 11px;
         line-height: 18px;
         .first_price {
-          margin-right: 2px;
-          padding-right: 4px;
+          margin-right: 6px;
+          padding-right: 6px;
           border-right: 1px solid $color-black-01;
         }
       }
@@ -475,7 +495,8 @@ body {
       }
       .sex {
         font-size: 11px;
-        // font-weight: 300;
+        display: flex;
+        align-items: center;
         .v-icon {
           color: #c4c4c4;
           margin: 0 6px 0 5px;

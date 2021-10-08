@@ -111,6 +111,7 @@ export default {
     margin-top: 50px;
   }
   .project_total {
+    margin-top: 100px;
     .clearfix {
       img {
         width: 100%;

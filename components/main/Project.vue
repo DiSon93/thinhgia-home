@@ -448,13 +448,15 @@ export default {
       padding: 5px !important;
       img {
         width: 100%;
-        height: 80%;
+        max-height: 150px !important;
         display: block;
       }
       .quymo {
         margin-top: 30px;
         font-size: 12px !important;
-
+        .big_description {
+          margin-top: -20px;
+        }
         p {
           margin: 10px 2px;
         }

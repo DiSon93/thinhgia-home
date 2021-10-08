@@ -562,9 +562,10 @@ export default {
           font-size: 11px;
           line-height: 16px;
           color: #fbad18;
+          display: block !important;
           .first_price {
-            margin-right: 2px;
-            padding-right: 4px;
+            margin-right: 6px;
+            padding-right: 6px;
             border-right: 1px solid $color-black-01;
           }
         }
@@ -633,6 +634,9 @@ export default {
   }
   .add_detail {
     margin: 0 -10px !important;
+  }
+  .mobile_screen #img_estate .estate_img .add_detail .price {
+    display: block !important;
   }
 }
 </style>

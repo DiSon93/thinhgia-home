@@ -29,17 +29,7 @@
                     <span v-html="item.street"></span>
                   </v-col>
                 </v-row>
-                <v-row class="quymo content">
-                  <v-col cols="1">
-                    <img src="@image/icons/quymo.png" alt="" />
-                  </v-col>
-                  <v-col cols="11">
-                    <span>
-                      Quy mô:
-                      <span class="highlight"> ???? </span>
-                    </span>
-                  </v-col>
-                </v-row>
+
                 <v-row class="contractor content">
                   <v-col cols="1">
                     <img src="@image/icons/contractor.png" alt="" />
@@ -51,28 +41,7 @@
                     </span>
                   </v-col>
                 </v-row>
-                <v-row class="price content">
-                  <v-col cols="1">
-                    <img src="@image/icons/prices.png" alt="" />
-                  </v-col>
-                  <v-col cols="11">
-                    <span>
-                      Giá từ:
-                      <span class="highlight">????</span>
-                    </span>
-                  </v-col>
-                </v-row>
-                <v-row class="build content">
-                  <v-col cols="1">
-                    <img src="@image/icons/buildyear.png" alt="" />
-                  </v-col>
-                  <v-col cols="11">
-                    <span>
-                      Năm xây dựng:
-                      <span class="highlight">????</span>
-                    </span>
-                  </v-col>
-                </v-row>
+
                 <v-row class="finish content">
                   <v-col cols="1">
                     <img src="@image/icons/tiendo_01.png" alt="" />
@@ -122,6 +91,7 @@
                 class="estate_img"
                 v-for="re in projectList.real_estates[item.id]"
                 :key="re.id"
+                v-bind:class="{ adjust: !isSell && re.purpose == 0 }"
               >
                 <el-card class="box-card" v-if="re.purpose == 0 && isSell">
                   <div slot="header" class="clearfix hover14">
@@ -139,7 +109,7 @@
                   </div>
                   <div class="add_detail">
                     <div class="price">
-                      <div>
+                      <div class="price_detail">
                         <span
                           class="first_price"
                           v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
@@ -211,12 +181,14 @@
                       </el-tooltip>
 
                       <span
-                        v-html=" [
+                        v-html="
+                          [
                             re.street_name,
                             re.ward ? re.ward.name : '',
                             re.district ? re.district.name : '',
                             re.province ? re.province.name : '',
-                          ].join(', ')"
+                          ].join(', ')
+                        "
                       ></span>
                     </div>
                   </div>
@@ -237,7 +209,7 @@
                   </div>
                   <div class="add_detail">
                     <div class="price">
-                      <div>
+                      <div class="price_detail">
                         <span
                           class="first_price"
                           v-html="[re.price, unit_prices[re.unit_price]].join(' ')"
@@ -325,6 +297,9 @@
             </v-row>
           </div>
         </div>
+        <div v-if="projectList.projects.length == 0 && !loading" class="search_kq">
+          Có 0 Dự án được tìm thấy
+        </div>
         <!-- <div class="text-center pagination">
                     <v-pagination v-model="page" :length="6" color="warning"></v-pagination>
                 </div> -->
@@ -359,6 +334,7 @@ export default {
       page: 1,
       isSell: true,
       RealEstatesByProject: {},
+      loading: false,
       settings: {
         dots: false,
         focusOnSelect: true,
@@ -420,13 +396,19 @@ export default {
     this.setProjectList({ projects: [], real_estates: [] });
   },
   mounted() {
-    let params = this.$route.params.slug;
-    if (params != undefined) {
-      params = params.split("-");
-      let type_id = params[params.length - 1];
-      this.getCategoryItem(type_id);
-      this.getProjectType(type_id);
-    }
+    this.handleSearchAll();
+    // let params = this.$route.params.slug;
+    // if (params != undefined) {
+    //   params = params.split("-");
+    //   let type_id = params[params.length - 1];
+    //   this.getCategoryItem(type_id);
+    //   this.getProjectType(type_id);
+    // }
+  },
+  watch: {
+    $route(to, from) {
+      this.handleSearchAll();
+    },
   },
   methods: {
     ...mapActions("dictionary", ["getCategoryItem"]),
@@ -434,6 +416,27 @@ export default {
     ...mapMutations("project", ["setProjectList"]),
     parseUrlRealEstate(real_estate) {
       return "/detail/" + real_estate.slug + "-" + real_estate.id;
+    },
+    async handleSearchAll() {
+      let params = this.$route.params.slug;
+      this.loading = true;
+      if (params != undefined) {
+        params = params.split("-");
+        let cat_id = params[params.length - 1];
+        this.getCategoryItem(cat_id);
+
+        let obj = { type: cat_id };
+        if (Object.keys(this.$route.query).length > 0) {
+          for (let x in this.$route.query) {
+            if (x != "") {
+              obj[x] = this.$route.query[x];
+            }
+          }
+          console.log("rout", obj);
+        }
+        await this.getProjectType(obj);
+        this.loading = false;
+      }
     },
   },
 };
@@ -448,6 +451,9 @@ export default {
     font-weight: 700;
     margin-top: 25px !important;
     margin-bottom: -20px;
+  }
+  .search_kq {
+    margin-top: 30px;
   }
   .selection {
     justify-content: space-between;
@@ -856,9 +862,13 @@ export default {
         margin-top: 5px;
         font-size: 11px !important;
         line-height: 18px;
+        display: block;
+        .price_detail {
+          margin-bottom: -15px;
+        }
         .first_price {
-          margin-right: 2px !important;
-          padding-right: 4px !important;
+          margin-right: 6px !important;
+          padding-right: 6px !important;
           border-right: 1px solid $color-black-01;
         }
       }
@@ -929,8 +939,13 @@ export default {
   .estateOfProject {
     .estate_title {
       font-size: 16px;
+      margin-top: 40px !important;
+    }
+    .adjust {
+      display: none;
     }
     .btn_group {
+      margin-bottom: 30px;
       .v-btn {
         font-size: 12px;
         padding: 0 10px;

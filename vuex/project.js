@@ -11,7 +11,8 @@ export default {
         unit_prices: {
             ty: 'tỷ',
             trieu: 'triệu'
-        }
+        },
+
     },
     mutations: {
         setProjectList(state, data) {
@@ -19,7 +20,7 @@ export default {
         },
         setProjectDetail(state, data) {
             state.projectDetail = data;
-        }
+        },
     },
     actions: {
         getProject: ({ commit }) => {
@@ -35,9 +36,9 @@ export default {
                     })
             })
         },
-        getProjectType: ({ commit }, type_id) => {
+        getProjectType: ({ commit }, params) => {
             return new Promise((resolve, reject) => {
-                axiosClient({ url: 'projects/type/' + type_id, method: "POST"})
+                axiosClient({ url: 'projects/type/' + params.type, method: "POST", data: params})
                     .then(response => {
                         commit('setProjectList', response.data.results);
                         resolve(response.data);
@@ -60,6 +61,7 @@ export default {
                         reject(e);
                     })
             })
-        }
+        },
+
     }
 }

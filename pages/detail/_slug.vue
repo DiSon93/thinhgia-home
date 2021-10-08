@@ -197,7 +197,7 @@
                 </div>
                 <div class="add_detail">
                   <div class="price">
-                    <div>
+                    <div class="price_detail">
                       <span
                         class="first_price"
                         v-html="[item.price, unit_prices[item.unit_price]].join(' ')"
@@ -842,6 +842,9 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
+  .v-skeleton-loader {
+    max-height: 75px !important;
+  }
   .sell_detail {
     margin-top: 100px;
   }
@@ -870,9 +873,13 @@ export default {
         margin-top: 5px;
         font-size: 12px !important;
         line-height: 18px;
+        display: block;
+        .price_detail {
+          margin-bottom: -15px;
+        }
         .first_price {
-          margin-right: 2px !important;
-          padding-right: 4px !important;
+          margin-right: 6px !important;
+          padding-right: 6px !important;
           border-right: 1px solid $color-black-01;
         }
       }

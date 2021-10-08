@@ -320,11 +320,12 @@ export default {
       margin: -10px;
       font-size: 12x;
       .price {
+        display: block;
         font-size: 11px;
         line-height: 18px;
         .first_price {
-          margin-right: 2px;
-          padding-right: 4px;
+          margin-right: 6px;
+          padding-right: 6px;
           border-right: 1px solid $color-black-01;
         }
       }

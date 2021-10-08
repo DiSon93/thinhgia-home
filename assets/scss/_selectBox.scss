@@ -345,6 +345,9 @@
     .search_sell,
     .search_rent,
     .search_project,.chungcu,.nhalienke,.condotel,.dato,.shop,.khucongnghiep {
+        .el-input-group{
+            margin-right: 0px;
+        }
         .sort_items {
             .select_sort {
                 .v-btn:not(.v-btn--round).v-size--small {
