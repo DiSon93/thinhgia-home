@@ -405,11 +405,11 @@ export default {
     //   this.getProjectType(type_id);
     // }
   },
-  watch: {
-    $route(to, from) {
-      this.handleSearchAll();
-    },
-  },
+  // watch: {
+  //   $route(to, from) {
+  //     this.handleSearchAll();
+  //   },
+  // },
   methods: {
     ...mapActions("dictionary", ["getCategoryItem"]),
     ...mapActions("project", ["getProjectType"]),
@@ -432,7 +432,6 @@ export default {
               obj[x] = this.$route.query[x];
             }
           }
-          console.log("rout", obj);
         }
         await this.getProjectType(obj);
         this.loading = false;

@@ -358,7 +358,6 @@ export default {
     ]),
   },
   mounted() {
-    // console.log(this.$route);
     let params = this.$route.params.slug;
     if (params != undefined) {
       let _purpose = this.$route.path.split("/");

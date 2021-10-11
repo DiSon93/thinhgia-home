@@ -152,6 +152,7 @@
             <div class="description_title">Mô tả</div>
             <div class="content">
               <div v-html="realEstateItem.descriptions"></div>
+              <div v-html="realEstateItem.google_map" class="google_map"></div>
             </div>
           </div>
           <Description :detail="realEstateItem" />
@@ -484,6 +485,9 @@ export default {
       box-sizing: border-box;
       border-radius: 4px;
       padding: 20px 15px;
+      iframe {
+        width: 100% !important;
+      }
     }
   }
   .overview {

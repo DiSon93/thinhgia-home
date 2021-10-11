@@ -476,7 +476,6 @@ export default {
       }
 
       url += query.join("&");
-      console.log("url", url);
       this.$router.push(url);
     },
     async changeProvince(value) {

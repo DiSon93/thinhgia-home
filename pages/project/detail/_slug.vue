@@ -99,6 +99,7 @@
               <div id="vitri_blank"></div>
               <el-collapse-item title="VỊ TRÍ DỰ ÁN" name="2">
                 <div v-html="projectDetail.location"></div>
+                <div v-html="projectDetail.google_map" class="google_map"></div>
               </el-collapse-item>
             </div>
 

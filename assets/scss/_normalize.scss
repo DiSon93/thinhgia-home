@@ -69,7 +69,9 @@ ul.el-dropdown-menu.el-popper .el-dropdown-menu__item--divided {
 .compensate-for-scrollbar {
     margin-right: 0px !important;
 }
-
+.google_map iframe{
+    width: 100%!important;
+}
 
 @media screen and (max-width: 600px) {
     .price {

@@ -439,7 +439,6 @@ export default {
               obj[x] = this.$route.query[x];
             }
           }
-          console.log("rout", obj);
         }
         await this.getRealEstate(obj);
         this.loading = false;
