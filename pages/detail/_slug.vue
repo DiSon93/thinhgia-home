@@ -485,9 +485,6 @@ export default {
       box-sizing: border-box;
       border-radius: 4px;
       padding: 20px 15px;
-      iframe {
-        width: 100% !important;
-      }
     }
   }
   .overview {
